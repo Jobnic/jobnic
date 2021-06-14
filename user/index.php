@@ -100,9 +100,31 @@ $row = mysqli_fetch_assoc($result);
         <div class="row">
             <div class="col-md-4">
                 <div class="dialog">
-                    <h3>Profile Review</h3>
+                    <h3><i class="fa fa-id-card text-secondary"></i> Profile Review</h3>
                     <hr>
                     <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b></p>
+                    <p><?php echo $row['bio']; ?></p>
+                    <p>
+                        <?php
+                            $colors = array("primary", 'danger', 'warning', 'info','success', 'dark', 'secondary');
+
+                            $dbskills = $row['skills'];
+                            $all = explode(" ", $dbskills);
+
+                            foreach ($all as $skill) {
+                                $each = explode("-", $skill);
+
+                                $color = rand(0, 6);
+
+                                ?>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-primary progress-bar-animated" role="progressbar" aria-valuenow="<?php echo $each[1]; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $each[1]; ?>%;"><?php echo $each[0] . " " . $each[1]; ?> %</div>
+                                </div>
+                                <br>
+                                <?php
+                            }
+                        ?>
+                    </p>
                     <p>
                         <i class="icon fa fa-phone text-white bg-success" data-bs-toggle="tooltip"
                            data-bs-placement="top" title="<?php echo $row['phone']; ?>"></i>
@@ -147,16 +169,72 @@ $row = mysqli_fetch_assoc($result);
                     </p>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div class="dialog">
-                    <h3>Update Your Profile</h3>
+                    <h3><i class="fa fa-refresh text-secondary"></i> Update Your Profile</h3>
                     <hr>
                     <form method="post" action="index.php" class="">
                         <div class="group">
-                            <p><i class="fa fa-info text-secondary"></i> Add a bio</p>
+                            <p><i class="fa fa-info text-secondary"></i> Add a bio, Describe your self</p>
                             <textarea class="form-control form-control-sm" rows="5" placeholder="Bio"></textarea>
                             <br>
                             <button class="btn btn-light mbtn btn-sm">Update Bio</button>
+                        </div>
+                    </form>
+                    <hr>
+                    <p><i class="fa fa-cogs text-secondary"></i> Add skills or languages</p>
+                    <form method="post" action="index.php" class="">
+                        <input type="text" class="form-control form-control-sm" placeholder="Skill Name. Ex : Python">
+                        <br>
+                        <input type="number" max="100" class="form-control form-control-sm" placeholder="How Much. Ex : 75">
+                        <br>
+                        <button type="submit" class="btn btn-light btn-sm mbtn">Add</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dialog">
+                    <h3><i class="fa fa-cloud text-secondary"></i> You in Social Media</h3>
+                    <hr>
+                    <form class="">
+                        <div class="group">
+                            <i class="fa fa-linkedin text-primary"></i>
+                            <br>
+                            <input placeholder="Linkedin" class="form-control-sm inp border-primary">
+                            &nbsp;
+                            <button class="btn btn-primary btn-sm">Update</button>
+                        </div>
+                        <br>
+                        <div class="group">
+                            <i class="fa fa-twitter text-info"></i>
+                            <br>
+                            <input placeholder="Twitter" class="form-control-sm inp border-info">
+                            &nbsp;
+                            <button class="btn btn-info text-white btn-sm">Update</button>
+                        </div>
+                        <br>
+                        <div class="group">
+                            <i class="fa fa-github text-dark"></i>
+                            <br>
+                            <input placeholder="GitHub" class="form-control-sm inp border-dark">
+                            &nbsp;
+                            <button class="btn btn-dark btn-sm">Update</button>
+                        </div>
+                        <br>
+                        <div class="group">
+                            <i class="fa fa-telegram text-primary"></i>
+                            <br>
+                            <input placeholder="Telegram" class="form-control-sm inp border-primary">
+                            &nbsp;
+                            <button class="btn btn-primary btn-sm">Update</button>
+                        </div>
+                        <br>
+                        <div class="group">
+                            <i class="fa fa-instagram text-danger"></i>
+                            <br>
+                            <input placeholder="Instagram" class="form-control-sm inp border-danger">
+                            &nbsp;
+                            <button class="btn btn-danger btn-sm">Update</button>
                         </div>
                     </form>
                 </div>
@@ -166,62 +244,18 @@ $row = mysqli_fetch_assoc($result);
         <div class="row">
             <div class="col-md-5">
                 <div class="dialog">
-                    <h3>Update Your Social Media</h3>
-                    <hr>
-                    <form class="">
-                        <div class="group">
-                            <i class="fa fa-linkedin text-primary"></i>
-                            &nbsp;
-                            <input placeholder="Linkedin" class="form-control-sm inp border-primary">
-                            &nbsp;
-                            <button class="btn btn-primary btn-sm">Update</button>
-                        </div>
-                        <br>
-                        <div class="group">
-                            <i class="fa fa-twitter text-info"></i>
-                            &nbsp;
-                            <input placeholder="Twitter" class="form-control-sm inp border-info">
-                            &nbsp;
-                            <button class="btn btn-info text-white btn-sm">Update</button>
-                        </div>
-                        <br>
-                        <div class="group">
-                            <i class="fa fa-github text-dark"></i>
-                            &nbsp;
-                            <input placeholder="GitHub" class="form-control-sm inp border-dark">
-                            &nbsp;
-                            <button class="btn btn-dark btn-sm">Update</button>
-                        </div>
-                        <br>
-                        <div class="group">
-                            <i class="fa fa-telegram text-primary"></i>
-                            &nbsp;
-                            <input placeholder="Telegram" class="form-control-sm inp border-primary">
-                            &nbsp;
-                            <button class="btn btn-primary btn-sm">Update</button>
-                        </div>
-                        <br>
-                        <div class="group">
-                            <i class="fa fa-instagram text-danger"></i>
-                            &nbsp;
-                            <input placeholder="Instagram" class="form-control-sm inp border-danger">
-                            &nbsp;
-                            <button class="btn btn-danger btn-sm">Update</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="dialog">
-                    <h3>Update Your identity</h3>
+                    <h3><i class="fa fa-cog text-secondary"></i> Settings</h3>
                     <hr>
                     <form method="post" action="index.php" class="">
+                        <label for="formFileSm" class="form-label">Update profile picture</label>
+                        <input class="form-control form-control-sm" id="formFileSm" type="file">
+                        <hr>
                         <div class="group">
                             <i class="fa fa-phone text-secondary"></i>
                             &nbsp;
                             <input placeholder="Phome" class="form-control-sm inp">
                             &nbsp;
-                            <button class="btn btn-light mbtn btn-sm">Update Phone</button>
+                            <button class="btn btn-light mbtn btn-sm">Change Phone</button>
                         </div>
                         <br>
                         <div class="group">
@@ -229,11 +263,11 @@ $row = mysqli_fetch_assoc($result);
                             &nbsp;
                             <input placeholder="Email" class="form-control-sm inp">
                             &nbsp;
-                            <button class="btn btn-light mbtn btn-sm">Update Email</button>
+                            <button class="btn btn-light mbtn btn-sm">Change Email</button>
                         </div>
                         <hr>
                         <div class="form-group">
-                            <p><i class="fa fa-key"></i> Update Password</p>
+                            <p><i class="fa fa-key text-secondary"></i> Update Password</p>
                             <input type="password" class="inp form-control-sm form-control" placeholder="Current password">
                         </div>
                         <br>
