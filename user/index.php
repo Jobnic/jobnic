@@ -55,15 +55,19 @@ $row = mysqli_fetch_assoc($result);
         .link {
             text-decoration: none;
         }
+
         .mbtn {
             border: solid 1px #d3d3d3;
         }
+
         .mbtn:hover {
             border: solid 1px #d3d3d3;
         }
+
         .inp {
             border: solid 1px #d3d3d3;
         }
+
         .inp:hover {
             border: solid 1px #d3d3d3;
         }
@@ -92,10 +96,11 @@ $row = mysqli_fetch_assoc($result);
         </div>
     </nav>
     <div class="container">
+        <br>
         <div class="row">
             <div class="col-md-4">
                 <div class="dialog">
-                    <h3>Profile</h3>
+                    <h3>Profile Review</h3>
                     <hr>
                     <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b></p>
                     <p>
@@ -142,12 +147,26 @@ $row = mysqli_fetch_assoc($result);
                     </p>
                 </div>
             </div>
+            <div class="col-md-5">
+                <div class="dialog">
+                    <h3>Update Your Profile</h3>
+                    <hr>
+                    <form method="post" action="index.php" class="">
+                        <div class="group">
+                            <p><i class="fa fa-info text-secondary"></i> Add a bio</p>
+                            <textarea class="form-control form-control-sm" rows="5" placeholder="Bio"></textarea>
+                            <br>
+                            <button class="btn btn-light mbtn btn-sm">Update Bio</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
         <br>
         <div class="row">
             <div class="col-md-5">
                 <div class="dialog">
-                    <h3>Update Your profile</h3>
+                    <h3>Update Your Social Media</h3>
                     <hr>
                     <form class="">
                         <div class="group">
@@ -189,6 +208,49 @@ $row = mysqli_fetch_assoc($result);
                             &nbsp;
                             <button class="btn btn-danger btn-sm">Update</button>
                         </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="dialog">
+                    <h3>Update Your identity</h3>
+                    <hr>
+                    <form method="post" action="index.php" class="">
+                        <div class="group">
+                            <i class="fa fa-phone text-secondary"></i>
+                            &nbsp;
+                            <input placeholder="Phome" class="form-control-sm inp">
+                            &nbsp;
+                            <button class="btn btn-light mbtn btn-sm">Update Phone</button>
+                        </div>
+                        <br>
+                        <div class="group">
+                            <i class="fa fa-envelope text-secondary"></i>
+                            &nbsp;
+                            <input placeholder="Email" class="form-control-sm inp">
+                            &nbsp;
+                            <button class="btn btn-light mbtn btn-sm">Update Email</button>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <p><i class="fa fa-key"></i> Update Password</p>
+                            <input type="password" class="inp form-control-sm form-control" placeholder="Current password">
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-sm" placeholder="New Password">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-sm" placeholder="Confirm Password">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-light btn-sm mbtn">Change Password</button>
                     </form>
                 </div>
             </div>
