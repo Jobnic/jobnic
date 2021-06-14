@@ -50,7 +50,7 @@
                         }
                         else {
                             ?>
-                            <a class="nav-link active" href=".">Sign Up</a> <a class="nav-link active" href=".">Sign In</a>
+                            <a class="nav-link active" href="account/index.php">Sign Up</a> <a class="nav-link active" href="account/index.php">Sign In</a>
                             <?php
                         }
                     ?>
