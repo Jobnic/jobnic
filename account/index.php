@@ -130,7 +130,7 @@
                                 </div>
                             </div>
                             <br>
-                            <button class="btn btn-light mbtn" type="submit">Login</button>
+                            <button class="btn btn-light mbtn" type="submit">Create</button>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
