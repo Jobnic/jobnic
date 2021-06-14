@@ -86,7 +86,7 @@ $row = mysqli_fetch_assoc($result);
                     </li>
                 </ul>
                 <div class="navbar-nav">
-                    <a class="nav-link active" href="../account">Logout</a>
+                    <a class="nav-link active" href="../account/logout.php">Logout</a>
                 </div>
             </div>
         </div>
