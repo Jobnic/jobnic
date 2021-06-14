@@ -1,3 +1,9 @@
+<?php
+    session_start();
+
+    $stat = $_SESSION['status'];
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -36,7 +42,18 @@
                     </li>
                 </ul>
                 <div class="navbar-nav">
-                    <a class="nav-link active" href=".">Sign Up</a> <a class="nav-link active" href=".">Sign In</a>
+                    <?php
+                        if ($stat == true) {
+                            ?>
+                            <a class="nav-link active" href="user">Go To Panel</a>
+                            <?php
+                        }
+                        else {
+                            ?>
+                            <a class="nav-link active" href=".">Sign Up</a> <a class="nav-link active" href=".">Sign In</a>
+                            <?php
+                        }
+                    ?>
                 </div>
             </div>
         </div>
