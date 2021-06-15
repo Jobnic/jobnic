@@ -179,3 +179,26 @@ if (isset($_POST['updatetwitter'])) {
         <?php
     }
 }
+
+if (isset($_POST['updatephone'])) {
+    $phone = mysqli_real_escape_string($connection, $_POST['phone']);
+
+    $updatephone = "UPDATE people SET phone = '$phone' WHERE id = '$id'";
+
+    if (mysqli_query($connection, $updatephone)) {
+        ?>
+        <script>
+            window.alert("Phone updated.");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+    else {
+        ?>
+        <script>
+            window.alert("<?php echo mysqli_error($connection); ?>");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
