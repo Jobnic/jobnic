@@ -277,6 +277,7 @@ $row = mysqli_fetch_assoc($result);
                 <div class="dialog">
                     <h3><i class="fa fa-eye text-secondary"></i> Review project</h3>
                     <hr>
+                    <p class="text-secondary">Select a project to review here.</p>
                 </div>
             </div>
         </div>
