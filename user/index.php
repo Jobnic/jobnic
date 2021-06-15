@@ -323,17 +323,17 @@ $row = mysqli_fetch_assoc($result);
                         <div class="group">
                             <i class="fa fa-phone text-secondary"></i>
                             &nbsp;
-                            <input placeholder="Phome" class="form-control-sm inp">
+                            <input name="phone" placeholder="Phome" class="form-control-sm inp">
                             &nbsp;
-                            <button class="btn btn-light mbtn btn-sm">Change Phone</button>
+                            <button name="updatephone" class="btn btn-light mbtn btn-sm">Change Phone</button>
                         </div>
                         <br>
                         <div class="group">
                             <i class="fa fa-envelope text-secondary"></i>
                             &nbsp;
-                            <input placeholder="Email" class="form-control-sm inp">
+                            <input name="email" placeholder="Email" class="form-control-sm inp">
                             &nbsp;
-                            <button class="btn btn-light mbtn btn-sm">Change Email</button>
+                            <button name="updatemail" class="btn btn-light mbtn btn-sm">Change Email</button>
                         </div>
                         <hr>
                         <div class="form-group">
