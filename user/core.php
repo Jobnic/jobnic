@@ -206,7 +206,7 @@ if (isset($_POST['updatephone'])) {
 if (isset($_POST['updatemail'])) {
     $email = mysqli_real_escape_string($connection, $_POST['email']);
 
-    $updatemail = "UPDATE people SET phone = '$email' WHERE id = '$id'";
+    $updatemail = "UPDATE people SET email = '$email' WHERE id = '$id'";
 
     if (mysqli_query($connection, $updatemail)) {
         ?>
