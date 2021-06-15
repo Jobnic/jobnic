@@ -123,6 +123,7 @@ $jobid = $_GET['jobid'];
                         }
                         $row_job = mysqli_fetch_assoc($result_job);
                         ?>
+                        <span style="float: right;" class="btn btn-outline-danger btn-sm"><?php echo $row_job['type']; ?></span>
                         <h3><?php echo $row_job['title']; ?></h3>
                         <hr>
                         <p><b><?php echo $row_job['describe']; ?></b></p>

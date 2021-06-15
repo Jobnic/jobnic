@@ -104,7 +104,7 @@ $connection = mysqli_connect($server, $user, $passwd, $db);
                         <div class="col-3">
                             <div class="dialog">
                                 <span style="float: right;" class="btn btn-outline-danger btn-sm"><?php echo $job_row['type']; ?></span>
-                                <p class="text-dark"><b><?php echo $job_row['title']; ?></b></p>
+                                <p class="text-dark"><b><a class="link text-dark" href="job.php?jobid=<?php echo $job_row['jobid']; ?>"><?php echo $job_row['title']; ?></a></b></p>
                                 <hr>
                                 <p><?php echo $job_row['describe']; ?></p>
                                 <?php
