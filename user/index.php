@@ -54,6 +54,7 @@ $row = mysqli_fetch_assoc($result);
 
         .link {
             text-decoration: none;
+            color: gray;
         }
 
         .mbtn {
@@ -270,7 +271,33 @@ $row = mysqli_fetch_assoc($result);
                 <div class="dialog">
                     <h3><i class="fa fa-list text-secondary"></i> Projects you shared</h3>
                     <hr>
-
+                    <?php
+                    $select_jobs = "SELECT * FROM jobs WHERE user = $id";
+                    $result_jobs = mysqli_query($connection, $select_jobs);
+                    if (mysqli_num_rows($result_jobs) > 0) {
+                        while ($job_row = mysqli_fetch_assoc($result_jobs)) {
+                            ?>
+                            <p class="text-secondary">
+                                <?php
+                                    $jobid = $job_row['id'];
+                                    $jobtitle = $job_row['title'];
+                                    echo "<a class='link' href='index.php?jobid=$jobid'>$jobtitle</a>";
+                                    if ($job_row['status'] == true) {
+                                        echo "<span style='float: right;' class='text-success'>Open</span>";
+                                    }
+                                    else {
+                                        echo "<span style='float: right;' class='text-danger'>Close</span>";
+                                    }
+                                ?>
+                            </p>
+                            <hr>
+                            <?php
+                        }
+                    }
+                    else {
+                        echo "<p class='text-secondary'>No projects yet</p>";
+                    }
+                    ?>
                 </div>
             </div>
             <div class="col-md-4">
