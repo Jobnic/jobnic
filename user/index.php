@@ -199,45 +199,45 @@ $row = mysqli_fetch_assoc($result);
                 <div class="dialog">
                     <h3><i class="fa fa-cloud text-secondary"></i> You in Social Media</h3>
                     <hr>
-                    <form class="">
+                    <form method="post" action="index.php">
                         <div class="group">
                             <i class="fa fa-linkedin text-primary"></i>
                             <br>
-                            <input placeholder="Linkedin" class="form-control-sm inp border-primary">
+                            <input name="linkedin" placeholder="Linkedin" class="form-control-sm inp border-primary">
                             &nbsp;
-                            <button class="btn btn-primary btn-sm">Update</button>
+                            <button name="updatelinkedin" class="btn btn-primary btn-sm">Update</button>
                         </div>
                         <br>
                         <div class="group">
                             <i class="fa fa-twitter text-info"></i>
                             <br>
-                            <input placeholder="Twitter" class="form-control-sm inp border-info">
+                            <input name="twitter" placeholder="Twitter" class="form-control-sm inp border-info">
                             &nbsp;
-                            <button class="btn btn-info text-white btn-sm">Update</button>
+                            <button name="updatetwitter" class="btn btn-info text-white btn-sm">Update</button>
                         </div>
                         <br>
                         <div class="group">
                             <i class="fa fa-github text-dark"></i>
                             <br>
-                            <input placeholder="GitHub" class="form-control-sm inp border-dark">
+                            <input name="github" placeholder="GitHub" class="form-control-sm inp border-dark">
                             &nbsp;
-                            <button class="btn btn-dark btn-sm">Update</button>
+                            <button name="updategithub" class="btn btn-dark btn-sm">Update</button>
                         </div>
                         <br>
                         <div class="group">
                             <i class="fa fa-telegram text-primary"></i>
                             <br>
-                            <input placeholder="Telegram" class="form-control-sm inp border-primary">
+                            <input name="telegram" placeholder="Telegram" class="form-control-sm inp border-primary">
                             &nbsp;
-                            <button class="btn btn-primary btn-sm">Update</button>
+                            <button name="updatetelegram" class="btn btn-primary btn-sm">Update</button>
                         </div>
                         <br>
                         <div class="group">
                             <i class="fa fa-instagram text-danger"></i>
                             <br>
-                            <input placeholder="Instagram" class="form-control-sm inp border-danger">
+                            <input name="instagram" placeholder="Instagram" class="form-control-sm inp border-danger">
                             &nbsp;
-                            <button class="btn btn-danger btn-sm">Update</button>
+                            <button name="updateinstagram" class="btn btn-danger btn-sm">Update</button>
                         </div>
                     </form>
                 </div>
