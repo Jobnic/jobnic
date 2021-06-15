@@ -156,3 +156,26 @@ if (isset($_POST['updategithub'])) {
         <?php
     }
 }
+
+if (isset($_POST['updatetwitter'])) {
+    $social = mysqli_real_escape_string($connection, $_POST['twitter']);
+
+    $updatesocial = "UPDATE people SET twitter = '$social' WHERE id = '$id'";
+
+    if (mysqli_query($connection, $updatesocial)) {
+        ?>
+        <script>
+            window.alert("Twitter updated.");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+    else {
+        ?>
+        <script>
+            window.alert("<?php echo mysqli_error($connection); ?>");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
