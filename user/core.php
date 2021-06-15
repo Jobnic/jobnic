@@ -16,8 +16,8 @@ $result_user = mysqli_query($connection, $select_user);
 $row_user = mysqli_fetch_assoc($result_user);
 
 if (isset($_POST["updateskill"])) {
-    $skillname = mysqli_escape_string($connection, $_POST["skillname"]);
-    $skillper = mysqli_escape_string($connection, $_POST["skillper"]);
+    $skillname = mysqli_real_escape_string($connection, $_POST["skillname"]);
+    $skillper = mysqli_real_escape_string($connection, $_POST["skillper"]);
 
     $skill = $skillname . "-" . $skillper;
     $both = $row_user['skills'] . " " . $skill;
@@ -43,7 +43,7 @@ if (isset($_POST["updateskill"])) {
 }
 
 if (isset($_POST['updatebio'])) {
-    $bio = mysqli_escape_string($connection, $_POST['bio']);
+    $bio = mysqli_real_escape_string($connection, $_POST['bio']);
 
     $update_bio = "UPDATE people SET bio = '$bio' WHERE id = '$id'";
 
@@ -51,6 +51,29 @@ if (isset($_POST['updatebio'])) {
         ?>
         <script>
             window.alert("Bio updated.");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+    else {
+        ?>
+        <script>
+            window.alert("<?php echo mysqli_error($connection); ?>");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
+
+if (isset($_POST['updatelinkedin'])) {
+    $social = mysqli_real_escape_string($connection, $_POST['linkedin']);
+
+    $updatesocial = "UPDATE people SET linkedin = '$social' WHERE id = '$id'";
+
+    if (mysqli_query($connection, $updatesocial)) {
+        ?>
+        <script>
+            window.alert("Linkedin updated.");
             window.location.replace(".");
         </script>
         <?php
