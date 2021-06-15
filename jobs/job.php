@@ -151,12 +151,11 @@ $jobid = $_GET['jobid'];
                         <p><?php echo $row_user['bio']; ?></p>
                         <hr>
                         <p>
-                        <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row_user['phone']; ?></p>
-                        <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row_user['email']; ?>
-                        </p>
+                            <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row_user['phone']; ?></p>
+                            <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row_user['email']; ?></p>
                         </p>
                         <hr>
-                        <p><a href="." class="link text-dark">View full profile</a></p>
+                        <p><a href="../user/user.php?userid=<?php echo $row_user['id']; ?>" class="link text-dark">View full profile</a></p>
                     </div>
                 </div>
                 <?php
