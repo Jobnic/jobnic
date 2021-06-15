@@ -338,23 +338,23 @@ $row = mysqli_fetch_assoc($result);
                         <hr>
                         <div class="form-group">
                             <p><i class="fa fa-key text-secondary"></i> Update Password</p>
-                            <input type="password" class="inp form-control-sm form-control" placeholder="Current password">
+                            <input name="password" type="password" class="inp form-control-sm form-control" placeholder="Current password">
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-sm" placeholder="New Password">
+                                    <input name="newpassword" type="password" class="form-control form-control-sm" placeholder="New Password">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-sm" placeholder="Confirm Password">
+                                    <input name="confirmpassword" type="password" class="form-control form-control-sm" placeholder="Confirm Password">
                                 </div>
                             </div>
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-light btn-sm mbtn">Change Password</button>
+                        <button name="updatepassword" type="submit" class="btn btn-light btn-sm mbtn">Change Password</button>
                     </form>
                 </div>
             </div>
