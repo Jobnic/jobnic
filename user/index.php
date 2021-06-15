@@ -253,20 +253,20 @@ $row = mysqli_fetch_assoc($result);
                     <hr>
                     <form method="post" action="index.php" class="">
                         <div class="group">
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <select name="type" class="form-select form-select-sm" aria-label=".form-select-sm example">
                                 <option selected>Select type of your project</option>
                                 <option value="programming">Programming</option>
                                 <option value="design">Design</option>
                                 <option value="school">School</option>
                             </select>
                             <br>
-                            <input type="text" class="form-control form-control-sm" placeholder="Project Title">
+                            <input name="title" type="text" class="form-control form-control-sm" placeholder="Project Title">
                             <br>
-                            <textarea class="form-control form-control-sm" rows="5" placeholder="Project Describtion"></textarea>
+                            <textarea name="describe" class="form-control form-control-sm" rows="5" placeholder="Project Describtion"></textarea>
                             <br>
-                            <input type="text" class="form-control form-control-sm" placeholder="Skills. Ex : php python">
+                            <input name="skills" type="text" class="form-control form-control-sm" placeholder="Skills. Ex : php python">
                             <br>
-                            <button class="btn btn-light mbtn btn-sm">Add project</button>
+                            <button name="addjob" class="btn btn-light mbtn btn-sm">Add project</button>
                         </div>
                     </form>
                 </div>
