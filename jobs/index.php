@@ -78,7 +78,7 @@ $row = mysqli_fetch_assoc($result);
 <div class="">
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href=".">Job Nic</a>
+            <a class="navbar-brand" href="../">Job Nic</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
