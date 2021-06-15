@@ -121,9 +121,11 @@ $row = mysqli_fetch_assoc($result);
 
                                 ?>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-striped bg-primary progress-bar-animated" role="progressbar" aria-valuenow="<?php echo $each[1]; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $each[1]; ?>%;"><?php echo $each[0] . " " . $each[1]; ?> %</div>
+                                    <div class="progress-bar progress-bar-striped bg-primary text-white progress-bar-animated" role="progressbar" aria-valuenow="<?php echo $each[1]; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $each[1]; ?>%;">
+                                    </div>
                                 </div>
-                                <br>
+                                <span class="text-primary" style="font-size: 10px;"><?php echo $each[0] . " " . $each[1]; ?> %</span>
+                                <hr>
                                 <?php
                             }
                         ?>
