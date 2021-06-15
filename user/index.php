@@ -242,6 +242,79 @@ $row = mysqli_fetch_assoc($result);
         </div>
         <br>
         <div class="row">
+            <div class="col-md-4">
+                <div class="dialog">
+                    <h3><i class="fa fa-plus text-secondary"></i> Add new project</h3>
+                    <hr>
+                    <form method="post" action="index.php" class="">
+                        <div class="group">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected>Select type of your project</option>
+                                <option value="programming">Programming</option>
+                                <option value="design">Design</option>
+                                <option value="school">School</option>
+                            </select>
+                            <br>
+                            <input type="text" class="form-control form-control-sm" placeholder="Project Title">
+                            <br>
+                            <textarea class="form-control form-control-sm" rows="5" placeholder="Project Describtion"></textarea>
+                            <br>
+                            <input type="text" class="form-control form-control-sm" placeholder="Skills. Ex : php python">
+                            <br>
+                            <button class="btn btn-light mbtn btn-sm">Add project</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dialog">
+                    <h3><i class="fa fa-list text-secondary"></i> Projects you shared</h3>
+                    <hr>
+                    <form method="post" action="index.php" class="">
+                        <div class="group">
+                            <p><i class="fa fa-info text-secondary"></i> Add a bio, Describe your self</p>
+                            <textarea class="form-control form-control-sm" rows="5" placeholder="Bio"></textarea>
+                            <br>
+                            <button class="btn btn-light mbtn btn-sm">Update Bio</button>
+                        </div>
+                    </form>
+                    <hr>
+                    <p><i class="fa fa-cogs text-secondary"></i> Add skills or languages</p>
+                    <form method="post" action="index.php" class="">
+                        <input type="text" class="form-control form-control-sm" placeholder="Skill Name. Ex : Python">
+                        <br>
+                        <input type="number" max="100" class="form-control form-control-sm" placeholder="How Much. Ex : 75">
+                        <br>
+                        <button type="submit" class="btn btn-light btn-sm mbtn">Add</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dialog">
+                    <h3><i class="fa fa-eye text-secondary"></i> Review project</h3>
+                    <hr>
+                    <form method="post" action="index.php" class="">
+                        <div class="group">
+                            <p><i class="fa fa-info text-secondary"></i> Add a bio, Describe your self</p>
+                            <textarea class="form-control form-control-sm" rows="5" placeholder="Bio"></textarea>
+                            <br>
+                            <button class="btn btn-light mbtn btn-sm">Update Bio</button>
+                        </div>
+                    </form>
+                    <hr>
+                    <p><i class="fa fa-cogs text-secondary"></i> Add skills or languages</p>
+                    <form method="post" action="index.php" class="">
+                        <input type="text" class="form-control form-control-sm" placeholder="Skill Name. Ex : Python">
+                        <br>
+                        <input type="number" max="100" class="form-control form-control-sm" placeholder="How Much. Ex : 75">
+                        <br>
+                        <button type="submit" class="btn btn-light btn-sm mbtn">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
             <div class="col-md-5">
                 <div class="dialog">
                     <h3><i class="fa fa-cog text-secondary"></i> Settings</h3>
