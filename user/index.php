@@ -179,9 +179,9 @@ $row = mysqli_fetch_assoc($result);
                     <form method="post" action="index.php" class="">
                         <div class="group">
                             <p><i class="fa fa-info text-secondary"></i> Add a bio, Describe your self</p>
-                            <textarea class="form-control form-control-sm" rows="5" placeholder="Bio"></textarea>
+                            <textarea name="bio" class="form-control form-control-sm" rows="5" placeholder="Bio"></textarea>
                             <br>
-                            <button class="btn btn-light mbtn btn-sm">Update Bio</button>
+                            <button name="updatebio" class="btn btn-light mbtn btn-sm">Update Bio</button>
                         </div>
                     </form>
                     <hr>
