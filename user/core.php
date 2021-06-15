@@ -202,3 +202,26 @@ if (isset($_POST['updatephone'])) {
         <?php
     }
 }
+
+if (isset($_POST['updatemail'])) {
+    $email = mysqli_real_escape_string($connection, $_POST['email']);
+
+    $updatemail = "UPDATE people SET phone = '$email' WHERE id = '$id'";
+
+    if (mysqli_query($connection, $updatemail)) {
+        ?>
+        <script>
+            window.alert("Email updated.");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+    else {
+        ?>
+        <script>
+            window.alert("<?php echo mysqli_error($connection); ?>");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
