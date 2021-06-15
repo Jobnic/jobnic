@@ -110,3 +110,26 @@ if (isset($_POST['updateinstagram'])) {
         <?php
     }
 }
+
+if (isset($_POST['updatetelegram'])) {
+    $social = mysqli_real_escape_string($connection, $_POST['telegram']);
+
+    $updatesocial = "UPDATE people SET telegram = '$social' WHERE id = '$id'";
+
+    if (mysqli_query($connection, $updatesocial)) {
+        ?>
+        <script>
+            window.alert("Telegram updated.");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+    else {
+        ?>
+        <script>
+            window.alert("<?php echo mysqli_error($connection); ?>");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
