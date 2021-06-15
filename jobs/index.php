@@ -118,17 +118,19 @@ $row = mysqli_fetch_assoc($result);
                         ?>
                         <div class="col-3">
                             <div class="dialog">
-                                <h4><?php echo $job_row['title']; ?></h4>
+                                <span style="float: right;" class="btn btn-outline-danger btn-sm"><?php echo $job_row['type']; ?></span>
+                                <p class="text-dark"><b><?php echo $job_row['title']; ?></b></p>
                                 <hr>
                                 <p><?php echo $job_row['describe']; ?></p>
                                 <?php
                                 $skills = explode(" ", $job_row['skills']);
 
                                 foreach ($skills as $skill) {
-                                    echo "<p class='btn btn-secondary btn-sm text-white'>$skill</p>&nbsp;";
+                                    echo "<p class='btn btn-outline-secondary btn-sm'>$skill</p>&nbsp;";
                                 }
                                 ?>
                             </div>
+                            <br>
                         </div>
                         <?php
                     }
