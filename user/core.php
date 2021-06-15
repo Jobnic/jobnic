@@ -87,3 +87,26 @@ if (isset($_POST['updatelinkedin'])) {
         <?php
     }
 }
+
+if (isset($_POST['updateinstagram'])) {
+    $social = mysqli_real_escape_string($connection, $_POST['instagram']);
+
+    $updatesocial = "UPDATE people SET instagram = '$social' WHERE id = '$id'";
+
+    if (mysqli_query($connection, $updatesocial)) {
+        ?>
+        <script>
+            window.alert("Instagram updated.");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+    else {
+        ?>
+        <script>
+            window.alert("<?php echo mysqli_error($connection); ?>");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
