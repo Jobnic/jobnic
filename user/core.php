@@ -225,3 +225,50 @@ if (isset($_POST['updatemail'])) {
         <?php
     }
 }
+
+if (isset($_POST['updatepassword'])) {
+    $currentpass = $row_user['password'];
+
+    $oldpassword = mysqli_real_escape_string($connection, $_POST['password']);
+    $newpassword = mysqli_real_escape_string($connection, $_POST['newpassword']);
+    $confirmpassword = mysqli_real_escape_string($connection, $_POST['confirmpassword']);
+
+    if ($oldpassword == $currentpass) {
+        if ($newpassword == $confirmpassword) {
+            $updatepassword = "UPDATE people SET password = '$newpassword'";
+
+            if (mysqli_query($connection, $updatepassword)) {
+                ?>
+                <script>
+                    window.alert("Password changed.");
+                    window.location.replace(".");
+                </script>
+                <?php
+            }
+            else {
+                ?>
+                <script>
+                    window.alert("<?php echo mysqli_error($connection); ?>");
+                    window.location.replace(".");
+                </script>
+                <?php
+            }
+        }
+        else {
+            ?>
+            <script>
+                window.alert("Password don't match.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+    }
+    else {
+        ?>
+        <script>
+            window.alert("Current password is wrong.");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
