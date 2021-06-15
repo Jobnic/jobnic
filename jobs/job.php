@@ -96,20 +96,8 @@ $jobid = $_GET['jobid'];
                     </li>
                 </ul>
                 <div class="navbar-nav">
-                    <?php
-                    if ($stat == true) {
-                        ?>
-                        <a class="nav-link active" href="../user">Go To Panel</a> <a class="nav-link active"
-                                                                                     href="../account/logout.php">Logout</a>
-                        <?php
-                    } else {
-                        ?>
-                        <a class="nav-link active" href="../account/index.php">Sign Up</a> <a class="nav-link active"
-                                                                                              href="../account/index.php">Sign
-                            In</a>
-                        <?php
-                    }
-                    ?>
+                    <a class="nav-link active" href="../user">Go To Panel</a> <a class="nav-link active"
+                                                                                 href="../account/logout.php">Logout</a>
                 </div>
             </div>
         </div>
@@ -125,6 +113,14 @@ $jobid = $_GET['jobid'];
                         <?php
                         $select_job = "SELECT * FROM jobs WHERE jobid = '$jobid'";
                         $result_job = mysqli_query($connection, $select_job);
+                        if (mysqli_num_rows($result_job) != 1) {
+                            ?>
+                            <script>
+                                window.alert("Job didnt found.");
+                                window.location.replace("../jobs");
+                            </script>
+                            <?php
+                        }
                         $row_job = mysqli_fetch_assoc($result_job);
                         ?>
                         <h3><?php echo $row_job['title']; ?></h3>
@@ -154,8 +150,9 @@ $jobid = $_GET['jobid'];
                         <p><?php echo $row_user['bio']; ?></p>
                         <hr>
                         <p>
-                            <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row_user['phone']; ?></p>
-                            <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row_user['email']; ?></p>
+                        <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row_user['phone']; ?></p>
+                        <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row_user['email']; ?>
+                        </p>
                         </p>
                         <hr>
                         <p><a href="." class="link text-dark">View full profile</a></p>
@@ -164,7 +161,11 @@ $jobid = $_GET['jobid'];
                 <?php
 
             } else {
-                echo "Select a job first";
+                ?>
+                <script>
+                    window.location.replace("../jobs");
+                </script>
+                <?php
             }
             ?>
         </div>
