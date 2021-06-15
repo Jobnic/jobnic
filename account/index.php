@@ -89,13 +89,13 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="lbl" placeholder="First Name">
+                                    <input name="fname" type="text" class="form-control" id="lbl" placeholder="First Name">
                                     <label for="lbl">First Name</label>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="lbl" placeholder="Last Name">
+                                    <input name="lname" type="text" class="form-control" id="lbl" placeholder="Last Name">
                                     <label for="lbl">Last Name</label>
                                 </div>
                             </div>
@@ -104,13 +104,13 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="lbl" placeholder="Phone">
+                                        <input name="phone" type="text" class="form-control" id="lbl" placeholder="Phone">
                                         <label for="lbl">Phone</label>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" id="lbl" placeholder="Email">
+                                        <input name="email" type="email" class="form-control" id="lbl" placeholder="Email">
                                         <label for="lbl">Email</label>
                                     </div>
                                 </div>
@@ -118,19 +118,19 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="lbl" placeholder="Password">
+                                        <input name="password" type="text" class="form-control" id="lbl" placeholder="Password">
                                         <label for="lbl">Password</label>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="lbl" placeholder="Confirm Password">
+                                        <input name="confirm" type="text" class="form-control" id="lbl" placeholder="Confirm Password">
                                         <label for="lbl">Confirm Password</label>
                                     </div>
                                 </div>
                             </div>
                             <br>
-                            <button class="btn btn-light mbtn" type="submit">Create</button>
+                            <button name="create" class="btn btn-light mbtn" type="submit">Create</button>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
