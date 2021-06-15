@@ -3,27 +3,12 @@ session_start();
 
 $stat = $_SESSION['status'];
 
-if ($stat != true) {
-    ?>
-    <script>
-        window.location.replace("../");
-    </script>
-    <?php
-}
-
 $server = '127.0.0.1';
 $user = 'narbon';
 $passwd = 'narbon';
 $db = 'jobnic';
 
 $connection = mysqli_connect($server, $user, $passwd, $db);
-
-$id = $_SESSION['id'];
-
-$profile = "SELECT * FROM people WHERE id = '$id'";
-$result = mysqli_query($connection, $profile);
-$row = mysqli_fetch_assoc($result);
-
 ?>
 
 <!doctype html>
