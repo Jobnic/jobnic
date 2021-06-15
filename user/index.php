@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include('core.php');
+
 $stat = $_SESSION['status'];
 
 if ($stat != true) {
@@ -185,11 +187,11 @@ $row = mysqli_fetch_assoc($result);
                     <hr>
                     <p><i class="fa fa-cogs text-secondary"></i> Add skills or languages</p>
                     <form method="post" action="index.php" class="">
-                        <input type="text" class="form-control form-control-sm" placeholder="Skill Name. Ex : Python">
+                        <input type="text" name="skillname" class="form-control form-control-sm" placeholder="Skill Name. Ex : Python">
                         <br>
-                        <input type="number" max="100" class="form-control form-control-sm" placeholder="How Much. Ex : 75">
+                        <input type="number" name="skillper" max="100" class="form-control form-control-sm" placeholder="How Much. Ex : 75">
                         <br>
-                        <button type="submit" class="btn btn-light btn-sm mbtn">Add</button>
+                        <button type="submit" name="updateskill" class="btn btn-light btn-sm mbtn">Add</button>
                     </form>
                 </div>
             </div>
