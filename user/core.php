@@ -41,3 +41,26 @@ if (isset($_POST["updateskill"])) {
         <?php
     }
 }
+
+if (isset($_POST['updatebio'])) {
+    $bio = mysqli_escape_string($connection, $_POST['bio']);
+
+    $update_bio = "UPDATE people SET bio = '$bio' WHERE id = '$id'";
+
+    if (mysqli_query($connection, $update_bio)) {
+        ?>
+        <script>
+            window.alert("Bio updated.");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+    else {
+        ?>
+        <script>
+            window.alert("<?php echo mysqli_error($connection); ?>");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
