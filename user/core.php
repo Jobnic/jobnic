@@ -272,3 +272,31 @@ if (isset($_POST['updatepassword'])) {
         <?php
     }
 }
+
+if (isset($_POST['addjob'])) {
+    $title = mysqli_real_escape_string($connection, $_POST['title']);
+    $describe = mysqli_real_escape_string($connection, $_POST['describe']);
+    $skills = mysqli_real_escape_string($connection, $_POST['skills']);
+    $type = mysqli_real_escape_string($connection, $_POST['type']);
+
+    $jobid = rand(11111, 99999);
+
+    $addjob = "INSERT INTO jobs(`jobid`, `type`, `user`, `title`, `describe`, `skills`, `status`) VALUES ('$jobid', '$type', '$id', '$title', '$describe', '$skills', 'true')";
+
+    if (mysqli_query($connection, $addjob)) {
+        ?>
+        <script>
+            window.alert("Job added.");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+    else {
+        ?>
+        <script>
+            window.alert("<?php echo mysqli_error($connection); ?>");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
