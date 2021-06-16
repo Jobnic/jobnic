@@ -27,6 +27,26 @@ $profile = "SELECT * FROM people WHERE id = '$id'";
 $result = mysqli_query($connection, $profile);
 $row = mysqli_fetch_assoc($result);
 
+if (isset($_GET['payed'])) {
+    $set = "UPDATE people SET status = 'true' WHERE id = '$id'";
+    if (mysqli_query($connection, $set)) {
+        ?>
+        <script>
+            window.alert("Activated.");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+    else {
+        ?>
+        <script>
+            window.alert("<?php echo mysqli_error($connection); ?>");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
+
 if (isset($row['status'])) {
     ?>
     <script>
@@ -132,6 +152,8 @@ if (isset($row['status'])) {
                         <i class="fa fa-money text-white bg-success icon"></i>
                         <a class="text-success link" href="http://JobNic.ir.page" target="_blank">Pay from here</a>
                     </p>
+                    <br>
+                    <p class="text-primary"><b>Enter your ID too : <?php echo $row['id']; ?></b></p>
                 </div>
             </div>
         </div>
