@@ -156,13 +156,14 @@ $userid = $_GET['userid'];
                         <h3><i class="fa fa-cloud text-secondary"></i> Social Media</h3>
                         <hr>
                         <p>
-                            <?php
-                            if ($row['linkedin'] != 'n') {
-                            ?>
+                        <?php
+                        if (isset($row['linkedin'])) {
+                        ?>
                         <p>
                             <a target="_blank" class="link"
                                href="https://linkedin.com/in/<?php echo $row['linkedin']; ?>">
-                                <i class="icon fa fa-linkedin text-white bg-primary"></i> <span class="text-primary">Linkedin</span>
+                                <i class="icon fa fa-linkedin text-white bg-primary"></i> <span
+                                        class="text-primary">Linkedin</span>
                             </a>
                         </p>
                         <?php
