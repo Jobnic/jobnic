@@ -133,6 +133,7 @@ $jobid = $_GET['jobid'];
                         <h3><?php echo $row_job['title']; ?></h3>
                         <hr>
                         <p><b><?php echo $row_job['describe']; ?></b></p>
+                        <p><?php echo $row_job['datetime']; ?></p>
                         <?php
                         $skills = explode(" ", $row_job['skills']);
 
