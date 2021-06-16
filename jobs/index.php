@@ -103,7 +103,7 @@ $connection = mysqli_connect($server, $user, $passwd, $db);
         <br>
         <div class="row">
             <?php
-                $get_jobs = "SELECT * FROM jobs ORDER BY row DESC";
+                $get_jobs = "SELECT * FROM jobs WHERE status = 'true' ORDER BY row DESC";
                 $result_jobs = mysqli_query($connection, $get_jobs);
                 if (mysqli_num_rows($result_jobs)) {
                     while ($job_row = mysqli_fetch_assoc($result_jobs)) {
