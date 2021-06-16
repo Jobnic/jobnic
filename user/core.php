@@ -21,9 +21,14 @@ if (isset($_POST["updateskill"])) {
     $skillper = mysqli_real_escape_string($connection, $_POST["skillper"]);
 
     $skill = $skillname . "-" . $skillper;
-    $both = $row_user['skills'] . " " . $skill;
 
-    $update_skill = "UPDATE people SET skills = '$both' WHERE id = '$id'";
+    if (isset($row_user['skills'])) {
+        $both = $row_user['skills'] . " " . $skill;
+        $update_skill = "UPDATE people SET skills = '$both' WHERE id = '$id'";
+    }
+    else {
+        $update_skill = "UPDATE people SET skills = '$skill' WHERE id = '$id'";
+    }
 
     if (mysqli_query($connection, $update_skill)) {
         ?>
