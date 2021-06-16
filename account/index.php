@@ -86,21 +86,21 @@
                     <div class="tab-pane fade show active" id="nav-signup" role="tabpanel" aria-labelledby="nav-signup-tab">
                         <h3>Create a new account</h3>
                         <hr>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-floating mb-3">
-                                    <input name="fname" type="text" class="form-control" id="lbl" placeholder="First Name">
-                                    <label for="lbl">First Name</label>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-floating mb-3">
-                                    <input name="lname" type="text" class="form-control" id="lbl" placeholder="Last Name">
-                                    <label for="lbl">Last Name</label>
-                                </div>
-                            </div>
-                        </div>
                         <form action="index.php" method="post">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input name="firstname" type="text" class="form-control" id="lbl" placeholder="First Name">
+                                        <label for="lbl">First Name</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input name="lastname" type="text" class="form-control" id="lbl" placeholder="Last Name">
+                                        <label for="lbl">Last Name</label>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col">
                                     <div class="form-floating mb-3">
