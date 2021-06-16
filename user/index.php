@@ -286,7 +286,7 @@ $row = mysqli_fetch_assoc($result);
                     <h3><i class="fa fa-list text-secondary"></i> Projects you shared</h3>
                     <hr>
                     <?php
-                    $select_jobs = "SELECT * FROM jobs WHERE user = $id";
+                    $select_jobs = "SELECT * FROM jobs WHERE user = $id ORDER BY row DESC";
                     $result_jobs = mysqli_query($connection, $select_jobs);
                     if (mysqli_num_rows($result_jobs) > 0) {
                         while ($job_row = mysqli_fetch_assoc($result_jobs)) {
