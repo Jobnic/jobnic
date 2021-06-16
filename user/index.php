@@ -131,40 +131,38 @@ $row = mysqli_fetch_assoc($result);
                         ?>
                     </p>
                     <p>
-                        <i class="icon fa fa-phone text-white bg-success" data-bs-toggle="tooltip"
-                           data-bs-placement="top" title="<?php echo $row['phone']; ?>"></i>
-                        <i class="icon fa fa-envelope text-white bg-primary" data-bs-toggle="tooltip"
-                           data-bs-placement="top" title="<?php echo $row['email']; ?>"></i>
+                        <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row['phone']; ?></p>
+                        <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row['email']; ?></p>
                     </p>
                     <p>
                         <?php
-                        if ($row['linkedin'] != 'n') {
+                        if (isset($row['linkedin'])) {
                             ?>
                             <a target="_blank" class="link"
                                href="https://linkedin.com/in/<?php echo $row['linkedin']; ?>"><i
                                         class="icon fa fa-linkedin text-white bg-primary"></i></a>
                             <?php
                         }
-                        if ($row['github'] != 'n') {
+                        if (isset($row['github'])) {
                             ?>
                             <a target="_blank" class="link" href="https://github.com/<?php echo $row['github']; ?>"><i
                                         class="icon fa fa-github text-white bg-dark"></i></a>
                             <?php
                         }
-                        if ($row['telegram'] != 'n') {
+                        if (isset($row['telegram'])) {
                             ?>
                             <a target="_blank" class="link" href="https://t.me/<?php echo $row['telegram']; ?>"><i
                                         class="icon fa fa-telegram text-white bg-primary"></i></a>
                             <?php
                         }
-                        if ($row['instagram'] != 'n') {
+                        if (isset($row['instagram'])) {
                             ?>
                             <a target="_blank" class="link"
                                href="https://instagram.com/<?php echo $row['instagram']; ?>"><i
                                         class="icon fa fa-instagram text-white bg-danger"></i></a>
                             <?php
                         }
-                        if ($row['twitter'] != 'n') {
+                        if (isset($row['twitter'])) {
                             ?>
                             <a target="_blank" class="link" href="https://twitter.com/<?php echo $row['twitter']; ?>"><i
                                         class="icon fa fa-twitter text-white bg-info"></i></a>
