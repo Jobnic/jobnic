@@ -65,82 +65,9 @@
         </div>
     </nav>
     <div class="container">
-        <div class="row">
-            <div class="col-md-1">
-                <div class="dialog">
-                    <h1>Hi</h1>
-                </div>
-            </div>
-            <div class="col-md-11">
-                <div class="dialog">
-                    <h1>Hi</h1>
-                </div>
-            </div>
-        </div>
         <br>
         <div class="row">
-            <div class="col-md-2">
-                <div class="dialog">
-                    <h1>Hi</h1>
-                </div>
-            </div>
-            <div class="col-md-10">
-                <div class="dialog">
-                    <h1>Hi</h1>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="dialog">
-                    <h1>Hi</h1>
-                </div>
-            </div>
-            <div class="col-md-9">
-                <div class="dialog">
-                    <h1>Hi</h1>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="dialog">
-                    <h1>Hi</h1>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="dialog">
-                    <h1>Hi</h1>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-5">
-                <div class="dialog">
-                    <h1>Hi</h1>
-                </div>
-            </div>
-            <div class="col-md-7">
-                <div class="dialog">
-                    <h1>Hi</h1>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="dialog">
-                    <h1>Hi</h1>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="dialog">
-                    <h1>Hi</h1>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>
