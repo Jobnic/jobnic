@@ -8,7 +8,7 @@ $stat = $_SESSION['status'];
 if ($stat != true) {
     ?>
     <script>
-        window.alert("For review this job yu should signin first");
+        window.alert("For review this job you should login first");
         window.location.replace("../jobs");
     </script>
     <?php
