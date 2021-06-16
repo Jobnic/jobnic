@@ -95,6 +95,12 @@ $jobid = $_GET['jobid'];
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href=".">Jobs</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="us/about.php">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="us/contact.php">Contact Us</a>
+                    </li>
                 </ul>
                 <div class="navbar-nav">
                     <a class="nav-link active" href="../user">Go To Panel</a> <a class="nav-link active"

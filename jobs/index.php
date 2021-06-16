@@ -75,6 +75,12 @@ $connection = mysqli_connect($server, $user, $passwd, $db);
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href=".">Jobs</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="us/about.php">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="us/contact.php">Contact Us</a>
+                    </li>
                 </ul>
                 <div class="navbar-nav">
                     <?php
