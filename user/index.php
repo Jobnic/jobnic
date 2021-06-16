@@ -107,29 +107,40 @@ $row = mysqli_fetch_assoc($result);
                     <hr>
                     <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b></p>
                     <p><?php echo $row['bio']; ?></p>
-                    <p>
-                        <?php
-                            $colors = array("primary", 'danger', 'warning', 'info','success', 'dark', 'secondary');
-
-                            $dbskills = $row['skills'];
-                            $all = explode(" ", $dbskills);
-
-                            foreach ($all as $skill) {
-                                $each = explode("-", $skill);
-
-                                $color = rand(0, 6);
-
-                                ?>
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-striped bg-primary text-white progress-bar-animated" role="progressbar" aria-valuenow="<?php echo $each[1]; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $each[1]; ?>%;">
-                                    </div>
-                                </div>
-                                <span class="text-primary" style="font-size: 10px;"><?php echo $each[0] . " " . $each[1]; ?> %</span>
-                                <hr>
-                                <?php
-                            }
+                    <hr>
+                    <?php
+                    if (isset($row['skills'])) {
                         ?>
-                    </p>
+                        <p>
+                        <?php
+                        $colors = array("primary", 'danger', 'warning', 'info','success', 'dark', 'secondary');
+
+                        $dbskills = $row['skills'];
+                        $all = explode(" ", $dbskills);
+                        unset($all[0]);
+
+                        foreach ($all as $skill) {
+                            $each = explode("-", $skill);
+
+                            $color = rand(0, 6);
+
+                            ?>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped bg-primary text-white progress-bar-animated" role="progressbar" aria-valuenow="<?php echo $each[1]; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $each[1]; ?>%;">
+                                </div>
+                            </div>
+                            <span class="text-primary" style="font-size: 10px;"><?php echo $each[0] . " " . $each[1]; ?> %</span>
+                            <a href="index.php?skill=<?php echo $each[0]; ?>">
+                                <span style="float: right;" class="text-danger"><i class="fa fa-trash-o"></i></span>
+                            </a>
+                            <hr>
+                            <?php
+                        }
+                        ?>
+                        </p>
+                        <?php
+                    }
+                    ?>
                     <p>
                         <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row['phone']; ?></p>
                         <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row['email']; ?></p>
