@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+
+$stat = $_SESSION['status'];
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -55,6 +63,20 @@
                         <a class="nav-link active" aria-current="page" href="./contact.php">Contact Us</a>
                     </li>
                 </ul>
+                <div class="navbar-nav">
+                    <?php
+                    if ($stat == true) {
+                        ?>
+                        <a class="nav-link active" href="../user">Go To Panel</a> <a class="nav-link active" href="../account/logout.php">Logout</a>
+                        <?php
+                    }
+                    else {
+                        ?>
+                        <a class="nav-link active" href="../account/index.php">Sign Up</a> <a class="nav-link active" href="../account/index.php">Sign In</a>
+                        <?php
+                    }
+                    ?>
+                </div>
             </div>
         </div>
     </nav>
