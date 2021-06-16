@@ -12,6 +12,8 @@ $db = 'jobnic';
 
 $connection = mysqli_connect($server, $user, $passwd, $db);
 
+$job = array();
+
 $select_user = "SELECT * FROM people WHERE id = '$id'";
 $result_user = mysqli_query($connection, $select_user);
 $row_user = mysqli_fetch_assoc($result_user);
@@ -308,5 +310,20 @@ if (isset($_POST['addjob'])) {
             window.location.replace(".");
         </script>
         <?php
+    }
+}
+
+if (isset($_GET["jobid"])) {
+    $jobid = $_GET["jobid"];
+
+    $getjob = "SELECT * FROM jobs WHERE jobid = '$jobid'";
+
+    if ($result = mysqli_query($connection, $getjob)) {
+        if (mysqli_num_rows($result) == 1) {
+            array_push($job, mysqli_fetch_assoc($result));
+        }
+        else {
+            array_push($job, false);
+        }
     }
 }
