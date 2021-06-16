@@ -118,7 +118,7 @@ $row = mysqli_fetch_assoc($result);
 
                         $dbskills = $row['skills'];
                         $all = explode(" ", $dbskills);
-                        unset($all[0]);
+//                        unset($all[0]);
 
                         foreach ($all as $skill) {
                             $each = explode("-", $skill);
