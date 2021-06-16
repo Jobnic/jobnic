@@ -112,7 +112,7 @@ $row = mysqli_fetch_assoc($result);
                 <div class="dialog">
                     <h3><i class="fa fa-id-card text-secondary"></i> Profile Review</h3>
                     <hr>
-                    <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b></p>
+                    <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b> <span style="float: right;" class="btn btn-sm btn-outline-dark"><?php echo $row["id"]; ?></span></p>
                     <p><?php echo $row['bio']; ?></p>
                     <hr>
                     <?php
