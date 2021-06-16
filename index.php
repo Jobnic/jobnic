@@ -22,7 +22,6 @@
         .dialog {
             text-align: center;
             border: solid 1px black;
-            text-align: center;
         }
     </style>
 </head>
