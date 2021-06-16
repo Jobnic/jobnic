@@ -1,7 +1,15 @@
 <?php
+session_start();
 
-    include('core.php');
+if ($_SESSION['status'] == true) {
+    ?>
+    <script>
+        window.location.replace("../user");
+    </script>
+    <?php
+}
 
+include('core.php');
 ?>
 
 <!doctype html>
