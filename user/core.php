@@ -327,3 +327,25 @@ if (isset($_GET["jobid"])) {
         }
     }
 }
+
+if (isset($_GET["close"])) {
+    $close = $_GET["close"];
+
+    $closequery = "UPDATE jobs SET status = 'false' WHERE jobid = '$close'";
+    if (mysqli_query($connection, $closequery)) {
+        ?>
+        <script>
+            window.alert("Job closed.");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+    else {
+        ?>
+        <script>
+            window.alert("<?php echo mysqli_error($connection); ?>");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
