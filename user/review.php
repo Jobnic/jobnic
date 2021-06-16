@@ -21,7 +21,16 @@ if (count($job) > 0) {
             ?>
             <br>
             <br>
-            <a class="btn btn-danger btn-sm" href="index.php?close=<?php echo $job['0']['jobid']; ?>">Close Job</a>
+            <?php
+                if ($job[0]['status'] == 'false') {
+                    echo "<p class='text-danger'><b>This job is closed.</b></p>";
+                }
+                else {
+                    ?>
+                    <a class="btn btn-danger btn-sm" href="index.php?close=<?php echo $job['0']['jobid']; ?>">Close Job</a>
+                    <?php
+                }
+            ?>
         </div>
         <?php
     }
