@@ -31,5 +31,31 @@ if (isset($_POST['login'])) {
 }
 
 if (isset($_POST['create'])) {
+    $fname = mysqli_real_escape_string($connection, $_POST['fname']);
+    $lname = mysqli_real_escape_string($connection, $_POST['lname']);
+    $phone = mysqli_real_escape_string($connection, $_POST['phone']);
+    $email = mysqli_real_escape_string($connection, $_POST['email']);
+    $password = mysqli_real_escape_string($connection, $_POST['password']);
+    $confirm = mysqli_real_escape_string($connection, $_POST['confirm']);
+
+    $id = rand(111111, 999999);
+
+    if ($password == $confirm) {
+        $create = "INSERT INTO people (id, firstname, lastname, phone, email, password) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password')";
+        if (mysqli_query($connection, $create)) {
+            ?>
+                <script>
+                    window.alert("Created.");
+                </script>
+            <?php
+        }
+        else {
+            ?>
+            <script>
+                window.alert("<?php echo mysqli_error($connection); ?>");
+            </script>
+            <?php
+        }
+    }
 
 }
