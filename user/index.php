@@ -2,6 +2,7 @@
 session_start();
 
 include('core.php');
+include("../pack/config.php");
 
 $stat = $_SESSION['status'];
 
@@ -13,7 +14,7 @@ if ($stat != true) {
     <?php
 }
 
-$server = '127.0.0.1';
+$server = $ip;
 $user = 'narbon';
 $passwd = 'narbon';
 $db = 'jobnic';

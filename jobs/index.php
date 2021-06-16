@@ -1,9 +1,10 @@
 <?php
 session_start();
+include("../pack/config.php");
 
 $stat = $_SESSION['status'];
 
-$server = '127.0.0.1';
+$server = $ip;
 $user = 'narbon';
 $passwd = 'narbon';
 $db = 'jobnic';

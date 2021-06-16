@@ -2,7 +2,9 @@
 
 session_start();
 
-$server = '127.0.0.1';
+include("../pack/config.php");
+
+$server = $ip;
 $user = 'narbon';
 $passwd = 'narbon';
 $db = 'jobnic';
