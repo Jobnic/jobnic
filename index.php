@@ -19,10 +19,6 @@
         body {
             padding: 8%;
         }
-        .dialog {
-            text-align: center;
-            border: solid 1px black;
-        }
     </style>
 </head>
 <body>
@@ -67,7 +63,19 @@
     <div class="container">
         <br>
         <div class="row">
-            
+            <div class="col-md-4">
+                <img src="pack/logo.jpg">
+                <br>
+            </div>
+            <div class="col-md-4">
+                <h3>Welcome to</h3>
+                <h1>Job Nic!</h1>
+                <hr>
+                <p>Join now if <b>You wanna make money</b> !</p>
+                <br>
+                <p>Create your account today !</p>
+                <br>
+            </div>
         </div>
     </div>
 </div>
