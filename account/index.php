@@ -104,8 +104,8 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-floating mb-3">
-                                        <input name="phone" type="text" class="form-control" id="lbl" placeholder="Phone">
-                                        <label for="lbl">Phone</label>
+                                        <input name="phone" type="text" class="form-control" id="lbl" placeholder="Phone. Ex: 9014784362">
+                                        <label for="lbl">Phone. Ex: 9014784362</label>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -118,13 +118,13 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-floating mb-3">
-                                        <input name="password" type="text" class="form-control" id="lbl" placeholder="Password">
+                                        <input name="password" type="password" class="form-control" id="lbl" placeholder="Password">
                                         <label for="lbl">Password</label>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-floating mb-3">
-                                        <input name="confirm" type="text" class="form-control" id="lbl" placeholder="Confirm Password">
+                                        <input name="confirm" type="password" class="form-control" id="lbl" placeholder="Confirm Password">
                                         <label for="lbl">Confirm Password</label>
                                     </div>
                                 </div>
