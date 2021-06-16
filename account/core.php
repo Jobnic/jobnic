@@ -31,8 +31,8 @@ if (isset($_POST['login'])) {
 }
 
 if (isset($_POST['create'])) {
-    $fname = mysqli_real_escape_string($connection, $_POST['fname']);
-    $lname = mysqli_real_escape_string($connection, $_POST['lname']);
+    $fname = mysqli_real_escape_string($connection, $_POST['firstname']);
+    $lname = mysqli_real_escape_string($connection, $_POST['lastname']);
     $phone = mysqli_real_escape_string($connection, $_POST['phone']);
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
@@ -41,7 +41,7 @@ if (isset($_POST['create'])) {
     $id = rand(111111, 999999);
 
     if ($password == $confirm) {
-        $create = "INSERT INTO people (id, firstname, lastname, phone, email, password) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password')";
+        $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password')";
         if (mysqli_query($connection, $create)) {
             ?>
                 <script>
