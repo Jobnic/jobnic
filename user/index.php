@@ -27,6 +27,15 @@ $profile = "SELECT * FROM people WHERE id = '$id'";
 $result = mysqli_query($connection, $profile);
 $row = mysqli_fetch_assoc($result);
 
+if (empty($row['status'])) {
+    ?>
+    <script>
+        window.alert("Sorry, Your account should be active.");
+        window.location.replace("../account/pay.php");
+    </script>
+    <?php
+}
+
 ?>
 
 <!doctype html>
