@@ -103,8 +103,7 @@ $userid = $_GET['userid'];
                         <hr>
                         <p>
                             <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row['phone']; ?></p>
-                            <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row['email']; ?>
-                        </p>
+                            <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row['email']; ?></p>
                         </p>
                     </div>
                     <br>
@@ -160,7 +159,7 @@ $userid = $_GET['userid'];
                         </p>
                         <?php
                         }
-                        if ($row['github'] != 'n') {
+                        if (isset($row['github'])) {
                             ?>
                             <p>
                                 <a target="_blank" class="link"
@@ -171,7 +170,7 @@ $userid = $_GET['userid'];
                             </p>
                             <?php
                         }
-                        if ($row['telegram'] != 'n') {
+                        if (isset($row['telegram'])) {
                             ?>
                             <p>
                                 <a target="_blank" class="link"
@@ -182,7 +181,7 @@ $userid = $_GET['userid'];
                             </p>
                             <?php
                         }
-                        if ($row['instagram'] != 'n') {
+                        if (isset($row['instagram'])) {
                             ?>
                             <p>
                                 <a target="_blank" class="link"
@@ -192,7 +191,7 @@ $userid = $_GET['userid'];
                             </p>
                             <?php
                         }
-                        if ($row['twitter'] != 'n') {
+                        if (isset($row['twitter'])) {
                             ?>
                             <p>
                                 <a target="_blank" class="link"
