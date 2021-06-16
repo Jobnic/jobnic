@@ -16,6 +16,8 @@ $select_user = "SELECT * FROM people WHERE id = '$id'";
 $result_user = mysqli_query($connection, $select_user);
 $row_user = mysqli_fetch_assoc($result_user);
 
+date_default_timezone_set('Iran');
+
 if (isset($_POST["updateskill"])) {
     $skillname = mysqli_real_escape_string($connection, $_POST["skillname"]);
     $skillper = mysqli_real_escape_string($connection, $_POST["skillper"]);
@@ -287,7 +289,9 @@ if (isset($_POST['addjob'])) {
 
     $jobid = rand(11111, 99999);
 
-    $addjob = "INSERT INTO jobs(`jobid`, `type`, `user`, `title`, `describe`, `skills`, `status`) VALUES ('$jobid', '$type', '$id', '$title', '$describe', '$skills', 'true')";
+    $dt = date("M d, Y H:i:s");
+
+    $addjob = "INSERT INTO jobs(`jobid`, `type`, `user`, `title`, `describe`, `skills`, `datetime`, `status`) VALUES ('$jobid', '$type', '$id', '$title', '$describe', '$skills', '$dt','true')";
 
     if (mysqli_query($connection, $addjob)) {
         ?>
