@@ -302,7 +302,7 @@ $row = mysqli_fetch_assoc($result);
                                     $jobid = $job_row['jobid'];
                                     $jobtitle = $job_row['title'];
                                     echo "<a class='link' href='index.php?jobid=$jobid'>$jobtitle</a>";
-                                    if ($job_row['status'] == true) {
+                                    if ($job_row['status'] == 'true') {
                                         echo "<span style='float: right;' class='text-success'>Open</span>";
                                     }
                                     else {
