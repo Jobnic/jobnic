@@ -15,6 +15,7 @@ CREATE TABLE `people`
     `github`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `telegram`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `skills`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `status`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`row`)
 );
 
