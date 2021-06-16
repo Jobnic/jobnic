@@ -53,10 +53,10 @@
                         <a class="nav-link active" aria-current="page" href="../jobs">Jobs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="us/about.php">About Us</a>
+                        <a class="nav-link active" aria-current="page" href="../us/about.php">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="us/contact.php">Contact Us</a>
+                        <a class="nav-link active" aria-current="page" href="../us/contact.php">Contact Us</a>
                     </li>
                 </ul>
             </div>
