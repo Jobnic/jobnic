@@ -45,9 +45,12 @@ if (isset($_POST['create'])) {
     if ($password == $confirm) {
         $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password')";
         if (mysqli_query($connection, $create)) {
+            $_SESSION['status'] = true;
+            $_SESSION['id'] = $id;
             ?>
                 <script>
                     window.alert("Created.");
+                    window.location.replace("../user");
                 </script>
             <?php
         }
