@@ -299,7 +299,7 @@ $row = mysqli_fetch_assoc($result);
                             ?>
                             <p class="text-secondary">
                                 <?php
-                                    $jobid = $job_row['id'];
+                                    $jobid = $job_row['jobid'];
                                     $jobtitle = $job_row['title'];
                                     echo "<a class='link' href='index.php?jobid=$jobid'>$jobtitle</a>";
                                     if ($job_row['status'] == true) {
@@ -324,7 +324,7 @@ $row = mysqli_fetch_assoc($result);
                 <div class="dialog">
                     <h3><i class="fa fa-eye text-secondary"></i> Review project</h3>
                     <hr>
-                    <p class="text-secondary">Select a project to review here.</p>
+                    <?php include("review.php"); ?>
                 </div>
             </div>
         </div>
