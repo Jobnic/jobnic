@@ -1,6 +1,8 @@
 <?php
 include("../pack/config.php");
 
+include("./core.php");
+
 $server = $ip;
 $user = 'narbon';
 $passwd = 'narbon';
@@ -75,17 +77,18 @@ $result_deactivated = mysqli_query($connection, $get_deactivated);
     <div class="container">
         <br>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="dialog">
                     <p><b>Users (deactivated)</b></p>
                     <hr>
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered table-sm">
+                        <table class="table table-hover text-center table-bordered table-sm">
                             <thead>
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Phone</th>
+                                <th scope="col">Activate</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -93,13 +96,10 @@ $result_deactivated = mysqli_query($connection, $get_deactivated);
                             while ($deactivated = mysqli_fetch_assoc($result_deactivated)) {
                                 ?>
                                 <tr>
-                                    <th scope="row">
-                                        <a class="text-dark link" href="index.php?deuser=<?php echo $deactivated['id']; ?>">
-                                            <?php echo $deactivated['id']; ?>
-                                        </a>
-                                    </th>
+                                    <th scope="row"><?php echo $deactivated['id']; ?></th>
                                     <td><?php echo $deactivated['firstname'] . " " . $deactivated['lastname']; ?></td>
                                     <td><?php echo $deactivated['phone']; ?></td>
+                                    <td><a class="btn btn-sm btn-success">Activate</a></td>
                                 </tr>
                                 <?php
                             }
@@ -110,27 +110,20 @@ $result_deactivated = mysqli_query($connection, $get_deactivated);
                 </div>
                 <br>
             </div>
-            <div class="col-md-4">
-                <div class="dialog">
-                    <p><b>Review deactivated account</b></p>
-                    <hr>
-                    <?php include("review.php"); ?>
-                </div>
-                <br>
-            </div>
         </div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="dialog">
                     <p><b>Users (activated)</b></p>
                     <hr>
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered table-sm">
+                        <table class="table table-hover text-center table-bordered table-sm">
                             <thead>
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Phone</th>
+                                <th scope="col">Deactivate</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -138,13 +131,10 @@ $result_deactivated = mysqli_query($connection, $get_deactivated);
                             while ($activated = mysqli_fetch_assoc($result_activated)) {
                                 ?>
                                 <tr>
-                                    <th scope="row">
-                                        <a class="text-dark link" href="index.php?acuser=<?php echo $activated['id']; ?>">
-                                            <?php echo $activated['id']; ?>
-                                        </a>
-                                    </th>
+                                    <th scope="row"><?php echo $activated['id']; ?></th>
                                     <td><?php echo $activated['firstname'] . " " . $activated['lastname']; ?></td>
                                     <td><?php echo $activated['phone']; ?></td>
+                                    <td><a class="btn btn-sm btn-danger">Deactivate</a></td>
                                 </tr>
                                 <?php
                             }
@@ -152,14 +142,6 @@ $result_deactivated = mysqli_query($connection, $get_deactivated);
                             </tbody>
                         </table>
                     </div>
-                </div>
-                <br>
-            </div>
-            <div class="col-md-4">
-                <div class="dialog">
-                    <p><b>Review activated account</b></p>
-                    <hr>
-                    <?php include("review.php"); ?>
                 </div>
                 <br>
             </div>
