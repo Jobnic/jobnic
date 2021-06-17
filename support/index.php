@@ -99,7 +99,11 @@ $result_deactivated = mysqli_query($connection, $get_deactivated);
                                     <th scope="row"><?php echo $deactivated['id']; ?></th>
                                     <td><?php echo $deactivated['firstname'] . " " . $deactivated['lastname']; ?></td>
                                     <td><?php echo $deactivated['phone']; ?></td>
-                                    <td><a class="btn btn-sm btn-success">Activate</a></td>
+                                    <td>
+                                        <a href="index.php?deactivate=<?php echo $deactivated['id']; ?>" class="btn btn-sm btn-success      ">
+                                            Deactivate
+                                        </a>
+                                    </td>
                                 </tr>
                                 <?php
                             }
@@ -134,7 +138,11 @@ $result_deactivated = mysqli_query($connection, $get_deactivated);
                                     <th scope="row"><?php echo $activated['id']; ?></th>
                                     <td><?php echo $activated['firstname'] . " " . $activated['lastname']; ?></td>
                                     <td><?php echo $activated['phone']; ?></td>
-                                    <td><a class="btn btn-sm btn-danger">Deactivate</a></td>
+                                    <td>
+                                        <a href="index.php?activate=<?php echo $activated['id']; ?>" class="btn btn-sm btn-danger">
+                                            Deactivate
+                                        </a>
+                                    </td>
                                 </tr>
                                 <?php
                             }
