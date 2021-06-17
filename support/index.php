@@ -1,4 +1,14 @@
 <?php
+session_start();
+
+if ($_SESSION['support'] != true) {
+    ?>
+    <script>
+        window.location.replace("login.php");
+    </script>
+    <?php
+}
+
 include("../pack/config.php");
 
 $server = $ip;
