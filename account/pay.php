@@ -27,10 +27,10 @@ $profile = "SELECT * FROM people WHERE id = '$id'";
 $result = mysqli_query($connection, $profile);
 $row = mysqli_fetch_assoc($result);
 
-if ($row['status'] == "true") {
+if ($row['status'] == 'payed') {
     ?>
     <script>
-        window.location.replace("../account/pay.php");
+        window.location.replace("../user");
     </script>
     <?php
 }
