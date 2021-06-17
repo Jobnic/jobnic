@@ -43,7 +43,7 @@ if (isset($_POST['create'])) {
     $id = rand(111111, 999999);
 
     if ($password == $confirm) {
-        $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password')";
+        $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`, `status`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password', 'not')";
         if (mysqli_query($connection, $create)) {
             $_SESSION['status'] = true;
             $_SESSION['id'] = $id;
