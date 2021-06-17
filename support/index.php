@@ -114,6 +114,7 @@ $result_deactivated = mysqli_query($connection, $get_deactivated);
                 <div class="dialog">
                     <p><b>Review deactivated account</b></p>
                     <hr>
+                    <?php include("review.php"); ?>
                 </div>
                 <br>
             </div>
@@ -158,6 +159,7 @@ $result_deactivated = mysqli_query($connection, $get_deactivated);
                 <div class="dialog">
                     <p><b>Review activated account</b></p>
                     <hr>
+                    <?php include("review.php"); ?>
                 </div>
                 <br>
             </div>
