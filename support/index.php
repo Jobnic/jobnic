@@ -1,8 +1,6 @@
 <?php
 include("../pack/config.php");
 
-include("./core.php");
-
 $server = $ip;
 $user = 'narbon';
 $passwd = 'narbon';
@@ -15,6 +13,36 @@ $result_activated = mysqli_query($connection, $get_activated);
 
 $get_deactivated = "SELECT * FROM people WHERE status = 'not'";
 $result_deactivated = mysqli_query($connection, $get_deactivated);
+
+if (isset($_GET["deactivate"])) {
+    $id = $_GET["deactivate"];
+
+    $update = "UPDATE people SET status = 'not' WHERE id = '$id'";
+
+    if (mysqli_query($connection, $update)) {
+        ?>
+        <script>
+            window.alert("User deactivated.");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
+
+if (isset($_GET["activate"])) {
+    $id = $_GET["activate"];
+
+    $update = "UPDATE people SET status = 'payed' WHERE id = '$id'";
+
+    if (mysqli_query($connection, $update)) {
+        ?>
+        <script>
+            window.alert("User activated.");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
 
 ?>
 
@@ -100,8 +128,8 @@ $result_deactivated = mysqli_query($connection, $get_deactivated);
                                     <td><?php echo $deactivated['firstname'] . " " . $deactivated['lastname']; ?></td>
                                     <td><?php echo $deactivated['phone']; ?></td>
                                     <td>
-                                        <a href="index.php?deactivate=<?php echo $deactivated['id']; ?>" class="btn btn-sm btn-success      ">
-                                            Deactivate
+                                        <a href="index.php?activate=<?php echo $deactivated['id']; ?>" class="btn btn-sm btn-success      ">
+                                            Activate
                                         </a>
                                     </td>
                                 </tr>
@@ -139,7 +167,7 @@ $result_deactivated = mysqli_query($connection, $get_deactivated);
                                     <td><?php echo $activated['firstname'] . " " . $activated['lastname']; ?></td>
                                     <td><?php echo $activated['phone']; ?></td>
                                     <td>
-                                        <a href="index.php?activate=<?php echo $activated['id']; ?>" class="btn btn-sm btn-danger">
+                                        <a href="index.php?deactivate=<?php echo $activated['id']; ?>" class="btn btn-sm btn-danger">
                                             Deactivate
                                         </a>
                                     </td>
