@@ -7,7 +7,8 @@ if (isset($_POST['login'])) {
             $_SESSION['support'] = true;
             ?>
             <script>
-                window.location.replace(".");
+                window.location.replace("." +
+                 "");
             </script>
             <?php
         }
