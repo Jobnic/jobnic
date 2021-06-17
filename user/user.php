@@ -120,34 +120,36 @@ $userid = $_GET['userid'];
                     <div class="dialog">
                         <h3><i class="fa fa-list text-secondary"></i> Skills</h3>
                         <hr>
-                        <p>
+                        <?php
+                        if (isset($row['skills'])) {
+                            ?>
+                            <p>
                             <?php
-                            $colors = array("primary", 'danger', 'warning', 'info', 'success', 'dark', 'secondary');
+                            $colors = array("primary", 'danger', 'warning', 'info','success', 'dark', 'secondary');
 
                             $dbskills = $row['skills'];
                             $all = explode(" ", $dbskills);
+//                        unset($all[0]);
 
-                            foreach ($all
+                            foreach ($all as $skill) {
+                                $each = explode("-", $skill);
 
-                            as $skill) {
-                            $each = explode("-", $skill);
+                                $color = rand(0, 6);
 
-                            $color = rand(0, 6);
-
+                                ?>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-primary text-white progress-bar-animated" role="progressbar" aria-valuenow="<?php echo $each[1]; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $each[1]; ?>%;">
+                                    </div>
+                                </div>
+                                <span class="text-primary" style="font-size: 10px;"><?php echo $each[0] . " " . $each[1]; ?> %</span>
+                                <hr>
+                                <?php
+                            }
                             ?>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-striped bg-primary text-white progress-bar-animated"
-                                 role="progressbar" aria-valuenow="<?php echo $each[1]; ?>" aria-valuemin="0"
-                                 aria-valuemax="100" style="width: <?php echo $each[1]; ?>%;">
-                            </div>
-                        </div>
-                        <span class="text-primary"
-                              style="font-size: 10px;"><?php echo $each[0] . " " . $each[1]; ?> %</span>
-                        <hr>
-                        <?php
+                            </p>
+                            <?php
                         }
                         ?>
-                        </p>
                     </div>
                     <br>
                 </div>
