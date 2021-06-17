@@ -93,7 +93,11 @@ $result_deactivated = mysqli_query($connection, $get_deactivated);
                             while ($deactivated = mysqli_fetch_assoc($result_deactivated)) {
                                 ?>
                                 <tr>
-                                    <th scope="row"><?php echo $deactivated['id']; ?></th>
+                                    <th scope="row">
+                                        <a class="text-dark link" href="index.php?deuser=<?php echo $deactivated['id']; ?>">
+                                            <?php echo $deactivated['id']; ?>
+                                        </a>
+                                    </th>
                                     <td><?php echo $deactivated['firstname'] . " " . $deactivated['lastname']; ?></td>
                                     <td><?php echo $deactivated['phone']; ?></td>
                                 </tr>
@@ -133,7 +137,11 @@ $result_deactivated = mysqli_query($connection, $get_deactivated);
                             while ($activated = mysqli_fetch_assoc($result_activated)) {
                                 ?>
                                 <tr>
-                                    <th scope="row"><?php echo $activated['id']; ?></th>
+                                    <th scope="row">
+                                        <a class="text-dark link" href="index.php?acuser=<?php echo $activated['id']; ?>">
+                                            <?php echo $activated['id']; ?>
+                                        </a>
+                                    </th>
                                     <td><?php echo $activated['firstname'] . " " . $activated['lastname']; ?></td>
                                     <td><?php echo $activated['phone']; ?></td>
                                 </tr>
