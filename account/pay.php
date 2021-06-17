@@ -27,27 +27,7 @@ $profile = "SELECT * FROM people WHERE id = '$id'";
 $result = mysqli_query($connection, $profile);
 $row = mysqli_fetch_assoc($result);
 
-if (isset($_GET['payed'])) {
-    $set = "UPDATE people SET status = 'true' WHERE id = '$id'";
-    if (mysqli_query($connection, $set)) {
-        ?>
-        <script>
-            window.alert("Activated.");
-            window.location.replace(".");
-        </script>
-        <?php
-    }
-    else {
-        ?>
-        <script>
-            window.alert("<?php echo mysqli_error($connection); ?>");
-            window.location.replace(".");
-        </script>
-        <?php
-    }
-}
-
-if (isset($row['status'])) {
+if ($row['status'] == "true") {
     ?>
     <script>
         window.location.replace("../account/pay.php");
@@ -150,10 +130,26 @@ if (isset($row['status'])) {
                     <p>Via this link below.</p>
                     <p>
                         <i class="fa fa-money text-white bg-success icon"></i>
-                        <a class="text-success link" href="http://JobNic.ir.page" target="_blank">Pay from here</a>
+                        <a class="text-success link" href="https://idpay.ir/job-nic" target="_blank">Pay from here</a>
                     </p>
                     <br>
-                    <p class="text-primary"><b>Enter your ID too : <?php echo $row['id']; ?></b></p>
+                    <p class="text-primary">Remember to enter your ID too : <b><?php echo $row['id']; ?></b></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dialog">
+                    <p><b><i class="fa fa-check text-secondary"></i> Already payed?</b></p>
+                    <hr>
+                    <p>If you had payed, we will activate your account as soon as possible.</p>
+                    <p>Contact with support for more information.</p>
+                    <p>
+                        <i class="fa fa-home text-white bg-warning icon"></i>
+                        <span class="text-warning">+98 213 615 6859</span>
+                    </p>
+                    <p>
+                        <i class="fa fa-phone text-white bg-info icon"></i>
+                        <span class="text-info">+98 901 478 4362</span>
+                    </p>
                 </div>
             </div>
         </div>
