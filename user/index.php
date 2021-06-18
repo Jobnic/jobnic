@@ -344,16 +344,16 @@ if ($row['status'] == 'not') {
                     <h3><i class="fa fa-cog text-secondary"></i> Settings</h3>
                     <hr>
                     <form method="post" action="index.php" class="">
-                        <label for="formFileSm" class="form-label">Update profile picture</label>
-                        <input class="form-control form-control-sm" id="formFileSm" type="file">
-                        <hr>
-                        <div class="group">
-                            <i class="fa fa-phone text-secondary"></i>
-                            &nbsp;
-                            <input name="phone" placeholder="Phome" class="form-control-sm inp">
-                            &nbsp;
-                            <button name="updatephone" class="btn btn-light mbtn btn-sm">Change Phone</button>
-                        </div>
+<!--                        <label for="formFileSm" class="form-label">Update profile picture</label>-->
+<!--                        <input class="form-control form-control-sm" id="formFileSm" type="file">-->
+<!--                        <hr>-->
+<!--                        <div class="group">-->
+<!--                            <i class="fa fa-phone text-secondary"></i>-->
+<!--                            &nbsp;-->
+<!--                            <input name="phone" placeholder="Phome" class="form-control-sm inp">-->
+<!--                            &nbsp;-->
+<!--                            <button name="updatephone" class="btn btn-light mbtn btn-sm">Change Phone</button>-->
+<!--                        </div>-->
                         <br>
                         <div class="group">
                             <i class="fa fa-envelope text-secondary"></i>
