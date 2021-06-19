@@ -171,7 +171,7 @@ include("includes/head.php");
                         if (isset($row['github'])) {
                             ?>
                             <a target="_blank" class="link" href="https://github.com/<?php echo $row['github']; ?>"><i
-                                        class="icon fa fa-github text-white bg-dark"></i></a>
+                                        class="icon fa fa-github" style="color: white; background: black;"></i></a>
                             <?php
                         }
                         if (isset($row['telegram'])) {
