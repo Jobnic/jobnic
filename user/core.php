@@ -288,12 +288,21 @@ if (isset($_POST['addjob'])) {
     $describe = mysqli_real_escape_string($connection, $_POST['describe']);
     $skills = mysqli_real_escape_string($connection, $_POST['skills']);
     $type = mysqli_real_escape_string($connection, $_POST['type']);
+    $price = mysqli_real_escape_string($connection, $_POST['price']);
+
+    if (isset($price)) {
+        $per = $price;
+    }
+
+    if (empty($price)) {
+        $per = "Agreement";
+    }
 
     $jobid = rand(11111, 99999);
 
     $dt = date("M d, Y H:i:s");
 
-    $addjob = "INSERT INTO jobs(`jobid`, `type`, `user`, `title`, `describe`, `skills`, `datetime`, `status`) VALUES ('$jobid', '$type', '$id', '$title', '$describe', '$skills', '$dt','true')";
+    $addjob = "INSERT INTO jobs(`jobid`, `type`, `user`, `title`, `describe`, `skills`, `datetime`, `price`,`status`) VALUES ('$jobid', '$type', '$id', '$title', '$describe', '$skills', '$dt', '$per', 'true')";
 
     if (mysqli_query($connection, $addjob)) {
         ?>
@@ -331,7 +340,9 @@ if (isset($_GET["jobid"])) {
 if (isset($_GET["close"])) {
     $close = $_GET["close"];
 
-    $closequery = "UPDATE jobs SET status = 'false' WHERE jobid = '$close'";
+    $dt = date("M d, Y H:i:s");
+
+    $closequery = "UPDATE jobs SET status = 'false' AND closed = '$dt' WHERE jobid = '$close'";
     if (mysqli_query($connection, $closequery)) {
         ?>
         <script>
