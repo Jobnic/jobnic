@@ -28,7 +28,6 @@ $userid = $_GET['userid'];
         }
 
         .dialog {
-            border: solid 1px #d3d3d3;
             padding: 5%;
         }
 
@@ -40,22 +39,6 @@ $userid = $_GET['userid'];
         .link {
             text-decoration: none;
             color: gray;
-        }
-
-        .mbtn {
-            border: solid 1px #d3d3d3;
-        }
-
-        .mbtn:hover {
-            border: solid 1px #d3d3d3;
-        }
-
-        .inp {
-            border: solid 1px #d3d3d3;
-        }
-
-        .inp:hover {
-            border: solid 1px #d3d3d3;
         }
     </style>
 </head>
@@ -102,13 +85,14 @@ $userid = $_GET['userid'];
                 }
                 $row = mysqli_fetch_assoc($result);
                 ?>
-                <div class="col-md-4">
-                    <div class="dialog">
-                        <h3><i class="fa fa-info text-secondary"></i> About</h3>
-                        <hr>
+                <div class="col-md-7">
+                    <div class="dialog border border-success">
+                        <h3 class="text-success"><i class="fa fa-info text-success"></i> About</h3>
+                        <hr class="border border-success">
                         <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b></p>
                         <p><?php echo $row['bio']; ?></p>
-                        <hr>
+                        <p><small>Joined <?php echo $row['join']; ?></small></p>
+                        <hr class="border border-success">
                         <p>
                             <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row['phone']; ?></p>
                             <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row['email']; ?></p>
@@ -116,10 +100,10 @@ $userid = $_GET['userid'];
                     </div>
                     <br>
                 </div>
-                <div class="col-md-4">
-                    <div class="dialog">
-                        <h3><i class="fa fa-list text-secondary"></i> Skills</h3>
-                        <hr>
+                <div class="col-md-5">
+                    <div class="dialog border border-primary">
+                        <h3 class="text-primary"><i class="fa fa-list text-primary"></i> Skills</h3>
+                        <hr class="border border-primary">
                         <?php
                         if (isset($row['skills'])) {
                             ?>
@@ -142,7 +126,7 @@ $userid = $_GET['userid'];
                                     </div>
                                 </div>
                                 <span class="text-primary" style="font-size: 10px;"><?php echo $each[0] . " " . $each[1]; ?> %</span>
-                                <hr>
+                                <hr class="border border-primary">
                                 <?php
                             }
                             ?>
@@ -153,10 +137,12 @@ $userid = $_GET['userid'];
                     </div>
                     <br>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-md-4">
-                    <div class="dialog">
-                        <h3><i class="fa fa-cloud text-secondary"></i> Social Media</h3>
-                        <hr>
+                    <div class="dialog border border-danger">
+                        <h3 class="text-danger"><i class="fa fa-cloud text-danger"></i> Social Media</h3>
+                        <hr class="border border-danger">
                         <p>
                         <?php
                         if (isset($row['linkedin'])) {
