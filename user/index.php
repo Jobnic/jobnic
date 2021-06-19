@@ -45,20 +45,8 @@ if ($row['status'] == 'not') {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Job Nic - User Panel</title>
-    <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Job Nic - Profile</title>
     <style>
-        body {
-            padding: 8%;
-        }
-
-        .dialog {
-            border: solid 1px #d3d3d3;
-            padding: 5%;
-        }
-
         .icon {
             padding: 5px;
             border-radius: 5px;
@@ -85,43 +73,84 @@ if ($row['status'] == 'not') {
             border: solid 1px #d3d3d3;
         }
     </style>
+    <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
+    <link href="../../NarTik/pack/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../NarTik/pack/css/datepicker3.css" rel="stylesheet">
+    <link href="../../NarTik/pack/css/styles.css" rel="stylesheet">
 </head>
 <body>
-<div class="">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="../">Job Nic</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../jobs"><i class="fa fa-list"></i> Jobs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../us/about.php"><i class="fa fa-info"></i> About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../us/contact.php"><i class="fa fa-phone"></i> Contact Us</a>
-                    </li>
-                </ul>
-                <div class="navbar-nav">
-                    <a class="nav-link active" href="../account/logout.php"><i class="fa fa-sign-out"></i> Logout</a>
-                </div>
-            </div>
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span></button>
+            <a class="navbar-brand" href="../"><span>Job Nic</a>
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" href="../account/logout.php">
+                        <em class="fa fa-sign-out"></em>
+                    </a>
+                </li>
+            </ul>
         </div>
-    </nav>
-    <div class="container">
-        <br>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="dialog">
-                    <h3><i class="fa fa-id-card text-secondary"></i> Profile Review</h3>
-                    <hr>
-                    <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b> <span style="float: right;" class="btn btn-sm btn-outline-dark"><?php echo $row["id"]; ?></span></p>
+    </div>
+</nav>
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+    <div class="profile-sidebar primg">
+        <div class="profile-usertitle">
+            <div class="profile-usertitle-name">Kir</div>
+            <div class="profile">9014784362</div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="divider"></div>
+    <ul class="nav menu">
+        <li class="active"><a href="index.php">
+                <i class="fa fa-dashboard">&nbsp;</i> Profile</a>
+        </li>
+        <li>
+            <a class="" href="projects.php">
+                <i class="fa fa-list">&nbsp;</i> Projects
+            </a>
+        </li>
+        <li>
+            <a class="" href="setting.php">
+                <i class="fa fa-cogs">&nbsp;</i> Setting
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="../user">
+                    <em class="fa fa-user"></em>
+                </a></li>
+            <li class="active">Profile</li>
+        </ol>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Profile</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-id-card"></i> Profile Review
+                    <span class="pull-right clickable panel-toggle panel-button-tab-left">
+                        <em class="fa fa-toggle-up"></em>
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        <b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b>
+                        <span style="float: right;" class="btn btn-sm btn-danger"><?php echo $row["id"]; ?></span>
+                    </p>
                     <p><?php echo $row['bio']; ?></p>
                     <hr>
                     <?php
@@ -158,8 +187,8 @@ if ($row['status'] == 'not') {
                     }
                     ?>
                     <p>
-                        <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row['phone']; ?></p>
-                        <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row['email']; ?></p>
+                    <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row['phone']; ?></p>
+                    <p><i class="icon fa fa-envelope text-white bg-info"></i> <?php echo $row['email']; ?></p>
                     </p>
                     <p>
                         <?php
@@ -199,10 +228,18 @@ if ($row['status'] == 'not') {
                     </p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="dialog">
-                    <h3><i class="fa fa-refresh text-secondary"></i> Update Your Profile</h3>
-                    <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-refresh"></i> Add Bio or Skills
+                    <span class="pull-right clickable panel-toggle panel-button-tab-left">
+                        <em class="fa fa-toggle-up"></em>
+                    </span>
+                </div>
+                <div class="panel-body">
                     <form method="post" action="index.php" class="">
                         <div class="group">
                             <p><i class="fa fa-info text-secondary"></i> Add a bio, Describe your self</p>
@@ -222,10 +259,16 @@ if ($row['status'] == 'not') {
                     </form>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="dialog">
-                    <h3><i class="fa fa-cloud text-secondary"></i> You in Social Media</h3>
-                    <hr>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-cloud"></i> Update Social Media
+                    <span class="pull-right clickable panel-toggle panel-button-tab-left">
+                        <em class="fa fa-toggle-up"></em>
+                    </span>
+                </div>
+                <div class="panel-body">
                     <form method="post" action="index.php">
                         <div class="group">
                             <i class="fa fa-linkedin text-primary"></i>
@@ -248,7 +291,7 @@ if ($row['status'] == 'not') {
                             <br>
                             <input name="github" placeholder="GitHub" class="form-control-sm inp border-dark">
                             &nbsp;
-                            <button name="updategithub" class="btn btn-dark btn-sm">Update</button>
+                            <button name="updategithub" style="background: black; color: white;" class="btn btn-sm">Update</button>
                         </div>
                         <br>
                         <div class="group">
@@ -270,126 +313,11 @@ if ($row['status'] == 'not') {
                 </div>
             </div>
         </div>
-        <br>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="dialog">
-                    <h3><i class="fa fa-plus text-secondary"></i> Add new project</h3>
-                    <hr>
-                    <form method="post" action="index.php" class="">
-                        <div class="group">
-                            <select name="type" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option selected>Select type of your project</option>
-                                <option value="programming">Programming</option>
-                                <option value="design">Design</option>
-                                <option value="school">School</option>
-                            </select>
-                            <br>
-                            <input name="title" type="text" class="form-control form-control-sm" placeholder="Project Title">
-                            <br>
-                            <textarea name="describe" class="form-control form-control-sm" rows="5" placeholder="Project Describtion"></textarea>
-                            <br>
-                            <input name="skills" type="text" class="form-control form-control-sm" placeholder="Skills. Ex : php python">
-                            <br>
-                            <button name="addjob" class="btn btn-light mbtn btn-sm">Add project</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="dialog">
-                    <h3><i class="fa fa-list text-secondary"></i> Projects you shared</h3>
-                    <hr>
-                    <?php
-                    $select_jobs = "SELECT * FROM jobs WHERE user = $id ORDER BY row DESC";
-                    $result_jobs = mysqli_query($connection, $select_jobs);
-                    if (mysqli_num_rows($result_jobs) > 0) {
-                        while ($job_row = mysqli_fetch_assoc($result_jobs)) {
-                            ?>
-                            <p class="text-secondary">
-                                <?php
-                                    $jobid = $job_row['jobid'];
-                                    $jobtitle = $job_row['title'];
-                                    echo "<a class='link' href='index.php?jobid=$jobid'>$jobtitle</a>";
-                                    if ($job_row['status'] == 'true') {
-                                        echo "<span style='float: right;' class='text-success'>Open</span>";
-                                    }
-                                    else {
-                                        echo "<span style='float: right;' class='text-danger'>Close</span>";
-                                    }
-                                ?>
-                            </p>
-                            <hr>
-                            <?php
-                        }
-                    }
-                    else {
-                        echo "<p class='text-secondary'>No projects yet</p>";
-                    }
-                    ?>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="dialog">
-                    <h3><i class="fa fa-eye text-secondary"></i> Review project</h3>
-                    <hr>
-                    <?php include("review.php"); ?>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-5">
-                <div class="dialog">
-                    <h3><i class="fa fa-cog text-secondary"></i> Settings</h3>
-                    <hr>
-                    <form method="post" action="index.php" class="">
-<!--                        <label for="formFileSm" class="form-label">Update profile picture</label>-->
-<!--                        <input class="form-control form-control-sm" id="formFileSm" type="file">-->
-<!--                        <hr>-->
-<!--                        <div class="group">-->
-<!--                            <i class="fa fa-phone text-secondary"></i>-->
-<!--                            &nbsp;-->
-<!--                            <input name="phone" placeholder="Phome" class="form-control-sm inp">-->
-<!--                            &nbsp;-->
-<!--                            <button name="updatephone" class="btn btn-light mbtn btn-sm">Change Phone</button>-->
-<!--                        </div>-->
-                        <br>
-                        <div class="group">
-                            <i class="fa fa-envelope text-secondary"></i>
-                            &nbsp;
-                            <input name="email" placeholder="Email" class="form-control-sm inp">
-                            &nbsp;
-                            <button name="updatemail" class="btn btn-light mbtn btn-sm">Change Email</button>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <p><i class="fa fa-key text-secondary"></i> Update Password</p>
-                            <input name="password" type="password" class="inp form-control-sm form-control" placeholder="Current password">
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input name="newpassword" type="password" class="form-control form-control-sm" placeholder="New Password">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input name="confirmpassword" type="password" class="form-control form-control-sm" placeholder="Confirm Password">
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <button name="updatepassword" type="submit" class="btn btn-light btn-sm mbtn">Change Password</button>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-        crossorigin="anonymous"></script>
+<script src="../../NarTik/pack/js/jquery-1.11.1.min.js"></script>
+<script src="../../NarTik/pack/js/bootstrap.min.js"></script>
+<script src="../../NarTik/pack/js/bootstrap-datepicker.js"></script>
+<script src="../../NarTik/pack/js/custom.js"></script>
 </body>
 </html>
