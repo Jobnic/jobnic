@@ -174,7 +174,7 @@ $userid = $_GET['userid'];
                             ?>
                             <p>
                                 <a target="_blank" class="link"
-                                   href="https://linkedin.com/in/<?php echo $row['github']; ?>">
+                                   href="https://github.com/<?php echo $row['github']; ?>">
                                     <i class="icon fa fa-github text-white bg-dark"></i> <span
                                             class="text-dark">Github</span>
                                 </a>
@@ -185,7 +185,7 @@ $userid = $_GET['userid'];
                             ?>
                             <p>
                                 <a target="_blank" class="link"
-                                   href="https://linkedin.com/in/<?php echo $row['telegram']; ?>">
+                                   href="https://t.me/<?php echo $row['telegram']; ?>">
                                     <i class="icon fa fa-telegram text-white bg-primary"></i> <span
                                             class="text-primary">Telegram</span>
                                 </a>
@@ -196,7 +196,7 @@ $userid = $_GET['userid'];
                             ?>
                             <p>
                                 <a target="_blank" class="link"
-                                   href="https://linkedin.com/in/<?php echo $row['instagram']; ?>">
+                                   href="https://github.com/<?php echo $row['instagram']; ?>">
                                     <i class="icon fa fa-instagram text-white bg-danger"></i> <span class="text-danger">Instagram</span>
                                 </a>
                             </p>
@@ -206,7 +206,7 @@ $userid = $_GET['userid'];
                             ?>
                             <p>
                                 <a target="_blank" class="link"
-                                   href="https://linkedin.com/in/<?php echo $row['twitter']; ?>">
+                                   href="https://twitter.com/<?php echo $row['twitter']; ?>">
                                     <i class="icon fa fa-twitter text-white bg-info"></i> <span class="text-info">Twitter</span>
                                 </a>
                             </p>
