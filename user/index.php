@@ -129,6 +129,7 @@ if ($row['status'] == 'not') {
                                                                                                    class="btn btn-sm btn-outline-success"><?php echo $row["id"]; ?></span>
                     </p>
                     <p><?php echo $row['bio']; ?></p>
+                    <p><small>Joined <?php echo $row['join']; ?></small></p>
                     <hr class="border border-success">
                     <?php
                     if (isset($row['skills'])) {
