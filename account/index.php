@@ -104,43 +104,39 @@ include('core.php');
                         <form action="index.php" method="post">
                             <div class="row">
                                 <div class="col">
-                                    <div class="form-floating mb-3">
+                                    <div class="">
                                         <input name="firstname" type="text" class="form-control" id="lbl" placeholder="First Name">
-                                        <label for="lbl">First Name</label>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="form-floating mb-3">
+                                    <div class="">
                                         <input name="lastname" type="text" class="form-control" id="lbl" placeholder="Last Name">
-                                        <label for="lbl">Last Name</label>
                                     </div>
                                 </div>
                             </div>
+                            <br>
                             <div class="row">
                                 <div class="col">
-                                    <div class="form-floating mb-3">
+                                    <div class="">
                                         <input name="phone" type="text" class="form-control" id="lbl" placeholder="Phone. Ex: 9014784362">
-                                        <label for="lbl">Phone. Ex: 9014784362</label>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="form-floating mb-3">
+                                    <div class="">
                                         <input name="email" type="email" class="form-control" id="lbl" placeholder="Email">
-                                        <label for="lbl">Email</label>
                                     </div>
                                 </div>
                             </div>
+                            <br>
                             <div class="row">
                                 <div class="col">
-                                    <div class="form-floating mb-3">
+                                    <div class="">
                                         <input name="password" type="password" class="form-control" id="lbl" placeholder="Password">
-                                        <label for="lbl">Password</label>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="form-floating mb-3">
+                                    <div class="">
                                         <input name="confirm" type="password" class="form-control" id="lbl" placeholder="Confirm Password">
-                                        <label for="lbl">Confirm Password</label>
                                     </div>
                                 </div>
                             </div>
