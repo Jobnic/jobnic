@@ -322,6 +322,11 @@ if ($row['status'] == 'not') {
                                    class="form-control form-control-sm border text-warning border-warning"
                                    placeholder="Skills. Ex : php python">
                             <br>
+                            <input name="price" type="text" class="form-control form-control-sm border border-warning"
+                                   placeholder="Project Price. Let it null for Agreement Price">
+                            <small class="text-warning">* Let it null for Agreement Price</small>
+                            <br>
+                            <br>
                             <button name="addjob" class="btn btn-warning text-white btn-sm">Add project</button>
                         </div>
                     </form>
