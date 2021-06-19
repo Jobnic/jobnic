@@ -111,7 +111,7 @@ $userid = $_GET['userid'];
                         <hr>
                         <p>
                             <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row['phone']; ?></p>
-                            <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row['email']; ?></p>
+                            <p><i class="icon fa fa-envelope text-white bg-info"></i> <?php echo $row['email']; ?></p>
                         </p>
                     </div>
                     <br>
@@ -175,7 +175,7 @@ $userid = $_GET['userid'];
                             <p>
                                 <a target="_blank" class="link"
                                    href="https://github.com/<?php echo $row['github']; ?>">
-                                    <i class="icon fa fa-github text-white bg-dark"></i> <span
+                                    <i class="icon fa fa-github" style="color: white; background: black;"></i> <span
                                             class="text-dark">Github</span>
                                 </a>
                             </p>
