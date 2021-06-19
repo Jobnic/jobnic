@@ -55,7 +55,6 @@ if ($row['status'] == 'not') {
         }
 
         .dialog {
-            border: solid 1px #d3d3d3;
             padding: 5%;
         }
 
@@ -117,13 +116,15 @@ if ($row['status'] == 'not') {
     <div class="container">
         <br>
         <div class="row">
-            <div class="col-md-4">
-                <div class="dialog">
-                    <h3><i class="fa fa-id-card text-secondary"></i> Profile Review</h3>
-                    <hr>
-                    <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b> <span style="float: right;" class="btn btn-sm btn-outline-dark"><?php echo $row["id"]; ?></span></p>
+            <div class="col-md-8">
+                <h2 class="text-success">Profile Part</h2>
+                <p class="text-success">Here you can review your profile that people cat see</p>
+                <div class="dialog border border-success">
+                    <h3 class="text-success"><i class="fa fa-id-card text-success"></i> Profile Review</h3>
+                    <hr class="border border-success">
+                    <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b> <span style="float: right;" class="btn btn-sm btn-outline-success"><?php echo $row["id"]; ?></span></p>
                     <p><?php echo $row['bio']; ?></p>
-                    <hr>
+                    <hr class="border border-success">
                     <?php
                     if (isset($row['skills'])) {
                         ?>
@@ -142,14 +143,14 @@ if ($row['status'] == 'not') {
 
                             ?>
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped bg-primary text-white progress-bar-animated" role="progressbar" aria-valuenow="<?php echo $each[1]; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $each[1]; ?>%;">
+                                <div class="progress-bar progress-bar-striped bg-success text-white progress-bar-animated" role="progressbar" aria-valuenow="<?php echo $each[1]; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $each[1]; ?>%;">
                                 </div>
                             </div>
-                            <span class="text-primary" style="font-size: 10px;"><?php echo $each[0] . " " . $each[1]; ?> %</span>
+                            <span class="text-success" style="font-size: 10px;"><?php echo $each[0] . " " . $each[1]; ?> %</span>
                             <a href="index.php?skill=<?php echo $each[0]; ?>">
                                 <span style="float: right;" class="text-danger"><i class="fa fa-trash-o"></i></span>
                             </a>
-                            <hr>
+                            <hr class="border border-success">
                             <?php
                         }
                         ?>
@@ -199,33 +200,41 @@ if ($row['status'] == 'not') {
                     </p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="dialog">
-                    <h3><i class="fa fa-refresh text-secondary"></i> Update Your Profile</h3>
-                    <hr>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="text-danger">Profile Updating</h2>
+                <p class="text-danger">If you wanna update your profile easily, use here</p>
+                <div class="dialog border border-danger">
+                    <h3 class="text-danger"><i class="fa fa-refresh text-danger"></i> Update Your Profile</h3>
+                    <hr class="border border-danger">
                     <form method="post" action="index.php" class="">
                         <div class="group">
-                            <p><i class="fa fa-info text-secondary"></i> Add a bio, Describe your self</p>
-                            <textarea name="bio" class="form-control form-control-sm" rows="5" placeholder="Bio"></textarea>
+                            <p class="text-danger"><i class="fa fa-info text-danger"></i> Add a bio, Describe your self</p>
+                            <textarea name="bio" class="form-control form-control-sm border border-danger" rows="5" placeholder="Bio"></textarea>
                             <br>
-                            <button name="updatebio" class="btn btn-light mbtn btn-sm">Update Bio</button>
+                            <button name="updatebio" class="btn btn-danger btn-sm">Update Bio</button>
                         </div>
                     </form>
-                    <hr>
-                    <p><i class="fa fa-cogs text-secondary"></i> Add skills or languages</p>
+                    <hr class="border border-danger">
+                    <p class="text-danger"><i class="fa fa-cogs text-danger"></i> Add skills or languages</p>
                     <form method="post" action="index.php" class="">
-                        <input type="text" name="skillname" class="form-control form-control-sm" placeholder="Skill Name. Ex : Python">
+                        <input type="text" name="skillname" class="form-control form-control-sm border border-danger" placeholder="Skill Name. Ex : Python">
                         <br>
-                        <input type="number" name="skillper" max="100" class="form-control form-control-sm" placeholder="How Much. Ex : 75">
+                        <input type="number" name="skillper" max="100" class="form-control form-control-sm border border-danger" placeholder="How Much. Ex : 75">
                         <br>
-                        <button type="submit" name="updateskill" class="btn btn-light btn-sm mbtn">Add</button>
+                        <button type="submit" name="updateskill" class="btn btn-danger btn-sm">Add</button>
                     </form>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="dialog">
-                    <h3><i class="fa fa-cloud text-secondary"></i> You in Social Media</h3>
-                    <hr>
+            <div class="col-md-6">
+                <h2 class="text-primary">Social Media</h2>
+                <p class="text-primary">If you have social medias, Use here to add them</p>
+                <div class="dialog border border-primary">
+                    <h3 class="text-primary"><i class="fa fa-cloud text-primary"></i> You in Social Media</h3>
+                    <hr class="border border-primary">
                     <form method="post" action="index.php">
                         <div class="group">
                             <i class="fa fa-linkedin text-primary"></i>
@@ -271,42 +280,47 @@ if ($row['status'] == 'not') {
             </div>
         </div>
         <br>
+        <br>
         <div class="row">
             <div class="col-md-4">
-                <div class="dialog">
-                    <h3><i class="fa fa-plus text-secondary"></i> Add new project</h3>
-                    <hr>
+                <h2 class="text-warning">New Project</h2>
+                <p class="text-warning">I think you have a project that you cant solve. So, put it here and wait for someone</p>
+                <div class="dialog border border-warning">
+                    <h3 class="text-warning"><i class="fa fa-plus text-warning"></i> Add new project</h3>
+                    <hr class="border border-warning">
                     <form method="post" action="index.php" class="">
                         <div class="group">
-                            <select name="type" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <select name="type" class="form-select form-select-sm border border-warning" aria-label=".form-select-sm example">
                                 <option selected>Select type of your project</option>
                                 <option value="programming">Programming</option>
                                 <option value="design">Design</option>
                                 <option value="school">School</option>
                             </select>
                             <br>
-                            <input name="title" type="text" class="form-control form-control-sm" placeholder="Project Title">
+                            <input name="title" type="text" class="form-control form-control-sm border border-warning" placeholder="Project Title">
                             <br>
-                            <textarea name="describe" class="form-control form-control-sm" rows="5" placeholder="Project Describtion"></textarea>
+                            <textarea name="describe" class="form-control form-control-sm border border-warning" rows="5" placeholder="Project Describtion"></textarea>
                             <br>
-                            <input name="skills" type="text" class="form-control form-control-sm" placeholder="Skills. Ex : php python">
+                            <input name="skills" type="text" class="form-control form-control-sm border text-warning border-warning" placeholder="Skills. Ex : php python">
                             <br>
-                            <button name="addjob" class="btn btn-light mbtn btn-sm">Add project</button>
+                            <button name="addjob" class="btn btn-warning text-white btn-sm">Add project</button>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="dialog">
-                    <h3><i class="fa fa-list text-secondary"></i> Projects you shared</h3>
-                    <hr>
+                <h2 class="text-info">List of your jobs</h2>
+                <p class="text-info">It you had shared jobs already, here is the list of them. Click on title to show review</p>
+                <div class="dialog border border-info">
+                    <h3 class="text-info"><i class="fa fa-list text-info"></i> Projects you shared</h3>
+                    <hr class="border border-info">
                     <?php
                     $select_jobs = "SELECT * FROM jobs WHERE user = $id ORDER BY row DESC";
                     $result_jobs = mysqli_query($connection, $select_jobs);
                     if (mysqli_num_rows($result_jobs) > 0) {
                         while ($job_row = mysqli_fetch_assoc($result_jobs)) {
                             ?>
-                            <p class="text-secondary">
+                            <p class="text-info">
                                 <?php
                                     $jobid = $job_row['jobid'];
                                     $jobtitle = $job_row['title'];
@@ -324,64 +338,69 @@ if ($row['status'] == 'not') {
                         }
                     }
                     else {
-                        echo "<p class='text-secondary'>No projects yet</p>";
+                        echo "<p class='text-info'>No projects yet</p>";
                     }
                     ?>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="dialog">
-                    <h3><i class="fa fa-eye text-secondary"></i> Review project</h3>
-                    <hr>
+                <h2 class="text-secondary">Review the job</h2>
+                <p class="text-secondary">It you had selected a job, it with be review here</p>
+                <div class="dialog border border-secondary">
+                    <h3 class="text-secondary"><i class="fa fa-eye text-secondary"></i> Review project</h3>
+                    <hr class="border border-secondary">
                     <?php include("review.php"); ?>
                 </div>
             </div>
         </div>
         <br>
+        <br>
         <div class="row">
             <div class="col-md-5">
-                <div class="dialog">
-                    <h3><i class="fa fa-cog text-secondary"></i> Settings</h3>
-                    <hr>
+                <h2 class="text-dark">Account Setting</h2>
+                <p class="text-dark">Yed, here is your account setting. Change phone or email or password</p>
+                <div class="dialog border border-dark">
+                    <h3 class="text-dark"><i class="fa fa-cog text-dark"></i> Settings</h3>
+                    <hr class="border border-dark">
                     <form method="post" action="index.php" class="">
 <!--                        <label for="formFileSm" class="form-label">Update profile picture</label>-->
 <!--                        <input class="form-control form-control-sm" id="formFileSm" type="file">-->
 <!--                        <hr>-->
                         <div class="group">
-                            <i class="fa fa-phone text-secondary"></i>
+                            <i class="fa fa-phone text-dark"></i>
                             &nbsp;
-                            <input name="phone" placeholder="Phome" class="form-control-sm inp">
+                            <input name="phone" placeholder="Phone" class="form-control-sm border border-dark">
                             &nbsp;
-                            <button name="updatephone" class="btn btn-light mbtn btn-sm">Change Phone</button>
+                            <button name="updatephone" class="btn btn-dark btn-sm">Change Phone</button>
                         </div>
                         <br>
                         <div class="group">
-                            <i class="fa fa-envelope text-secondary"></i>
+                            <i class="fa fa-envelope text-dark"></i>
                             &nbsp;
-                            <input name="email" placeholder="Email" class="form-control-sm inp">
+                            <input name="email" placeholder="Email" class="form-control-sm border border-dark">
                             &nbsp;
-                            <button name="updatemail" class="btn btn-light mbtn btn-sm">Change Email</button>
+                            <button name="updatemail" class="btn btn-dark btn-sm">Change Email</button>
                         </div>
-                        <hr>
+                        <hr class="border border-dark">
                         <div class="form-group">
-                            <p><i class="fa fa-key text-secondary"></i> Update Password</p>
-                            <input name="password" type="password" class="inp form-control-sm form-control" placeholder="Current password">
+                            <p><i class="fa fa-key text-dark"></i> Update Password</p>
+                            <input name="password" type="password" class="border border-dark form-control-sm form-control" placeholder="Current password">
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input name="newpassword" type="password" class="form-control form-control-sm" placeholder="New Password">
+                                    <input name="newpassword" type="password" class="form-control border border-dark form-control-sm" placeholder="New Password">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input name="confirmpassword" type="password" class="form-control form-control-sm" placeholder="Confirm Password">
+                                    <input name="confirmpassword" type="password" class="form-control border border-dark form-control-sm" placeholder="Confirm Password">
                                 </div>
                             </div>
                         </div>
                         <br>
-                        <button name="updatepassword" type="submit" class="btn btn-light btn-sm mbtn">Change Password</button>
+                        <button name="updatepassword" type="submit" class="btn btn-dark btn-sm">Change Password</button>
                     </form>
                 </div>
             </div>
