@@ -24,6 +24,7 @@ if (count($job) > 0) {
             <?php
                 if ($job[0]['status'] == 'false') {
                     echo "<p class='text-danger'><b>This job is closed.</b></p>";
+                    echo "<p class='text-danger'>" . $job[0]['closed'] . "</p>";
                 }
                 else {
                     ?>

@@ -342,8 +342,10 @@ if (isset($_GET["close"])) {
 
     $dt = date("M d, Y H:i:s");
 
-    $closequery = "UPDATE jobs SET status = 'false' AND closed = '$dt' WHERE jobid = '$close'";
+    $closequery = "UPDATE jobs SET status = 'false' WHERE jobid = '$close'";
     if (mysqli_query($connection, $closequery)) {
+        $addtime = "UPDATE jobs SET closed = '$dt' WHERE jobid = '$close'";
+        mysqli_query($connection, $addtime);
         ?>
         <script>
             window.alert("Job closed.");
