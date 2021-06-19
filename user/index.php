@@ -1,40 +1,8 @@
 <?php
-session_start();
 
 include('core.php');
 include("../pack/config.php");
-
-$stat = $_SESSION['status'];
-
-if ($stat != true) {
-    ?>
-    <script>
-        window.location.replace("../");
-    </script>
-    <?php
-}
-
-$server = $ip;
-$user = 'narbon';
-$passwd = 'narbon';
-$db = 'jobnic';
-
-$connection = mysqli_connect($server, $user, $passwd, $db);
-
-$id = $_SESSION['id'];
-
-$profile = "SELECT * FROM people WHERE id = '$id'";
-$result = mysqli_query($connection, $profile);
-$row = mysqli_fetch_assoc($result);
-
-if ($row['status'] == 'not') {
-    ?>
-    <script>
-        window.alert("Sorry, Your account should be active.");
-        window.location.replace("../account/pay.php");
-    </script>
-    <?php
-}
+include("includes/head.php");
 
 ?>
 
@@ -87,7 +55,7 @@ if ($row['status'] == 'not') {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="../"><span>Job Nic</a>
+            <a class="navbar-brand" href="../">Job Nic</a>
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" href="../account/logout.php">
@@ -101,8 +69,9 @@ if ($row['status'] == 'not') {
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
     <div class="profile-sidebar primg">
         <div class="profile-usertitle">
-            <div class="profile-usertitle-name">Kir</div>
-            <div class="profile">9014784362</div>
+            <?php
+            include("includes/wel.php");
+            ?>
         </div>
         <div class="clear"></div>
     </div>

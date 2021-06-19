@@ -7,7 +7,7 @@ if (count($job) > 0) {
     else {
         ?>
         <div>
-            <span style="float: right;" class="btn btn-outline-danger btn-sm"><?php echo $job[0]['type']; ?></span>
+            <span style="float: right;" class="btn btn-info btn-sm"><?php echo $job[0]['type']; ?></span>
             <p><b><?php echo $job[0]['title']; ?></b></p>
             <br>
             <p><?php echo $job[0]['describe']; ?></p>
@@ -16,7 +16,7 @@ if (count($job) > 0) {
             $skills = explode(" ", $job[0]['skills']);
 
             foreach ($skills as $skill) {
-                echo "<p class='btn btn-outline-secondary btn-sm'>$skill</p>&nbsp;";
+                echo "<p class='btn btn-success btn-sm'>$skill</p>&nbsp;";
             }
             ?>
             <br>
@@ -27,7 +27,7 @@ if (count($job) > 0) {
                 }
                 else {
                     ?>
-                    <a class="btn btn-danger btn-sm" href="index.php?close=<?php echo $job['0']['jobid']; ?>">Close Job</a>
+                    <a class="btn btn-danger btn-sm" href="projects.php?close=<?php echo $job['0']['jobid']; ?>">Close Job</a>
                     <?php
                 }
             ?>

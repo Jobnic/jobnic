@@ -1,40 +1,8 @@
 <?php
-session_start();
 
 include('core.php');
 include("../pack/config.php");
-
-$stat = $_SESSION['status'];
-
-if ($stat != true) {
-    ?>
-    <script>
-        window.location.replace("../");
-    </script>
-    <?php
-}
-
-$server = $ip;
-$user = 'narbon';
-$passwd = 'narbon';
-$db = 'jobnic';
-
-$connection = mysqli_connect($server, $user, $passwd, $db);
-
-$id = $_SESSION['id'];
-
-$profile = "SELECT * FROM people WHERE id = '$id'";
-$result = mysqli_query($connection, $profile);
-$row = mysqli_fetch_assoc($result);
-
-if ($row['status'] == 'not') {
-    ?>
-    <script>
-        window.alert("Sorry, Your account should be active.");
-        window.location.replace("../account/pay.php");
-    </script>
-    <?php
-}
+include("includes/head.php");
 
 ?>
 
@@ -101,8 +69,9 @@ if ($row['status'] == 'not') {
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
     <div class="profile-sidebar">
         <div class="profile-usertitle">
-            <div class="profile-usertitle-name"><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></div>
-            <div class="profile"><?php echo $row['phone']; ?></div>
+            <?php
+            include("includes/wel.php");
+            ?>
         </div>
         <div class="clear"></div>
     </div>
@@ -219,7 +188,7 @@ if ($row['status'] == 'not') {
                 </div>
                 <div class="panel-body">
                     <?php
-                    include("review.php");
+                    include("includes/review.php");
                     ?>
                 </div>
             </div>
