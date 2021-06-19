@@ -32,6 +32,7 @@ CREATE TABLE `jobs`
     `skills`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `datetime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `closed`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `price`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `status`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`row`)
 );
