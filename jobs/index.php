@@ -114,6 +114,9 @@ $connection = mysqli_connect($server, $user, $passwd, $db);
                                 <p class="text-dark"><b><a class="link text-dark" href="job.php?jobid=<?php echo $job_row['jobid']; ?>"><?php echo $job_row['title']; ?></a></b></p>
                                 <hr>
                                 <p><?php echo $job_row['describe']; ?></p>
+                                <small><?php echo $job_row['price']; ?></small>
+                                <br>
+                                <br>
                                 <?php
                                 $skills = explode(" ", $job_row['skills']);
 
