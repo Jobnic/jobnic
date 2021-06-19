@@ -41,9 +41,10 @@ if (isset($_POST['create'])) {
     $confirm = mysqli_real_escape_string($connection, $_POST['confirm']);
 
     $id = rand(111111, 999999);
+    $join = date("M d, Y H:i:s");
 
     if ($password == $confirm) {
-        $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`, `status`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password', 'payed')";
+        $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`, `join`, `status`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password', '$join', 'payed')";
         if (mysqli_query($connection, $create)) {
             $_SESSION['status'] = true;
             $_SESSION['id'] = $id;
