@@ -98,13 +98,16 @@ if ($row['status'] == 'not') {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../jobs"><i class="fa fa-list"></i> Jobs</a>
+                        <a class="nav-link active" aria-current="page" href="../jobs"><i class="fa fa-list"></i>
+                            Jobs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../us/about.php"><i class="fa fa-info"></i> About Us</a>
+                        <a class="nav-link active" aria-current="page" href="../us/about.php"><i class="fa fa-info"></i>
+                            About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../us/contact.php"><i class="fa fa-phone"></i> Contact Us</a>
+                        <a class="nav-link active" aria-current="page" href="../us/contact.php"><i
+                                    class="fa fa-phone"></i> Contact Us</a>
                     </li>
                 </ul>
                 <div class="navbar-nav">
@@ -122,7 +125,9 @@ if ($row['status'] == 'not') {
                 <div class="dialog border border-success">
                     <h3 class="text-success"><i class="fa fa-id-card text-success"></i> Profile Review</h3>
                     <hr class="border border-success">
-                    <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b> <span style="float: right;" class="btn btn-sm btn-outline-success"><?php echo $row["id"]; ?></span></p>
+                    <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b> <span style="float: right;"
+                                                                                                   class="btn btn-sm btn-outline-success"><?php echo $row["id"]; ?></span>
+                    </p>
                     <p><?php echo $row['bio']; ?></p>
                     <hr class="border border-success">
                     <?php
@@ -130,7 +135,7 @@ if ($row['status'] == 'not') {
                         ?>
                         <p>
                         <?php
-                        $colors = array("primary", 'danger', 'warning', 'info','success', 'dark', 'secondary');
+                        $colors = array("primary", 'danger', 'warning', 'info', 'success', 'dark', 'secondary');
 
                         $dbskills = $row['skills'];
                         $all = explode(" ", $dbskills);
@@ -143,11 +148,13 @@ if ($row['status'] == 'not') {
 
                             ?>
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped bg-success text-white progress-bar-animated" role="progressbar" aria-valuenow="<?php echo $each[1]; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $each[1]; ?>%;">
+                                <div class="progress-bar progress-bar-striped bg-success text-white progress-bar-animated"
+                                     role="progressbar" aria-valuenow="<?php echo $each[1]; ?>" aria-valuemin="0"
+                                     aria-valuemax="100" style="width: <?php echo $each[1]; ?>%;">
                                 </div>
                             </div>
                             <span class="text-success" style="font-size: 10px;"><?php echo $each[0] . " " . $each[1]; ?> %</span>
-                            <a href="index.php?skill=<?php echo $each[0]; ?>">
+                            <a href="index.php?delete=skill">
                                 <span style="float: right;" class="text-danger"><i class="fa fa-trash-o"></i></span>
                             </a>
                             <hr class="border border-success">
@@ -159,8 +166,8 @@ if ($row['status'] == 'not') {
                     }
                     ?>
                     <p>
-                        <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row['phone']; ?></p>
-                        <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row['email']; ?></p>
+                    <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row['phone']; ?></p>
+                    <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row['email']; ?></p>
                     </p>
                     <p>
                         <?php
@@ -212,8 +219,10 @@ if ($row['status'] == 'not') {
                     <hr class="border border-danger">
                     <form method="post" action="index.php" class="">
                         <div class="group">
-                            <p class="text-danger"><i class="fa fa-info text-danger"></i> Add a bio, Describe your self</p>
-                            <textarea name="bio" class="form-control form-control-sm border border-danger" rows="5" placeholder="Bio"></textarea>
+                            <p class="text-danger"><i class="fa fa-info text-danger"></i> Add a bio, Describe your self
+                            </p>
+                            <textarea name="bio" class="form-control form-control-sm border border-danger" rows="5"
+                                      placeholder="Bio"></textarea>
                             <br>
                             <button name="updatebio" class="btn btn-danger btn-sm">Update Bio</button>
                         </div>
@@ -221,9 +230,12 @@ if ($row['status'] == 'not') {
                     <hr class="border border-danger">
                     <p class="text-danger"><i class="fa fa-cogs text-danger"></i> Add skills or languages</p>
                     <form method="post" action="index.php" class="">
-                        <input type="text" name="skillname" class="form-control form-control-sm border border-danger" placeholder="Skill Name. Ex : Python">
+                        <input type="text" name="skillname" class="form-control form-control-sm border border-danger"
+                               placeholder="Skill Name. Ex : Python">
                         <br>
-                        <input type="number" name="skillper" max="100" class="form-control form-control-sm border border-danger" placeholder="How Much. Ex : 75">
+                        <input type="number" name="skillper" max="100"
+                               class="form-control form-control-sm border border-danger"
+                               placeholder="How Much. Ex : 75">
                         <br>
                         <button type="submit" name="updateskill" class="btn btn-danger btn-sm">Add</button>
                     </form>
@@ -282,26 +294,32 @@ if ($row['status'] == 'not') {
         <br>
         <br>
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <h2 class="text-warning">New Project</h2>
-                <p class="text-warning">I think you have a project that you cant solve. So, put it here and wait for someone</p>
+                <p class="text-warning">I think you have a project that you cant solve. So, put it here and wait for
+                    someone</p>
                 <div class="dialog border border-warning">
                     <h3 class="text-warning"><i class="fa fa-plus text-warning"></i> Add new project</h3>
                     <hr class="border border-warning">
                     <form method="post" action="index.php" class="">
                         <div class="group">
-                            <select name="type" class="form-select form-select-sm border border-warning" aria-label=".form-select-sm example">
+                            <select name="type" class="form-select form-select-sm border border-warning"
+                                    aria-label=".form-select-sm example">
                                 <option selected>Select type of your project</option>
                                 <option value="programming">Programming</option>
                                 <option value="design">Design</option>
                                 <option value="school">School</option>
                             </select>
                             <br>
-                            <input name="title" type="text" class="form-control form-control-sm border border-warning" placeholder="Project Title">
+                            <input name="title" type="text" class="form-control form-control-sm border border-warning"
+                                   placeholder="Project Title">
                             <br>
-                            <textarea name="describe" class="form-control form-control-sm border border-warning" rows="5" placeholder="Project Describtion"></textarea>
+                            <textarea name="describe" class="form-control form-control-sm border border-warning"
+                                      rows="5" placeholder="Project Describtion"></textarea>
                             <br>
-                            <input name="skills" type="text" class="form-control form-control-sm border text-warning border-warning" placeholder="Skills. Ex : php python">
+                            <input name="skills" type="text"
+                                   class="form-control form-control-sm border text-warning border-warning"
+                                   placeholder="Skills. Ex : php python">
                             <br>
                             <button name="addjob" class="btn btn-warning text-white btn-sm">Add project</button>
                         </div>
@@ -314,7 +332,8 @@ if ($row['status'] == 'not') {
         <div class="row">
             <div class="col-md-5">
                 <h2 class="text-info">List of your jobs</h2>
-                <p class="text-info">It you had shared jobs already, here is the list of them. Click on title to show review</p>
+                <p class="text-info">It you had shared jobs already, here is the list of them. Click on title to show
+                    review</p>
                 <div class="dialog border border-info">
                     <h3 class="text-info"><i class="fa fa-list text-info"></i> Projects you shared</h3>
                     <hr class="border border-info">
@@ -326,22 +345,20 @@ if ($row['status'] == 'not') {
                             ?>
                             <p class="text-info">
                                 <?php
-                                    $jobid = $job_row['jobid'];
-                                    $jobtitle = $job_row['title'];
-                                    echo "<a class='link text-info' href='index.php?jobid=$jobid'>$jobtitle</a>";
-                                    if ($job_row['status'] == 'true') {
-                                        echo "<span style='float: right;' class='text-success'>Open</span>";
-                                    }
-                                    else {
-                                        echo "<span style='float: right;' class='text-danger'>Close</span>";
-                                    }
+                                $jobid = $job_row['jobid'];
+                                $jobtitle = $job_row['title'];
+                                echo "<a class='link text-info' href='index.php?jobid=$jobid'>$jobtitle</a>";
+                                if ($job_row['status'] == 'true') {
+                                    echo "<span style='float: right;' class='text-success'>Open</span>";
+                                } else {
+                                    echo "<span style='float: right;' class='text-danger'>Close</span>";
+                                }
                                 ?>
                             </p>
                             <hr class="border border-info">
                             <?php
                         }
-                    }
-                    else {
+                    } else {
                         echo "<p class='text-info'>No projects yet</p>";
                     }
                     ?>
@@ -367,39 +384,47 @@ if ($row['status'] == 'not') {
                     <h3 class="text-dark"><i class="fa fa-cog text-dark"></i> Settings</h3>
                     <hr class="border border-dark">
                     <form method="post" action="index.php" class="">
-<!--                        <label for="formFileSm" class="form-label">Update profile picture</label>-->
-<!--                        <input class="form-control form-control-sm" id="formFileSm" type="file">-->
-<!--                        <hr>-->
-                        <div class="group">
-                            <i class="fa fa-phone text-dark"></i>
-                            &nbsp;
-                            <input name="phone" placeholder="Phone" class="form-control-sm border border-dark">
-                            &nbsp;
-                            <button style="float: right;" name="updatephone" class="btn btn-dark btn-sm">Change Phone</button>
+                        <!--                        <label for="formFileSm" class="form-label">Update profile picture</label>-->
+                        <!--                        <input class="form-control form-control-sm" id="formFileSm" type="file">-->
+                        <!--                        <hr>-->
+                        <div class="form-group">
+                            <p><i class="fa fa-phone text-dark"></i> Change Phone</p>
+                            <input name="phone" type="text"
+                                   class="border border-dark form-control-sm form-control"
+                                   placeholder="Phone">
+                            <br>
+                            <button class="btn btn-sm btn-dark" name="updatephone">Change Phone</button>
                         </div>
                         <br>
-                        <div class="group">
-                            <i class="fa fa-envelope text-dark"></i>
-                            &nbsp;
-                            <input name="email" placeholder="Email" class="form-control-sm border border-dark">
-                            &nbsp;
-                            <button style="float: right;" name="updatemail" class="btn btn-dark btn-sm">Change Email</button>
+                        <div class="form-group">
+                            <p><i class="fa fa-envelope text-dark"></i> Change Email</p>
+                            <input name="email" type="text"
+                                   class="border border-dark form-control-sm form-control"
+                                   placeholder="Email">
+                            <br>
+                            <button class="btn btn-sm btn-dark" name="updatemain">Change Email</button>
                         </div>
                         <hr class="border border-dark">
                         <div class="form-group">
-                            <p><i class="fa fa-key text-dark"></i> Update Password</p>
-                            <input name="password" type="password" class="border border-dark form-control-sm form-control" placeholder="Current password">
+                            <p><i class="fa fa-key text-dark"></i> Change Password</p>
+                            <input name="password" type="password"
+                                   class="border border-dark form-control-sm form-control"
+                                   placeholder="Current password">
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input name="newpassword" type="password" class="form-control border border-dark form-control-sm" placeholder="New Password">
+                                    <input name="newpassword" type="password"
+                                           class="form-control border border-dark form-control-sm"
+                                           placeholder="New Password">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input name="confirmpassword" type="password" class="form-control border border-dark form-control-sm" placeholder="Confirm Password">
+                                    <input name="confirmpassword" type="password"
+                                           class="form-control border border-dark form-control-sm"
+                                           placeholder="Confirm Password">
                                 </div>
                             </div>
                         </div>
