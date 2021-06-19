@@ -282,7 +282,7 @@ if ($row['status'] == 'not') {
         <br>
         <br>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <h2 class="text-warning">New Project</h2>
                 <p class="text-warning">I think you have a project that you cant solve. So, put it here and wait for someone</p>
                 <div class="dialog border border-warning">
@@ -308,7 +308,11 @@ if ($row['status'] == 'not') {
                     </form>
                 </div>
             </div>
-            <div class="col-md-4">
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-5">
                 <h2 class="text-info">List of your jobs</h2>
                 <p class="text-info">It you had shared jobs already, here is the list of them. Click on title to show review</p>
                 <div class="dialog border border-info">
@@ -324,7 +328,7 @@ if ($row['status'] == 'not') {
                                 <?php
                                     $jobid = $job_row['jobid'];
                                     $jobtitle = $job_row['title'];
-                                    echo "<a class='link' href='index.php?jobid=$jobid'>$jobtitle</a>";
+                                    echo "<a class='link text-info' href='index.php?jobid=$jobid'>$jobtitle</a>";
                                     if ($job_row['status'] == 'true') {
                                         echo "<span style='float: right;' class='text-success'>Open</span>";
                                     }
@@ -333,7 +337,7 @@ if ($row['status'] == 'not') {
                                     }
                                 ?>
                             </p>
-                            <hr>
+                            <hr class="border border-info">
                             <?php
                         }
                     }
@@ -343,7 +347,7 @@ if ($row['status'] == 'not') {
                     ?>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-7">
                 <h2 class="text-secondary">Review the job</h2>
                 <p class="text-secondary">It you had selected a job, it with be review here</p>
                 <div class="dialog border border-secondary">
@@ -356,7 +360,7 @@ if ($row['status'] == 'not') {
         <br>
         <br>
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <h2 class="text-dark">Account Setting</h2>
                 <p class="text-dark">Yed, here is your account setting. Change phone or email or password</p>
                 <div class="dialog border border-dark">
@@ -371,7 +375,7 @@ if ($row['status'] == 'not') {
                             &nbsp;
                             <input name="phone" placeholder="Phone" class="form-control-sm border border-dark">
                             &nbsp;
-                            <button name="updatephone" class="btn btn-dark btn-sm">Change Phone</button>
+                            <button style="float: right;" name="updatephone" class="btn btn-dark btn-sm">Change Phone</button>
                         </div>
                         <br>
                         <div class="group">
@@ -379,7 +383,7 @@ if ($row['status'] == 'not') {
                             &nbsp;
                             <input name="email" placeholder="Email" class="form-control-sm border border-dark">
                             &nbsp;
-                            <button name="updatemail" class="btn btn-dark btn-sm">Change Email</button>
+                            <button style="float: right;" name="updatemail" class="btn btn-dark btn-sm">Change Email</button>
                         </div>
                         <hr class="border border-dark">
                         <div class="form-group">
