@@ -349,3 +349,24 @@ if (isset($_GET["close"])) {
         <?php
     }
 }
+
+if (isset($_GET['delete'])) {
+    $delete = "UPDATE people SET skills = NULL WHERE id = '$id'";
+
+    if (mysqli_query($connection, $delete)) {
+        ?>
+        <script>
+            window.alert("Skills deleted");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+    else {
+        ?>
+        <script>
+            window.alert("<?php echo mysqli_error($connection); ?>");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
