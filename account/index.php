@@ -87,11 +87,11 @@ include('core.php');
             <div class="col-md-7">
                 <nav class="" style="border-bottom: none;">
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <button class="nav-link active" style="color: black;" id="nav-signup-tab" data-bs-toggle="tab"
+                        <button class="nav-link active text-success" style="color: black;" id="nav-signup-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-signup"
                                 type="button" role="tab" aria-controls="nav-signup" aria-selected="true">Sign Up
                         </button>
-                        <button class="nav-link" style="color: black;" id="nav-login-tab" data-bs-toggle="tab"
+                        <button class="nav-link text-primary" style="color: black;" id="nav-login-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-login"
                                 type="button" role="tab" aria-controls="nav-login" aria-selected="false">Sign In
                         </button>
@@ -99,18 +99,18 @@ include('core.php');
                 </nav>
                 <div class="tab-content tabs" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-signup" role="tabpanel" aria-labelledby="nav-signup-tab">
-                        <h3>Create a new account</h3>
-                        <hr>
+                        <h3 class="text-success">Create a new account</h3>
+                        <hr class="border border-success">
                         <form action="index.php" method="post">
                             <div class="row">
                                 <div class="col">
                                     <div class="">
-                                        <input name="firstname" type="text" class="form-control" id="lbl" placeholder="First Name">
+                                        <input name="firstname" type="text" class="form-control border border-success" id="lbl" placeholder="First Name">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="">
-                                        <input name="lastname" type="text" class="form-control" id="lbl" placeholder="Last Name">
+                                        <input name="lastname" type="text" class="form-control border border-success" id="lbl" placeholder="Last Name">
                                     </div>
                                 </div>
                             </div>
@@ -118,12 +118,12 @@ include('core.php');
                             <div class="row">
                                 <div class="col">
                                     <div class="">
-                                        <input name="phone" type="text" class="form-control" id="lbl" placeholder="Phone. Ex: 9014784362">
+                                        <input name="phone" type="text" class="form-control border border-success" id="lbl" placeholder="Phone. Ex: 9014784362">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="">
-                                        <input name="email" type="email" class="form-control" id="lbl" placeholder="Email">
+                                        <input name="email" type="email" class="form-control border border-success" id="lbl" placeholder="Email">
                                     </div>
                                 </div>
                             </div>
@@ -131,32 +131,32 @@ include('core.php');
                             <div class="row">
                                 <div class="col">
                                     <div class="">
-                                        <input name="password" type="password" class="form-control" id="lbl" placeholder="Password">
+                                        <input name="password" type="password" class="form-control border border-success" id="lbl" placeholder="Password">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="">
-                                        <input name="confirm" type="password" class="form-control" id="lbl" placeholder="Confirm Password">
+                                        <input name="confirm" type="password" class="form-control border border-success" id="lbl" placeholder="Confirm Password">
                                     </div>
                                 </div>
                             </div>
                             <br>
-                            <button name="create" class="btn btn-light mbtn" type="submit">Create</button>
+                            <button name="create" class="btn btn-success" type="submit">Create</button>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
-                        <h3>Login to your account</h3>
-                        <hr>
+                        <h3 class="text-primary">Login to your account</h3>
+                        <hr class="border border-primary">
                         <form action="index.php" method="post">
                             <div class="">
-                                <input name="mail" type="email" class="form-control" placeholder="name@example.com">
+                                <input name="mail" type="email" class="form-control border border-primary" placeholder="name@example.com">
                             </div>
                             <br>
                             <div class="">
-                                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                <input name="password" type="password" class="form-control border border-primary" id="floatingPassword" placeholder="Password">
                             </div>
                             <br>
-                            <button name="login" class="btn btn-light mbtn" type="submit">Login</button>
+                            <button name="login" class="btn btn-primary" type="submit">Login</button>
                         </form>
                     </div>
                 </div>
