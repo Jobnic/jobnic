@@ -34,15 +34,7 @@ include('core.php');
         }
 
         .tips {
-            border: solid 1px #d3d3d3;
             padding: 5%;
-        }
-
-        .mbtn {
-            border: solid 1px #d3d3d3;
-        }
-        .mbtn:hover {
-            border: solid 1px #d3d3d3;
         }
     </style>
 </head>
@@ -75,14 +67,19 @@ include('core.php');
         <br>
         <div class="row">
             <div class="col-md-5">
-                <div class="tips">
-                    <h3>Why Use Job Nic?</h3>
-                    <hr>
+                <div class="tips border border-warning">
+                    <h3 class="text-warning">Why Use Job Nic?</h3>
+                    <hr class="border border-warning">
                     <p><b>First thing first</b> It is Free !</p>
                     <p><b>First thing first</b> It is Free !</p>
                     <p><b>First thing first</b> It is Free !</p>
                 </div>
                 <br>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <p><strong>Oh GOD! Watch error!</strong></p>
+                    <p>Error one</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             </div>
             <div class="col-md-7">
                 <nav class="" style="border-bottom: none;">
