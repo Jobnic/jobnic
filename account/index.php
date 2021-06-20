@@ -148,13 +148,12 @@ include('core.php');
                         <h3>Login to your account</h3>
                         <hr>
                         <form action="index.php" method="post">
-                            <div class="form-floating mb-3">
-                                <input name="mail" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                <label for="floatingInput">Email address</label>
+                            <div class="">
+                                <input name="mail" type="email" class="form-control" placeholder="name@example.com">
                             </div>
-                            <div class="form-floating">
+                            <br>
+                            <div class="">
                                 <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                                <label for="floatingPassword">Password</label>
                             </div>
                             <br>
                             <button name="login" class="btn btn-light mbtn" type="submit">Login</button>
