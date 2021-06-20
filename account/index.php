@@ -75,11 +75,21 @@ include('core.php');
                     <p><b>First thing first</b> It is Free !</p>
                 </div>
                 <br>
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <p><strong>Oh GOD! Watch error!</strong></p>
-                    <p>Error one</p>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+                <?php
+                if (count($errors) > 0) {
+                    ?>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <p><strong>Oh GOD! Watch error!</strong></p>
+                        <?php
+                        foreach ($errors as $error) {
+                            echo "<p>" . $error . "</p>";
+                        }
+                        ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
             <div class="col-md-7">
                 <nav class="" style="border-bottom: none;">
