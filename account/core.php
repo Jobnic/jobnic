@@ -11,6 +11,8 @@ $db = 'jobnic';
 
 $connection = mysqli_connect($server, $user, $passwd, $db);
 
+$errors = array();
+
 if (isset($_POST['login'])) {
     $mail = mysqli_real_escape_string($connection, $_POST['mail']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
@@ -40,28 +42,48 @@ if (isset($_POST['create'])) {
     $password = mysqli_real_escape_string($connection, $_POST['password']);
     $confirm = mysqli_real_escape_string($connection, $_POST['confirm']);
 
-    $id = rand(111111, 999999);
-    $join = date("M d, Y H:i:s");
+    if (empty($fname)) {
+        array_push($errors, "First name is required");
+    }
+    if (empty($lname)) {
+        array_push($errors, "Last name is required");
+    }
+    if (empty($phone)) {
+        array_push($errors, "Phone is required");
+    }
+    if (empty($email)) {
+        array_push($errors, "Email is required");
+    }
+    if (empty($password)) {
+        array_push($errors, "Password is required");
+    }
+    if (empty($confirm)) {
+        array_push($errors, "Confirm Password is required");
+    }
 
     if ($password == $confirm) {
-        $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`, `join`, `status`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password', '$join', 'payed')";
-        if (mysqli_query($connection, $create)) {
-            $_SESSION['status'] = true;
-            $_SESSION['id'] = $id;
-            ?>
+        if (count($errors) < 0) {
+            $id = rand(111111, 999999);
+            $join = date("M d, Y H:i:s");
+
+            $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`, `join`, `status`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password', '$join', 'payed')";
+            if (mysqli_query($connection, $create)) {
+                $_SESSION['status'] = true;
+                $_SESSION['id'] = $id;
+                ?>
                 <script>
                     window.alert("Created.");
                     window.location.replace("../user");
                 </script>
-            <?php
+                <?php
+            }
+            else {
+                array_push($errors, mysqli_error($connection));
+            }
         }
-        else {
-            ?>
-            <script>
-                window.alert("<?php echo mysqli_error($connection); ?>");
-            </script>
-            <?php
-        }
+    }
+    else {
+        array_push($errors, "Password don't match");
     }
 
 }
