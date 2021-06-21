@@ -113,7 +113,7 @@ if (isset($_POST['updateinstagram'])) {
         array_push($errors, "Instagram id is required");
     }
 
-    if (count($errors) == 1) {
+    if (count($errors) == 0) {
         $updatesocial = "UPDATE people SET instagram = '$social' WHERE id = '$id'";
 
         if (mysqli_query($connection, $updatesocial)) {
@@ -137,7 +137,7 @@ if (isset($_POST['updatetelegram'])) {
         array_push($errors, "Telegram id is required");
     }
 
-    if (count($errors) == 1) {
+    if (count($errors) == 0) {
         $updatesocial = "UPDATE people SET telegram = '$social' WHERE id = '$id'";
 
         if (mysqli_query($connection, $updatesocial)) {
@@ -161,7 +161,7 @@ if (isset($_POST['updategithub'])) {
         array_push($errors, "Github id is required");
     }
 
-    if (count($errors) == 1) {
+    if (count($errors) == 0) {
         $updatesocial = "UPDATE people SET github = '$social' WHERE id = '$id'";
 
         if (mysqli_query($connection, $updatesocial)) {
@@ -185,7 +185,7 @@ if (isset($_POST['updatetwitter'])) {
         array_push($errors, "Twitter id is required");
     }
 
-    if (count($errors) == 1) {
+    if (count($errors) == 0) {
         $updatesocial = "UPDATE people SET twitter = '$social' WHERE id = '$id'";
 
         if (mysqli_query($connection, $updatesocial)) {
@@ -209,7 +209,7 @@ if (isset($_POST['updatephone'])) {
         array_push($errors, "Phone is required");
     }
 
-    if (count($errors) == 1) {
+    if (count($errors) == 0) {
         $updatephone = "UPDATE people SET phone = '$phone' WHERE id = '$id'";
 
         if (mysqli_query($connection, $updatephone)) {
@@ -233,7 +233,7 @@ if (isset($_POST['updatemail'])) {
         array_push($errors, "Mail id is required");
     }
 
-    if (count($errors) == 1) {
+    if (count($errors) == 0) {
         $updatemail = "UPDATE people SET email = '$email' WHERE id = '$id'";
 
         if (mysqli_query($connection, $updatemail)) {
@@ -365,12 +365,7 @@ if (isset($_GET["close"])) {
         <?php
     }
     else {
-        ?>
-        <script>
-            window.alert("<?php echo mysqli_error($connection); ?>");
-            window.location.replace(".");
-        </script>
-        <?php
+        array_push($errors, mysqli_error($connection));
     }
 }
 
@@ -386,11 +381,6 @@ if (isset($_GET['delete'])) {
         <?php
     }
     else {
-        ?>
-        <script>
-            window.alert("<?php echo mysqli_error($connection); ?>");
-            window.location.replace(".");
-        </script>
-        <?php
+        array_push($errors, mysqli_error($connection));
     }
 }
