@@ -89,7 +89,10 @@ $userid = $_GET['userid'];
                     <div class="dialog border border-success">
                         <h3 class="text-success"><i class="fa fa-info text-success"></i> About</h3>
                         <hr class="border border-success">
-                        <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b></p>
+                        <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b>
+                            &nbsp;
+                            <span style="" class="btn btn-sm btn-outline-dark"><i class="fa fa-star"></i> <?php echo $row["starts"]; ?></span>
+                        </p>
                         <p><?php echo $row['bio']; ?></p>
                         <p><small>Joined <?php echo $row['join']; ?></small></p>
                         <hr class="border border-success">
