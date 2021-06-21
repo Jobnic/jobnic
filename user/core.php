@@ -211,7 +211,7 @@ if (isset($_POST['updatephone'])) {
 
     if (count($errors) == 1) {
         $updatephone = "UPDATE people SET phone = '$phone' WHERE id = '$id'";
-        
+
         if (mysqli_query($connection, $updatephone)) {
             ?>
             <script>
@@ -257,43 +257,40 @@ if (isset($_POST['updatepassword'])) {
     $newpassword = mysqli_real_escape_string($connection, $_POST['newpassword']);
     $confirmpassword = mysqli_real_escape_string($connection, $_POST['confirmpassword']);
 
-    if ($oldpassword == $currentpass) {
-        if ($newpassword == $confirmpassword) {
-            $updatepassword = "UPDATE people SET password = '$newpassword'";
+    if (empty($oldpassword)) {
+        array_push($errors, "Current password is required");
+    }
+    if (empty($newpassword)) {
+        array_push($errors, "New password is required");
+    }
+    if (empty($confirmpassword)) {
+        array_push($errors, "Confirm new password is required");
+    }
 
-            if (mysqli_query($connection, $updatepassword)) {
-                ?>
-                <script>
-                    window.alert("Password changed.");
-                    window.location.replace(".");
-                </script>
-                <?php
+    if (count($errors) == 0) {
+        if ($oldpassword == $currentpass) {
+            if ($newpassword == $confirmpassword) {
+                $updatepassword = "UPDATE people SET password = '$newpassword'";
+
+                if (mysqli_query($connection, $updatepassword)) {
+                    ?>
+                    <script>
+                        window.alert("Password changed.");
+                        window.location.replace(".");
+                    </script>
+                    <?php
+                }
+                else {
+                    array_push($errors, mysqli_error($connection));
+                }
             }
             else {
-                ?>
-                <script>
-                    window.alert("<?php echo mysqli_error($connection); ?>");
-                    window.location.replace(".");
-                </script>
-                <?php
+                array_push($errors, "Password dont match");
             }
         }
         else {
-            ?>
-            <script>
-                window.alert("Password don't match.");
-                window.location.replace(".");
-            </script>
-            <?php
+            array_push($errors, "Current password is wrong");
         }
-    }
-    else {
-        ?>
-        <script>
-            window.alert("Current password is wrong.");
-            window.location.replace(".");
-        </script>
-        <?php
     }
 }
 
