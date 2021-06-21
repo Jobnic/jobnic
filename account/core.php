@@ -17,20 +17,32 @@ if (isset($_POST['login'])) {
     $mail = mysqli_real_escape_string($connection, $_POST['mail']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
 
-    $check = "SELECT * FROM people WHERE email = '$mail' AND password = '$password'";
-    $check_result = mysqli_query($connection, $check);
+    if (empty($mail)) {
+        array_push($errors, "Mail is required");
+    }
+    if (empty($password)) {
+        array_push($errors, "Password is required");
+    }
 
-    if (mysqli_num_rows($check_result) == 1) {
-        $row = mysqli_fetch_assoc($check_result);
+    if (count($errors) == 0) {
+        $check = "SELECT * FROM people WHERE email = '$mail' AND password = '$password'";
+        $check_result = mysqli_query($connection, $check);
 
-        $_SESSION['status'] = true;
-        $_SESSION['id'] = $row['id'];
+        if (mysqli_num_rows($check_result) == 1) {
+            $row = mysqli_fetch_assoc($check_result);
 
-        ?>
+            $_SESSION['status'] = true;
+            $_SESSION['id'] = $row['id'];
+
+            ?>
             <script>
                 window.location.replace("../user");
             </script>
-        <?php
+            <?php
+        }
+        else {
+            array_push($errors, "Mail and password are not match");
+        }
     }
 }
 
@@ -62,7 +74,7 @@ if (isset($_POST['create'])) {
     }
 
     if ($password == $confirm) {
-        if (count($errors) < 0) {
+        if (count($errors) == 0) {
             $id = rand(111111, 999999);
             $join = date("M d, Y H:i:s");
 
