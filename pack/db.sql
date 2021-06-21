@@ -16,6 +16,7 @@ CREATE TABLE `people`
     `telegram`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `skills`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `join`      text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `starts`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `status`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`row`)
 );
@@ -33,6 +34,7 @@ CREATE TABLE `jobs`
     `datetime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `closed`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `price`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `person`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `status`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`row`)
 );
