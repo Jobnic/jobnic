@@ -85,161 +85,168 @@ if (isset($_POST['updatebio'])) {
 if (isset($_POST['updatelinkedin'])) {
     $social = mysqli_real_escape_string($connection, $_POST['linkedin']);
 
-    $updatesocial = "UPDATE people SET linkedin = '$social' WHERE id = '$id'";
-
-    if (mysqli_query($connection, $updatesocial)) {
-        ?>
-        <script>
-            window.alert("Linkedin updated.");
-            window.location.replace(".");
-        </script>
-        <?php
+    if (empty($social)) {
+        array_push($errors, "LinkedIn id is required");
     }
-    else {
-        ?>
-        <script>
-            window.alert("<?php echo mysqli_error($connection); ?>");
-            window.location.replace(".");
-        </script>
-        <?php
+
+    if (count($errors) == 0) {
+        $updatesocial = "UPDATE people SET linkedin = '$social' WHERE id = '$id'";
+
+        if (mysqli_query($connection, $updatesocial)) {
+            ?>
+            <script>
+                window.alert("Linkedin updated.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
     }
 }
 
 if (isset($_POST['updateinstagram'])) {
     $social = mysqli_real_escape_string($connection, $_POST['instagram']);
 
-    $updatesocial = "UPDATE people SET instagram = '$social' WHERE id = '$id'";
-
-    if (mysqli_query($connection, $updatesocial)) {
-        ?>
-        <script>
-            window.alert("Instagram updated.");
-            window.location.replace(".");
-        </script>
-        <?php
+    if (empty($social)) {
+        array_push($errors, "Instagram id is required");
     }
-    else {
-        ?>
-        <script>
-            window.alert("<?php echo mysqli_error($connection); ?>");
-            window.location.replace(".");
-        </script>
-        <?php
+
+    if (count($errors) == 1) {
+        $updatesocial = "UPDATE people SET instagram = '$social' WHERE id = '$id'";
+
+        if (mysqli_query($connection, $updatesocial)) {
+            ?>
+            <script>
+                window.alert("Instagram updated.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
     }
 }
 
 if (isset($_POST['updatetelegram'])) {
     $social = mysqli_real_escape_string($connection, $_POST['telegram']);
 
-    $updatesocial = "UPDATE people SET telegram = '$social' WHERE id = '$id'";
-
-    if (mysqli_query($connection, $updatesocial)) {
-        ?>
-        <script>
-            window.alert("Telegram updated.");
-            window.location.replace(".");
-        </script>
-        <?php
+    if (empty($social)) {
+        array_push($errors, "Telegram id is required");
     }
-    else {
-        ?>
-        <script>
-            window.alert("<?php echo mysqli_error($connection); ?>");
-            window.location.replace(".");
-        </script>
-        <?php
+
+    if (count($errors) == 1) {
+        $updatesocial = "UPDATE people SET telegram = '$social' WHERE id = '$id'";
+
+        if (mysqli_query($connection, $updatesocial)) {
+            ?>
+            <script>
+                window.alert("Telegram updated.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
     }
 }
 
 if (isset($_POST['updategithub'])) {
     $social = mysqli_real_escape_string($connection, $_POST['github']);
 
-    $updatesocial = "UPDATE people SET github = '$social' WHERE id = '$id'";
-
-    if (mysqli_query($connection, $updatesocial)) {
-        ?>
-        <script>
-            window.alert("Github updated.");
-            window.location.replace(".");
-        </script>
-        <?php
+    if (empty($social)) {
+        array_push($errors, "Github id is required");
     }
-    else {
-        ?>
-        <script>
-            window.alert("<?php echo mysqli_error($connection); ?>");
-            window.location.replace(".");
-        </script>
-        <?php
+
+    if (count($errors) == 1) {
+        $updatesocial = "UPDATE people SET github = '$social' WHERE id = '$id'";
+
+        if (mysqli_query($connection, $updatesocial)) {
+            ?>
+            <script>
+                window.alert("Github updated.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
     }
 }
 
 if (isset($_POST['updatetwitter'])) {
     $social = mysqli_real_escape_string($connection, $_POST['twitter']);
 
-    $updatesocial = "UPDATE people SET twitter = '$social' WHERE id = '$id'";
-
-    if (mysqli_query($connection, $updatesocial)) {
-        ?>
-        <script>
-            window.alert("Twitter updated.");
-            window.location.replace(".");
-        </script>
-        <?php
+    if (empty($social)) {
+        array_push($errors, "Twitter id is required");
     }
-    else {
-        ?>
-        <script>
-            window.alert("<?php echo mysqli_error($connection); ?>");
-            window.location.replace(".");
-        </script>
-        <?php
+
+    if (count($errors) == 1) {
+        $updatesocial = "UPDATE people SET twitter = '$social' WHERE id = '$id'";
+
+        if (mysqli_query($connection, $updatesocial)) {
+            ?>
+            <script>
+                window.alert("Twitter updated.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
     }
 }
 
 if (isset($_POST['updatephone'])) {
     $phone = mysqli_real_escape_string($connection, $_POST['phone']);
 
-    $updatephone = "UPDATE people SET phone = '$phone' WHERE id = '$id'";
-
-    if (mysqli_query($connection, $updatephone)) {
-        ?>
-        <script>
-            window.alert("Phone updated.");
-            window.location.replace(".");
-        </script>
-        <?php
+    if (empty($phone)) {
+        array_push($errors, "Phone is required");
     }
-    else {
-        ?>
-        <script>
-            window.alert("<?php echo mysqli_error($connection); ?>");
-            window.location.replace(".");
-        </script>
-        <?php
+
+    if (count($errors) == 1) {
+        $updatephone = "UPDATE people SET phone = '$phone' WHERE id = '$id'";
+        
+        if (mysqli_query($connection, $updatephone)) {
+            ?>
+            <script>
+                window.alert("Phone updated.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
     }
 }
 
 if (isset($_POST['updatemail'])) {
     $email = mysqli_real_escape_string($connection, $_POST['email']);
 
-    $updatemail = "UPDATE people SET email = '$email' WHERE id = '$id'";
-
-    if (mysqli_query($connection, $updatemail)) {
-        ?>
-        <script>
-            window.alert("Email updated.");
-            window.location.replace(".");
-        </script>
-        <?php
+    if (empty($email)) {
+        array_push($errors, "Mail id is required");
     }
-    else {
-        ?>
-        <script>
-            window.alert("<?php echo mysqli_error($connection); ?>");
-            window.location.replace(".");
-        </script>
-        <?php
+
+    if (count($errors) == 1) {
+        $updatemail = "UPDATE people SET email = '$email' WHERE id = '$id'";
+
+        if (mysqli_query($connection, $updatemail)) {
+            ?>
+            <script>
+                window.alert("Email updated.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
     }
 }
 
