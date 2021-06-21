@@ -57,7 +57,6 @@ $jobid = $_GET['jobid'];
         }
 
         .dialog {
-            border: solid 1px #d3d3d3;
             padding: 5%;
         }
 
@@ -69,22 +68,6 @@ $jobid = $_GET['jobid'];
         .link {
             text-decoration: none;
             color: gray;
-        }
-
-        .mbtn {
-            border: solid 1px #d3d3d3;
-        }
-
-        .mbtn:hover {
-            border: solid 1px #d3d3d3;
-        }
-
-        .inp {
-            border: solid 1px #d3d3d3;
-        }
-
-        .inp:hover {
-            border: solid 1px #d3d3d3;
         }
     </style>
 </head>
@@ -117,14 +100,14 @@ $jobid = $_GET['jobid'];
             </div>
         </div>
     </nav>
+    <br>
     <div class="container">
-        <br>
         <div class="row">
             <?php
             if (isset($jobid)) {
                 ?>
                 <div class="col-md-8">
-                    <div class="dialog">
+                    <div class="dialog border border-success">
                         <?php
                         $select_job = "SELECT * FROM jobs WHERE jobid = '$jobid'";
                         $result_job = mysqli_query($connection, $select_job);
@@ -139,39 +122,39 @@ $jobid = $_GET['jobid'];
                         $row_job = mysqli_fetch_assoc($result_job);
                         ?>
                         <span style="float: right;" class="btn btn-outline-danger btn-sm"><?php echo $row_job['type']; ?></span>
-                        <h3><?php echo $row_job['title']; ?></h3>
-                        <hr>
+                        <h3 class="text-success"><?php echo $row_job['title']; ?></h3>
+                        <hr class="border border-success">
                         <p><b><?php echo $row_job['describe']; ?></b></p>
                         <p><?php echo $row_job['datetime']; ?></p>
                         <?php
                         $skills = explode(" ", $row_job['skills']);
 
                         foreach ($skills as $skill) {
-                            echo "<p class='btn btn-outline-secondary btn-sm'>$skill</p>&nbsp;";
+                            echo "<p class='btn btn-outline-info btn-sm'>$skill</p>&nbsp;";
                         }
                         ?>
                     </div>
                     <br>
                 </div>
                 <div class="col-md-4">
-                    <div class="dialog">
+                    <div class="dialog border border-primary">
                         <?php
                         $user = $row_job['user'];
                         $select_user = "SELECT * FROM people WHERE id = '$user'";
                         $result_user = mysqli_query($connection, $select_user);
                         $row_user = mysqli_fetch_assoc($result_user);
                         ?>
-                        <h3><i class="fa fa-info text-secondary"></i> Contact</h3>
-                        <hr>
+                        <h3 class="text-primary"><i class="fa fa-info text-primary"></i> Contact</h3>
+                        <hr class="border border-primary">
                         <p><b><?php echo $row_user['firstname'] . '&nbsp;' . $row_user['lastname']; ?></b></p>
                         <p><?php echo $row_user['bio']; ?></p>
-                        <hr>
+                        <hr class="border border-primary">
                         <p>
                             <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row_user['phone']; ?></p>
                             <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row_user['email']; ?></p>
                         </p>
-                        <hr>
-                        <p><a href="../user/user.php?userid=<?php echo $row_user['id']; ?>" class="link text-dark">View full profile</a></p>
+                        <hr class="border border-primary">
+                        <p><a href="../user/user.php?userid=<?php echo $row_user['id']; ?>" class="link text-primary">View full profile</a></p>
                     </div>
                 </div>
                 <?php
