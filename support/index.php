@@ -18,41 +18,8 @@ $db = 'jobnic';
 
 $connection = mysqli_connect($server, $user, $passwd, $db);
 
-$get_activated = "SELECT * FROM people WHERE status = 'payed'";
-$result_activated = mysqli_query($connection, $get_activated);
-
-$get_deactivated = "SELECT * FROM people WHERE status = 'not'";
-$result_deactivated = mysqli_query($connection, $get_deactivated);
-
-if (isset($_GET["deactivate"])) {
-    $id = $_GET["deactivate"];
-
-    $update = "UPDATE people SET status = 'not' WHERE id = '$id'";
-
-    if (mysqli_query($connection, $update)) {
-        ?>
-        <script>
-            window.alert("User deactivated.");
-            window.location.replace(".");
-        </script>
-        <?php
-    }
-}
-
-if (isset($_GET["activate"])) {
-    $id = $_GET["activate"];
-
-    $update = "UPDATE people SET status = 'payed' WHERE id = '$id'";
-
-    if (mysqli_query($connection, $update)) {
-        ?>
-        <script>
-            window.alert("User activated.");
-            window.location.replace(".");
-        </script>
-        <?php
-    }
-}
+$get = "SELECT * FROM people WHERE";
+$result = mysqli_query($connection, $get);
 
 ?>
 
@@ -69,97 +36,26 @@ if (isset($_GET["activate"])) {
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <style>
         body {
-            padding: 8%;
+            padding: 2%;
         }
 
         .dialog {
-            border: solid 1px #d3d3d3;
             padding: 5%;
-        }
-
-        .icon {
-            padding: 5px;
-            border-radius: 5px;
-        }
-
-        .link {
-            text-decoration: none;
-            color: gray;
-        }
-
-        .mbtn {
-            border: solid 1px #d3d3d3;
-        }
-
-        .mbtn:hover {
-            border: solid 1px #d3d3d3;
-        }
-
-        .inp {
-            border: solid 1px #d3d3d3;
-        }
-
-        .inp:hover {
-            border: solid 1px #d3d3d3;
         }
     </style>
 </head>
 </head>
 <body>
 <div class="">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="../">Job Nic</a>
-        </div>
-    </nav>
     <div class="container">
         <br>
         <div class="row">
             <div class="col-md-12">
-                <div class="dialog">
-                    <p><b>Users (deactivated)</b></p>
-                    <hr>
+                <div class="dialog border border-success">
+                    <p class="text-success"><b>Users</b></p>
+                    <hr class="border border-success">
                     <div class="table-responsive">
-                        <table class="table table-hover text-center table-bordered table-sm">
-                            <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Activate</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            while ($deactivated = mysqli_fetch_assoc($result_deactivated)) {
-                                ?>
-                                <tr>
-                                    <th scope="row"><?php echo $deactivated['id']; ?></th>
-                                    <td><?php echo $deactivated['firstname'] . " " . $deactivated['lastname']; ?></td>
-                                    <td><?php echo $deactivated['phone']; ?></td>
-                                    <td>
-                                        <a href="index.php?activate=<?php echo $deactivated['id']; ?>" class="btn btn-sm btn-success      ">
-                                            Activate
-                                        </a>
-                                    </td>
-                                </tr>
-                                <?php
-                            }
-                            ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <br>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="dialog">
-                    <p><b>Users (activated)</b></p>
-                    <hr>
-                    <div class="table-responsive">
-                        <table class="table table-hover text-center table-bordered table-sm">
+                        <table class="table table-hover text-center table-bordered border-success table-sm">
                             <thead>
                             <tr>
                                 <th scope="col">ID</th>
