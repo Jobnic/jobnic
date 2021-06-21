@@ -53,12 +53,7 @@ if (isset($_POST["updateskill"])) {
             <?php
         }
         else {
-            ?>
-            <script>
-                window.alert("<?php echo mysqli_error($connection); ?>");
-                window.location.replace(".");
-            </script>
-            <?php
+            array_push($errors, mysqli_error($connection));
         }
     }
 }
@@ -66,23 +61,24 @@ if (isset($_POST["updateskill"])) {
 if (isset($_POST['updatebio'])) {
     $bio = mysqli_real_escape_string($connection, $_POST['bio']);
 
-    $update_bio = "UPDATE people SET bio = '$bio' WHERE id = '$id'";
-
-    if (mysqli_query($connection, $update_bio)) {
-        ?>
-        <script>
-            window.alert("Bio updated.");
-            window.location.replace(".");
-        </script>
-        <?php
+    if (empty($bio)) {
+        array_push($errors, "Bio is required");
     }
-    else {
-        ?>
-        <script>
-            window.alert("<?php echo mysqli_error($connection); ?>");
-            window.location.replace(".");
-        </script>
-        <?php
+
+    if (count($errors) == 0) {
+        $update_bio = "UPDATE people SET bio = '$bio' WHERE id = '$id'";
+
+        if (mysqli_query($connection, $update_bio)) {
+            ?>
+            <script>
+                window.alert("Bio updated.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
     }
 }
 
