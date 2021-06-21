@@ -18,7 +18,7 @@ $db = 'jobnic';
 
 $connection = mysqli_connect($server, $user, $passwd, $db);
 
-$get = "SELECT * FROM people WHERE";
+$get = "SELECT * FROM people";
 $result = mysqli_query($connection, $get);
 
 ?>
@@ -59,24 +59,23 @@ $result = mysqli_query($connection, $get);
                             <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Name</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
                                 <th scope="col">Phone</th>
-                                <th scope="col">Deactivate</th>
+                                <th scope="col">Mail</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php
-                            while ($activated = mysqli_fetch_assoc($result_activated)) {
+                            while ($row = mysqli_fetch_assoc($result)) {
                                 ?>
                                 <tr>
-                                    <th scope="row"><?php echo $activated['id']; ?></th>
-                                    <td><?php echo $activated['firstname'] . " " . $activated['lastname']; ?></td>
-                                    <td><?php echo $activated['phone']; ?></td>
-                                    <td>
-                                        <a href="index.php?deactivate=<?php echo $activated['id']; ?>" class="btn btn-sm btn-danger">
-                                            Deactivate
-                                        </a>
-                                    </td>
+                                    <th scope="row"><?php echo $row['id']; ?></th>
+                                    <td><?php echo $row['firstname']; ?></td>
+                                    <td><?php echo $row['lastname']; ?></td>
+                                    <td><?php echo $row['phone']; ?></td>
+                                    <td><?php echo $row['email']; ?></td>
+
                                 </tr>
                                 <?php
                             }
