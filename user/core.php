@@ -301,30 +301,45 @@ if (isset($_POST['addjob'])) {
     $type = mysqli_real_escape_string($connection, $_POST['type']);
     $price = mysqli_real_escape_string($connection, $_POST['price']);
 
-    if (isset($price)) {
-        $per = $price;
+    if (empty($title)) {
+        array_push($errors, "Job title is required");
+    }
+    if (empty($describe)) {
+        array_push($errors, "Job description is required");
+    }
+    if (empty($skills)) {
+        array_push($errors, "Job skills is required");
+    }
+    if (empty($type)) {
+        array_push($errors, "Job type is required");
     }
 
-    if (empty($price)) {
-        $per = "Agreement";
-    }
+    if (count($errors) == 0) {
+        if (isset($price)) {
+            $per = $price;
+        }
 
-    $jobid = rand(11111, 99999);
+        if (empty($price)) {
+            $per = "Agreement";
+        }
 
-    $dt = date("M d, Y H:i:s");
+        $jobid = rand(11111, 99999);
 
-    $addjob = "INSERT INTO jobs(`jobid`, `type`, `user`, `title`, `describe`, `skills`, `datetime`, `price`,`status`) VALUES ('$jobid', '$type', '$id', '$title', '$describe', '$skills', '$dt', '$per', 'true')";
+        $dt = date("M d, Y H:i:s");
 
-    if (mysqli_query($connection, $addjob)) {
-        ?>
-        <script>
-            window.alert("Job added.");
-            window.location.replace(".");
-        </script>
-        <?php
-    }
-    else {
-        array_push($errors, mysqli_error($connection));
+        $addjob = "INSERT INTO jobs(`jobid`, `type`, `user`, `title`, `describe`, `skills`, `datetime`, `price`,`status`) VALUES ('$jobid', '$type', '$id', '$title', '$describe', '$skills', '$dt', '$per', 'true')";
+
+        if (mysqli_query($connection, $addjob)) {
+            ?>
+            <script>
+                window.alert("Job added.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
     }
 }
 
