@@ -9,7 +9,6 @@ if (count($job) > 0) {
         <div>
             <span style="float: right;" class="btn btn-outline-danger btn-sm"><?php echo $job[0]['type']; ?></span>
             <p><b><?php echo $job[0]['title']; ?></b></p>
-            <br>
             <p><?php echo $job[0]['describe']; ?></p>
             <p style="font-size: 14px;"><?php echo $job[0]['datetime']; ?></p>
             <?php
