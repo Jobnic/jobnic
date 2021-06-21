@@ -102,6 +102,10 @@ include('core.php');
                                 data-bs-target="#nav-login"
                                 type="button" role="tab" aria-controls="nav-login" aria-selected="false">Sign In
                         </button>
+                        <button class="nav-link text-danger" style="color: black;" id="nav-login-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-forgot"
+                                type="button" role="tab" aria-controls="nav-forgot" aria-selected="false">Forgot password
+                        </button>
                     </div>
                 </nav>
                 <div class="tab-content tabs" id="nav-tabContent">
@@ -164,6 +168,18 @@ include('core.php');
                             </div>
                             <br>
                             <button name="login" class="btn btn-primary" type="submit">Login</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="nav-forgot" role="tabpanel" aria-labelledby="nav-forgot-tab">
+                        <h3 class="text-danger">Forgot password</h3>
+                        <hr class="border border-danger">
+                        <form action="index.php" method="post">
+                            <div class="">
+                                <input name="mail" type="email" class="form-control border border-danger" placeholder="name@example.com">
+                                <small class="text-danger">Enter your account mail to send you new passcode</small>
+                            </div>
+                            <br>
+                            <button name="forgot" class="btn btn-danger" type="submit">Recovery</button>
                         </form>
                     </div>
                 </div>
