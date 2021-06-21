@@ -12,6 +12,8 @@ $db = 'jobnic';
 
 $connection = mysqli_connect($server, $user, $passwd, $db);
 
+$errors = array();
+
 $job = array();
 
 $select_user = "SELECT * FROM people WHERE id = '$id'";
@@ -24,31 +26,40 @@ if (isset($_POST["updateskill"])) {
     $skillname = mysqli_real_escape_string($connection, $_POST["skillname"]);
     $skillper = mysqli_real_escape_string($connection, $_POST["skillper"]);
 
-    $skill = $skillname . "-" . $skillper;
-
-    if (isset($row_user['skills'])) {
-        $both = $row_user['skills'] . " " . $skill;
-        $update_skill = "UPDATE people SET skills = '$both' WHERE id = '$id'";
+    if (empty($skillname)) {
+        array_push($errors, "Skill name is required");
     }
-    else {
-        $update_skill = "UPDATE people SET skills = '$skill' WHERE id = '$id'";
+    if (empty($skillper)) {
+        array_push($errors, "Skill percentage is required");
     }
 
-    if (mysqli_query($connection, $update_skill)) {
-        ?>
+    if (count($errors) == 0) {
+        $skill = $skillname . "-" . $skillper;
+
+        if (isset($row_user['skills'])) {
+            $both = $row_user['skills'] . " " . $skill;
+            $update_skill = "UPDATE people SET skills = '$both' WHERE id = '$id'";
+        }
+        else {
+            $update_skill = "UPDATE people SET skills = '$skill' WHERE id = '$id'";
+        }
+
+        if (mysqli_query($connection, $update_skill)) {
+            ?>
             <script>
                 window.alert("Skills updated.");
                 window.location.replace(".");
             </script>
-        <?php
-    }
-    else {
-        ?>
+            <?php
+        }
+        else {
+            ?>
             <script>
                 window.alert("<?php echo mysqli_error($connection); ?>");
                 window.location.replace(".");
             </script>
-        <?php
+            <?php
+        }
     }
 }
 
