@@ -16,7 +16,7 @@ CREATE TABLE `people`
     `telegram`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `skills`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `join`      text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `starts`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `stars`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `status`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`row`)
 );

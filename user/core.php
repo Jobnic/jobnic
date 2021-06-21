@@ -394,3 +394,65 @@ if (isset($_GET['delete'])) {
         array_push($errors, mysqli_error($connection));
     }
 }
+
+if (isset($_POST["closejob"])) {
+    $userid = mysqli_real_escape_string($connection, $_POST["dider"]);
+    $stars = mysqli_real_escape_string($connection, $_POST["star"]);
+    $jobid = mysqli_real_escape_string($connection, $_POST["jobid"]);
+
+    if (empty($userid)) {
+        array_push($errors, "User id is required");
+    }
+    if (empty($stars)) {
+        array_push($errors, "Least 1 stat is required");
+    }
+    if (empty($jobid)) {
+        array_push($errors, "Job ID is required");
+    }
+
+    if (count($errors) == 0) {
+        $getuser = "SELECT * from people WHERE id = '$userid'";
+        $getdata = mysqli_query($connection, $getuser);
+        if (mysqli_num_rows($getdata) == 1) {
+            $rows = mysqli_fetch_assoc($getdata);
+
+            if (empty($rows['starts'])) {
+                $current = 0;
+            }
+            else {
+                $current = $rows['starts'];
+            }
+
+            $new = $current + $stars;
+            $dt = date("M d, Y H:i:s");
+
+            $updatestars = "UPDATE people SET starts = '$new' WHERE id = '$userid'";
+            if (mysqli_query($connection, $updatestars)) {
+                $closequery = "UPDATE jobs SET status = 'false' WHERE jobid = '$jobid'";
+                if (mysqli_query($connection, $closequery)) {
+                    $addtime = "UPDATE jobs SET closed = '$dt' WHERE jobid = '$jobid'";
+                    if (mysqli_query($connection, $addtime)) {
+                        $addperson = "UPDATE jobs SET person = '$userid' WHERE jobid = '$jobid'";
+                        if (mysqli_query($connection, $addperson)) {
+                            ?>
+                            <script>
+                                window.alert("Done");
+                                window.location.replace(".");
+                            </script>
+                            <?php
+                        }
+                    }
+                }
+                else {
+                    array_push($errors, mysqli_error($connection));
+                }
+            }
+            else {
+                array_push($errors, mysqli_error($connection));
+            }
+        }
+        else {
+            array_push($errors, "User didnt found");
+        }
+    }
+}

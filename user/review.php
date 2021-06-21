@@ -30,6 +30,14 @@ if (count($job) > 0) {
                     <p>If any one did this project fill this out</p>
                     <form action="index.php" method="post">
                         <div class="row">
+                            <div class="form-group">
+                                <input name="jobid" type="number"
+                                       class="border border-secondary form-control-sm form-control"
+                                       placeholder="Job ID" value="<?php echo $job[0]['jobid']; ?>">
+                                <small class="text-muted">Enter Job ID here</small>
+                                <br>
+                                <br>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input name="dider" type="number"
@@ -48,7 +56,7 @@ if (count($job) > 0) {
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-sm btn-secondary" name="close">Close job and give stars</button>
+                        <button class="btn btn-sm btn-secondary" name="closejob">Close job and give stars</button>
                     </form>
                     <hr>
                     <p>If nobody did via <b>Job Nic</b> close it manualy</p>
