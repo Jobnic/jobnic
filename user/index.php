@@ -141,8 +141,11 @@ if ($row['status'] == 'not') {
                 <div class="dialog border border-success">
                     <h3 class="text-success"><i class="fa fa-id-card text-success"></i> Profile Review</h3>
                     <hr class="border border-success">
-                    <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b> <span style="float: right;"
-                                                                                                   class="btn btn-sm btn-outline-success"><?php echo $row["id"]; ?></span>
+                    <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b>
+                        &nbsp;
+                        <span style="float: right;" class="btn btn-sm btn-outline-success"><?php echo $row["id"]; ?></span>
+                        &nbsp;
+                        <span style="" class="btn btn-sm btn-outline-dark"><i class="fa fa-star"></i> <?php echo $row["starts"]; ?></span>
                     </p>
                     <p><?php echo $row['bio']; ?></p>
                     <p><small>Joined <?php echo $row['join']; ?></small></p>
