@@ -324,12 +324,7 @@ if (isset($_POST['addjob'])) {
         <?php
     }
     else {
-        ?>
-        <script>
-            window.alert("<?php echo mysqli_error($connection); ?>");
-            window.location.replace(".");
-        </script>
-        <?php
+        array_push($errors, mysqli_error($connection));
     }
 }
 
