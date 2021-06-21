@@ -118,6 +118,22 @@ if ($row['status'] == 'not') {
     </nav>
     <div class="container">
         <br>
+        <?php
+        if (count($errors) > 0) {
+            ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <p><strong>Oh GOD! Watch error!</strong></p>
+                <?php
+                foreach ($errors as $error) {
+                    echo "<p>" . $error . "</p>";
+                }
+                ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php
+        }
+        ?>
+        <br>
         <div class="row">
             <div class="col-md-8">
                 <h2 class="text-success">Profile Part</h2>
