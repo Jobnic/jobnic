@@ -99,6 +99,7 @@ $connection = mysqli_connect($server, $user, $passwd, $db);
             </div>
         </div>
     </nav>
+    <br>
     <div class="container">
         <br>
         <div class="row">
@@ -108,20 +109,22 @@ $connection = mysqli_connect($server, $user, $passwd, $db);
                 if (mysqli_num_rows($result_jobs)) {
                     while ($job_row = mysqli_fetch_assoc($result_jobs)) {
                         ?>
-                        <div class="col-4">
-                            <div class="dialog">
-                                <span style="float: right;" class="btn btn-outline-danger btn-sm"><?php echo $job_row['type']; ?></span>
-                                <p class="text-dark"><b><a class="link text-dark" href="job.php?jobid=<?php echo $job_row['jobid']; ?>"><?php echo $job_row['title']; ?></a></b></p>
-                                <hr>
+                        <div class="col-md-3">
+                            <div class="card-body border border-primary">
+                                <p class="text-primary"><b><a class="link text-primary" href="job.php?jobid=<?php echo $job_row['jobid']; ?>"><?php echo $job_row['title']; ?></a></b></p>
+                                <hr class="border border-primary">
                                 <p><?php echo $job_row['describe']; ?></p>
                                 <small>Price : <?php echo $job_row['price']; ?></small>
+                                <br>
+                                <br>
+                                <span class="btn btn-outline-dark btn-sm"><?php echo $job_row['type']; ?></span>
                                 <br>
                                 <br>
                                 <?php
                                 $skills = explode(" ", $job_row['skills']);
 
                                 foreach ($skills as $skill) {
-                                    echo "<p class='btn btn-outline-secondary btn-sm'>$skill</p>&nbsp;";
+                                    echo "<span class='btn btn-outline-danger btn-sm'>$skill</span>&nbsp;";
                                 }
                                 ?>
                             </div>
