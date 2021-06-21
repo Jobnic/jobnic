@@ -108,13 +108,13 @@ $connection = mysqli_connect($server, $user, $passwd, $db);
                 if (mysqli_num_rows($result_jobs)) {
                     while ($job_row = mysqli_fetch_assoc($result_jobs)) {
                         ?>
-                        <div class="col-3">
+                        <div class="col-4">
                             <div class="dialog">
                                 <span style="float: right;" class="btn btn-outline-danger btn-sm"><?php echo $job_row['type']; ?></span>
                                 <p class="text-dark"><b><a class="link text-dark" href="job.php?jobid=<?php echo $job_row['jobid']; ?>"><?php echo $job_row['title']; ?></a></b></p>
                                 <hr>
                                 <p><?php echo $job_row['describe']; ?></p>
-                                <small><?php echo $job_row['price']; ?></small>
+                                <small>Price : <?php echo $job_row['price']; ?></small>
                                 <br>
                                 <br>
                                 <?php
