@@ -257,6 +257,7 @@ if ($row['status'] == 'not') {
                         <button type="submit" name="updateskill" class="btn btn-danger btn-sm">Add</button>
                     </form>
                 </div>
+                <br>
             </div>
             <div class="col-md-6">
                 <h2 class="text-primary">Social Media</h2>
@@ -385,6 +386,7 @@ if ($row['status'] == 'not') {
                     }
                     ?>
                 </div>
+                <br>
             </div>
             <div class="col-md-7">
                 <h2 class="text-secondary">Review the job</h2>
