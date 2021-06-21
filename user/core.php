@@ -310,7 +310,7 @@ if (isset($_POST['addjob'])) {
     if (empty($skills)) {
         array_push($errors, "Job skills is required");
     }
-    if (empty($type)) {
+    if ($type == "default") {
         array_push($errors, "Job type is required");
     }
 
