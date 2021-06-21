@@ -323,8 +323,10 @@ if ($row['status'] == 'not') {
                         <div class="group">
                             <select name="type" class="form-select form-select-sm border border-warning"
                                     aria-label=".form-select-sm example">
-                                <option selected>Select type of your project</option>
+                                <option value="default">Select type of your project</option>
                                 <option value="programming">Programming</option>
+                                <option value="android">Android</option>
+                                <option value="backend">Back-ENd</option>
                                 <option value="design">Design</option>
                                 <option value="school">School</option>
                             </select>
@@ -336,7 +338,7 @@ if ($row['status'] == 'not') {
                                       rows="5" placeholder="Project Describtion"></textarea>
                             <br>
                             <input name="skills" type="text"
-                                   class="form-control form-control-sm border text-warning border-warning"
+                                   class="form-control form-control-sm border border-warning"
                                    placeholder="Skills. Ex : php python">
                             <br>
                             <input name="price" type="text" class="form-control form-control-sm border border-warning"
@@ -443,6 +445,7 @@ if ($row['status'] == 'not') {
                                            class="form-control border border-dark form-control-sm"
                                            placeholder="New Password">
                                 </div>
+                                <br>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
