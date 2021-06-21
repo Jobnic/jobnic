@@ -19,7 +19,7 @@ if (count($job) > 0) {
             }
             ?>
             <br>
-            <br>
+            <hr class="border border-secondary">
             <?php
                 if ($job[0]['status'] == 'false') {
                     echo "<p class='text-danger'><b>This job is closed.</b></p>";
@@ -27,6 +27,31 @@ if (count($job) > 0) {
                 }
                 else {
                     ?>
+                    <p>If any one did this project fill this out</p>
+                    <form action="index.php" method="post">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input name="dider" type="number"
+                                           class="form-control border border-secondary form-control-sm"
+                                           placeholder="Person ID">
+                                    <small class="text-muted">Here you should enter person id</small>
+                                </div>
+                                <br>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input name="star" type="number"
+                                           class="form-control border border-secondary form-control-sm"
+                                           placeholder="Stars you give">
+                                    <small class="text-muted">Here enter stars you give to person</small>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-secondary" name="close">Close job and give stars</button>
+                    </form>
+                    <hr>
+                    <p>If nobody did via <b>Job Nic</b> close it manualy</p>
                     <a class="btn btn-danger btn-sm" href="index.php?close=<?php echo $job['0']['jobid']; ?>">Close Job</a>
                     <?php
                 }
