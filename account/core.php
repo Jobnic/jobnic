@@ -99,3 +99,30 @@ if (isset($_POST['create'])) {
     }
 
 }
+
+if (isset($_POST['forgot'])) {
+    $mail = mysqli_real_escape_string($connection, $_POST['mail']);
+
+    if (empty($mail)) {
+        array_push($errors, "Mail is required");
+    }
+
+    if (count($errors) == 0) {
+        $check = "SELECT * FROM people WHERE email = '$mail'";
+        $checkres = mysqli_query($connection, $check);
+
+        if (mysqli_num_rows($checkres) == 1) {
+            $checkrow = mysqli_fetch_assoc($checkres);
+
+            $newpass = rand(11111111, 99999999);
+
+            $updatepassword = "UPDATE people SET password = '$newpass' WHERE email = '$mail'";
+            if (mysqli_query($connection, $updatepassword)) {
+                array_push($errors, "Your new password is " . $newpass);
+            }
+        }
+        else {
+            array_push($errors, "User didn't found or E-mail is wrong");
+        }
+    }
+}
