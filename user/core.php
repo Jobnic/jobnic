@@ -416,17 +416,17 @@ if (isset($_POST["closejob"])) {
         if (mysqli_num_rows($getdata) == 1) {
             $rows = mysqli_fetch_assoc($getdata);
 
-            if (empty($rows['starts'])) {
+            if (empty($rows['stars'])) {
                 $current = 0;
             }
             else {
-                $current = $rows['starts'];
+                $current = $rows['stars'];
             }
 
             $new = $current + $stars;
             $dt = date("M d, Y H:i:s");
 
-            $updatestars = "UPDATE people SET starts = '$new' WHERE id = '$userid'";
+            $updatestars = "UPDATE people SET stars = '$new' WHERE id = '$userid'";
             if (mysqli_query($connection, $updatestars)) {
                 $closequery = "UPDATE jobs SET status = 'false' WHERE jobid = '$jobid'";
                 if (mysqli_query($connection, $closequery)) {
