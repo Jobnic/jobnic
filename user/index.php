@@ -145,7 +145,7 @@ if ($row['status'] == 'not') {
                         &nbsp;
                         <span style="float: right;" class="btn btn-sm btn-outline-success"><?php echo $row["id"]; ?></span>
                         &nbsp;
-                        <span style="" class="btn btn-sm btn-outline-dark"><i class="fa fa-star"></i> <?php echo $row["starts"]; ?></span>
+                        <span style="" class="btn btn-sm btn-outline-dark"><i class="fa fa-star"></i> <?php echo $row["stars"]; ?></span>
                     </p>
                     <p><?php echo $row['bio']; ?></p>
                     <p><small>Joined <?php echo $row['join']; ?></small></p>
