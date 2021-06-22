@@ -20,7 +20,7 @@ include('core.php');
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Job Nic - Login or Create account</title>
-    <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
+<!--    <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>-->
     <link href="../pack/bootstrap.min.css" rel="stylesheet" type="text/css">
     <style>
         body {
@@ -161,6 +161,7 @@ include('core.php');
                         <form action="index.php" method="post">
                             <div class="">
                                 <input name="mail" type="email" class="form-control border border-primary" placeholder="name@example.com">
+                                <small class="text-primary">For get one time password just fill this field</small>
                             </div>
                             <br>
                             <div class="">
@@ -168,6 +169,7 @@ include('core.php');
                             </div>
                             <br>
                             <button name="login" class="btn btn-primary" type="submit">Login</button>
+                            <button style="float: right;" class="btn btn-outline-primary" type="submit" name="onetime">Get one-time password</button>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="nav-forgot" role="tabpanel" aria-labelledby="nav-forgot-tab">
