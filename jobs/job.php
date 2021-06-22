@@ -139,6 +139,10 @@ $jobid = $_GET['jobid'];
                 <div class="col-md-4">
                     <div class="dialog border border-primary">
                         <?php
+                        $view = $row_job['views'] + 1;
+                        $update = "UPDATE jobs SET views = '$view' WHERE jobid = '$jobid'";
+                        mysqli_query($connection, $update);
+
                         $user = $row_job['user'];
                         $select_user = "SELECT * FROM people WHERE id = '$user'";
                         $result_user = mysqli_query($connection, $select_user);
