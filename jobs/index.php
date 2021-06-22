@@ -111,15 +111,15 @@ $connection = mysqli_connect($server, $user, $passwd, $db);
                         ?>
                         <div class="col-md-3">
                             <div class="card-body border border-primary">
-                                <p class="text-primary"><b><a class="link text-primary" href="job.php?jobid=<?php echo $job_row['jobid']; ?>"><?php echo $job_row['title']; ?></a></b></p>
+                                <p class="text-primary">
+                                    <b>
+                                        <a class="link text-primary" href="job.php?jobid=<?php echo $job_row['jobid']; ?>">
+                                            <?php echo $job_row['title']; ?>
+                                        </a>
+                                    </b>
+                                    <span style="float: right;" class="btn btn-outline-dark btn-sm"><?php echo $job_row['type']; ?></span>
+                                </p>
                                 <hr class="border border-primary">
-                                <p><?php echo $job_row['describe']; ?></p>
-                                <small>Price : <?php echo $job_row['price']; ?></small>
-                                <br>
-                                <br>
-                                <span class="btn btn-outline-dark btn-sm"><?php echo $job_row['type']; ?></span>
-                                <br>
-                                <br>
                                 <?php
                                 $skills = explode(" ", $job_row['skills']);
 
