@@ -27,36 +27,13 @@ $connection = mysqli_connect($server, $user, $passwd, $db);
         body {
             padding: 8%;
         }
-
-        .dialog {
-            border: solid 1px #d3d3d3;
-            padding: 5%;
-        }
-
-        .icon {
-            padding: 5px;
-            border-radius: 5px;
+        .cat {
+            padding: 2%;
         }
 
         .link {
             text-decoration: none;
             color: gray;
-        }
-
-        .mbtn {
-            border: solid 1px #d3d3d3;
-        }
-
-        .mbtn:hover {
-            border: solid 1px #d3d3d3;
-        }
-
-        .inp {
-            border: solid 1px #d3d3d3;
-        }
-
-        .inp:hover {
-            border: solid 1px #d3d3d3;
         }
     </style>
 </head>
@@ -106,33 +83,138 @@ $connection = mysqli_connect($server, $user, $passwd, $db);
             <?php
                 $get_jobs = "SELECT * FROM jobs WHERE status = 'true' ORDER BY row DESC";
                 $result_jobs = mysqli_query($connection, $get_jobs);
-                if (mysqli_num_rows($result_jobs)) {
+                if (mysqli_num_rows($result_jobs) > 0) {
                     while ($job_row = mysqli_fetch_assoc($result_jobs)) {
-                        ?>
-                        <div class="col-md-3">
-                            <div class="card-body border border-primary">
-                                <p class="text-primary">
-                                    <b>
-                                        <a class="link text-primary" href="job.php?jobid=<?php echo $job_row['jobid']; ?>">
-                                            <?php echo $job_row['title']; ?>
-                                        </a>
-                                    </b>
-                                    <span style="float: right;" class="btn btn-outline-dark btn-sm"><?php echo $job_row['type']; ?></span>
-                                </p>
-                                <hr class="border border-primary">
-                                <?php
-                                $skills = explode(" ", $job_row['skills']);
+                        if ($job_row["type"] == "android") {
+                            ?>
+                            <div class="col-md-3">
+                                <div class="card-body border border-primary">
+                                    <p class="text-primary">
+                                        <b>
+                                            <a class="link text-primary" href="job.php?jobid=<?php echo $job_row['jobid']; ?>">
+                                                <?php echo $job_row['title']; ?>
+                                            </a>
+                                        </b>
+                                        <span style="float: right;" class="btn btn-outline-primary btn-sm"><?php echo $job_row['type']; ?></span>
+                                    </p>
+                                    <hr class="border border-primary">
+                                    <?php
+                                    $skills = explode(" ", $job_row['skills']);
 
-                                foreach ($skills as $skill) {
-                                    echo "<span class='btn btn-outline-danger btn-sm'>$skill</span>&nbsp;";
-                                }
-                                ?>
+                                    foreach ($skills as $skill) {
+                                        echo "<span class='btn btn-outline-primary btn-sm'>$skill</span>&nbsp;";
+                                    }
+                                    ?>
+                                </div>
+                                <br>
                             </div>
-                            <br>
-                        </div>
-                        <?php
+                            <?php
+                        }
+                        if ($job_row["type"] == "backend") {
+                            ?>
+                            <div class="col-md-3">
+                                <div class="card-body border border-info">
+                                    <p class="text-info">
+                                        <b>
+                                            <a class="link text-info" href="job.php?jobid=<?php echo $job_row['jobid']; ?>">
+                                                <?php echo $job_row['title']; ?>
+                                            </a>
+                                        </b>
+                                        <span style="float: right;" class="btn btn-outline-info btn-sm"><?php echo $job_row['type']; ?></span>
+                                    </p>
+                                    <hr class="border border-info">
+                                    <?php
+                                    $skills = explode(" ", $job_row['skills']);
+
+                                    foreach ($skills as $skill) {
+                                        echo "<span class='btn btn-outline-info btn-sm'>$skill</span>&nbsp;";
+                                    }
+                                    ?>
+                                </div>
+                                <br>
+                            </div>
+                            <?php
+                        }
+                        if ($job_row["type"] == "backend") {
+                            ?>
+                            <div class="col-md-3">
+                                <div class="card-body border border-info">
+                                    <p class="text-info">
+                                        <b>
+                                            <a class="link text-info" href="job.php?jobid=<?php echo $job_row['jobid']; ?>">
+                                                <?php echo $job_row['title']; ?>
+                                            </a>
+                                        </b>
+                                        <span style="float: right;" class="btn btn-outline-info btn-sm"><?php echo $job_row['type']; ?></span>
+                                    </p>
+                                    <hr class="border border-info">
+                                    <?php
+                                    $skills = explode(" ", $job_row['skills']);
+
+                                    foreach ($skills as $skill) {
+                                        echo "<span class='btn btn-outline-info btn-sm'>$skill</span>&nbsp;";
+                                    }
+                                    ?>
+                                </div>
+                                <br>
+                            </div>
+                            <?php
+                        }
+                        if ($job_row["type"] == "programming") {
+                            ?>
+                            <div class="col-md-3">
+                                <div class="card-body border border-success">
+                                    <p class="text-success">
+                                        <b>
+                                            <a class="link text-success" href="job.php?jobid=<?php echo $job_row['jobid']; ?>">
+                                                <?php echo $job_row['title']; ?>
+                                            </a>
+                                        </b>
+                                        <span style="float: right;" class="btn btn-outline-success btn-sm"><?php echo $job_row['type']; ?></span>
+                                    </p>
+                                    <hr class="border border-success">
+                                    <?php
+                                    $skills = explode(" ", $job_row['skills']);
+
+                                    foreach ($skills as $skill) {
+                                        echo "<span class='btn btn-outline-success btn-sm'>$skill</span>&nbsp;";
+                                    }
+                                    ?>
+                                </div>
+                                <br>
+                            </div>
+                            <?php
+                        }
+                        if ($job_row["type"] == "design") {
+                            ?>
+                            <div class="col-md-3">
+                                <div class="card-body border border-danger">
+                                    <p class="text-danger">
+                                        <b>
+                                            <a class="link text-danger" href="job.php?jobid=<?php echo $job_row['jobid']; ?>">
+                                                <?php echo $job_row['title']; ?>
+                                            </a>
+                                        </b>
+                                        <span style="float: right;" class="btn btn-outline-danger btn-sm"><?php echo $job_row['type']; ?></span>
+                                    </p>
+                                    <hr class="border border-danger">
+                                    <?php
+                                    $skills = explode(" ", $job_row['skills']);
+
+                                    foreach ($skills as $skill) {
+                                        echo "<span class='btn btn-outline-danger btn-sm'>$skill</span>&nbsp;";
+                                    }
+                                    ?>
+                                </div>
+                                <br>
+                            </div>
+                            <?php
+                        }
                     }
                 }
+                else {
+                   echo "<h3 class='text-secondary'>No jobs yet</h3>";
+            }
             ?>
         </div>
     </div>
