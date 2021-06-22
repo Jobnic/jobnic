@@ -332,6 +332,7 @@ if ($row['status'] == 'not') {
                                 <option value="backend">Back-ENd</option>
                                 <option value="design">Design</option>
                                 <option value="school">School</option>
+                                <option value="costume">Costume</option>
                             </select>
                             <br>
                             <input name="title" type="text" class="form-control form-control-sm border border-warning"
