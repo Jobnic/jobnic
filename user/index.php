@@ -357,6 +357,7 @@ if ($row['status'] == 'not') {
                         </div>
                     </form>
                 </div>
+                <br>
             </div>
             <div class="col-md-6">
                 <h2 class="text-dark">Jobs Done</h2>
