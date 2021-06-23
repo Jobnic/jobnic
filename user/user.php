@@ -234,6 +234,7 @@ $userid = $_GET['userid'];
                                     <th scope="col">Title</th>
                                     <th scope="col">Type</th>
                                     <th scope="col">Time</th>
+                                    <th scope="col">Stars</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -244,6 +245,7 @@ $userid = $_GET['userid'];
                                         <th scope="row"><?php echo $job_row['title']; ?></th>
                                         <td><?php echo $job_row['type']; ?></td>
                                         <td><?php echo $job_row['closed']; ?></td>
+                                        <td><?php echo $job_row['stars']; ?></td>
                                     </tr>
                                     <?php
                                 }
