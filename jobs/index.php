@@ -101,21 +101,23 @@ $result_jobs = mysqli_query($connection, $get_jobs);
     <br>
     <div class="container">
         <br>
-        <p>
-            <a href="index.php" class="btn btn-sm btn-outline-light mbtn">See All</a>
-            &nbsp;
-            <a href="index.php?type=programming" class="btn btn-sm btn-outline-success">Programming</a>
-            &nbsp;
-            <a href="index.php?type=design" class="btn btn-sm btn-outline-danger">Design</a>
-            &nbsp;
-            <a href="index.php?type=android" class="btn btn-sm btn-outline-primary">Android</a>
-            &nbsp;
-            <a href="index.php?type=backend" class="btn btn-sm btn-outline-info">Back-End</a>
-            &nbsp;
-            <a href="index.php?type=school" class="btn btn-sm btn-outline-secondary">School</a>
-            &nbsp;
-            <a href="index.php?type=costume" class="btn btn-sm btn-outline-dark">Others</a>
-        </p>
+        <div class="row">
+            <p class="x">
+                <a href="index.php" class="btn btn-sm btn-outline-light mbtn">See All</a>
+                &nbsp;
+                <a href="index.php?type=programming" class="btn btn-sm btn-outline-success">Programming</a>
+                &nbsp;
+                <a href="index.php?type=design" class="btn btn-sm btn-outline-danger">Design</a>
+                &nbsp;
+                <a href="index.php?type=android" class="btn btn-sm btn-outline-primary">Android</a>
+                &nbsp;
+                <a href="index.php?type=backend" class="btn btn-sm btn-outline-info">Back-End</a>
+                &nbsp;
+                <a href="index.php?type=school" class="btn btn-sm btn-outline-secondary">School</a>
+                &nbsp;
+                <a href="index.php?type=costume" class="btn btn-sm btn-outline-dark">Others</a>
+            </p>
+        </div>
         <br>
         <div class="row">
             <?php
