@@ -36,7 +36,7 @@ if (count($job) > 0) {
                             <div class="form-group">
                                 <input name="jobid" type="number"
                                        class="border border-secondary form-control-sm form-control"
-                                       placeholder="Job ID" value="<?php echo $job[0]['jobid']; ?>" disabled>
+                                       placeholder="Job ID" value="<?php echo $job[0]['jobid']; ?>">
                                 <small class="text-muted">Job ID</small>
                                 <br>
                                 <br>
