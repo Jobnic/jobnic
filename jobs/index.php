@@ -10,6 +10,16 @@ $passwd = 'narbon';
 $db = 'jobnic';
 
 $connection = mysqli_connect($server, $user, $passwd, $db);
+
+if (isset($_GET['type'])) {
+    $type = $_GET['type'];
+    $get_jobs = "SELECT * FROM jobs WHERE status = 'true' AND type = '$type' ORDER BY row DESC";
+}
+else {
+    $get_jobs = "SELECT * FROM jobs WHERE status = 'true' ORDER BY row DESC";
+}
+
+$result_jobs = mysqli_query($connection, $get_jobs);
 ?>
 
 <!doctype html>
@@ -34,6 +44,18 @@ $connection = mysqli_connect($server, $user, $passwd, $db);
         .link {
             text-decoration: none;
             color: gray;
+        }
+        .btn-outline-info:hover {
+            color: white;
+        }
+        .mbtn {
+            border: 1px solid purple;
+            color: purple;
+        }
+        .mbtn:hover {
+            background: purple;
+            border: 1px solid purple;
+            color: white;
         }
     </style>
 </head>
@@ -79,10 +101,24 @@ $connection = mysqli_connect($server, $user, $passwd, $db);
     <br>
     <div class="container">
         <br>
+        <p>
+            <a href="index.php" class="btn btn-sm btn-outline-light mbtn">See All</a>
+            &nbsp;
+            <a href="index.php?type=programming" class="btn btn-sm btn-outline-success">Programming</a>
+            &nbsp;
+            <a href="index.php?type=design" class="btn btn-sm btn-outline-danger">Design</a>
+            &nbsp;
+            <a href="index.php?type=android" class="btn btn-sm btn-outline-primary">Android</a>
+            &nbsp;
+            <a href="index.php?type=backend" class="btn btn-sm btn-outline-info">Back-End</a>
+            &nbsp;
+            <a href="index.php?type=school" class="btn btn-sm btn-outline-secondary">School</a>
+            &nbsp;
+            <a href="index.php?type=costume" class="btn btn-sm btn-outline-dark">Others</a>
+        </p>
+        <br>
         <div class="row">
             <?php
-                $get_jobs = "SELECT * FROM jobs WHERE status = 'true' ORDER BY row DESC";
-                $result_jobs = mysqli_query($connection, $get_jobs);
                 if (mysqli_num_rows($result_jobs) > 0) {
                     while ($job_row = mysqli_fetch_assoc($result_jobs)) {
                         if ($job_row["type"] == "android") {
@@ -103,6 +139,31 @@ $connection = mysqli_connect($server, $user, $passwd, $db);
 
                                     foreach ($skills as $skill) {
                                         echo "<span class='btn btn-outline-primary btn-sm'>$skill</span>&nbsp;";
+                                    }
+                                    ?>
+                                </div>
+                                <br>
+                            </div>
+                            <?php
+                        }
+                        if ($job_row["type"] == "school") {
+                            ?>
+                            <div class="col-md-4">
+                                <div class="card-body border border-secondary">
+                                    <p class="text-secondary">
+                                        <b>
+                                            <a class="link text-secondary" href="job.php?jobid=<?php echo $job_row['jobid']; ?>">
+                                                <?php echo $job_row['title']; ?>
+                                            </a>
+                                        </b>
+                                        <span style="float: right;" class="btn btn-outline-secondary btn-sm"><?php echo $job_row['type']; ?></span>
+                                    </p>
+                                    <hr class="border border-secondary">
+                                    <?php
+                                    $skills = explode(" ", $job_row['skills']);
+
+                                    foreach ($skills as $skill) {
+                                        echo "<span class='btn btn-outline-secondary btn-sm'>$skill</span>&nbsp;";
                                     }
                                     ?>
                                 </div>
