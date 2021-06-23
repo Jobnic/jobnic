@@ -23,8 +23,10 @@ include('core.php');
 <!--    <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>-->
     <link href="../pack/bootstrap.min.css" rel="stylesheet" type="text/css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
         body {
-            padding: 5%;
+            font-family: 'Roboto', sans-serif;
+            padding: 8%;
         }
 
         .tabs {

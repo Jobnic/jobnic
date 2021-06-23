@@ -34,9 +34,12 @@ $result_jobs = mysqli_query($connection, $get_jobs);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
         body {
+            font-family: 'Roboto', sans-serif;
             padding: 8%;
         }
+
         .card-body:hover {
             background: #f6f6f6;
         }
