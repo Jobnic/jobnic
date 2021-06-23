@@ -122,10 +122,16 @@ $jobid = $_GET['jobid'];
                         $row_job = mysqli_fetch_assoc($result_job);
                         ?>
                         <span style="float: right;" class="btn btn-outline-danger btn-sm"><?php echo $row_job['type']; ?></span>
+                        <span style="float: right; color: white;">-</span>
+                        <span style="float: right;" class="btn btn-sm btn-outline-dark"><i
+                                    class="fa fa-eye"></i> <?php echo $row_job["views"]; ?></span>
                         <h3 class="text-success"><?php echo $row_job['title']; ?></h3>
                         <hr class="border border-success">
                         <p><b><?php echo $row_job['describe']; ?></b></p>
                         <p><?php echo $row_job['datetime']; ?></p>
+                        <small><?php echo $row_job['price']; ?></small>
+                        <br>
+                        <br>
                         <?php
                         $skills = explode(" ", $row_job['skills']);
 
