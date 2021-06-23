@@ -434,12 +434,15 @@ if (isset($_POST["closejob"])) {
                     if (mysqli_query($connection, $addtime)) {
                         $addperson = "UPDATE jobs SET person = '$userid' WHERE jobid = '$jobid'";
                         if (mysqli_query($connection, $addperson)) {
-                            ?>
-                            <script>
-                                window.alert("Done");
-                                window.location.replace(".");
-                            </script>
-                            <?php
+                            $addstars = "UPDATE jobs SET stars = '$stars' WHERE jobid = '$jobid'";
+                            if (mysqli_query($connection, $addstars)) {
+                                ?>
+                                <script>
+                                    window.alert("Done");
+                                    window.location.replace(".");
+                                </script>
+                                <?php
+                            }
                         }
                     }
                 }
