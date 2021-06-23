@@ -358,6 +358,49 @@ if ($row['status'] == 'not') {
                     </form>
                 </div>
             </div>
+            <div class="col-md-6">
+                <h2 class="text-dark">Jobs Done</h2>
+                <p class="text-dark">Here you can see what jobs you did before</p>
+                <div class="dialog border border-dark">
+                    <h3 class="text-dark"><i class="fa fa-check text-dark"></i> Done Jobs</h3>
+                    <hr class="border border-dark">
+                    <?php
+                    $get_jobs = "SELECT * FROM jobs WHERE person = '$id'";
+                    $job_result = mysqli_query($connection, $get_jobs);
+                    if (mysqli_num_rows($job_result) > 0) {
+                        ?>
+                        <div class="table-responsive">
+                            <table class="table table-hover text-center table-bordered border-success table-sm">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                while ($job_row = mysqli_fetch_assoc($job_result)) {
+                                    ?>
+                                    <tr>
+                                        <th scope="row"><?php echo $job_row['title']; ?></th>
+                                        <td><?php echo $job_row['type']; ?></td>
+                                        <td><?php echo $job_row['closed']; ?></td>
+                                    </tr>
+                                    <?php
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <?php
+                    }
+                    else {
+                        echo "<h4 class='text-dark'>Noting done yet</h4>";
+                    }
+                    ?>
+                </div>
+            </div>
         </div>
         <br>
         <br>
