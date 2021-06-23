@@ -91,7 +91,7 @@ $result_jobs = mysqli_query($connection, $get_jobs);
                 <div class="card border border-dark">
                     <h3>About Us</h3>
                     <hr class="border border-dark">
-                    <p>
+                    <p class="text-dark">
                         We are <b>Job Nic</b> team, working under <b>Neotrinost Limited Liability Company</b> founded by <b>Amirhossein Mohammadi</b> and <b>Annahita Mirhosseini</b>.
                         <br>
                         <br>
@@ -124,7 +124,8 @@ $result_jobs = mysqli_query($connection, $get_jobs);
         <div class="row" id="contact">
             <div class="col-md-12">
                 <div class="card border border-dark">
-
+                    <h3>Contact Us</h3>
+                    <hr class="border border-dark">
                 </div>
             </div>
         </div>
