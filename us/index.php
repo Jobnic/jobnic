@@ -42,6 +42,9 @@ $result_jobs = mysqli_query($connection, $get_jobs);
         .card {
             padding: 2%;
         }
+        .link {
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -126,6 +129,40 @@ $result_jobs = mysqli_query($connection, $get_jobs);
                 <div class="card border border-dark">
                     <h3>Contact Us</h3>
                     <hr class="border border-dark">
+                    <p class="text-dark">
+                        <b>Job Nic</b> <b class="text-primary">Telegram</b> Channel is <a class="link text-primary" href="https://t.me/JobNic">@JobNic</a> that you can see new news or any fun festival.
+                        <br>
+                        You can see <b>Job Nic</b> <b class="text-primary">LinkedIn</b> and see people working here.
+                        <br>
+                        <br>
+                        Until now there is no <b class="text-danger">Instagram</b> or <b class="text-info">Twitter</b> account.
+                        <br>
+                        But there will be!
+                        <br>
+                        <br>
+                        If you wanna contact us, for asking or saying goodies you can easily send us via E-Mail. Or you can fill this form below.
+                    </p>
+                    <form class="row g-3">
+                        <div class="col-12">
+                            <label for="fullname" class="form-label">Full Name</label>
+                            <input type="text" name="fullname" class="form-control" id="fullname" placeholder="Full Name">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="mail" class="form-label">E-Mail</label>
+                            <input type="email" name="email" class="form-control" id="mail" placeholder="E-Mail">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea rows="5" name="message" id="message" class="form-control" placeholder="Message"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" name="newmessage" class="btn btn-dark">Send Message</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
