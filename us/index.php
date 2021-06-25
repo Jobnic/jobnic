@@ -1,25 +1,7 @@
 <?php
 session_start();
-include("../pack/config.php");
 
-$stat = $_SESSION['status'];
-
-$server = $ip;
-$user = 'narbon';
-$passwd = 'narbon';
-$db = 'jobnic';
-
-$connection = mysqli_connect($server, $user, $passwd, $db);
-
-if (isset($_GET['type'])) {
-    $type = $_GET['type'];
-    $get_jobs = "SELECT * FROM jobs WHERE status = 'true' AND type = '$type' ORDER BY row DESC";
-}
-else {
-    $get_jobs = "SELECT * FROM jobs WHERE status = 'true' ORDER BY row DESC";
-}
-
-$result_jobs = mysqli_query($connection, $get_jobs);
+include("send.php");
 ?>
 
 <!doctype html>
@@ -29,7 +11,7 @@ $result_jobs = mysqli_query($connection, $get_jobs);
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Job Nic - Jobs</title>
+    <title>Job Nic - We</title>
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -139,7 +121,7 @@ $result_jobs = mysqli_query($connection, $get_jobs);
                         <br>
                         If you wanna contact us, for asking or saying goodies you can easily send us via E-Mail. Or you can fill this form below.
                     </p>
-                    <form class="row g-3">
+                    <form action="index.php" method="post" class="row g-3">
                         <div class="col-12">
                             <label for="fullname" class="form-label">Full Name</label>
                             <input type="text" name="fullname" class="form-control" id="fullname" placeholder="Full Name">

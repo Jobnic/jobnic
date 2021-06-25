@@ -37,11 +37,19 @@ if (isset($_POST["newmessage"])) {
     $dt = date("M d, Y H:i:s");
 
     if (count($errors) == 0) {
-        $insert = "";
+        $insert = "INSERT INTO messages (msgid, fullname, email, phone, message, datetime) VALUES ('$messageid', '$fullname', '$mail', '$phone', '$message', '$dt')";
         if (mysqli_query($connection, $insert)) {
             ?>
             <script>
                 window.alert("Mwssage sent\nTNX");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            ?>
+            <script>
+                window.alert("<?php mysqli_error($connection); ?>");
                 window.location.replace(".");
             </script>
             <?php
