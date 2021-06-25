@@ -121,6 +121,21 @@ include("send.php");
                         <br>
                         If you wanna contact us, for asking or saying goodies you can easily send us via E-Mail. Or you can fill this form below.
                     </p>
+                    <?php
+                    if (count($errors) > 0) {
+                        ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <p><strong>Oh GOD! Watch error!</strong></p>
+                            <?php
+                            foreach ($errors as $error) {
+                                echo "<p>" . $error . "</p>";
+                            }
+                            ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <?php
+                    }
+                    ?>
                     <form action="index.php" method="post" class="row g-3">
                         <div class="col-12">
                             <label for="fullname" class="form-label">Full Name</label>
