@@ -36,8 +36,9 @@ CREATE TABLE `jobs` (
   `person` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `views` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `stars` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`row`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,8 +47,38 @@ CREATE TABLE `jobs` (
 
 LOCK TABLES `jobs` WRITE;
 /*!40000 ALTER TABLE `jobs` DISABLE KEYS */;
-INSERT INTO `jobs` VALUES (1,'48868','programming','634044','Test','Test caption','php python','Jun 21, 2021 22:43:33','','150000',NULL,'false','0'),(2,'18301','android','634044','Kotlin','we need a kotlin programmer','kotlin android','Jun 21, 2021 23:18:37','Jun 21, 2021 23:18:58','1500000','427617','false','0'),(3,'67096','android','634044','android','android','android kotlin','Jun 22, 2021 12:32:39',NULL,'52000',NULL,'true','0'),(4,'86348','design','634044','logo designer','a person','photoshop illustrator','Jun 22, 2021 12:33:07',NULL,'1500000',NULL,'true','0'),(5,'89072','programming','634044','python','python programmer','python linux','Jun 22, 2021 14:44:11',NULL,'150000',NULL,'true','0'),(6,'76730','android','634044','java','a java programmer','200000','Jun 22, 2021 15:34:00',NULL,'Agreement',NULL,'true','0'),(7,'33589','backend','634044','php','a person who knows php','php','Jun 22, 2021 15:38:12',NULL,'20000',NULL,'true','2'),(8,'76270','costume','634044','Agent in company','Hey I need an agent','office','Jun 22, 2021 23:28:25',NULL,'150000',NULL,'true','0'),(9,'68576','backend','427617','a php programmer','Hey we need a php programmer','php','Jun 22, 2021 23:33:23','Jun 22, 2021 23:33:37','150000','634044','false','0');
+INSERT INTO `jobs` VALUES (1,'48868','programming','634044','Test','Test caption','php python','Jun 21, 2021 22:43:33','','150000',NULL,'false','0','0'),(2,'18301','android','634044','Kotlin','we need a kotlin programmer','kotlin android','Jun 21, 2021 23:18:37','Jun 21, 2021 23:18:58','1500000','427617','false','0','0'),(3,'67096','android','634044','android','android','android kotlin','Jun 22, 2021 12:32:39',NULL,'52000',NULL,'true','0','0'),(4,'86348','design','634044','logo designer','a person','photoshop illustrator','Jun 22, 2021 12:33:07',NULL,'1500000',NULL,'true','1','0'),(5,'89072','programming','634044','python','python programmer','python linux','Jun 22, 2021 14:44:11',NULL,'150000',NULL,'true','17','0'),(6,'76730','android','634044','java','a java programmer','200000','Jun 22, 2021 15:34:00',NULL,'Agreement',NULL,'true','0','0'),(7,'33589','backend','634044','php','a person who knows php','php','Jun 22, 2021 15:38:12',NULL,'20000',NULL,'true','2','0'),(8,'76270','costume','634044','Agent in company','Hey I need an agent','office','Jun 22, 2021 23:28:25',NULL,'150000',NULL,'true','0','0'),(9,'68576','backend','427617','a php programmer','Hey we need a php programmer','php','Jun 22, 2021 23:33:23','Jun 22, 2021 23:33:37','150000','634044','false','0','0'),(10,'72445','backend','427617','Job Nic','a person','php','Jun 23, 2021 17:04:50','Jun 23, 2021 17:05:41','1500000','634044','false',NULL,'5');
 /*!40000 ALTER TABLE `jobs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `messages` (
+  `row` int(11) NOT NULL AUTO_INCREMENT,
+  `msgid` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fullname` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `message` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `datetime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `stat` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`row`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `messages`
+--
+
+LOCK TABLES `messages` WRITE;
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+INSERT INTO `messages` VALUES (1,'65543','Amirhossein Mohammadi','meysam@yahoo.com','09014784362','Hi','Jun 25, 2021 12:13:31',NULL);
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -86,7 +117,7 @@ CREATE TABLE `people` (
 
 LOCK TABLES `people` WRITE;
 /*!40000 ALTER TABLE `people` DISABLE KEYS */;
-INSERT INTO `people` VALUES (1,'634044',NULL,'Amirhossein','Mohammadi','09014784362','amir@yahoo.com','30321137',NULL,NULL,NULL,NULL,NULL,NULL,'Jun 21, 2021 18:13:03','5','payed','9'),(2,'427617',NULL,'Amirali','Mohammadi','09038450655','ali@yahoo.com','123',NULL,NULL,NULL,NULL,NULL,NULL,'Jun 21, 2021 18:14:25','8','payed','0');
+INSERT INTO `people` VALUES (1,'634044','I am Amit. Any thing else?','Amirhossein','Mohammadi','09014784362','amir@yahoo.com','22834478','GNU_Amir','amirhosseinmohammadi','leonardo_l_larson','BlackIQ','BlackIQ','php-70 laravel-5 python-40','Jun 21, 2021 18:13:03','10','payed','148'),(2,'427617',NULL,'Amirali','Mohammadi','09038450655','ali@yahoo.com','64208816',NULL,NULL,NULL,NULL,NULL,NULL,'Jun 21, 2021 18:14:25','8','payed','0');
 /*!40000 ALTER TABLE `people` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -99,4 +130,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-23  0:36:41
+-- Dump completed on 2021-06-25 16:44:18
