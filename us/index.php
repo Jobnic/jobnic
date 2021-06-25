@@ -63,10 +63,7 @@ $result_jobs = mysqli_query($connection, $get_jobs);
                         <a class="nav-link active" aria-current="page" href="."><i class="fa fa-list"></i> Jobs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php#about"><i class="fa fa-info"></i> About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php#contact"><i class="fa fa-phone"></i> Contact Us</a>
+                        <a class="nav-link active" aria-current="page" href="us"><i class="fa fa-bank"></i> We</a>
                     </li>
                 </ul>
                 <div class="navbar-nav">

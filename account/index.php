@@ -56,10 +56,7 @@ include('core.php');
                         <a class="nav-link active" aria-current="page" href="../jobs"><i class="fa fa-list"></i> Jobs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../us/about.php"><i class="fa fa-info"></i> About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../us/contact.php"><i class="fa fa-phone"></i> Contact Us</a>
+                        <a class="nav-link active" aria-current="page" href="us"><i class="fa fa-bank"></i> We</a>
                     </li>
                 </ul>
             </div>
