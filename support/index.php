@@ -18,9 +18,11 @@ $db = 'jobnic';
 
 $connection = mysqli_connect($server, $user, $passwd, $db);
 
-$get = "SELECT * FROM people";
-$result = mysqli_query($connection, $get);
-
+if (isset($_GET['set'])) {
+    $msg = $_GET['set'];
+    $update = "UPDATE messages SET stat = 'done' WHERE msgid = '$msg'";
+    mysqli_query($connection, $update);
+}
 ?>
 
 <!doctype html>
@@ -51,6 +53,10 @@ $result = mysqli_query($connection, $get);
         <br>
         <div class="row">
             <div class="col-md-12">
+                <?php
+                $get = "SELECT * FROM people";
+                $result = mysqli_query($connection, $get);
+                ?>
                 <div class="dialog border border-success">
                     <p class="text-success"><b>Users</b></p>
                     <hr class="border border-success">
@@ -83,6 +89,83 @@ $result = mysqli_query($connection, $get);
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <?php
+                $get = "SELECT * FROM messages ORDER BY row DESC ";
+                $result = mysqli_query($connection, $get);
+                ?>
+                <div class="dialog border border-success">
+                    <p class="text-success"><b>Messages</b></p>
+                    <hr class="border border-success">
+                    <div class="table-responsive">
+                        <table class="table table-hover text-center table-bordered border-success table-sm">
+                            <thead>
+                            <tr>
+                                <th scope="col">Message ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                <tr>
+                                    <th scope="row">
+                                        <a class="text-decoration-none text-primary" href="index.php?id=<?php echo $row['msgid']; ?>">
+                                            <?php echo $row['msgid']; ?>
+                                        </a>
+                                    </th>
+                                    <td><?php echo $row['fullname']; ?></td>
+                                    <td><?php echo $row['datetime']; ?></td>
+                                    <td>
+                                        <?php
+                                        if (isset($row['stat'])) {
+                                            echo "<span class='text-success'>Done</span>";
+                                        }
+                                        else {
+                                            echo "<span class='text-danger'>Open</span>";
+                                        }
+                                        ?>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="col-md-5">
+                <div class="dialog border border-success">
+                    <p class="text-success"><b>Message</b></p>
+                    <hr class="border border-success">
+                    <?php
+                    if (isset($_GET['id'])) {
+                        $msgid = $_GET['id'];
+                        $select = "SELECT * FROM messages WHERE msgid = '$msgid'";
+                        $message = mysqli_query($connection, $select);
+                        $mrow = mysqli_fetch_assoc($message);
+                        ?>
+                        <div>
+                            <p><?php echo $mrow['fullname']; ?></p>
+                            <p><?php echo $mrow['datetime']; ?></p>
+                            <p><?php echo $mrow['email']; ?></p>
+                            <p><?php echo $mrow['phone']; ?></p>
+                            <p><b><?php echo $mrow['message']; ?></b></p>
+                            <a href="index.php?set=<?php echo $msgid; ?>" class="btn btn-sm btn-success">Answered</a>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
                 <br>
             </div>
