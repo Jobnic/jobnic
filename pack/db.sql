@@ -131,3 +131,16 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2021-06-25 16:44:18
+
+DROP TABLE IF EXISTS `ticks`;
+CREATE TABLE `ticks` (
+    `row` int(11) NOT NULL AUTO_INCREMENT,
+    `tikid` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `user` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `describe` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `datetime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `answered` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `status` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    PRIMARY KEY (`row`)
+);
