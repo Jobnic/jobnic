@@ -453,6 +453,27 @@ if ($row['status'] == 'not') {
         <br>
         <br>
         <div class="row">
+            <div class="col-md-4">
+                <h2>Send your ticket to us</h2>
+                <p>By this feature you can tell us if there is any problem or any other things</p>
+                <div class="dialog border border-dark">
+                    <h3><i class="fa fa-envelope"></i> Send Ticket</h3>
+                    <hr class="border border-dark">
+                    <form method="post" action="index.php">
+                        <input name="tictitle" type="text" class="form-control form-control-sm border border-dark"
+                               placeholder="Ticket Title">
+                        <br>
+                        <textarea name="ticdescribe" class="form-control form-control-sm border border-dark"
+                                  rows="5" placeholder="Ticket Describtion"></textarea>
+                        <br>
+                        <button class="btn btn-sm btn-dark" type="submit">Send Ticket</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
             <div class="col-md-6">
                 <h2 class="text-dark">Account Setting</h2>
                 <p class="text-dark">Yed, here is your account setting. Change phone or email or password</p>
