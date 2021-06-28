@@ -477,7 +477,7 @@ if (isset($_POST["sendtik"])) {
     $tikid = rand(10000, 99999);
 
     if (count($errors) == 0) {
-        $newtik = "INSERT INTO ticks (tikid, user, title, describe, datetile) VALUES ('$tikid', '$name', '$tiktitle', '$ticdes', '$dt')";
+        $newtik = "INSERT INTO ticks (`tikid`, `user`, `title`, `describe`, `datetime`) VALUES ('$tikid', '$id', '$tiktitle', '$ticdes', '$dt')";
         if (mysqli_query($connection, $newtik)) {
             ?>
             <script>
