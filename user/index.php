@@ -469,6 +469,41 @@ if ($row['status'] == 'not') {
                         <button class="btn btn-sm btn-dark" type="submit">Send Ticket</button>
                     </form>
                 </div>
+                <br>
+            </div>
+            <div class="col-md-4">
+                <h2>Your tickets</h2>
+                <p>Here you can see your tickets and see if ticket is answered or no</p>
+                <div class="dialog border border-dark">
+                    <h3><i class="fa fa-paper-plane"></i> My Tickets</h3>
+                    <hr class="border border-dark">
+                    <?php
+                    $select_tiks = "SELECT * FROM ticks WHERE user = $id ORDER BY row DESC";
+                    $result_tiks = mysqli_query($connection, $select_tiks);
+                    if (mysqli_num_rows($result_tiks) > 0) {
+                        while ($tik_row = mysqli_fetch_assoc($result_tiks)) {
+                            ?>
+                            <p class="text-info">
+                                <?php
+                                $tikid = $tik_row['tikid'];
+                                $tiktitle = $tik_row['title'];
+                                echo "<a class='link text-info' href='index.php?tikid=$tikid'>$tiktitle</a>";
+                                if ($tik_row['status'] == 'true') {
+                                    echo "<span style='float: right;' class='text-success'>Open</span>";
+                                } else {
+                                    echo "<span style='float: right;' class='text-danger'>Close</span>";
+                                }
+                                ?>
+                            </p>
+                            <hr class="border border-dark">
+                            <?php
+                        }
+                    } else {
+                        echo "<p class='text-dark'>No tickets yet</p>";
+                    }
+                    ?>
+                </div>
+                <br>
             </div>
         </div>
         <br>
