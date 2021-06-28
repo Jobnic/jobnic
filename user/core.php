@@ -20,6 +20,8 @@ $select_user = "SELECT * FROM people WHERE id = '$id'";
 $result_user = mysqli_query($connection, $select_user);
 $row_user = mysqli_fetch_assoc($result_user);
 
+$name = $row_user['firstname'] . $row_user['lastname'];
+
 date_default_timezone_set('Iran');
 
 if (isset($_POST["updateskill"])) {
@@ -471,7 +473,21 @@ if (isset($_POST["sendtik"])) {
         array_push($errors, "Ticket Describe is required");
     }
 
+    $dt = date("M d, Y H:i:s");
+    $tikid = rand(10000, 99999);
+
     if (count($errors) == 0) {
-        
+        $newtik = "INSERT INTO ticks (tikid, user, title, describe, datetile) VALUES ('$tikid', '$name', '$tiktitle', '$ticdes', '$dt')";
+        if (mysqli_query($connection, $newtik)) {
+            ?>
+            <script>
+                window.alert("Ticket sent");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
     }
 }
