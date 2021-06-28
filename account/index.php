@@ -101,10 +101,6 @@ include('core.php');
                                 data-bs-target="#nav-login"
                                 type="button" role="tab" aria-controls="nav-login" aria-selected="false">Sign In
                         </button>
-                        <button class="nav-link text-danger" style="color: black;" id="nav-login-tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-forgot"
-                                type="button" role="tab" aria-controls="nav-forgot" aria-selected="false">Forgot password
-                        </button>
                     </div>
                 </nav>
                 <div class="tab-content tabs" id="nav-tabContent">
@@ -170,8 +166,7 @@ include('core.php');
                             <button name="login" class="btn btn-primary" type="submit">Login</button>
                             <button style="float: right;" class="btn btn-outline-primary" type="submit" name="onetime">Get one-time password</button>
                         </form>
-                    </div>
-                    <div class="tab-pane fade" id="nav-forgot" role="tabpanel" aria-labelledby="nav-forgot-tab">
+                        <br>
                         <h3 class="text-danger">Forgot password</h3>
                         <hr class="border border-danger">
                         <form action="index.php" method="post">
