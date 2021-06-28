@@ -505,6 +505,16 @@ if ($row['status'] == 'not') {
                 </div>
                 <br>
             </div>
+            <div class="col-md-4">
+                <h2>Show ticket</h2>
+                <p>Here you can select your ticket and see details</p>
+                <div class="dialog border border-dark">
+                    <h3><i class="fa fa-search"></i> Ticket Review</h3>
+                    <hr class="border border-dark">
+                    <?php include(''); ?>
+                </div>
+                <br>
+            </div>
         </div>
         <br>
         <br>
