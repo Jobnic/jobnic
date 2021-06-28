@@ -466,7 +466,7 @@ if ($row['status'] == 'not') {
                         <textarea name="ticdescribe" class="form-control form-control-sm border border-dark"
                                   rows="5" placeholder="Ticket Describtion"></textarea>
                         <br>
-                        <button class="btn btn-sm btn-dark" type="submit">Send Ticket</button>
+                        <button class="btn btn-sm btn-dark" name="sendtik" type="submit">Send Ticket</button>
                     </form>
                 </div>
                 <br>
