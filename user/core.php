@@ -459,3 +459,19 @@ if (isset($_POST["closejob"])) {
         }
     }
 }
+
+if (isset($_POST["sendtik"])) {
+    $tiktitle = mysqli_real_escape_string($connection, $_POST["tictitle"]);
+    $ticdes = mysqli_real_escape_string($connection, $_POST["ticdescribe"]);
+
+    if (empty($tiktitle)) {
+        array_push($errors, "Ticket title is required");
+    }
+    if (empty($ticdes)) {
+        array_push($errors, "Ticket Describe is required");
+    }
+
+    if (count($errors) == 0) {
+        
+    }
+}
