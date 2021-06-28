@@ -272,7 +272,7 @@ if (isset($_POST['updatepassword'])) {
     if (count($errors) == 0) {
         if ($oldpassword == $currentpass) {
             if ($newpassword == $confirmpassword) {
-                $updatepassword = "UPDATE people SET password = '$newpassword'";
+                $updatepassword = "UPDATE people SET password = '$newpassword' WHERE id = '$id'";
 
                 if (mysqli_query($connection, $updatepassword)) {
                     ?>
