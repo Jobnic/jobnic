@@ -494,7 +494,7 @@ if (isset($_POST["sendtik"])) {
 }
 
 if (isset($_GET["tikid"])) {
-    $tikid = $_GET["jobid"];
+    $tikid = $_GET["tikid"];
 
     $gettik = "SELECT * FROM ticks WHERE tikid = '$tikid'";
 
