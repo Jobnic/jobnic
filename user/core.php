@@ -491,3 +491,18 @@ if (isset($_POST["sendtik"])) {
         }
     }
 }
+
+if (isset($_GET["tikid"])) {
+    $tikid = $_GET["jobid"];
+
+    $gettik = "SELECT * FROM ticks WHERE tikid = '$tikid'";
+
+    if ($result = mysqli_query($connection, $gettik)) {
+        if (mysqli_num_rows($result) == 1) {
+            array_push($tik, mysqli_fetch_assoc($result));
+        }
+        else {
+            array_push($tik, false);
+        }
+    }
+}
