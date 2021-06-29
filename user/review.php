@@ -74,3 +74,5 @@ if (count($job) > 0) {
 else {
     echo '<p class="text-secondary">Select job first.</p>';
 }
+
+?>
