@@ -588,7 +588,34 @@ if ($row['status'] == 'not') {
                 <div class="dialog border border-dark">
                     <h3><i class="fa fa-search"></i> Ticket Review</h3>
                     <hr class="border border-dark">
-                    <?php include(''); ?>
+                    <?php
+                    if ($tik[0] == false) {
+                        echo "<p class='text-danger'><b>Ticket didnt found.</b></p>";
+                    }
+                    else {
+                        ?>
+                        <h3><?php echo $tik[0]['title']; ?></h3>
+                        <p><?php echo $tik[0]['describe']; ?></p>
+                        <br>
+                        <?php
+                        if (isset($tik[0]['status'])) {
+                            if (isset($tik[0]['answered'])) {
+                                ?>
+                                <p class="text-success"><?php echo $tik[0]['answered']; ?></p>
+                                <p><small>Answered in <?php echo $tik[0]['answered']; ?></small></p>
+                                <?php
+                            }
+                        }
+                        else {
+                            echo '<p><small class="text-danger">Until now support didnt saw ticket</small></p>';
+                        }
+                        ?>
+                        <br>
+                        <p>Sent in <b><?php echo $tik[0]['datetime']; ?></b></p>
+                        <p>Ticket ID : <b><?php echo $tik[0]['tikid']; ?></b></p>
+                        <?php
+                    }
+                    ?>
                 </div>
                 <br>
             </div>
