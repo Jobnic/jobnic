@@ -15,6 +15,7 @@ $connection = mysqli_connect($server, $user, $passwd, $db);
 $errors = array();
 
 $job = array();
+$tik = array();
 
 $select_user = "SELECT * FROM people WHERE id = '$id'";
 $result_user = mysqli_query($connection, $select_user);
