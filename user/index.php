@@ -223,6 +223,12 @@ if ($row['status'] == 'not') {
                                         class="icon fa fa-twitter text-white bg-info"></i></a>
                             <?php
                         }
+                        if (isset($row['facebook'])) {
+                            ?>
+                            <a target="_blank" class="link" href="https://facebook.com/<?php echo $row['facebook']; ?>"><i
+                                        class="icon fa fa-facebook text-white bg-primary"></i></a>
+                            <?php
+                        }
                         ?>
                     </p>
                 </div>
@@ -307,6 +313,14 @@ if ($row['status'] == 'not') {
                             <input name="instagram" placeholder="Instagram" class="form-control-sm inp border-danger">
                             &nbsp;
                             <button name="updateinstagram" class="btn btn-danger btn-sm">Update</button>
+                        </div>
+                        <br>
+                        <div class="group">
+                            <i class="fa fa-facebook text-primary"></i>
+                            <br>
+                            <input name="facebook" placeholder="Facebook" class="form-control-sm inp border-primary">
+                            &nbsp;
+                            <button name="updatefacebook" class="btn btn-primary btn-sm">Update</button>
                         </div>
                     </form>
                 </div>
