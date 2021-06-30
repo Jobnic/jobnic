@@ -578,18 +578,18 @@ if ($row['status'] == 'not') {
                 <br>
             </div>
             <div class="col-md-4">
-                <h2>Your tickets</h2>
-                <p>Here you can see your tickets and see if ticket is answered or no</p>
-                <div class="dialog border border-dark">
-                    <h3><i class="fa fa-paper-plane"></i> My Tickets</h3>
-                    <hr class="border border-dark">
+                <h2 class="text-night">Your tickets</h2>
+                <p class="text-night">Here you can see your tickets and see if ticket is answered or no</p>
+                <div class="dialog border-night">
+                    <h3 class="text-night"><i class="fa fa-paper-plane"></i> My Tickets</h3>
+                    <hr class="border-night">
                     <?php
                     $select_tiks = "SELECT * FROM ticks WHERE user = $id ORDER BY row DESC";
                     $result_tiks = mysqli_query($connection, $select_tiks);
                     if (mysqli_num_rows($result_tiks) > 0) {
                         while ($tik_row = mysqli_fetch_assoc($result_tiks)) {
                             ?>
-                            <p class="text-info">
+                            <p class="text-night">
                                 <?php
                                 $tikid = $tik_row['tikid'];
                                 $tiktitle = $tik_row['title'];
@@ -601,11 +601,11 @@ if ($row['status'] == 'not') {
                                 }
                                 ?>
                             </p>
-                            <hr class="border border-dark">
+                            <hr class="border-night">
                             <?php
                         }
                     } else {
-                        echo "<p class='text-dark'>No tickets yet</p>";
+                        echo "<p class='text-night'>No tickets yet</p>";
                     }
                     ?>
                 </div>
