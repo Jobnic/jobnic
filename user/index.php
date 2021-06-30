@@ -100,6 +100,20 @@ if ($row['status'] == 'not') {
         .btn-purple:hover {
             color: white;
         }
+
+        .text-fuchsia {
+            color: fuchsia;
+        }
+        .border-fuchsia {
+            border: solid 1px fuchsia;
+        }
+        .btn-fuchsia {
+            background: fuchsia;
+            color: white;
+        }
+        .btn-fuchsia:hover {
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -612,37 +626,42 @@ if ($row['status'] == 'not') {
                 <br>
             </div>
             <div class="col-md-4">
-                <h2>Show ticket</h2>
-                <p>Here you can select your ticket and see details</p>
-                <div class="dialog border border-dark">
-                    <h3><i class="fa fa-search"></i> Ticket Review</h3>
+                <h2 class="text-fuchsia">Show ticket</h2>
+                <p class="text-fuchsia">Here you can select your ticket and see details</p>
+                <div class="dialog border-fuchsia">
+                    <h3 class="text-fuchsia"><i class="fa fa-search"></i> Ticket Review</h3>
                     <hr class="border border-dark">
                     <?php
-                    if ($tik[0] == false) {
-                        echo "<p class='text-danger'><b>Ticket didnt found.</b></p>";
-                    }
-                    else {
-                        ?>
-                        <h3><?php echo $tik[0]['title']; ?></h3>
-                        <p><?php echo $tik[0]['describe']; ?></p>
-                        <br>
-                        <?php
-                        if (isset($tik[0]['status'])) {
-                            if (isset($tik[0]['answered'])) {
-                                ?>
-                                <p class="text-success"><?php echo $tik[0]['answered']; ?></p>
-                                <p><small>Answered in <?php echo $tik[0]['answered']; ?></small></p>
-                                <?php
-                            }
+                    if (count($tik) > 0) {
+                        if ($tik[0] == false) {
+                            echo "<p class='text-danger'><b>Ticket didnt found.</b></p>";
                         }
                         else {
-                            echo '<p><small class="text-danger">Until now support didnt saw ticket</small></p>';
+                            ?>
+                            <h3><?php echo $tik[0]['title']; ?></h3>
+                            <p><?php echo $tik[0]['describe']; ?></p>
+                            <br>
+                            <?php
+                            if (isset($tik[0]['status'])) {
+                                if (isset($tik[0]['answered'])) {
+                                    ?>
+                                    <p class="text-success"><?php echo $tik[0]['answered']; ?></p>
+                                    <p><small>Answered in <?php echo $tik[0]['answered']; ?></small></p>
+                                    <?php
+                                }
+                            }
+                            else {
+                                echo '<p><small class="text-danger">Until now support didnt saw ticket</small></p>';
+                            }
+                            ?>
+                            <br>
+                            <p>Sent in <b><?php echo $tik[0]['datetime']; ?></b></p>
+                            <p>Ticket ID : <b><?php echo $tik[0]['tikid']; ?></b></p>
+                            <?php
                         }
-                        ?>
-                        <br>
-                        <p>Sent in <b><?php echo $tik[0]['datetime']; ?></b></p>
-                        <p>Ticket ID : <b><?php echo $tik[0]['tikid']; ?></b></p>
-                        <?php
+                    }
+                    else {
+                        echo '<p class="text-pink">Select ticket first.</p>';
                     }
                     ?>
                 </div>
