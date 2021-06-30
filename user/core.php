@@ -205,6 +205,30 @@ if (isset($_POST['updatetwitter'])) {
     }
 }
 
+if (isset($_POST['updatefacebook'])) {
+    $social = mysqli_real_escape_string($connection, $_POST['facebook']);
+
+    if (empty($social)) {
+        array_push($errors, "Facebook id is required");
+    }
+
+    if (count($errors) == 0) {
+        $updatesocial = "UPDATE people SET facebook = '$social' WHERE id = '$id'";
+
+        if (mysqli_query($connection, $updatesocial)) {
+            ?>
+            <script>
+                window.alert("Facebook updated.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
+    }
+}
+
 if (isset($_POST['updatephone'])) {
     $phone = mysqli_real_escape_string($connection, $_POST['phone']);
 
