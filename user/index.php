@@ -607,7 +607,7 @@ if ($row['status'] == 'not') {
                                 <?php
                                 $tikid = $tik_row['tikid'];
                                 $tiktitle = $tik_row['title'];
-                                echo "<a class='link text-dark' href='index.php?tikid=$tikid'>$tiktitle</a>";
+                                echo "<a class='link text-night' href='index.php?tikid=$tikid'>$tiktitle</a>";
                                 if ($tik_row['status'] == 'true') {
                                     echo "<span style='float: right;' class='text-success'><i class='fa fa-check'></i></span>";
                                 } else {
@@ -630,7 +630,7 @@ if ($row['status'] == 'not') {
                 <p class="text-fuchsia">Here you can select your ticket and see details</p>
                 <div class="dialog border-fuchsia">
                     <h3 class="text-fuchsia"><i class="fa fa-search"></i> Ticket Review</h3>
-                    <hr class="border border-dark">
+                    <hr class="border-fuchsia">
                     <?php
                     if (count($tik) > 0) {
                         if ($tik[0] == false) {
@@ -661,7 +661,7 @@ if ($row['status'] == 'not') {
                         }
                     }
                     else {
-                        echo '<p class="text-pink">Select ticket first.</p>';
+                        echo '<p class="text-fuchsia">Select ticket first.</p>';
                     }
                     ?>
                 </div>
