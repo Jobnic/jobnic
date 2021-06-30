@@ -216,7 +216,7 @@ $userid = $_GET['userid'];
                             <a target="_blank" class="link"
                                href="https://facebook.com/<?php echo $row['facebook']; ?>">
                                 <i class="icon fa fa-facebook text-white bg-primary"></i> <span
-                                        class="text-dark">Facebook</span>
+                                        class="text-primary">Facebook</span>
                             </a>
                         </p>
                         <?php
