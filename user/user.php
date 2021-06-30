@@ -210,6 +210,17 @@ $userid = $_GET['userid'];
                         </p>
                         <?php
                     }
+                    if (isset($row['facebook'])) {
+                        ?>
+                        <p>
+                            <a target="_blank" class="link"
+                               href="https://facebook.com/<?php echo $row['facebook']; ?>">
+                                <i class="icon fa fa-facebook text-white bg-primary"></i> <span
+                                        class="text-dark">Facebook</span>
+                            </a>
+                        </p>
+                        <?php
+                    }
                     ?>
                     </p>
                 </div>
