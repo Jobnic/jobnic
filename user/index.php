@@ -55,35 +55,50 @@ if ($row['status'] == 'not') {
             font-family: 'Roboto', sans-serif;
             padding: 8%;
         }
-
         .dialog {
             padding: 5%;
         }
-
         .icon {
             padding: 5px;
             border-radius: 5px;
         }
-
         .link {
             text-decoration: none;
             color: gray;
         }
-
-        .mbtn {
-            border: solid 1px #d3d3d3;
-        }
-
-        .mbtn:hover {
-            border: solid 1px #d3d3d3;
-        }
-
         .inp {
             border: solid 1px #d3d3d3;
         }
-
         .inp:hover {
             border: solid 1px #d3d3d3;
+        }
+        .text-night {
+            color: midnightblue;
+        }
+
+        .border-night {
+            border: solid 1px midnightblue;
+        }
+        .btn-night {
+            background: midnightblue;
+            color: white;
+        }
+        .btn-night:hover {
+            color: white;
+        }
+
+        .text-purple {
+            color: purple;
+        }
+        .border-purple {
+            border: solid 1px purple;
+        }
+        .btn-purple {
+            background: purple;
+            color: white;
+        }
+        .btn-purple:hover {
+            color: white;
         }
     </style>
 </head>
@@ -545,19 +560,19 @@ if ($row['status'] == 'not') {
         <br>
         <div class="row">
             <div class="col-md-4">
-                <h2>Send your ticket to us</h2>
-                <p>By this feature you can tell us if there is any problem or any other things</p>
-                <div class="dialog border border-dark">
-                    <h3><i class="fa fa-envelope"></i> Send Ticket</h3>
-                    <hr class="border border-dark">
+                <h2 class="text-purple">Send your ticket to us</h2>
+                <p class="text-purple">By this feature you can tell us if there is any problem or any other things</p>
+                <div class="dialog border-purple">
+                    <h3 class="text-purple"><i class="fa fa-envelope text-purple"></i> Send Ticket</h3>
+                    <hr class="border-purple">
                     <form method="post" action="index.php">
-                        <input name="tictitle" type="text" class="form-control form-control-sm border border-dark"
+                        <input name="tictitle" type="text" class="form-control form-control-sm border-purple"
                                placeholder="Ticket Title">
                         <br>
-                        <textarea name="ticdescribe" class="form-control form-control-sm border border-dark"
+                        <textarea name="ticdescribe" class="form-control form-control-sm border-purple"
                                   rows="5" placeholder="Ticket Describtion"></textarea>
                         <br>
-                        <button class="btn btn-sm btn-dark" name="sendtik" type="submit">Send Ticket</button>
+                        <button class="btn btn-sm btn-purple" name="sendtik" type="submit">Send Ticket</button>
                     </form>
                 </div>
                 <br>
