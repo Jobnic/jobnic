@@ -68,7 +68,7 @@ CREATE TABLE `messages` (
   `datetime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `stat` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`row`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `messages` (
 
 LOCK TABLES `messages` WRITE;
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
-INSERT INTO `messages` VALUES (1,'65543','Amirhossein Mohammadi','meysam@yahoo.com','09014784362','Hi','Jun 25, 2021 12:13:31',NULL);
+INSERT INTO `messages` VALUES (1,'65543','Amirhossein Mohammadi','meysam@yahoo.com','09014784362','Hi','Jun 25, 2021 12:13:31',NULL),(2,'91690','Amirhossein Mohammadi','amir@yahoo.com','09014784362','Hi!\r\ni am amir','Jun 26, 2021 07:45:15',NULL),(3,'34226','Amirhossein Mohammadi','meysam@yahoo.com','09014784362','Hi. test','Jun 29, 2021 04:57:27',NULL);
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,6 +107,7 @@ CREATE TABLE `people` (
   `stars` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `views` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`row`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -117,8 +118,38 @@ CREATE TABLE `people` (
 
 LOCK TABLES `people` WRITE;
 /*!40000 ALTER TABLE `people` DISABLE KEYS */;
-INSERT INTO `people` VALUES (1,'634044','I am Amit. Any thing else?','Amirhossein','Mohammadi','09014784362','amir@yahoo.com','22834478','GNU_Amir','amirhosseinmohammadi','leonardo_l_larson','BlackIQ','BlackIQ','php-70 laravel-5 python-40','Jun 21, 2021 18:13:03','10','payed','148'),(2,'427617',NULL,'Amirali','Mohammadi','09038450655','ali@yahoo.com','64208816',NULL,NULL,NULL,NULL,NULL,NULL,'Jun 21, 2021 18:14:25','8','payed','0');
+INSERT INTO `people` VALUES (1,'634044','I am Amit. Any thing else?','Amirhossein','Mohammadi','09014784362','amir@yahoo.com','87270007','GNU_Amir','amirhosseinmohammadi','leonardo_l_larson','BlackIQ','BlackIQ','php-70 laravel-5 python-40','Jun 21, 2021 18:13:03','10','payed','148','leonardo'),(2,'427617',NULL,'Amirali','Mohammadi','09038450655','ali@yahoo.com','64208816',NULL,NULL,NULL,NULL,NULL,NULL,'Jun 21, 2021 18:14:25','8','payed','0',NULL);
 /*!40000 ALTER TABLE `people` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ticks`
+--
+
+DROP TABLE IF EXISTS `ticks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ticks` (
+  `row` int(11) NOT NULL AUTO_INCREMENT,
+  `tikid` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `describe` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `datetime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `answered` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`row`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ticks`
+--
+
+LOCK TABLES `ticks` WRITE;
+/*!40000 ALTER TABLE `ticks` DISABLE KEYS */;
+INSERT INTO `ticks` VALUES (1,'54381','634044','test','Good','Jun 28, 2021 15:30:24',NULL,NULL);
+/*!40000 ALTER TABLE `ticks` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -130,17 +161,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-25 16:44:18
-
-DROP TABLE IF EXISTS `ticks`;
-CREATE TABLE `ticks` (
-    `row` int(11) NOT NULL AUTO_INCREMENT,
-    `tikid` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `user` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `describe` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `datetime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `answered` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `status` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    PRIMARY KEY (`row`)
-);
+-- Dump completed on 2021-06-30 12:31:17
