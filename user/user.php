@@ -9,6 +9,32 @@ $db = 'jobnic';
 $connection = mysqli_connect($server, $user, $passwd, $db);
 
 $userid = $_GET['userid'];
+
+$reportid = $_GET['id'];
+
+if (isset($reportid)) {
+    $rid = rand(11111, 99999);
+    $dt = date("M d, Y H:i:s");
+
+    $report = "INSERT INTO reports (`reportid`, `user`, `datetime`) VALUES ('$rid', '$reportid', '$dt')";
+    if (mysqli_query($connection, $report)) {
+        ?>
+            <script>
+                window.alert("User reported, tnx.");
+                window.location.replace('.');
+            </script>
+        <?php
+    }
+    else {
+        ?>
+        <script>
+            window.alert("<?php echo mysqli_error($connection); ?>");
+            window.location.replace('.');
+        </script>
+        <?php
+    }
+}
+
 ?>
 
 <!doctype html>
