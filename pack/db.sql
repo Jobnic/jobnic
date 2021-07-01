@@ -162,3 +162,12 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2021-06-30 12:31:17
+
+DROP TABLE IF EXISTS `reports`;
+CREATE TABLE `reports` (
+    `row` int(11) NOT NULL AUTO_INCREMENT,
+    `reportid` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `user` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `datetime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    PRIMARY KEY (`row`)
+);
