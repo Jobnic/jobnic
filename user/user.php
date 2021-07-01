@@ -42,6 +42,20 @@ $userid = $_GET['userid'];
             text-decoration: none;
             color: gray;
         }
+
+        .text-purple {
+            color: purple;
+        }
+        .border-purple {
+            border: solid 1px purple;
+        }
+        .btn-purple {
+            background: purple;
+            color: white;
+        }
+        .btn-purple:hover {
+            color: white;
+        }
     </style>
 </head>
 </head>
@@ -151,9 +165,9 @@ $userid = $_GET['userid'];
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="dialog border border-danger">
-                    <h3 class="text-danger"><i class="fa fa-cloud text-danger"></i> Social Media</h3>
-                    <hr class="border border-danger">
+                <div class="dialog border-purple">
+                    <h3 class="text-purple"><i class="fa fa-cloud"></i> Social Media</h3>
+                    <hr class="border-purple">
                     <p>
                         <?php
                         if (isset($row['linkedin'])) {
