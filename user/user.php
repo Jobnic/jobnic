@@ -117,9 +117,12 @@ $userid = $_GET['userid'];
                     <p><small>Joined <?php echo $row['join']; ?></small></p>
                     <hr class="border border-success">
                     <p>
-                    <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row['phone']; ?></p>
-                    <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row['email']; ?></p>
+                        <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row['phone']; ?></p>
+                        <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row['email']; ?></p>
                     </p>
+                    <br>
+                    <p class="text-danger">If you see any <b>bad activities</b> from this user, you can <b>report</b> it as soon as possible</p>
+                    <a href="user.php?id=<?php echo $userid; ?>" class="btn btn-sm btn-danger">Report</a>
                 </div>
                 <br>
             </div>
