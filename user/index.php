@@ -608,7 +608,7 @@ if ($row['status'] == 'not') {
                                 $tikid = $tik_row['tikid'];
                                 $tiktitle = $tik_row['title'];
                                 echo "<a class='link text-night' href='index.php?tikid=$tikid'>$tiktitle</a>";
-                                if ($tik_row['status'] == 'true') {
+                                if (isset($tik_row['status'])) {
                                     echo "<span style='float: right;' class='text-success'><i class='fa fa-check'></i></span>";
                                 } else {
                                     echo "<span style='float: right;' class='text-danger'><i class='fa fa-times'></i></span>";
