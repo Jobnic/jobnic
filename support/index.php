@@ -175,6 +175,64 @@ if (isset($_GET['set'])) {
                 <br>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-7">
+                <?php
+                $get = "SELECT * FROM ticks ORDER BY row DESC ";
+                $result = mysqli_query($connection, $get);
+                ?>
+                <div class="dialog border border-success">
+                    <p class="text-success"><b>Tickets</b></p>
+                    <hr class="border border-success">
+                    <div class="table-responsive">
+                        <table class="table table-hover text-center table-bordered border-success table-sm">
+                            <thead>
+                            <tr>
+                                <th scope="col">Ticket ID</th>
+                                <th scope="col">User</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Seen</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                <tr>
+                                    <th scope="row">
+                                        <a class="text-decoration-none text-primary" href="index.php?tik=<?php echo $row['tikid']; ?>">
+                                            <?php echo $row['tikid']; ?>
+                                        </a>
+                                    </th>
+                                    <?php
+                                    $person = $row["user"];
+                                    $getperson = "SELECT * FROM people WHERE id = '$person'";
+                                    $resultperson = mysqli_query($connection, $getperson);
+                                    $who = mysqli_fetch_assoc($resultperson);
+                                    ?>
+                                    <td><?php echo $who['firstname'] . " " . $who['lastname']; ?></td>
+                                    <td><?php echo $row['datetime']; ?></td>
+                                    <td>
+                                        <?php
+                                        if (isset($row['status'])) {
+                                            echo "<i class='fa fa-check text-success'></i> <i class='fa fa-check text-success'></i>";
+                                        }
+                                        else {
+                                            echo "<i class='fa fa-check text-danger'></i>";
+                                        }
+                                        ?>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
