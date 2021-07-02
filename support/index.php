@@ -18,11 +18,44 @@ $db = 'jobnic';
 
 $connection = mysqli_connect($server, $user, $passwd, $db);
 
+$errors = array();
+
 if (isset($_GET['set'])) {
     $msg = $_GET['set'];
     $update = "UPDATE messages SET stat = 'done' WHERE msgid = '$msg'";
     mysqli_query($connection, $update);
 }
+
+if (isset($_POST['answering'])) {
+    $tik = $_SESSION['tikid'];
+
+    $answer = mysqli_real_escape_string($connection, $_POST['answer']);
+
+    if (empty($answer)) {
+        array_push($errors, "Answer is not set");
+    }
+
+    if (count($errors) == 0) {
+        $update = "UPDATE ticks SET answer = '$answer' WHERE tikid = '$tik'";
+        if (mysqli_query($connection, $update)) {
+            ?>
+            <script>
+                window.alert("Answered");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            ?>
+            <script>
+                window.alert("<?php echo mysqli_error($connection); ?>");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+    }
+}
+
 ?>
 
 <!doctype html>
