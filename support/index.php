@@ -69,6 +69,7 @@ if (isset($_GET['set'])) {
                                 <th scope="col">Last Name</th>
                                 <th scope="col">Phone</th>
                                 <th scope="col">Mail</th>
+                                <th scope="col">Reports</th>
                             </tr>
                             </thead>
                             <tbody>
