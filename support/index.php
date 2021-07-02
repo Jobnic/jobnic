@@ -36,7 +36,8 @@ if (isset($_POST['answering'])) {
     }
 
     if (count($errors) == 0) {
-        $update = "UPDATE ticks SET answer = '$answer' WHERE tikid = '$tik'";
+        $dt = date("M d, Y H:i:s");
+        $update = "UPDATE ticks SET answer = '$answer', answered = '$dt' WHERE tikid = '$tik'";
         if (mysqli_query($connection, $update)) {
             ?>
             <script>
