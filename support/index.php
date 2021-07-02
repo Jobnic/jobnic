@@ -249,6 +249,7 @@ if (isset($_GET['set'])) {
                     <?php
                     if (isset($_GET['tik'])) {
                         $tikid = $_GET['tik'];
+                        $_SESSION['tikid'] = $tikid;
                         $select = "SELECT * FROM ticks WHERE tikid = '$tikid'";
                         $ticket = mysqli_query($connection, $select);
                         $trow = mysqli_fetch_assoc($ticket);
