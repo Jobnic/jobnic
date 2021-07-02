@@ -645,6 +645,7 @@ if ($row['status'] == 'not') {
                             if (isset($tik[0]['status'])) {
                                 if (isset($tik[0]['answered'])) {
                                     ?>
+                                    <p><b><?php echo $tik[0]['answer']; ?></b></p>
                                     <p class="text-success"><?php echo $tik[0]['answered']; ?></p>
                                     <p><small>Answered in <?php echo $tik[0]['answered']; ?></small></p>
                                     <?php
