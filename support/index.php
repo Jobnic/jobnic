@@ -196,7 +196,7 @@ if (isset($_GET['set'])) {
                                 <th scope="col">Ticket ID</th>
                                 <th scope="col">User</th>
                                 <th scope="col">Date</th>
-                                <th scope="col">Seen</th>
+                                <th scope="col">Status</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -219,11 +219,16 @@ if (isset($_GET['set'])) {
                                     <td><?php echo $row['datetime']; ?></td>
                                     <td>
                                         <?php
-                                        if (isset($row['status'])) {
-                                            echo "<i class='fa fa-check text-success'></i> <i class='fa fa-check text-success'></i>";
+                                        if (isset($row['answer'])) {
+                                            echo "<i class='fa fa-check text-primary'></i> <i class='fa fa-check text-primary'></i> <i class='fa fa-check text-primary'></i>";
                                         }
                                         else {
-                                            echo "<i class='fa fa-check text-danger'></i>";
+                                            if (isset($row['status'])) {
+                                                echo "<i class='fa fa-check text-success'></i> <i class='fa fa-check text-success'></i>";
+                                            }
+                                            else {
+                                                echo "<i class='fa fa-check text-danger'></i>";
+                                            }
                                         }
                                         ?>
                                     </td>
