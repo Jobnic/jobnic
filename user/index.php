@@ -650,6 +650,9 @@ if ($row['status'] == 'not') {
                                     <p><small>Answered in <?php echo $tik[0]['answered']; ?></small></p>
                                     <?php
                                 }
+                                else {
+                                    echo "<p class='text-fuchsia'>Support saw ticket, wait for answer</p>";
+                                }
                             }
                             else {
                                 echo '<p><small class="text-danger">Until now support didnt saw ticket</small></p>';
