@@ -261,6 +261,8 @@ if (isset($_GET['set'])) {
                             <small><?php echo $trow['datetime']; ?></small>
                         </div>
                         <?php
+                        $update = "UPDATE ticks SET status = 'seen' WHERE tikid = '$tikid'";
+                        mysqli_query($connection, $update);
                     }
                     else {
                         ?>
