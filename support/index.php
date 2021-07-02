@@ -232,6 +232,40 @@ if (isset($_GET['set'])) {
                 </div>
                 <br>
             </div>
+            <div class="col-md-5">
+                <div class="dialog border border-success">
+                    <p class="text-success"><b>Ticket Review</b></p>
+                    <hr class="border border-success">
+                    <?php
+                    if (isset($_GET['tik'])) {
+                        $tikid = $_GET['tik'];
+                        $select = "SELECT * FROM ticks WHERE tikid = '$tikid'";
+                        $ticket = mysqli_query($connection, $select);
+                        $trow = mysqli_fetch_assoc($ticket);
+                        ?>
+                        <div>
+                            <p><?php echo $trow['title']; ?></p>
+                            <p><b><?php echo $trow['describe']; ?></b></p>
+                            <p>Write your answer</p>
+                            <form>
+                                <textarea class="form-control" rows="5"></textarea>
+                            </form>
+                            <br>
+                            <small><?php echo $trow['tikid']; ?></small>
+                            <br>
+                            <small><?php echo $trow['datetime']; ?></small>
+                        </div>
+                        <?php
+                    }
+                    else {
+                        ?>
+                        <span>Select a ticket first</span>
+                        <?php
+                    }
+                    ?>
+                </div>
+                <br>
+            </div>
         </div>
     </div>
 </div>
