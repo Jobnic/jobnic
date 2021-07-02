@@ -146,7 +146,7 @@ if (isset($_GET['set'])) {
             </div>
             <div class="col-md-5">
                 <div class="dialog border border-success">
-                    <p class="text-success"><b>Message</b></p>
+                    <p class="text-success"><b>Message Review</b></p>
                     <hr class="border border-success">
                     <?php
                     if (isset($_GET['id'])) {
