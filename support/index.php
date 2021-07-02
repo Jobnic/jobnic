@@ -165,6 +165,11 @@ if (isset($_GET['set'])) {
                         </div>
                         <?php
                     }
+                    else {
+                        ?>
+                        <span>Select a message first</span>
+                        <?php
+                    }
                     ?>
                 </div>
                 <br>
