@@ -258,8 +258,10 @@ if (isset($_GET['set'])) {
                             <p><?php echo $trow['title']; ?></p>
                             <p><b><?php echo $trow['describe']; ?></b></p>
                             <p>Write your answer</p>
-                            <form>
-                                <textarea class="form-control" rows="5"></textarea>
+                            <form method="post" action="index.php">
+                                <textarea name="answer" class="form-control" placeholder="Answer" rows="5"></textarea>
+                                <br>
+                                <button class="btn btn-success" name="answering">Answer</button>
                             </form>
                             <br>
                             <small><?php echo $trow['tikid']; ?></small>
