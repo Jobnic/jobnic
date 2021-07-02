@@ -75,6 +75,10 @@ if (isset($_GET['set'])) {
                             <tbody>
                             <?php
                             while ($row = mysqli_fetch_assoc($result)) {
+                                $id = $row['id'];
+                                $getreports = "SELECT count(*) as total FROM reports WHERE user = '$id'";
+                                $resultreports = mysqli_query($connection, $getreports);
+                                $rowreport = mysqli_fetch_assoc($resultreports);
                                 ?>
                                 <tr>
                                     <th scope="row"><?php echo $row['id']; ?></th>
@@ -82,7 +86,7 @@ if (isset($_GET['set'])) {
                                     <td><?php echo $row['lastname']; ?></td>
                                     <td><?php echo $row['phone']; ?></td>
                                     <td><?php echo $row['email']; ?></td>
-
+                                    <td><?php echo $rowreport['total']; ?></td>
                                 </tr>
                                 <?php
                             }
