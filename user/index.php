@@ -72,20 +72,6 @@ if ($row['status'] == 'not') {
                     </li>
                 </ul>
                 <div class="navbar-nav">
-                    <a class="nav-link active" href="../account/logout.php"><i class="fa fa-sign-out"></i> Logout</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#side" aria-controls="side"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="side">
-                <div class="navbar-nav">
                     <a class="nav-link active" href="?tab=review"><i class="fa fa-id-card"></i> Review</a>
                 </div>
                 <div class="navbar-nav">
@@ -99,6 +85,9 @@ if ($row['status'] == 'not') {
                 </div>
                 <div class="navbar-nav">
                     <a class="nav-link active" href="?tab=setting"><i class="fa fa-cogs"></i> Settings</a>
+                </div>
+                <div class="navbar-nav">
+                    <a class="nav-link active" href="../account/logout.php"><i class="fa fa-sign-out"></i> Logout</a>
                 </div>
             </div>
         </div>
