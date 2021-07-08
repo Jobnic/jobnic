@@ -159,20 +159,6 @@ if ($row['status'] == 'not') {
             <?php
         }
         ?>
-        <br>
-        <!-- Include Review Here -->
-        <br>
-        <br>
-        <!-- Include Profile Here -->
-        <br>
-        <br>
-        <!-- Include Jobs Here -->
-        <br>
-        <br>
-        <!-- Include Ticket Here -->
-        <br>
-        <br>
-        <!-- Include Setting Here -->
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
