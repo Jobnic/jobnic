@@ -62,3 +62,6 @@ body {
 .btn-fuchsia:hover {
     color: white;
 }
+.br {
+    padding: 2px;
+}

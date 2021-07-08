@@ -77,6 +77,32 @@ if ($row['status'] == 'not') {
             </div>
         </div>
     </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#side" aria-controls="side"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="side">
+                <div class="navbar-nav">
+                    <a class="nav-link active" href="?tab=review"><i class="fa fa-id-card"></i> Review</a>
+                </div>
+                <div class="navbar-nav">
+                    <a class="nav-link active" href="?tab=jobs"><i class="fa fa-list"></i> Jobs</a>
+                </div>
+                <div class="navbar-nav">
+                    <a class="nav-link active" href="?tab=tickets"><i class="fa fa-envelope"></i> Tickets</a>
+                </div>
+                <div class="navbar-nav">
+                    <a class="nav-link active" href="?tab=profile"><i class="fa fa-user"></i> Profile</a>
+                </div>
+                <div class="navbar-nav">
+                    <a class="nav-link active" href="?tab=setting"><i class="fa fa-cogs"></i> Settings</a>
+                </div>
+            </div>
+        </div>
+    </nav>
     <br>
     <div class="container">
         <?php
