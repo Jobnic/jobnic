@@ -359,7 +359,7 @@ if ($row['status'] == 'not') {
         <br>
         <div class="row">
             <div class="col-md-6">
-                <h2 class="text-warning">New Project</h2>
+                <h2 class="text-warning">New Job</h2>
                 <p class="text-warning">I think you have a project that you cant solve. So, put it here and wait for
                     someone</p>
                 <div class="dialog border border-warning">
@@ -411,7 +411,7 @@ if ($row['status'] == 'not') {
                     if (mysqli_num_rows($job_result) > 0) {
                         ?>
                         <div class="table-responsive">
-                            <table class="table table-hover text-center table-bordered border-success table-sm">
+                            <table class="table table-hover text-center table-bordered border-dark table-sm">
                                 <thead>
                                 <tr>
                                     <th scope="col">Title</th>
