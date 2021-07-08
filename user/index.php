@@ -68,7 +68,7 @@ if ($row['status'] == 'not') {
                             Jobs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="us"><i class="fa fa-bank"></i> We</a>
+                        <a class="nav-link active" aria-current="page" href="../us"><i class="fa fa-bank"></i> We</a>
                     </li>
                 </ul>
                 <div class="navbar-nav">
@@ -92,6 +92,38 @@ if ($row['status'] == 'not') {
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             <?php
+        }
+        ?>
+        <br>
+        <?php
+        if (isset($_GET['tab'])) {
+            $tab = $_GET['tab'];
+
+            if ($tab == "tickets") {
+                include("pages/ticket.php");
+            }
+            elseif ($tab == "jobs") {
+                include("pages/jobs.php");
+            }
+            elseif ($tab == "profile") {
+                include("pages/profile.php");
+            }
+            elseif ($tab == "review") {
+                include("pages/review.php");
+            }
+            elseif ($tab == "setting") {
+                include("pages/setting.php");
+            }
+            else {
+                ?>
+                <script>
+                    window.location.replace(".");
+                </script>
+                <?php
+            }
+        }
+        else {
+            include("pages/review.php");
         }
         ?>
     </div>
