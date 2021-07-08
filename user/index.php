@@ -142,8 +142,8 @@ if ($row['status'] == 'not') {
             </div>
         </div>
     </nav>
+    <br>
     <div class="container">
-        <br>
         <?php
         if (count($errors) > 0) {
             ?>
@@ -177,7 +177,7 @@ if ($row['status'] == 'not') {
                                     class="fa fa-eye"></i> <?php echo $row["views"]; ?></span>
                     </p>
                     <p><?php echo $row['bio']; ?></p>
-                    <p><small>Joined <?php echo $row['join']; ?></small></p>
+                    <small>Joined <?php echo $row['join']; ?></small>
                     <hr class="border border-success">
                     <?php
                     if (isset($row['skills'])) {
