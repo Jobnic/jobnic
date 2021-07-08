@@ -1,3 +1,6 @@
+<?php
+// Profile Page
+?>
 <div class="row">
     <div class="col-md-6">
         <h2 class="text-danger">Profile Updating</h2>

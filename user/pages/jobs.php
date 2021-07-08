@@ -1,3 +1,6 @@
+<?php
+// Jobs Page
+?>
 <div class="row">
     <div class="col-md-6">
         <h2 class="text-warning">New Job</h2>

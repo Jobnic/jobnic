@@ -1,3 +1,6 @@
+<?php
+// Ticket Page
+?>
 <div class="row">
     <div class="col-md-4">
         <h2 class="text-purple">Send your ticket to us</h2>
