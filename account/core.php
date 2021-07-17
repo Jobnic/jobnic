@@ -58,7 +58,9 @@ if (isset($_POST['login'])) {
 
             $mail->Body = $bodyContent;
 
-            $mail->send();
+            if (!$mail->send()) {
+                array_push($errors, 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo);
+            }
 
             $_SESSION['status'] = true;
             $_SESSION['id'] = $row['id'];
@@ -126,8 +128,10 @@ if (isset($_POST['create'])) {
 
                 $mail->Body = $bodyContent;
 
-                $mail->send();
-
+                if (!$mail->send()) {
+                    array_push($errors, 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo);
+                }
+                
                 $_SESSION['status'] = true;
                 $_SESSION['id'] = $id;
                 ?>
