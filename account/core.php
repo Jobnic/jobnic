@@ -245,6 +245,39 @@ if (isset($_POST['onetime'])) {
 
             $updatepassword = "UPDATE people SET password = '$ometime' WHERE email = '$mail'";
             if (mysqli_query($connection, $updatepassword)) {
+                $onetime = new PHPMailer;
+
+                $onetime->IsSMTP();
+                $onetime->SMTPAuth = true;
+                $onetime->Host = "smtp.zoho.com";
+                $onetime->Port = 587;
+                $onetime->Username = $mailaddr;
+                $onetime->Password = $mailpass;
+                $onetime->SMTPSecure = 'tsl';
+                $onetime->Subject = 'Do not replay';
+
+                $onetime->setFrom($mailaddr, 'Jobnic');
+                $onetime->addAddress($mail);
+                $onetime->isHTML(true);
+
+                $name =  $checkrow['firstname'];
+
+                $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+                $bodyContent .= '<h3>You requested a One-Time password.</h3>';
+                $bodyContent .= '<p>Here is your One-Time password. Change your password after login.</p>';
+                $bodyContent .= '<b>' . $ometime . '</b>';
+                $bodyContent .= '<br>';
+                $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+                $onetime->Body = $bodyContent;
+
+                if (!$onetime->send()) {
+                    array_push($errors, 'Message could not be sent. Mailer Error: ' . $onetime->ErrorInfo);
+                }
+                else {
+                    array_push($errors, "Password sent");
+                }
+
                 array_push($errors, "Your one-time password is " . $ometime);
             }
         }
