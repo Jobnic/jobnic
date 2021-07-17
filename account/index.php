@@ -76,9 +76,16 @@ include('core.php');
                 <br>
                 <?php
                 if (count($errors) > 0) {
+                    if (isset($errors[0])) {
+                        $color = "success";
+                    }
+                    else {
+                        $color = "danger";
+                    }
+                    unset($errors[0]);
                     ?>
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <p><strong>Oh GOD! Watch error!</strong></p>
+                    <div class="alert alert-<?php echo $color; ?> alert-dismissible fade show" role="alert">
+                        <p><strong>Maybe something important!</strong></p>
                         <?php
                         foreach ($errors as $error) {
                             echo "<p>" . $error . "</p>";
