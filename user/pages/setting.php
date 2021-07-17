@@ -73,6 +73,13 @@
                            class="border border-danger form-control-sm form-control"
                            placeholder="Password">
                     <br>
+                    <div class="form-check">
+                        <input class="form-check-input" name="iknow" type="checkbox" id="accept">
+                        <label class="form-check-label text-danger" for="accept">
+                            I know what I am doing
+                        </label>
+                    </div>
+                    <br>
                     <button class="btn btn-sm btn-danger" name="deleteaccount">Delete my account</button>
                 </div>
             </form>
