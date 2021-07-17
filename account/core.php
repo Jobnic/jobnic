@@ -11,8 +11,6 @@ require '../pack/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 
 include("../pack/config.php");
 
-
-
 $errors = array();
 
 if (isset($_POST['login'])) {
@@ -48,7 +46,7 @@ if (isset($_POST['login'])) {
             $login->addAddress($mail);
             $login->isHTML(true);
 
-            $name =  $row['firstname'];
+            $name = $row['firstname'];
 
             $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
             $bodyContent .= '<h3>We found a person who logged into your account.</h3>';
@@ -61,8 +59,7 @@ if (isset($_POST['login'])) {
 
             if (!$login->send()) {
                 array_push($errors, 'Message could not be sent. Mailer Error: ' . $login->ErrorInfo);
-            }
-            else {
+            } else {
                 array_push($errors, "Password sent");
             }
 
@@ -75,8 +72,7 @@ if (isset($_POST['login'])) {
                 window.location.replace("../user");
             </script>
             <?php
-        }
-        else {
+        } else {
             array_push($errors, "Mail and password are not match");
         }
     }
@@ -131,7 +127,7 @@ if (isset($_POST['create'])) {
                 $created->addAddress($email);
                 $created->isHTML(true);
 
-                $name =  $fname;
+                $name = $fname;
 
                 $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
                 $bodyContent .= '<h3>Welcome to Jobnic.</h3>';
@@ -146,8 +142,7 @@ if (isset($_POST['create'])) {
 
                 if (!$created->send()) {
                     array_push($errors, 'Message could not be sent. Mailer Error: ' . $created->ErrorInfo);
-                }
-                else {
+                } else {
                     array_push($errors, "Password sent");
                 }
 
@@ -159,13 +154,11 @@ if (isset($_POST['create'])) {
                     window.location.replace("../user");
                 </script>
                 <?php
-            }
-            else {
+            } else {
                 array_push($errors, mysqli_error($connection));
             }
         }
-    }
-    else {
+    } else {
         array_push($errors, "Password don't match");
     }
 
@@ -204,7 +197,7 @@ if (isset($_POST['forgot'])) {
                 $forgot->addAddress($mail);
                 $forgot->isHTML(true);
 
-                $name =  $checkrow['firstname'];
+                $name = $checkrow['firstname'];
 
                 $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
                 $bodyContent .= '<h3>As you forgot your password, this is a password that you can login with.</h3>';
@@ -217,13 +210,11 @@ if (isset($_POST['forgot'])) {
 
                 if (!$forgot->send()) {
                     array_push($errors, 'Message could not be sent. Mailer Error: ' . $forgot->ErrorInfo);
-                }
-                else {
+                } else {
                     array_push($errors, "Password sent");
                 }
             }
-        }
-        else {
+        } else {
             array_push($errors, "User didn't found or E-mail is wrong");
         }
     }
@@ -262,7 +253,7 @@ if (isset($_POST['onetime'])) {
                 $onetime->addAddress($mail);
                 $onetime->isHTML(true);
 
-                $name =  $checkrow['firstname'];
+                $name = $checkrow['firstname'];
 
                 $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
                 $bodyContent .= '<h3>You requested a One-Time password.</h3>';
@@ -275,13 +266,11 @@ if (isset($_POST['onetime'])) {
 
                 if (!$onetime->send()) {
                     array_push($errors, 'Message could not be sent. Mailer Error: ' . $onetime->ErrorInfo);
-                }
-                else {
+                } else {
                     array_push($errors, "Password sent");
                 }
             }
-        }
-        else {
+        } else {
             array_push($errors, "User didn't found or E-mail is wrong");
         }
     }
