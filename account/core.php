@@ -207,7 +207,7 @@ if (isset($_POST['forgot'])) {
                 $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
                 $bodyContent .= '<h3>As you forgot your password, this is a password that you can login with.</h3>';
                 $bodyContent .= '<p>Change your password after login.</p>';
-                $bodyContent .= '<b></b>';
+                $bodyContent .= '<b>' . $newpass . '</b>';
                 $bodyContent .= '<br>';
                 $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
 
