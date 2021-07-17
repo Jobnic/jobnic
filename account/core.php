@@ -114,8 +114,22 @@ if (isset($_POST['create'])) {
 
             $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`, `join`, `status`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password', '$join', 'payed')";
             if (mysqli_query($connection, $create)) {
-                $mail->addAddress($email);
-                $mail->isHTML(true);
+                $created = new PHPMailer;
+
+                $created->IsSMTP();
+                $created->SMTPAuth = true;
+                $created->Host = "smtp.zoho.com";
+                $created->Port = 587;
+                $created->Username = $mailaddr;
+                $created->Password = $mailpass;
+                $created->SMTPSecure = 'tsl';
+                $created->Subject = 'Do not replay';
+
+                $created->setFrom($mailaddr, 'Jobnic');
+                $created->addAddress($mail);
+                $created->isHTML(true);
+
+                $name =  $row['firstname'];
 
                 $bodyContent = '<h1>Hi dear ' . $fname . ',</h1>';
                 $bodyContent .= '<h3>Welcome to Jobnic.</h3>';
@@ -126,10 +140,13 @@ if (isset($_POST['create'])) {
                 $bodyContent .= '<br>';
                 $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
 
-                $mail->Body = $bodyContent;
+                $created->Body = $bodyContent;
 
-                if (!$mail->send()) {
-                    array_push($errors, 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo);
+                if (!$created->send()) {
+                    array_push($errors, 'Message could not be sent. Mailer Error: ' . $created->ErrorInfo);
+                }
+                else {
+                    array_push($errors, "Password sent");
                 }
 
                 $_SESSION['status'] = true;
