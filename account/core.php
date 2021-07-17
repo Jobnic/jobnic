@@ -4,13 +4,6 @@ session_start();
 
 include("../pack/config.php");
 
-$server = $ip;
-$user = 'narbon';
-$passwd = 'narbon';
-$db = 'jobnic';
-
-$connection = mysqli_connect($server, $user, $passwd, $db);
-
 $errors = array();
 
 if (isset($_POST['login'])) {
