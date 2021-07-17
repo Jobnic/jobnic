@@ -9,21 +9,7 @@ require '../pack/mailer/vendor/phpmailer/phpmailer/src/Exception.php';
 require '../pack/mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require '../pack/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 
-$mail = new PHPMailer;
-
 include("../pack/config.php");
-
-$mail->IsSMTP();
-$mail->SMTPAuth = true;
-$mail->Host = "smtp.zoho.com";
-$mail->Port = 587;
-$mail->Username = $mailaddr;
-$mail->Password = $mailpass;
-$mail->SMTPSecure = 'tsl';
-$mail->Subject = 'Do not replay';
-
-// Sender info
-$mail->setFrom($mailaddr, 'Jobnic');
 
 $errors = array();
 
@@ -45,21 +31,37 @@ if (isset($_POST['login'])) {
         if (mysqli_num_rows($check_result) == 1) {
             $row = mysqli_fetch_assoc($check_result);
 
-            $mail->addAddress($mail);
-            $mail->isHTML(true);
+            $login = new PHPMailer;
 
-            $name = $row["firstname"];
+            $login->IsSMTP();
+            $login->SMTPAuth = true;
+            $login->Host = "smtp.zoho.com";
+            $login->Port = 587;
+            $login->Username = $mailaddr;
+            $login->Password = $mailpass;
+            $login->SMTPSecure = 'tsl';
+            $login->Subject = 'Do not replay';
+
+            $login->setFrom($mailaddr, 'Jobnic');
+            $login->addAddress($mail);
+            $login->isHTML(true);
+
+            $name =  $row['firstname'];
 
             $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
-            $bodyContent .= '<h3>We tracked a new device that logged into your account.</h3>';
-            $bodyContent .= '<p>If not you, login now and change your password.</p>';
+            $bodyContent .= '<h3>We found a person who logged into your account.</h3>';
+            $bodyContent .= '<p>If you are not you, change your password now.</p>';
+            $bodyContent .= '<b></b>';
             $bodyContent .= '<br>';
             $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
 
-            $mail->Body = $bodyContent;
+            $login->Body = $bodyContent;
 
-            if (!$mail->send()) {
-                array_push($errors, 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo);
+            if (!$login->send()) {
+                array_push($errors, 'Message could not be sent. Mailer Error: ' . $login->ErrorInfo);
+            }
+            else {
+                array_push($errors, "Password sent");
             }
 
             $_SESSION['status'] = true;
@@ -115,8 +117,6 @@ if (isset($_POST['create'])) {
                 $mail->addAddress($email);
                 $mail->isHTML(true);
 
-                $name = $row["firstname"];
-
                 $bodyContent = '<h1>Hi dear ' . $fname . ',</h1>';
                 $bodyContent .= '<h3>Welcome to Jobnic.</h3>';
                 $bodyContent .= '<p>If you have any problems you can contact us via email or telegram.</p>';
@@ -131,7 +131,7 @@ if (isset($_POST['create'])) {
                 if (!$mail->send()) {
                     array_push($errors, 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo);
                 }
-                
+
                 $_SESSION['status'] = true;
                 $_SESSION['id'] = $id;
                 ?>
@@ -170,7 +170,38 @@ if (isset($_POST['forgot'])) {
 
             $updatepassword = "UPDATE people SET password = '$newpass' WHERE email = '$mail'";
             if (mysqli_query($connection, $updatepassword)) {
-                array_push($errors, "Your new password is " . $newpass);
+                $forgot = new PHPMailer;
+
+                $forgot->IsSMTP();
+                $forgot->SMTPAuth = true;
+                $forgot->Host = "smtp.zoho.com";
+                $forgot->Port = 587;
+                $forgot->Username = $mailaddr;
+                $forgot->Password = $mailpass;
+                $forgot->SMTPSecure = 'tsl';
+                $forgot->Subject = 'Do not replay';
+
+                $forgot->setFrom($mailaddr, 'Jobnic');
+                $forgot->addAddress($mail);
+                $forgot->isHTML(true);
+
+                $name =  $checkrow['firstname'];
+
+                $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+                $bodyContent .= '<h3>As you forgot your password, this is a password that you can login with.</h3>';
+                $bodyContent .= '<p>Change your password after login.</p>';
+                $bodyContent .= '<b></b>';
+                $bodyContent .= '<br>';
+                $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+                $forgot->Body = $bodyContent;
+
+                if (!$forgot->send()) {
+                    array_push($errors, 'Message could not be sent. Mailer Error: ' . $forgot->ErrorInfo);
+                }
+                else {
+                    array_push($errors, "Password sent");
+                }
             }
         }
         else {
