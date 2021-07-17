@@ -11,6 +11,8 @@ require '../pack/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 
 include("../pack/config.php");
 
+
+
 $errors = array();
 
 if (isset($_POST['login'])) {
@@ -126,12 +128,12 @@ if (isset($_POST['create'])) {
                 $created->Subject = 'Do not replay';
 
                 $created->setFrom($mailaddr, 'Jobnic');
-                $created->addAddress($mail);
+                $created->addAddress($email);
                 $created->isHTML(true);
 
-                $name =  $row['firstname'];
+                $name =  $fname;
 
-                $bodyContent = '<h1>Hi dear ' . $fname . ',</h1>';
+                $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
                 $bodyContent .= '<h3>Welcome to Jobnic.</h3>';
                 $bodyContent .= '<p>If you have any problems you can contact us via email or telegram.</p>';
                 $bodyContent .= '<br>';
@@ -277,8 +279,6 @@ if (isset($_POST['onetime'])) {
                 else {
                     array_push($errors, "Password sent");
                 }
-
-                array_push($errors, "Your one-time password is " . $ometime);
             }
         }
         else {
