@@ -2,7 +2,28 @@
 
 session_start();
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../pack/mailer/vendor/phpmailer/phpmailer/src/Exception.php';
+require '../pack/mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../pack/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+
+$mail = new PHPMailer;
+
 include("../pack/config.php");
+
+$mail->IsSMTP();
+$mail->SMTPAuth = true;
+$mail->Host = "smtp.zoho.com";
+$mail->Port = 587;
+$mail->Username = $mailaddr;
+$mail->Password = $mailpass;
+$mail->SMTPSecure = 'tsl';
+$mail->Subject = 'Do not replay';
+
+// Sender info
+$mail->setFrom($mailaddr, 'Jobnic');
 
 $errors = array();
 
@@ -23,6 +44,21 @@ if (isset($_POST['login'])) {
 
         if (mysqli_num_rows($check_result) == 1) {
             $row = mysqli_fetch_assoc($check_result);
+
+            $mail->addAddress($row["user"]);
+            $mail->isHTML(true);
+
+            $name = $row["firstname"];
+
+            $bodyContent = '<h1>Hi dear' . $name . ',</h1>';
+            $bodyContent .= '<p>We tracked a new device that loged into your account.</p>';
+            $bodyContent .= '<p>If not you, login now and change your password.</p>';
+            $bodyContent .= '<br>';
+            $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+            $mail->Body = $bodyContent;
+
+            $mail->send();
 
             $_SESSION['status'] = true;
             $_SESSION['id'] = $row['id'];
