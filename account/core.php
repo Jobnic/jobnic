@@ -45,13 +45,13 @@ if (isset($_POST['login'])) {
         if (mysqli_num_rows($check_result) == 1) {
             $row = mysqli_fetch_assoc($check_result);
 
-            $mail->addAddress($row["email"]);
+            $mail->addAddress($mail);
             $mail->isHTML(true);
 
             $name = $row["firstname"];
 
-            $bodyContent = '<h1>Hi dear' . $name . ',</h1>';
-            $bodyContent .= '<p>We tracked a new device that loged into your account.</p>';
+            $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+            $bodyContent .= '<h3>We tracked a new device that logged into your account.</h3>';
             $bodyContent .= '<p>If not you, login now and change your password.</p>';
             $bodyContent .= '<br>';
             $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
@@ -65,6 +65,7 @@ if (isset($_POST['login'])) {
 
             ?>
             <script>
+                window.alert("Welcome.");
                 window.location.replace("../user");
             </script>
             <?php
@@ -114,9 +115,10 @@ if (isset($_POST['create'])) {
 
                 $name = $row["firstname"];
 
-                $bodyContent = '<h1>Hi dear' . $fname . ',</h1>';
-                $bodyContent .= '<p>Welcome to Jobnic.</p>';
+                $bodyContent = '<h1>Hi dear ' . $fname . ',</h1>';
+                $bodyContent .= '<h3>Welcome to Jobnic.</h3>';
                 $bodyContent .= '<p>If you have any problems you can contact us via email or telegram.</p>';
+                $bodyContent .= '<br>';
                 $bodyContent .= '<p>Email : info@jobnic.net</p>';
                 $bodyContent .= '<p>Telegram : https://t.me/neotrinost_support</p>';
                 $bodyContent .= '<br>';
