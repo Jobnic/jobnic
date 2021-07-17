@@ -4,13 +4,6 @@ include("../pack/config.php");
 
 $stat = $_SESSION['status'];
 
-$server = $ip;
-$user = 'narbon';
-$passwd = 'narbon';
-$db = 'jobnic';
-
-$connection = mysqli_connect($server, $user, $passwd, $db);
-
 if (isset($_GET['type'])) {
     $type = $_GET['type'];
     $get_jobs = "SELECT * FROM jobs WHERE status = 'true' AND type = '$type' ORDER BY row DESC";
