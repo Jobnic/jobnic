@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.5.9-MariaDB, for Linux (x86_64)
+-- MariaDB dump 10.19  Distrib 10.5.11-MariaDB, for Linux (x86_64)
 --
 -- Host: localhost    Database: jobnic
 -- ------------------------------------------------------
--- Server version	10.5.9-MariaDB
+-- Server version	10.5.11-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -109,7 +109,7 @@ CREATE TABLE `people` (
   `views` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `facebook` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`row`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,8 +118,33 @@ CREATE TABLE `people` (
 
 LOCK TABLES `people` WRITE;
 /*!40000 ALTER TABLE `people` DISABLE KEYS */;
-INSERT INTO `people` VALUES (1,'634044','I am Amit. Any thing else?','Amirhossein','Mohammadi','09014784362','amir@yahoo.com','87270007','GNU_Amir','amirhosseinmohammadi','leonardo_l_larson','BlackIQ','BlackIQ','php-70 laravel-5 python-40','Jun 21, 2021 18:13:03','10','payed','148','leonardo'),(2,'427617',NULL,'Amirali','Mohammadi','09038450655','ali@yahoo.com','64208816',NULL,NULL,NULL,NULL,NULL,NULL,'Jun 21, 2021 18:14:25','8','payed','0',NULL);
+INSERT INTO `people` VALUES (16,'370697',NULL,'Amirhossein','Mohammadi','09014784362','amirhosseinmohammadi1380@yahoo.com','21979730',NULL,NULL,NULL,NULL,NULL,NULL,'Jul 17, 2021 07:57:09',NULL,'payed',NULL,NULL);
 /*!40000 ALTER TABLE `people` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `reports`
+--
+
+DROP TABLE IF EXISTS `reports`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `reports` (
+  `row` int(11) NOT NULL AUTO_INCREMENT,
+  `reportid` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `datetime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`row`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reports`
+--
+
+LOCK TABLES `reports` WRITE;
+/*!40000 ALTER TABLE `reports` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reports` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -161,13 +186,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-30 12:31:17
-
-DROP TABLE IF EXISTS `reports`;
-CREATE TABLE `reports` (
-    `row` int(11) NOT NULL AUTO_INCREMENT,
-    `reportid` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `user` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `datetime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    PRIMARY KEY (`row`)
-);
+-- Dump completed on 2021-07-17 14:22:35
