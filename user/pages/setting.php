@@ -58,5 +58,24 @@
                 <button name="updatepassword" type="submit" class="btn btn-dark btn-sm">Change Password</button>
             </form>
         </div>
+        <br>
+    </div>
+    <div class="col-md-4">
+        <h2 class="text-danger">Delete Account</h2>
+        <p class="text-danger">You can delete your account from here</p>
+        <div class="dialog border border-danger">
+            <h3 class="text-danger"><i class="fa fa-trash text-danger"></i> Delete</h3>
+            <hr class="border border-danger">
+            <form method="post" action="index.php" class="">
+                <div class="form-group">
+                    <p><i class="fa fa-key text-danger"></i> Enter your password</p>
+                    <input name="password" type="text"
+                           class="border border-danger form-control-sm form-control"
+                           placeholder="Password">
+                    <br>
+                    <button class="btn btn-sm btn-danger" name="deleteaccount">Delete my account</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
