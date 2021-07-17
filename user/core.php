@@ -524,3 +524,30 @@ if (isset($_GET["tikid"])) {
         }
     }
 }
+
+if (isset($_POST["deleteaccount"])) {
+    $userpass = mysqli_real_escape_string($connection, $_POST["password"]);
+    $check = mysqli_real_escape_string($connection, $_POST["iknow"]);
+
+    if (empty($userpass)) {
+        array_push($errors, "Password is empty");
+    }
+    if (empty($check)) {
+        array_push($errors, "You didnt check the checkbox");
+    }
+
+    if (count($errors) == 0) {
+        $deleteaccount = "DELETE FROM people WHERE id = '$id'";
+        if (mysqli_query($connection, $deleteaccount)) {
+            ?>
+            <script>
+                window.alert("Account deleted");
+                window.location.replace("../account/logout.php");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
+    }
+}
