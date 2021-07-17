@@ -45,7 +45,7 @@ if (isset($_POST['login'])) {
         if (mysqli_num_rows($check_result) == 1) {
             $row = mysqli_fetch_assoc($check_result);
 
-            $mail->addAddress($row["user"]);
+            $mail->addAddress($row["email"]);
             $mail->isHTML(true);
 
             $name = $row["firstname"];
@@ -109,6 +109,23 @@ if (isset($_POST['create'])) {
 
             $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`, `join`, `status`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password', '$join', 'payed')";
             if (mysqli_query($connection, $create)) {
+                $mail->addAddress($email);
+                $mail->isHTML(true);
+
+                $name = $row["firstname"];
+
+                $bodyContent = '<h1>Hi dear' . $fname . ',</h1>';
+                $bodyContent .= '<p>Welcome to Jobnic.</p>';
+                $bodyContent .= '<p>If you have any problems you can contact us via email or telegram.</p>';
+                $bodyContent .= '<p>Email : info@jobnic.net</p>';
+                $bodyContent .= '<p>Telegram : https://t.me/neotrinost_support</p>';
+                $bodyContent .= '<br>';
+                $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+                $mail->Body = $bodyContent;
+
+                $mail->send();
+
                 $_SESSION['status'] = true;
                 $_SESSION['id'] = $id;
                 ?>
