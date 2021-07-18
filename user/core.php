@@ -303,13 +303,41 @@ if (isset($_POST['updatepassword'])) {
                 $updatepassword = "UPDATE people SET password = '$newpassword' WHERE id = '$id'";
 
                 if (mysqli_query($connection, $updatepassword)) {
-                    array_push($errors, true);
-                    array_push($errors, "Password changed");
-                    ?>
-                    <script>
-                        window.location.replace(".");
-                    </script>
-                    <?php
+                    $passchange = new PHPMailer;
+
+                    $passchange->IsSMTP();
+                    $passchange->SMTPAuth = true;
+                    $passchange->Host = "smtp.zoho.com";
+                    $passchange->Port = 587;
+                    $passchange->Username = $mailaddr;
+                    $passchange->Password = $mailpass;
+                    $passchange->SMTPSecure = 'tsl';
+                    $passchange->Subject = 'Do not replay';
+
+                    $passchange->setFrom($mailaddr, 'Jobnic');
+                    $passchange->addAddress($mail);
+                    $passchange->isHTML(true);
+
+                    $name = $row_user['firstname'];
+
+                    $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+                    $bodyContent .= '<h3>Your password changed successfully.</h3>';
+                    $bodyContent .= '<br>';
+                    $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+                    $passchange->Body = $bodyContent;
+
+                    if (!$passchange->send()) {
+                        array_push($errors, 'Message could not be sent. Mailer Error: ' . $passchange->ErrorInfo);
+                    } else {
+                        array_push($errors, true);
+                        array_push($errors, "Password sent");
+                        ?>
+                        <script>
+                            window.location.replace(".");
+                        </script>
+                        <?php
+                    }
                 }
                 else {
                     array_push($errors, mysqli_error($connection));
