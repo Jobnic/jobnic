@@ -72,6 +72,7 @@ CREATE TABLE `people`
     `status`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `views`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `facebook`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `active`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`row`)
 );
 
