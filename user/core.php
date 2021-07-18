@@ -2,6 +2,16 @@
 
 session_start();
 
+$stat = $_SESSION['status'];
+
+if ($stat != true) {
+    ?>
+    <script>
+        window.location.replace("../");
+    </script>
+    <?php
+}
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -13,14 +23,22 @@ include("../pack/config.php");
 
 $id = $_SESSION['id'];
 
+$select_user = "SELECT * FROM people WHERE id = '$id'";
+$result_user = mysqli_query($connection, $select_user);
+$row_user = mysqli_fetch_assoc($result_user);
+
+if ($row_user['active'] != true) {
+    ?>
+    <script>
+        window.location.replace("../account/activate.php");
+    </script>
+    <?php
+}
+
 $errors = array();
 
 $job = array();
 $tik = array();
-
-$select_user = "SELECT * FROM people WHERE id = '$id'";
-$result_user = mysqli_query($connection, $select_user);
-$row_user = mysqli_fetch_assoc($result_user);
 
 $name = $row_user['firstname'] . $row_user['lastname'];
 
