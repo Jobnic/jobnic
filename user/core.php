@@ -1,6 +1,14 @@
 <?php
 
 session_start();
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../pack/mailer/vendor/phpmailer/phpmailer/src/Exception.php';
+require '../pack/mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../pack/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+
 include("../pack/config.php");
 
 $id = $_SESSION['id'];
@@ -41,10 +49,9 @@ if (isset($_POST["updateskill"])) {
         }
 
         if (mysqli_query($connection, $update_skill)) {
-            array_push($errors, true);
-            array_push($errors, "Skills updated");
             ?>
             <script>
+                window.alert("Skills updated");
                 window.location.replace(".");
             </script>
             <?php
@@ -66,10 +73,9 @@ if (isset($_POST['updatebio'])) {
         $update_bio = "UPDATE people SET bio = '$bio' WHERE id = '$id'";
 
         if (mysqli_query($connection, $update_bio)) {
-            array_push($errors, true);
-            array_push($errors, "Bio updated");
             ?>
             <script>
+                window.alert("Bio updated");
                 window.location.replace(".");
             </script>
             <?php
@@ -91,10 +97,9 @@ if (isset($_POST['updatelinkedin'])) {
         $updatesocial = "UPDATE people SET linkedin = '$social' WHERE id = '$id'";
 
         if (mysqli_query($connection, $updatesocial)) {
-            array_push($errors, true);
-            array_push($errors, "LinkedIn updated");
             ?>
             <script>
+                window.alert("LinkedIn updated");
                 window.location.replace(".");
             </script>
             <?php
@@ -116,10 +121,9 @@ if (isset($_POST['updateinstagram'])) {
         $updatesocial = "UPDATE people SET instagram = '$social' WHERE id = '$id'";
 
         if (mysqli_query($connection, $updatesocial)) {
-            array_push($errors, true);
-            array_push($errors, "Instagram updated");
             ?>
             <script>
+                window.alert("Instagram updated");
                 window.location.replace(".");
             </script>
             <?php
@@ -141,10 +145,9 @@ if (isset($_POST['updatetelegram'])) {
         $updatesocial = "UPDATE people SET telegram = '$social' WHERE id = '$id'";
 
         if (mysqli_query($connection, $updatesocial)) {
-            array_push($errors, true);
-            array_push($errors, "Telegram updated");
             ?>
             <script>
+                window.alert("Telegram updated");
                 window.location.replace(".");
             </script>
             <?php
@@ -166,10 +169,9 @@ if (isset($_POST['updategithub'])) {
         $updatesocial = "UPDATE people SET github = '$social' WHERE id = '$id'";
 
         if (mysqli_query($connection, $updatesocial)) {
-            array_push($errors, true);
-            array_push($errors, "Github updated");
             ?>
             <script>
+                window.alert("Github updated");
                 window.location.replace(".");
             </script>
             <?php
@@ -191,10 +193,9 @@ if (isset($_POST['updatetwitter'])) {
         $updatesocial = "UPDATE people SET twitter = '$social' WHERE id = '$id'";
 
         if (mysqli_query($connection, $updatesocial)) {
-            array_push($errors, true);
-            array_push($errors, "Twitter updated");
             ?>
             <script>
+                window.alert("Twitter updated");
                 window.location.replace(".");
             </script>
             <?php
@@ -216,10 +217,9 @@ if (isset($_POST['updatefacebook'])) {
         $updatesocial = "UPDATE people SET facebook = '$social' WHERE id = '$id'";
 
         if (mysqli_query($connection, $updatesocial)) {
-            array_push($errors, true);
-            array_push($errors, "Facebook updated");
             ?>
             <script>
+                window.alert("Facebook updated");
                 window.location.replace(".");
             </script>
             <?php
@@ -241,10 +241,9 @@ if (isset($_POST['updatephone'])) {
         $updatephone = "UPDATE people SET phone = '$phone' WHERE id = '$id'";
 
         if (mysqli_query($connection, $updatephone)) {
-            array_push($errors, true);
-            array_push($errors, "Phone updated");
             ?>
             <script>
+                window.alert("Facebook updated");
                 window.location.replace(".");
             </script>
             <?php
@@ -266,10 +265,9 @@ if (isset($_POST['updatemail'])) {
         $updatemail = "UPDATE people SET email = '$email' WHERE id = '$id'";
 
         if (mysqli_query($connection, $updatemail)) {
-            array_push($errors, true);
-            array_push($errors, "Email updated");
             ?>
             <script>
+                window.alert("Email updated");
                 window.location.replace(".");
             </script>
             <?php
@@ -315,7 +313,7 @@ if (isset($_POST['updatepassword'])) {
                     $passchange->Subject = 'Do not replay';
 
                     $passchange->setFrom($mailaddr, 'Jobnic');
-                    $passchange->addAddress($mail);
+                    $passchange->addAddress($row_user['email']);
                     $passchange->isHTML(true);
 
                     $name = $row_user['firstname'];
@@ -330,10 +328,9 @@ if (isset($_POST['updatepassword'])) {
                     if (!$passchange->send()) {
                         array_push($errors, 'Message could not be sent. Mailer Error: ' . $passchange->ErrorInfo);
                     } else {
-                        array_push($errors, true);
-                        array_push($errors, "Password sent");
                         ?>
                         <script>
+                            window.alert("Password changed");
                             window.location.replace(".");
                         </script>
                         <?php
@@ -389,10 +386,9 @@ if (isset($_POST['addjob'])) {
         $addjob = "INSERT INTO jobs(`jobid`, `type`, `user`, `title`, `describe`, `skills`, `datetime`, `price`,`status`) VALUES ('$jobid', '$type', '$id', '$title', '$describe', '$skills', '$dt', '$per', 'true')";
 
         if (mysqli_query($connection, $addjob)) {
-            array_push($errors, true);
-            array_push($errors, "Job added");
             ?>
             <script>
+                window.alert("Job added");
                 window.location.replace(".");
             </script>
             <?php
@@ -427,10 +423,9 @@ if (isset($_GET["close"])) {
     if (mysqli_query($connection, $closequery)) {
         $addtime = "UPDATE jobs SET closed = '$dt' WHERE jobid = '$close'";
         mysqli_query($connection, $addtime);
-        array_push($errors, true);
-        array_push($errors, "Job closed");
         ?>
         <script>
+            window.alert("Job closed");
             window.location.replace(".");
         </script>
         <?php
@@ -444,10 +439,9 @@ if (isset($_GET['delete'])) {
     $delete = "UPDATE people SET skills = NULL WHERE id = '$id'";
 
     if (mysqli_query($connection, $delete)) {
-        array_push($errors, true);
-        array_push($errors, "Skills deleted");
         ?>
         <script>
+            window.alert("Skills deleted");
             window.location.replace(".");
         </script>
         <?php
@@ -498,10 +492,9 @@ if (isset($_POST["closejob"])) {
                         if (mysqli_query($connection, $addperson)) {
                             $addstars = "UPDATE jobs SET stars = '$stars' WHERE jobid = '$jobid'";
                             if (mysqli_query($connection, $addstars)) {
-                                array_push($errors, true);
-                                array_push($errors, "Closed");
                                 ?>
                                 <script>
+                                    window.alert("Closed");
                                     window.location.replace(".");
                                 </script>
                                 <?php
@@ -540,10 +533,9 @@ if (isset($_POST["sendtik"])) {
     if (count($errors) == 0) {
         $newtik = "INSERT INTO ticks (`tikid`, `user`, `title`, `describe`, `datetime`) VALUES ('$tikid', '$id', '$tiktitle', '$ticdes', '$dt')";
         if (mysqli_query($connection, $newtik)) {
-            array_push($errors, true);
-            array_push($errors, "Ticket sent");
             ?>
             <script>
+                window.alert("Ticket sent");
                 window.location.replace(".");
             </script>
             <?php
