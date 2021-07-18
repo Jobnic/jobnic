@@ -202,7 +202,7 @@ if (isset($_POST['forgot'])) {
                 $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
                 $bodyContent .= '<h3>As you forgot your password, this is a password that you can login with.</h3>';
                 $bodyContent .= '<p>Change your password after login.</p>';
-                $bodyContent .= '<b>' . $newpass . '</b>';
+                $bodyContent .= '<h1>' . $newpass . '</h1>';
                 $bodyContent .= '<br>';
                 $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
 
@@ -259,7 +259,7 @@ if (isset($_POST['onetime'])) {
                 $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
                 $bodyContent .= '<h3>You requested a One-Time password.</h3>';
                 $bodyContent .= '<p>Here is your One-Time password. Change your password after login.</p>';
-                $bodyContent .= '<b>' . $ometime . '</b>';
+                $bodyContent .= '<h1>' . $ometime . '</h1>';
                 $bodyContent .= '<br>';
                 $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
 
