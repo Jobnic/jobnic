@@ -108,9 +108,10 @@ if (isset($_POST['create'])) {
     if ($password == $confirm) {
         if (count($errors) == 0) {
             $id = rand(111111, 999999);
+            $token = md5(uniqid(rand(111111111, 999999999), true));
             $join = date("M d, Y H:i:s");
 
-            $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`, `join`, `status`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password', '$join', 'payed')";
+            $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`, `join`, `status`, `token`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password', '$join', 'payed', '$token')";
             if (mysqli_query($connection, $create)) {
                 $created = new PHPMailer;
 
@@ -128,9 +129,13 @@ if (isset($_POST['create'])) {
                 $created->isHTML(true);
 
                 $name = $fname;
+                $link = "http://127.0.0.1/jobnic/account/activate.php?token=$token";
 
                 $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
                 $bodyContent .= '<h3>Welcome to Jobnic.</h3>';
+                $bodyContent .= '<h5>You need to activate your account to have permeation for using Jobnic.</h5>';
+                $bodyContent .= '<h5><a href=' . $link . '>Activate my account</a></h5>';
+                $bodyContent .= '<br>';
                 $bodyContent .= '<p>If you have any problems you can contact us via email or telegram.</p>';
                 $bodyContent .= '<br>';
                 $bodyContent .= '<p>Email : info@jobnic.net</p>';
@@ -140,17 +145,13 @@ if (isset($_POST['create'])) {
 
                 $created->Body = $bodyContent;
 
-                if (!$created->send()) {
-                    array_push($errors, 'Message could not be sent. Mailer Error: ' . $created->ErrorInfo);
-                } else {
-                    array_push($errors, "Password sent");
-                }
+                $created->send();
 
                 $_SESSION['status'] = true;
                 $_SESSION['id'] = $id;
                 ?>
                 <script>
-                    window.alert("Created.");
+                    window.alert("Created.\nActivate your account via link in your email.");
                     window.location.replace("../user");
                 </script>
                 <?php
