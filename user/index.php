@@ -89,15 +89,8 @@ if ($row['status'] == 'not') {
     <div class="container">
         <?php
         if (count($errors) > 0) {
-            if (isset($errors[0])) {
-                $color = "success";
-            }
-            else {
-                $color = "danger";
-            }
-            unset($errors[0]);
             ?>
-            <div class="alert alert-<?php echo $color; ?> alert-dismissible fade show" role="alert">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <p><strong>Jobnic says that,</strong></p>
                 <?php
                 foreach ($errors as $error) {
