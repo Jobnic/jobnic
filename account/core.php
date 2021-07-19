@@ -40,7 +40,7 @@ if (isset($_POST['login'])) {
             $login->Username = $mailaddr;
             $login->Password = $mailpass;
             $login->SMTPSecure = 'tsl';
-            $login->Subject = 'Do not replay';
+            $login->Subject = 'A new account login was seen';
 
             $login->setFrom($mailaddr, 'Jobnic');
             $login->addAddress($mail);
@@ -122,7 +122,7 @@ if (isset($_POST['create'])) {
                 $created->Username = $mailaddr;
                 $created->Password = $mailpass;
                 $created->SMTPSecure = 'tsl';
-                $created->Subject = 'Do not replay';
+                $created->Subject = "Welcome to Jobnic";
 
                 $created->setFrom($mailaddr, 'Jobnic');
                 $created->addAddress($email);
@@ -192,7 +192,7 @@ if (isset($_POST['forgot'])) {
                 $forgot->Username = $mailaddr;
                 $forgot->Password = $mailpass;
                 $forgot->SMTPSecure = 'tsl';
-                $forgot->Subject = 'Do not replay';
+                $forgot->Subject = 'Forgot password';
 
                 $forgot->setFrom($mailaddr, 'Jobnic');
                 $forgot->addAddress($mail);
@@ -249,7 +249,7 @@ if (isset($_POST['onetime'])) {
                 $onetime->Username = $mailaddr;
                 $onetime->Password = $mailpass;
                 $onetime->SMTPSecure = 'tsl';
-                $onetime->Subject = 'Do not replay';
+                $onetime->Subject = "One time password";
 
                 $onetime->setFrom($mailaddr, 'Jobnic');
                 $onetime->addAddress($mail);
