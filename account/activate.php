@@ -29,6 +29,61 @@ $row_user = mysqli_fetch_assoc($result_user);
 $name = $row_user['firstname'];
 $email = $row_user['email'];
 
+if (isset($_GET['token'])) {
+    $activation_code = $_GET['token'];
+
+    $activation_sql = "SELECT * FROM people WHERE token = '$activation_code'";
+    $activation_result = mysqli_query($connection, $activation_sql);
+
+    if (mysqli_num_rows($activation_result) == 1) {
+        $activation_sql = "UPDATE people SET active = 'true' WHERE token = '$activation_code'";
+        if (mysqli_query($connection, $activation_sql)) {
+            $activation_mail = new PHPMailer;
+
+            $activation_mail->IsSMTP();
+            $activation_mail->SMTPAuth = true;
+            $activation_mail->Host = "smtp.zoho.com";
+            $activation_mail->Port = 587;
+            $activation_mail->Username = $mailaddr;
+            $activation_mail->Password = $mailpass;
+            $activation_mail->SMTPSecure = 'tsl';
+            $activation_mail->Subject = "Account activated";
+
+            $activation_mail->setFrom($mailaddr, 'Jobnic');
+            $activation_mail->addAddress($email);
+            $activation_mail->isHTML(true);
+
+            $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+            $bodyContent .= '<h3>Your account activated successfully.</h3>';
+            $bodyContent .= '<br>';
+            $bodyContent .= '<h5>Enjoy.</h5>';
+            $bodyContent .= '<br>';
+            $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+            $activation_mail->Body = $bodyContent;
+
+            if (!$activation_mail->send()) {
+                array_push($errors, 'Message could not be sent. Mailer Error: ' . $activation_mail->ErrorInfo);
+            } else {
+                ?>
+                <script>
+                    window.alert("Your account activated successfully.");
+                    window.location.replace("../user");
+                </script>
+                <?php
+            }
+        }
+        else {
+            ?>
+            <script>
+                window.alert("Something went wrong.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+    }
+}
+
 if (isset($_GET['send'])) {
     $token = $row_user['token'];
 
@@ -67,50 +122,6 @@ if (isset($_GET['send'])) {
             window.location.replace(".");
         </script>
         <?php
-    }
-}
-
-if (isset($_GET['token'])) {
-    $activation_code = $_GET['token'];
-
-    $activation_sql = "SELECT * FROM people WHERE token = '$token'";
-    $activation_result = mysqli_query($connection, $activation_sql);
-
-    if (mysqli_num_rows($activation_result) == 1) {
-        $activation_mail = new PHPMailer;
-
-        $activation_mail->IsSMTP();
-        $activation_mail->SMTPAuth = true;
-        $activation_mail->Host = "smtp.zoho.com";
-        $activation_mail->Port = 587;
-        $activation_mail->Username = $mailaddr;
-        $activation_mail->Password = $mailpass;
-        $activation_mail->SMTPSecure = 'tsl';
-        $activation_mail->Subject = "Active token";
-
-        $activation_mail->setFrom($mailaddr, 'Jobnic');
-        $activation_mail->addAddress($email);
-        $activation_mail->isHTML(true);
-
-        $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
-        $bodyContent .= '<h3>Your account activated successfully.</h3>';
-        $bodyContent .= '<br>';
-        $bodyContent .= '<h4>Enjoy.</h4>';
-        $bodyContent .= '<br>';
-        $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
-
-        $activation_mail->Body = $bodyContent;
-
-        if (!$activation_mail->send()) {
-            array_push($errors, 'Message could not be sent. Mailer Error: ' . $activation_mail->ErrorInfo);
-        } else {
-            ?>
-            <script>
-                window.alert("Your account activated successfully.");
-                window.location.replace("../user");
-            </script>
-            <?php
-        }
     }
 }
 
