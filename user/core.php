@@ -27,6 +27,10 @@ $select_user = "SELECT * FROM people WHERE id = '$id'";
 $result_user = mysqli_query($connection, $select_user);
 $row_user = mysqli_fetch_assoc($result_user);
 
+$name = $row_user['firstname'] . $row_user['lastname'];
+$user_email = $row_user['email'];
+$user_name = $row_user['name'];
+
 if ($row_user['active'] != true) {
     ?>
     <script>
@@ -39,8 +43,6 @@ $errors = array();
 
 $job = array();
 $tik = array();
-
-$name = $row_user['firstname'] . $row_user['lastname'];
 
 date_default_timezone_set('Iran');
 
@@ -328,7 +330,7 @@ if (isset($_POST['updatepassword'])) {
                     $passchange->Username = $mailaddr;
                     $passchange->Password = $mailpass;
                     $passchange->SMTPSecure = 'tsl';
-                    $passchange->Subject = 'Do not replay';
+                    $passchange->Subject = 'Password changed';
 
                     $passchange->setFrom($mailaddr, 'Jobnic');
                     $passchange->addAddress($row_user['email']);
@@ -404,12 +406,43 @@ if (isset($_POST['addjob'])) {
         $addjob = "INSERT INTO jobs(`jobid`, `type`, `user`, `title`, `describe`, `skills`, `datetime`, `price`,`status`) VALUES ('$jobid', '$type', '$id', '$title', '$describe', '$skills', '$dt', '$per', 'true')";
 
         if (mysqli_query($connection, $addjob)) {
-            ?>
-            <script>
-                window.alert("Job added");
-                window.location.replace(".");
-            </script>
-            <?php
+            $addjobmail = new PHPMailer;
+
+            $addjobmail->IsSMTP();
+            $addjobmail->SMTPAuth = true;
+            $addjobmail->Host = "smtp.zoho.com";
+            $addjobmail->Port = 587;
+            $addjobmail->Username = $mailaddr;
+            $addjobmail->Password = $mailpass;
+            $addjobmail->SMTPSecure = 'tsl';
+            $addjobmail->Subject = 'New job';
+
+            $addjobmail->setFrom($mailaddr, 'Jobnic');
+            $addjobmail->addAddress($user_email);
+            $addjobmail->isHTML(true);
+
+            $name = $row_user['firstname'];
+
+            $link = "http://127.0.0.1/jobnic/jobs/job.php?jobid=$jobid";
+
+            $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+            $bodyContent .= '<h3>Your new job added successfully.</h3>';
+            $bodyContent .= '<h3>You can visit the job via <a href=' . $link . '>this link</a>.</h3>';
+            $bodyContent .= '<br>';
+            $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+            $addjobmail->Body = $bodyContent;
+
+            if (!$addjobmail->send()) {
+                array_push($errors, 'Message could not be sent. Mailer Error: ' . $addjobmail->ErrorInfo);
+            } else {
+                ?>
+                <script>
+                    window.alert("Job added");
+                    window.location.replace(".");
+                </script>
+                <?php
+            }
         }
         else {
             array_push($errors, mysqli_error($connection));
