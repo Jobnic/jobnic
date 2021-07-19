@@ -626,12 +626,40 @@ if (isset($_POST["deleteaccount"])) {
     if (count($errors) == 0) {
         $deleteaccount = "DELETE FROM people WHERE id = '$id'";
         if (mysqli_query($connection, $deleteaccount)) {
-            ?>
-            <script>
-                window.alert("Account deleted");
-                window.location.replace("../account/logout.php");
-            </script>
-            <?php
+            $deletemail = new PHPMailer;
+
+            $deletemail->IsSMTP();
+            $deletemail->SMTPAuth = true;
+            $deletemail->Host = "smtp.zoho.com";
+            $deletemail->Port = 587;
+            $deletemail->Username = $mailaddr;
+            $deletemail->Password = $mailpass;
+            $deletemail->SMTPSecure = 'tsl';
+            $deletemail->Subject = 'Deleted account';
+
+            $deletemail->setFrom($mailaddr, 'Jobnic');
+            $deletemail->addAddress($user_email);
+            $deletemail->isHTML(true);
+
+            $name = $row_user['firstname'];
+
+            $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+            $bodyContent .= '<h3>Your account deleted successfully.</h3>';
+            $bodyContent .= '<br>';
+            $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+            $deletemail->Body = $bodyContent;
+
+            if (!$deletemail->send()) {
+                array_push($errors, 'Message could not be sent. Mailer Error: ' . $deletemail->ErrorInfo);
+            } else {
+                ?>
+                <script>
+                    window.alert("Account deleted.");
+                    window.location.replace("../account/logout.php");
+                </script>
+                <?php
+            }
         }
         else {
             array_push($errors, mysqli_error($connection));
