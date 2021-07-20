@@ -146,17 +146,12 @@ $jobid = $_GET['jobid'];
                         $result_user = mysqli_query($connection, $select_user);
                         $row_user = mysqli_fetch_assoc($result_user);
                         ?>
-                        <h3 class="text-primary"><i class="fa fa-info text-primary"></i> Contact</h3>
+                        <h3 class="text-primary"><i class="fa fa-pencil text-primary"></i> Apply for job</h3>
                         <hr class="border border-primary">
-                        <p><b><?php echo $row_user['firstname'] . '&nbsp;' . $row_user['lastname']; ?></b></p>
-                        <p><?php echo $row_user['bio']; ?></p>
+                        <p class="text-primary">You can apply for this job with clicking on button below</p>
+                        <button class="btn btn-primary">Send my application</button>
                         <hr class="border border-primary">
-                        <p>
-                            <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row_user['phone']; ?></p>
-                            <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row_user['email']; ?></p>
-                        </p>
-                        <hr class="border border-primary">
-                        <p><a href="../user/user.php?userid=<?php echo $row_user['id']; ?>" class="link text-primary">View full profile</a></p>
+                        <p><a href="../user/user.php?userid=<?php echo $row_user['id']; ?>" class="link text-primary">View user profile</a></p>
                     </div>
                 </div>
                 <?php
