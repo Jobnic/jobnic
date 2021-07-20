@@ -6,13 +6,6 @@ include("../pack/config.php");
 
 $id = $_SESSION['id'];
 
-$server = $ip;
-$user = 'narbon';
-$passwd = 'narbon';
-$db = 'jobnic';
-
-$connection = mysqli_connect($server, $user, $passwd, $db);
-
 $errors = array();
 
 if (isset($_POST["newmessage"])) {
