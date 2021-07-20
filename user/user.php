@@ -94,7 +94,7 @@ if (isset($reportid)) {
                         <a class="nav-link active" aria-current="page" href="."><i class="fa fa-list"></i> Jobs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="us"><i class="fa fa-bank"></i> We</a>
+                        <a class="nav-link active" aria-current="page" href="../us"><i class="fa fa-bank"></i> We</a>
                     </li>
                 </ul>
             </div>
