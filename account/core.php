@@ -212,8 +212,12 @@ if (isset($_POST['forgot'])) {
                 if (!$forgot->send()) {
                     array_push($errors, 'Message could not be sent. Mailer Error: ' . $forgot->ErrorInfo);
                 } else {
-                    array_push($errors, true);
-                    array_push($errors, "Password sent");
+                    ?>
+                    <script>
+                        window.alert("Password sent");
+                        window.location.replace(".");
+                    </script>
+                    <?php
                 }
             }
         } else {
@@ -269,8 +273,12 @@ if (isset($_POST['onetime'])) {
                 if (!$onetime->send()) {
                     array_push($errors, 'Message could not be sent. Mailer Error: ' . $onetime->ErrorInfo);
                 } else {
-                    array_push($errors, true);
-                    array_push($errors, "Password sent");
+                    ?>
+                    <script>
+                        window.alert("Password sent");
+                        window.location.replace(".");
+                    </script>
+                    <?php
                 }
             }
         } else {
