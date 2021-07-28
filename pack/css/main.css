@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 body {
     font-family: 'Roboto', sans-serif;
     padding: 8%;
@@ -9,58 +10,6 @@ body {
 .icon {
     padding: 5px;
     border-radius: 5px;
-}
-.link {
-    text-decoration: none;
-    color: gray;
-}
-.inp {
-    border: solid 1px #d3d3d3;
-}
-.inp:hover {
-    border: solid 1px #d3d3d3;
-}
-.text-night {
-    color: midnightblue;
-}
-
-.border-night {
-    border: solid 1px midnightblue;
-}
-.btn-night {
-    background: midnightblue;
-    color: white;
-}
-.btn-night:hover {
-    color: white;
-}
-
-.text-purple {
-    color: purple;
-}
-.border-purple {
-    border: solid 1px purple;
-}
-.btn-purple {
-    background: purple;
-    color: white;
-}
-.btn-purple:hover {
-    color: white;
-}
-
-.text-fuchsia {
-    color: fuchsia;
-}
-.border-fuchsia {
-    border: solid 1px fuchsia;
-}
-.btn-fuchsia {
-    background: fuchsia;
-    color: white;
-}
-.btn-fuchsia:hover {
-    color: white;
 }
 .br {
     padding: 2px;
