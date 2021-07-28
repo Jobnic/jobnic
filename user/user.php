@@ -68,13 +68,6 @@ if (isset($reportid)) {
         .border-purple {
             border: solid 1px purple;
         }
-        .btn-purple {
-            background: purple;
-            color: white;
-        }
-        .btn-purple:hover {
-            color: white;
-        }
     </style>
 </head>
 </head>
