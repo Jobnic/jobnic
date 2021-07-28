@@ -2,7 +2,7 @@
 session_start();
 
 include('core.php');
-include("../pack/config.php");
+include("../pack/config/config.php");
 
 $id = $_SESSION['id'];
 
@@ -23,7 +23,7 @@ $row = mysqli_fetch_assoc($result);
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link href="../pack/main.css" type="text/css" rel="stylesheet">
+    <link href="../pack/css/main.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <div class="">
