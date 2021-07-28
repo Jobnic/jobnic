@@ -1,3 +1,6 @@
+.dark {
+    background: #313131;
+}
 .dark .link {
     text-decoration: none;
     color: gray;
