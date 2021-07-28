@@ -3,23 +3,23 @@
 ?>
 <div class="row">
     <div class="col-md-8">
-        <h2 class="text-success">Profile Part</h2>
-        <p class="text-success">Here you can review your profile that people cat see</p>
-        <div class="dialog border border-success">
-            <h3 class="text-success"><i class="fa fa-id-card text-success"></i> Profile Review</h3>
-            <hr class="border border-success">
+        <h2 class="text-night">Profile Part</h2>
+        <p class="text-night">Here you can review your profile that people cat see</p>
+        <div class="dialog border-night">
+            <h3 class="text-night"><i class="fa fa-id-card text-night"></i> Profile Review</h3>
+            <hr class="border-night">
             <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b>
                 &nbsp;
-                <span style="float: right;" class="btn btn-sm btn-outline-success"><?php echo $row["id"]; ?></span>
+                <span style="float: right;" class="btn btn-sm btn-outline-night"><?php echo $row["id"]; ?></span>
                 &nbsp;
-                <span style="" class="btn btn-sm btn-outline-dark"><i class="fa fa-star"></i> <?php echo $row["stars"]; ?></span>
+                <span style="" class="btn btn-sm btn-outline-night"><i class="fa fa-star"></i> <?php echo $row["stars"]; ?></span>
                 &nbsp;
-                <span style="" class="btn btn-sm btn-outline-dark"><i
+                <span style="" class="btn btn-sm btn-outline-night"><i
                         class="fa fa-eye"></i> <?php echo $row["views"]; ?></span>
             </p>
             <p><?php echo $row['bio']; ?></p>
             <small>Joined <?php echo $row['join']; ?></small>
-            <hr class="border border-success">
+            <hr class="border-night">
             <?php
             if (isset($row['skills'])) {
                 ?>
@@ -106,18 +106,18 @@
 <br>
 <div class="row">
     <div class="col-md-6">
-        <h2 class="text-dark">Jobs Done</h2>
-        <p class="text-dark">Here you can see what jobs you did before</p>
-        <div class="dialog border border-dark">
-            <h3 class="text-dark"><i class="fa fa-check text-dark"></i> Done Jobs</h3>
-            <hr class="border border-dark">
+        <h2 class="text-night">Jobs Done</h2>
+        <p class="text-night">Here you can see what jobs you did before</p>
+        <div class="dialog border-night">
+            <h3 class="text-night"><i class="fa fa-check text-night"></i> Done Jobs</h3>
+            <hr class="border-night">
             <?php
             $get_jobs = "SELECT * FROM jobs WHERE person = '$id'";
             $job_result = mysqli_query($connection, $get_jobs);
             if (mysqli_num_rows($job_result) > 0) {
                 ?>
                 <div class="table-responsive">
-                    <table class="table table-hover text-center table-bordered border-dark table-sm">
+                    <table class="table table-hover text-center table-bordered border-night table-sm">
                         <thead>
                         <tr>
                             <th scope="col">Title</th>
@@ -145,7 +145,7 @@
                 <?php
             }
             else {
-                echo "<h4 class='text-dark'>Noting done yet</h4>";
+                echo "<h4 class='text-night'>Noting done yet</h4>";
             }
             ?>
         </div>
