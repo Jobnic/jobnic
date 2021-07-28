@@ -11,9 +11,10 @@
 .dark .inp {
     border: solid 1px #00FFFF;
     background: #313131;
+    color: #00FFFF;
 }
-.dark .inp:hover {
-    border: solid 1px #d3d3d3;
+.dark .inp::placeholder {
+    color: #00FFFF;
 }
 
 .dark .text-night {
@@ -24,22 +25,17 @@
 }
 .dark .btn-night {
     background: #00FFFF;
-    color: white;
+    color: black;
 }
 .dark .btn-night:hover {
-    color: white;
+    color: black;
 }
-
-.dark .text-fuchsia {
-    color: fuchsia;
+.dark .btn-outline-night {
+    border: solid 1px #00FFFF;
+    color: #00FFFF;
 }
-.dark .border-fuchsia {
-    border: solid 1px fuchsia;
-}
-.dark .btn-fuchsia {
-    background: fuchsia;
-    color: white;
-}
-.dark .btn-fuchsia:hover {
-    color: white;
+.dark .btn-outline-night:hover {
+    border: solid 1px #00FFFF;
+    background: #00FFFF;
+    color: black;
 }
