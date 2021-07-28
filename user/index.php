@@ -26,7 +26,7 @@ $row = mysqli_fetch_assoc($result);
     <link href="../pack/css/main.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<div class="">
+<div class="dark">
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="../">Job Nic</a>
