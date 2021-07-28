@@ -1,52 +1,45 @@
 .dark {
     background: #313131;
+    color: #00FFFF;
 }
+
 .dark .link {
     text-decoration: none;
     color: gray;
 }
+
 .dark .inp {
-    border: solid 1px #d3d3d3;
+    border: solid 1px #00FFFF;
+    background: #313131;
 }
 .dark .inp:hover {
     border: solid 1px #d3d3d3;
 }
+
 .dark .text-night {
-    color: midnightblue;
+    color: #00FFFF;
 }
 .dark .border-night {
-    border: solid 1px midnightblue;
+    border: solid 1px #00FFFF;
 }
 .dark .btn-night {
-    background: midnightblue;
+    background: #00FFFF;
     color: white;
 }
 .dark .btn-night:hover {
     color: white;
 }
-.dark .text-purple {
-    color: purple;
-}
-.light .border-purple {
-    border: solid 1px purple;
-}
-.light .btn-purple {
-    background: purple;
-    color: white;
-}
-.light .btn-purple:hover {
-    color: white;
-}
-.light .text-fuchsia {
+
+.dark .text-fuchsia {
     color: fuchsia;
 }
-.light .border-fuchsia {
+.dark .border-fuchsia {
     border: solid 1px fuchsia;
 }
-.light .btn-fuchsia {
+.dark .btn-fuchsia {
     background: fuchsia;
     color: white;
 }
-.light .btn-fuchsia:hover {
+.dark .btn-fuchsia:hover {
     color: white;
 }
