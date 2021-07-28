@@ -2,7 +2,7 @@
 
 session_start();
 
-include("../pack/config.php");
+include("../pack/config/config.php");
 
 $id = $_SESSION['id'];
 
