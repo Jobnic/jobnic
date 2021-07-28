@@ -1,0 +1,49 @@
+.dark .link {
+    text-decoration: none;
+    color: gray;
+}
+.dark .inp {
+    border: solid 1px #d3d3d3;
+}
+.dark .inp:hover {
+    border: solid 1px #d3d3d3;
+}
+.dark .text-night {
+    color: midnightblue;
+}
+.dark .border-night {
+    border: solid 1px midnightblue;
+}
+.dark .btn-night {
+    background: midnightblue;
+    color: white;
+}
+.dark .btn-night:hover {
+    color: white;
+}
+.dark .text-purple {
+    color: purple;
+}
+.light .border-purple {
+    border: solid 1px purple;
+}
+.light .btn-purple {
+    background: purple;
+    color: white;
+}
+.light .btn-purple:hover {
+    color: white;
+}
+.light .text-fuchsia {
+    color: fuchsia;
+}
+.light .border-fuchsia {
+    border: solid 1px fuchsia;
+}
+.light .btn-fuchsia {
+    background: fuchsia;
+    color: white;
+}
+.light .btn-fuchsia:hover {
+    color: white;
+}
