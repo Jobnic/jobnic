@@ -20,8 +20,8 @@ include('core.php');
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Job Nic - Login or Create account</title>
-<!--    <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>-->
-    <link href="../pack/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
+    <link href="../pack/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
         body {
@@ -183,6 +183,6 @@ include('core.php');
         </div>
     </div>
 </div>
-<script src="../pack/bootstrap.min.js"></script>
+<script src="../pack/js/bootstrap.min.js"></script>
 </body>
 </html>
