@@ -44,7 +44,7 @@
                     </div>
                     <span class="text-success" style="font-size: 10px;"><?php echo $each[0] . " " . $each[1]; ?> %</span>
                     <a href="index.php?delete=skill">
-                        <span style="float: right;" class="text-danger"><i class="fa fa-trash-o"></i></span>
+                        <span style="float: right;" class="text-night"><i class="fa fa-trash-o"></i></span>
                     </a>
                     <hr class="border border-success">
                     <?php
