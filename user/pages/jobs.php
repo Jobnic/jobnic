@@ -68,7 +68,7 @@
                         if ($job_row['status'] == 'true') {
                             echo "<span style='float: right;' class='text-success'>Open</span>";
                         } else {
-                            echo "<span style='float: right;' class='text-danger'>Close</span>";
+                            echo "<span style='float: right;' class='text-night'>Close</span>";
                         }
                         ?>
                     </p>
