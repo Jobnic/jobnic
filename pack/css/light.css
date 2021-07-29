@@ -1,6 +1,6 @@
 .light {
-    background: #f1f1f1;
-    color: fuchsia;
+    background: white;
+    color: black;
 }
 
 .light .link {
@@ -9,33 +9,33 @@
 }
 
 .light .inp {
-    border: solid 1px fuchsia;
-    background: #f1f1f1;
-    color: fuchsia;
+    border: solid 1px black;
+    background: white;
+    color: black;
 }
 .light .inp::placeholder {
-    color: fuchsia;
+    color: black;
 }
 
 .light .text-night {
-    color: fuchsia;
+    color: black;
 }
 .light .border-night {
-    border: solid 1px fuchsia;
+    border: solid 1px black;
 }
 .light .btn-night {
-    background: fuchsia;
-    color: black;
+    background: black;
+    color: white;
 }
 .light .btn-night:hover {
-    color: black;
+    color: white;
 }
 .light .btn-outline-night {
-    border: solid 1px fuchsia;
-    color: fuchsia;
+    border: solid 1px black;
+    color: white;
 }
 .light .btn-outline-night:hover {
-    border: solid 1px fuchsia;
-    background: fuchsia;
-    color: black;
+    border: solid 1px black;
+    background: black;
+    color: white;
 }
