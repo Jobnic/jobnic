@@ -26,6 +26,12 @@ $row = mysqli_fetch_assoc($result);
     <link href="../pack/css/main.css" type="text/css" rel="stylesheet">
     <link href="../pack/css/dark.css" type="text/css" rel="stylesheet">
     <link href="../pack/css/light.css" type="text/css" rel="stylesheet">
+    <style>
+        .toggle {
+            background: none;
+            border: none;
+        }
+    </style>
 </head>
 <body class="dark" id="all">
 <div>
