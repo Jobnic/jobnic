@@ -1,52 +1,41 @@
 .light {
     background: #f1f1f1;
-}
-.light .link {
-    text-decoration: none;
-    color: gray;
-}
-.light .inp {
-    border: solid 1px #d3d3d3;
-}
-.light .inp:hover {
-    border: solid 1px #d3d3d3;
-}
-.light .text-night {
-    color: midnightblue;
-}
-.light .border-night {
-    border: solid 1px midnightblue;
-}
-.light .btn-night {
-    background: midnightblue;
-    color: white;
-}
-.light .btn-night:hover {
-    color: white;
-}
-.light .text-purple {
-    color: purple;
-}
-.light .border-purple {
-    border: solid 1px purple;
-}
-.light .btn-purple {
-    background: purple;
-    color: white;
-}
-.light .btn-purple:hover {
-    color: white;
-}
-.light .text-fuchsia {
     color: fuchsia;
 }
-.light .border-fuchsia {
+
+.light .link {
+    text-decoration: none;
+    color: blue;
+}
+
+.light .inp {
+    border: solid 1px fuchsia;
+    background: #f1f1f1;
+    color: fuchsia;
+}
+.light .inp::placeholder {
+    color: fuchsia;
+}
+
+.light .text-night {
+    color: fuchsia;
+}
+.light .border-night {
     border: solid 1px fuchsia;
 }
-.light .btn-fuchsia {
+.light .btn-night {
     background: fuchsia;
-    color: white;
+    color: black;
 }
-.light .btn-fuchsia:hover {
-    color: white;
+.light .btn-night:hover {
+    color: black;
+}
+.light .btn-outline-night {
+    border: solid 1px fuchsia;
+    color: fuchsia;
+}
+.light .btn-outline-night:hover {
+    border: solid 1px fuchsia;
+    background: fuchsia;
+    color: black;
 }
