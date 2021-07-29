@@ -46,6 +46,9 @@ $row = mysqli_fetch_assoc($result);
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="../us"><i class="fa fa-bank"></i> We</a>
                     </li>
+                    <li class="nav-item">
+                        <button onclick="toggle()" value="dark" class="toggle nav-link active" id="mode">Toggle to <i class="fa fa-sun"></i> mode</button>
+                    </li>
                 </ul>
                 <div class="navbar-nav">
                     <a class="nav-link active" href="?tab=review"><i class="fa fa-id-card"></i> Review</a>
@@ -119,6 +122,22 @@ $row = mysqli_fetch_assoc($result);
         ?>
     </div>
 </div>
+<script>
+    function toggle() {
+        var btn = document.getElementById("mode");
+        if (btn.value === "dark") {
+            document.getElementById("all").classList.remove('dark');
+            document.getElementById("all").classList.add('light');
+            btn.value = "light";
+            btn.innerHTML = 'Toggle to <i class="fa fa-moon"></i> mode';
+        } else {
+            document.getElementById("all").classList.remove('light');
+            document.getElementById("all").classList.add('dark');
+            btn.value = "dark";
+            btn.innerHTML = 'Toggle to <i class="fa fa-sun"></i> mode';
+        }
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
