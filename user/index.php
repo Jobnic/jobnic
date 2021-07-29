@@ -26,14 +26,8 @@ $row = mysqli_fetch_assoc($result);
     <link href="../pack/css/main.css" type="text/css" rel="stylesheet">
     <link href="../pack/css/dark.css" type="text/css" rel="stylesheet">
     <link href="../pack/css/light.css" type="text/css" rel="stylesheet">
-    <style>
-        .toggle {
-            background: none;
-            border: none;
-        }
-    </style>
 </head>
-<body class="dark" id="all">
+<body class="<?php echo $row['theme']; ?>" id="all">
 <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
@@ -51,9 +45,6 @@ $row = mysqli_fetch_assoc($result);
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="../us"><i class="fa fa-bank"></i> We</a>
-                    </li>
-                    <li class="nav-item">
-                        <button onclick="toggle()" value="dark" class="toggle nav-link active" id="mode">Toggle to <i class="fa fa-sun"></i> mode</button>
                     </li>
                 </ul>
                 <div class="navbar-nav">
