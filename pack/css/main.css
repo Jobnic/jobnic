@@ -14,3 +14,7 @@ body {
 .br {
     padding: 2px;
 }
+.toggle {
+    background: none;
+    border: none;
+}
