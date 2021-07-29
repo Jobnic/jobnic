@@ -63,7 +63,7 @@
     <div class="col-md-4">
         <h2 class="text-night">Delete Account</h2>
         <p class="text-night">You can delete your account from here</p>
-        <div class="dialog border border-night">
+        <div class="dialog border-night">
             <h3 class="text-night"><i class="fa fa-trash text-night"></i> Delete</h3>
             <hr class="border border-night">
             <form method="post" action="index.php" class="">
