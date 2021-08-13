@@ -84,5 +84,31 @@
                 </div>
             </form>
         </div>
+        <br>
+        <h2 class="text-night">Appearance</h2>
+        <p class="text-night">Set Jobnic account theme</p>
+        <div class="dialog border-night">
+            <h3 class="text-night"><i class="fa fa-moon-o"></i> Theme</h3>
+            <hr class="border border-night">
+            <form method="post" action="index.php" class="">
+                <div class="form-group">
+                    <p><i class="fa fa-sun text-night"></i> Set your mode</p>
+                    <div>
+                        <input type="radio" class="btn-check" name="mode" value="dark" id="dark" autocomplete="off">
+                        <label class="btn btn-sm btn-outline-dark" for="dark"><i class="fa fa-moon"></i> Dark Mode</label>
+                        &nbsp;
+                        <input type="radio" class="btn-check" name="mode" value="dark" id="light" autocomplete="off">
+                        <label class="btn btn-sm btn-outline-dark" for="light"><i class="fa fa-sun"></i> Light Mode</label>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="radio" class="btn-check" name="mode" value="dark" id="auto" autocomplete="off">
+                        <label class="btn btn-sm btn-outline-dark" for="auto"><i class="fa fa-car"></i> Auto Mode</label>
+                    </div>
+                    <br>
+                    <button class="btn btn-sm btn-night" name="changemode">Set mode</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
