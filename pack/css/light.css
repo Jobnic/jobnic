@@ -32,7 +32,7 @@
 }
 .light .btn-outline-night {
     border: solid 1px black;
-    color: white;
+    color: black;
 }
 .light .btn-outline-night:hover {
     border: solid 1px black;
