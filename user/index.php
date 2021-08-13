@@ -10,6 +10,8 @@ $profile = "SELECT * FROM people WHERE id = '$id'";
 $result = mysqli_query($connection, $profile);
 $row = mysqli_fetch_assoc($result);
 
+$theme = $row['theme'];
+
 ?>
 
 <!doctype html>
@@ -27,7 +29,7 @@ $row = mysqli_fetch_assoc($result);
     <link href="../pack/css/dark.css" type="text/css" rel="stylesheet">
     <link href="../pack/css/light.css" type="text/css" rel="stylesheet">
 </head>
-<body class="<?php echo $row['theme']; ?>" id="all">
+<body class="all" id="all">
 <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">

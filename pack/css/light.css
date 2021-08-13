@@ -1,41 +1,43 @@
-.light {
-    background: white;
-    color: black;
-}
+@media (prefers-color-scheme: light) {
+    .all {
+        background: white;
+        color: black;
+    }
 
-.light .link {
-    text-decoration: none;
-    color: blue;
-}
+    .all .link {
+        text-decoration: none;
+        color: blue;
+    }
 
-.light .inp {
-    border: solid 1px black;
-    background: white;
-    color: black;
-}
-.light .inp::placeholder {
-    color: black;
-}
+    .all .inp {
+        border: solid 1px black;
+        background: white;
+        color: black;
+    }
+    .all .inp::placeholder {
+        color: black;
+    }
 
-.light .text-night {
-    color: black;
-}
-.light .border-night {
-    border: solid 1px black;
-}
-.light .btn-night {
-    background: black;
-    color: white;
-}
-.light .btn-night:hover {
-    color: white;
-}
-.light .btn-outline-night {
-    border: solid 1px black;
-    color: black;
-}
-.light .btn-outline-night:hover {
-    border: solid 1px black;
-    background: black;
-    color: white;
+    .all .text-night {
+        color: black;
+    }
+    .all .border-night {
+        border: solid 1px black;
+    }
+    .all .btn-night {
+        background: black;
+        color: white;
+    }
+    .all .btn-night:hover {
+        color: white;
+    }
+    .all .btn-outline-night {
+        border: solid 1px black;
+        color: black;
+    }
+    .all .btn-outline-night:hover {
+        border: solid 1px black;
+        background: black;
+        color: white;
+    }
 }
