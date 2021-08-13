@@ -666,3 +666,28 @@ if (isset($_POST["deleteaccount"])) {
         }
     }
 }
+
+// Change Mode Back End
+if (isset($_POST["changemode"])) {
+    $mode = mysqli_real_escape_string($connection, $_POST["mode"]);
+
+    if (empty($mode)) {
+        array_push($errors, "Select a mode");
+    }
+
+    if (count($errors) == 0) {
+        $update_mode = "UPDATE people SET theme = '$mode' WHERE id = '$id'";
+
+        if (mysqli_query($connection, $update_mode)) {
+            ?>
+            <script>
+                window.alert("Mode set.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
+    }
+}
