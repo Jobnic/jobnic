@@ -102,7 +102,7 @@ if (isset($_GET['send'])) {
     $send->addAddress($email);
     $send->isHTML(true);
 
-    $link = "$host/jobnic/account/activate.php?token=$token";
+    $link = "$host/account/activate.php?token=$token";
 
     $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
     $bodyContent .= '<h3>You requested for activation email.</h3>';
