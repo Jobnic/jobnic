@@ -74,6 +74,7 @@ CREATE TABLE `people`
     `facebook`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `active`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `token`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `theme`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`row`)
 );
 
