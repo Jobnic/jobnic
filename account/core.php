@@ -129,7 +129,7 @@ if (isset($_POST['create'])) {
                 $created->isHTML(true);
 
                 $name = $fname;
-                $link = "http://127.0.0.1/jobnic/account/activate.php?token=$token";
+                $link = "$host/jobnic/account/activate.php?token=$token";
 
                 $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
                 $bodyContent .= '<h3>Welcome to Jobnic.</h3>';
