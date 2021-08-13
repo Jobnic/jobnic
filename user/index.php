@@ -29,7 +29,7 @@ $theme = $row['theme'];
     <link href="../pack/css/dark.css" type="text/css" rel="stylesheet">
     <link href="../pack/css/light.css" type="text/css" rel="stylesheet">
 </head>
-<body class="all" id="all">
+<body class="<?php echo $theme; ?>" id="all">
 <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
