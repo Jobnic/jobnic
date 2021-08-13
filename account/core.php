@@ -111,7 +111,7 @@ if (isset($_POST['create'])) {
             $token = md5(uniqid(rand(111111111, 999999999), true));
             $join = date("M d, Y H:i:s");
 
-            $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`, `join`, `status`, `token`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password', '$join', 'payed', '$token')";
+            $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`, `join`, `status`, `token`, `theme`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password', '$join', 'payed', '$token', 'light')";
             if (mysqli_query($connection, $create)) {
                 $created = new PHPMailer;
 
