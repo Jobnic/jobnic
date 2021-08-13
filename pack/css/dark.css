@@ -1,43 +1,41 @@
-@media (prefers-color-scheme: dark) {
-    .all {
-        background: #313131;
-        color: #00FFFF;
-    }
+.dark {
+    background: #313131;
+    color: #00FFFF;
+}
 
-    .all .link {
-        text-decoration: none;
-        color: gray;
-    }
+.dark .link {
+    text-decoration: none;
+    color: gray;
+}
 
-    .all .inp {
-        border: solid 1px #00FFFF;
-        background: #313131;
-        color: #00FFFF;
-    }
-    .all .inp::placeholder {
-        color: #00FFFF;
-    }
+.dark .inp {
+    border: solid 1px #00FFFF;
+    background: #313131;
+    color: #00FFFF;
+}
+.dark .inp::placeholder {
+    color: #00FFFF;
+}
 
-    .all .text-night {
-        color: #00FFFF;
-    }
-    .all .border-night {
-        border: solid 1px #00FFFF;
-    }
-    .all .btn-night {
-        background: #00FFFF;
-        color: black;
-    }
-    .all .btn-night:hover {
-        color: black;
-    }
-    .all .btn-outline-night {
-        border: solid 1px #00FFFF;
-        color: #00FFFF;
-    }
-    .all .btn-outline-night:hover {
-        border: solid 1px #00FFFF;
-        background: #00FFFF;
-        color: black;
-    }
+.dark .text-night {
+    color: #00FFFF;
+}
+.dark .border-night {
+    border: solid 1px #00FFFF;
+}
+.dark .btn-night {
+    background: #00FFFF;
+    color: black;
+}
+.dark .btn-night:hover {
+    color: black;
+}
+.dark .btn-outline-night {
+    border: solid 1px #00FFFF;
+    color: #00FFFF;
+}
+.dark .btn-outline-night:hover {
+    border: solid 1px #00FFFF;
+    background: #00FFFF;
+    color: black;
 }
