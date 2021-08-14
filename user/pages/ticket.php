@@ -17,6 +17,7 @@
                 <a href="../../account/logout.php"><li>Logout</li></a>
             </ul>
         </div>
+        <br>
     </div>
     <div class="col-md-8">
         <div class="row">
