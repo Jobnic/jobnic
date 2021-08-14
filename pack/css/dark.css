@@ -1,41 +1,73 @@
 .dark {
+    background: #222;
+    color: white;
+}
+
+.dark .dialog {
+    padding: 5%;
     background: #313131;
-    color: #00FFFF;
+    border-radius: 5px;
 }
 
 .dark .link {
     text-decoration: none;
-    color: gray;
+    color: blue;
 }
 
 .dark .inp {
-    border: solid 1px #00FFFF;
-    background: #313131;
-    color: #00FFFF;
+    border: solid 1px black;
+    background: #444;
+    color: white;
 }
 .dark .inp::placeholder {
-    color: #00FFFF;
+    color: #aaa;
+}
+.dark .jbtn {
+    background: #555;
+    color: white;
+}
+.dark .jbtn:hover {
+    color: white;
 }
 
-.dark .text-night {
-    color: #00FFFF;
+.dark .jout {
+    border: solid 1px white;
+    color: white;
 }
-.dark .border-night {
-    border: solid 1px #00FFFF;
+.dark .jout:hover {
+    border: solid 1px black;
+    background: black;
+    color: white;
 }
-.dark .btn-night {
-    background: #00FFFF;
+
+.daek .mnu {
+    padding: 2%;
+}
+.dark .mnu {
+    border-right: solid 1px white;
+}
+
+.dark .mnu a {
+    color: white;
+    text-decoration: none;
+}
+.dark .mnu a:hover {
     color: black;
+    text-decoration: none;
 }
-.dark .btn-night:hover {
-    color: black;
+.dark .mnu li {
+    padding: 5%;
 }
-.dark .btn-outline-night {
-    border: solid 1px #00FFFF;
-    color: #00FFFF;
+.dark .mnu li:hover {
+    color: white;
+    background: #555;
 }
-.dark .btn-outline-night:hover {
-    border: solid 1px #00FFFF;
-    background: #00FFFF;
-    color: black;
+.dark .mnu .selected {
+    font-weight: bold;
+    background: #333;
+}
+.dark .mnu ul {
+    display: block;
+    padding: 1%;
+    list-style: none;
 }
