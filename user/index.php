@@ -51,21 +51,6 @@ $theme = $row['theme'];
                     </li>
                 </ul>
                 <div class="navbar-nav">
-                    <a class="nav-link active" href="?tab=review"><i class="fa fa-id-card"></i> Review</a>
-                </div>
-                <div class="navbar-nav">
-                    <a class="nav-link active" href="?tab=jobs"><i class="fa fa-list"></i> Jobs</a>
-                </div>
-                <div class="navbar-nav">
-                    <a class="nav-link active" href="?tab=tickets"><i class="fa fa-envelope"></i> Tickets</a>
-                </div>
-                <div class="navbar-nav">
-                    <a class="nav-link active" href="?tab=profile"><i class="fa fa-user"></i> Profile</a>
-                </div>
-                <div class="navbar-nav">
-                    <a class="nav-link active" href="?tab=setting"><i class="fa fa-cogs"></i> Settings</a>
-                </div>
-                <div class="navbar-nav">
                     <a class="nav-link active" href="../account/logout.php"><i class="fa fa-sign-out"></i> Logout</a>
                 </div>
             </div>
