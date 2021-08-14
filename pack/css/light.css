@@ -3,67 +3,71 @@
     color: black;
 }
 
+.light .dialog {
+    padding: 5%;
+    background: #f2f2f2;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
+}
+
 .light .link {
     text-decoration: none;
     color: blue;
 }
 
 .light .inp {
-    border: solid 1px black;
-    background: white;
+    border: solid 1px gray;
+    background: #f6f6f6;
     color: black;
 }
 .light .inp::placeholder {
+    color: #666;
+}
+.light .jbtn {
+    background: #ccc;
     color: black;
+}
+.light .jbtn:hover {
+    color: white;
 }
 
-.light .text-night {
-    color: black;
-}
-.light .border-night {
-    border: solid 1px black;
-}
-.light .btn-night {
-    background: black;
-    color: white;
-}
-.light .btn-night:hover {
-    color: white;
-}
-.light .btn-outline-night {
+.light .jout {
     border: solid 1px black;
     color: black;
 }
-.light .btn-outline-night:hover {
+.light .jout:hover {
     border: solid 1px black;
     background: black;
     color: white;
 }
 
-.mnu {
+.light .mnu {
     border-right: solid 1px black;
 }
 
-.mnu a {
-    color: black;
-    text-decoration: none;
-    /*padding: 20px;*/
+.light .mnu {
+    padding: 2%;
 }
-.mnu a:hover {
+.light .mnu a {
     color: black;
     text-decoration: none;
 }
-.mnu li {
+.light .mnu a:hover {
+    color: black;
+    text-decoration: none;
+}
+.light .mnu li {
     padding: 5%;
 }
-.mnu li:hover {
-    background: #f3f3f3;
+.light .mnu li:hover {
+    color: black;
+    background: #ddd;
 }
-.mnu .selected {
+.light .mnu .selected {
     font-weight: bold;
-    background: #f1f1f1;
+    background: #ccc;
 }
-.mnu ul {
+.light .mnu ul {
     display: block;
     padding: 1%;
     list-style: none;
