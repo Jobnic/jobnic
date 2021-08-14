@@ -26,8 +26,19 @@ $theme = $row['theme'];
 <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"-->
 <!--          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">-->
     <link href="../pack/css/main.css" type="text/css" rel="stylesheet">
-    <link href="../pack/css/dark.css" type="text/css" rel="stylesheet">
-    <link href="../pack/css/light.css" type="text/css" rel="stylesheet">
+    <?php
+    if ($theme == "auto") {
+        ?>
+        <link href="../pack/css/auto.css" type="text/css" rel="stylesheet">
+        <?php
+    }
+    else {
+        ?>
+        <link href="../pack/css/dark.css" type="text/css" rel="stylesheet">
+        <link href="../pack/css/light.css" type="text/css" rel="stylesheet">
+        <?php
+    }
+    ?>
     <link href="../pack/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 </head>
 <body class="<?php echo $theme; ?>" id="all">
