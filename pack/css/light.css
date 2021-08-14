@@ -39,3 +39,32 @@
     background: black;
     color: white;
 }
+
+.mnu {
+    border-right: solid 1px black;
+}
+
+.mnu a {
+    color: black;
+    text-decoration: none;
+    /*padding: 20px;*/
+}
+.mnu a:hover {
+    color: black;
+    text-decoration: none;
+}
+.mnu li {
+    padding: 5%;
+}
+.mnu li:hover {
+    background: #f3f3f3;
+}
+.mnu .selected {
+    font-weight: bold;
+    background: #f1f1f1;
+}
+.mnu ul {
+    display: block;
+    padding: 1%;
+    list-style: none;
+}
