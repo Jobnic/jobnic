@@ -20,13 +20,10 @@
     </div>
     <div class="col-md-8">
         <div class="row">
-            <div class="col-md-6">
-                <h2 class="text-night">New Job</h2>
-                <p class="text-night">I think you have a project that you cant solve. So, put it here and wait for
-                    someone</p>
-                <div class="dialog border-night">
-                    <h3 class="text-night"><i class="fa fa-plus text-night"></i> Add new project</h3>
-                    <hr class="border-night">
+            <div class="col-md-8">
+                <div class="dialog">
+                    <h3><i class="fa fa-plus"></i> Add new project</h3>
+                    <hr>
                     <form method="post" action="index.php" class="">
                         <div class="group">
                             <select name="type" class="form-select form-select-sm border-night inp"
@@ -40,22 +37,23 @@
                                 <option value="costume">Costume</option>
                             </select>
                             <br>
-                            <input name="title" type="text" class="form-control form-control-sm border-night inp"
+                            <input name="title" type="text" class="form-control form-control-sm inp"
                                    placeholder="Project Title">
                             <br>
-                            <textarea name="describe" class="form-control form-control-sm border-night inp"
+                            <textarea name="describe" class="form-control form-control-sm inp"
                                       rows="5" placeholder="Project Describtion"></textarea>
                             <br>
                             <input name="skills" type="text"
-                                   class="form-control form-control-sm border-night inp"
+                                   class="form-control form-control-sm inp"
                                    placeholder="Skills. Ex : php python">
                             <br>
-                            <input name="price" type="text" class="form-control form-control-sm border-night inp"
+                            <input name="price" type="text" class="form-control form-control-sm inp"
                                    placeholder="Project Price. Let it null for Agreement Price">
-                            <small class="text-night">* Let it null for Agreement Price</small>
+                            <br>
+                            <small>* Let <b>Price</b> null for Agreement Price</small>
                             <br>
                             <br>
-                            <button name="addjob" class="btn btn-night btn-sm">Add project</button>
+                            <button name="addjob" class="btn jbtn btn-sm">Add project</button>
                         </div>
                     </form>
                 </div>
@@ -66,51 +64,46 @@
         <br>
         <div class="row">
             <div class="col-md-5">
-                <h2 class="text-night">List of your jobs</h2>
-                <p class="text-night">It you had shared jobs already, here is the list of them. Click on title to show
-                    review</p>
-                <div class="dialog border-night">
-                    <h3 class="text-night"><i class="fa fa-list text-night"></i> Projects you shared</h3>
-                    <hr class="border-night">
+                <div class="dialog">
+                    <h3><i class="fa fa-list"></i> Projects</h3>
+                    <hr>
                     <?php
                     $select_jobs = "SELECT * FROM jobs WHERE user = $id ORDER BY row DESC";
                     $result_jobs = mysqli_query($connection, $select_jobs);
                     if (mysqli_num_rows($result_jobs) > 0) {
                         while ($job_row = mysqli_fetch_assoc($result_jobs)) {
                             ?>
-                            <p class="text-info">
+                            <p class="">
                                 <?php
                                 $jobid = $job_row['jobid'];
                                 $jobtitle = $job_row['title'];
-                                echo "<a class='link text-night' href='index.php?jobid=$jobid'>$jobtitle</a>";
+                                echo "<a class='link' href='index.php?jobid=$jobid'>$jobtitle</a>";
                                 if ($job_row['status'] == 'true') {
                                     echo "<span style='float: right;' class='text-success'>Open</span>";
                                 } else {
-                                    echo "<span style='float: right;' class='text-night'>Close</span>";
+                                    echo "<span style='float: right;' class='text-danger'>Close</span>";
                                 }
                                 ?>
                             </p>
-                            <hr class="border-night">
+                            <hr>
                             <?php
                         }
                     } else {
-                        echo "<p class='text-night'>No projects yet</p>";
+                        echo "<p>No projects yet</p>";
                     }
                     ?>
                 </div>
                 <br>
             </div>
             <div class="col-md-7">
-                <h2 class="text-night">Review the job</h2>
-                <p class="text-night">It you had selected a job, it with be review here</p>
-                <div class="dialog border-night">
-                    <h3 class="text-night"><i class="fa fa-eye text-night"></i> Review project</h3>
-                    <hr class="border-night">
+                <div class="dialog">
+                    <h3><i class="fa fa-eye"></i> Review project</h3>
+                    <hr>
                     <?php
 
                     if (count($job) > 0) {
                         if ($job[0] == false) {
-                            echo '<p class="text-night">Sorry, job didnt found.</p>';
+                            echo '<p>Sorry, job didnt found.</p>';
                         }
                         else {
                             ?>
@@ -180,7 +173,7 @@
                         }
                     }
                     else {
-                        echo '<p class="text-night">Select job first.</p>';
+                        echo '<p>Select job first.</p>';
                     }
                     ?>
                 </div>

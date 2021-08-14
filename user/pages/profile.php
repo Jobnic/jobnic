@@ -21,19 +21,17 @@
     <div class="col-md-8">
         <div class="row">
             <div class="col-md-6">
-                <h2 class="text-night">Profile Updating</h2>
-                <p class="text-night">If you wanna update your profile easily, use here</p>
-                <div class="dialog border-night">
-                    <h3 class="text-night"><i class="fa fa-refresh text-night"></i> Update Your Profile</h3>
-                    <hr class="border-night">
+                <div class="dialog">
+                    <h3><i class="fa fa-refresh"></i> Update Your Profile</h3>
+                    <hr>
                     <form method="post" action="index.php" class="">
                         <div class="group">
-                            <p class="text-night"><i class="fa fa-info text-night"></i> Add a bio, Describe your self
+                            <p><i class="fa fa-info"></i> Add a bio, Describe your self
                             </p>
-                            <textarea name="bio" class="form-control form-control-sm border-night inp" rows="5"
+                            <textarea name="bio" class="form-control form-control-sm inp" rows="5"
                                       placeholder="Bio"></textarea>
                             <br>
-                            <button name="updatebio" class="btn btn-night btn-sm inp">Update Bio</button>
+                            <button name="updatebio" class="btn jbtn btn-sm">Update Bio</button>
                         </div>
                     </form>
                     <hr class="border-night">
@@ -52,58 +50,56 @@
                 <br>
             </div>
             <div class="col-md-6">
-                <h2 class="text-night">Social Media</h2>
-                <p class="text-night">If you have social medias, Use here to add them</p>
-                <div class="dialog border-night">
-                    <h3 class="text-night"><i class="fa fa-cloud text-night"></i> You in Social Media</h3>
-                    <hr class="border-night">
+                <div class="dialog">
+                    <h3><i class="fa fa-cloud"></i> You in Social Media</h3>
+                    <hr>
                     <form method="post" action="index.php">
                         <div class="group">
                             <i class="fa fa-linkedin text-night"></i>
                             <br>
-                            <input name="linkedin" placeholder="Linkedin" class="form-control-sm inp border-night">
+                            <input name="linkedin" placeholder="Linkedin" class="form-control-sm inp">
                             &nbsp;
-                            <button name="updatelinkedin" class="btn btn-night btn-sm">Update</button>
+                            <button name="updatelinkedin" class="btn jbtn btn-sm">Update</button>
                         </div>
                         <br>
                         <div class="group">
-                            <i class="fa fa-twitter text-night"></i>
+                            <i class="fa fa-twitter"></i>
                             <br>
-                            <input name="twitter" placeholder="Twitter" class="form-control-sm inp border-night">
+                            <input name="twitter" placeholder="Twitter" class="form-control-sm inp">
                             &nbsp;
-                            <button name="updatetwitter" class="btn btn-night btn-sm">Update</button>
+                            <button name="updatetwitter" class="btn jbtn btn-sm">Update</button>
                         </div>
                         <br>
                         <div class="group">
-                            <i class="fa fa-github text-night"></i>
+                            <i class="fa fa-github"></i>
                             <br>
-                            <input name="github" placeholder="GitHub" class="form-control-sm inp border-night">
+                            <input name="github" placeholder="GitHub" class="form-control-sm inp">
                             &nbsp;
-                            <button name="updategithub" class="btn btn-night btn-sm">Update</button>
+                            <button name="updategithub" class="btn jbtn btn-sm">Update</button>
                         </div>
                         <br>
                         <div class="group">
-                            <i class="fa fa-telegram text-night"></i>
+                            <i class="fa fa-telegram"></i>
                             <br>
-                            <input name="telegram" placeholder="Telegram" class="form-control-sm inp border-night">
+                            <input name="telegram" placeholder="Telegram" class="form-control-sm inp">
                             &nbsp;
-                            <button name="updatetelegram" class="btn btn-night btn-sm">Update</button>
+                            <button name="updatetelegram" class="btn jbtn btn-sm">Update</button>
                         </div>
                         <br>
                         <div class="group">
-                            <i class="fa fa-instagram text-night"></i>
+                            <i class="fa fa-instagram"></i>
                             <br>
-                            <input name="instagram" placeholder="Instagram" class="form-control-sm inp border-night">
+                            <input name="instagram" placeholder="Instagram" class="form-control-sm inp">
                             &nbsp;
-                            <button name="updateinstagram" class="btn btn-night btn-sm">Update</button>
+                            <button name="updateinstagram" class="btn jbtn btn-sm">Update</button>
                         </div>
                         <br>
                         <div class="group">
-                            <i class="fa fa-facebook text-night"></i>
+                            <i class="fa fa-facebook"></i>
                             <br>
-                            <input name="facebook" placeholder="Facebook" class="form-control-sm inp border-night">
+                            <input name="facebook" placeholder="Facebook" class="form-control-sm inp">
                             &nbsp;
-                            <button name="updatefacebook" class="btn btn-night btn-sm">Update</button>
+                            <button name="updatefacebook" class="btn jbtn btn-sm">Update</button>
                         </div>
                     </form>
                 </div>
