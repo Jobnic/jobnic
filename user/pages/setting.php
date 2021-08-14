@@ -21,7 +21,7 @@
     <div class="col-md-8">
         <div class="row">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-10">
                     <div class="dialog">
                         <h3><i class="fa fa-cog"></i> Settings</h3>
                         <hr>
@@ -81,6 +81,35 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="dialog">
+                        <h3><i class="fa fa-moon-o"></i> Theme</h3>
+                        <hr>
+                        <form method="post" action="index.php" class="">
+                            <div class="form-group">
+                                <p><i class="fa fa-sun"></i> Set your mode</p>
+                                <div>
+                                    <input type="radio" name="mode" value="dark" id="dark">
+                                    <label for="dark"><i class="fa fa-moon"></i> Dark Mode</label>
+                                    &nbsp;
+                                    <input type="radio" name="mode" value="light" id="light">
+                                    <label for="light"><i class="fa fa-sun"></i> Light Mode</label>
+                                </div>
+                                <br>
+                                <div>
+                                    <input type="radio" name="mode" value="auto" id="auto">
+                                    <label for="auto"><i class="fa fa-sun"></i> Auto Mode</label>
+                                </div>
+                                <br>
+                                <small>* Your current mode is <b><?php echo $row["theme"]; ?></b>.</small>
+                                <br>
+                                <br>
+                                <button class="btn btn-sm jbtn" name="changemode">Set mode</button>
+                            </div>
+                        </form>
+                    </div>
+                    <br>
+                </div>
+                <div class="col-md-6">
+                    <div class="dialog">
                         <h3><i class="fa fa-trash"></i> Delete</h3>
                         <hr>
                         <form method="post" action="index.php" class="">
@@ -102,31 +131,6 @@
                         </form>
                     </div>
                     <br>
-                </div>
-                <div class="col-md-6">
-                    <div class="dialog">
-                        <h3><i class="fa fa-moon-o"></i> Theme</h3>
-                        <hr>
-                        <form method="post" action="index.php" class="">
-                            <div class="form-group">
-                                <p><i class="fa fa-sun"></i> Set your mode</p>
-                                <div>
-                                    <input type="radio" name="mode" value="dark" id="dark">
-                                    <label for="dark"><i class="fa fa-moon"></i> Dark Mode</label>
-                                    &nbsp;
-                                    <input type="radio" name="mode" value="light" id="light">
-                                    <label for="light"><i class="fa fa-sun"></i> Light Mode</label>
-                                </div>
-                                <br>
-                                <div>
-                                    <input type="radio" name="mode" value="auto" id="auto">
-                                    <label for="auto"><i class="fa fa-sun"></i> Auto Mode</label>
-                                </div>
-                                <br>
-                                <button class="btn btn-sm jbtn" name="changemode">Set mode</button>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
