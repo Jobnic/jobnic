@@ -105,7 +105,7 @@ $theme = $row['theme'];
             elseif ($tab == "review") {
                 include("pages/review.php");
             }
-            elseif ($tab == "setting") {
+            elseif ($tab == "settings") {
                 include("pages/setting.php");
             }
             else {
