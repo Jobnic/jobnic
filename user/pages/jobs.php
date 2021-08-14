@@ -14,7 +14,7 @@
                 <a href="index.php?tab=tickets"><li class="">Tickets</li></a>
                 <a href="index.php?tab=settings"><li class="">Settings</li></a>
                 <br>
-                <a href="index.php?tab=review"><li>Logout</li></a>
+                <a href="../../account/logout.php"><li>Logout</li></a>
             </ul>
         </div>
     </div>
