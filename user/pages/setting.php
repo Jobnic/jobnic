@@ -111,16 +111,16 @@
                             <div class="form-group">
                                 <p><i class="fa fa-sun"></i> Set your mode</p>
                                 <div>
-                                    <input type="radio" class="btn-check" name="mode" value="dark" id="dark" autocomplete="off">
-                                    <label class="btn btn-sm btn-outline-dark" for="dark"><i class="fa fa-moon"></i> Dark Mode</label>
+                                    <input type="radio" name="mode" value="dark" id="dark">
+                                    <label for="dark"><i class="fa fa-moon"></i> Dark Mode</label>
                                     &nbsp;
-                                    <input type="radio" class="btn-check" name="mode" value="light" id="light" autocomplete="off">
-                                    <label class="btn btn-sm btn-outline-dark" for="light"><i class="fa fa-sun"></i> Light Mode</label>
+                                    <input type="radio" name="mode" value="light" id="light">
+                                    <label for="light"><i class="fa fa-sun"></i> Light Mode</label>
                                 </div>
                                 <br>
                                 <div>
-                                    <input type="radio" class="btn-check" name="mode" value="auto" id="auto" autocomplete="off">
-                                    <label class="btn btn-sm btn-outline-dark" for="auto"><i class="fa fa-car"></i> Auto Mode</label>
+                                    <input type="radio" name="mode" value="auto" id="auto">
+                                    <label for="auto"><i class="fa fa-sun"></i> Auto Mode</label>
                                 </div>
                                 <br>
                                 <button class="btn btn-sm jbtn" name="changemode">Set mode</button>
