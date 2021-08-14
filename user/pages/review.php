@@ -1,9 +1,20 @@
 <?php
 // Review Page
 ?>
+
 <div class="row">
     <div class="col-md-3">
         <h1>Manu</h1>
+        <br>
+        <ul>
+            <li><a href="index.php?tab=review"><b>Review</b></a></li>
+            <li><a href="index.php?tab=jobs">Jobs</a></li>
+            <li><a href="index.php?tab=profile">Profile</a></li>
+            <li><a href="index.php?tab=tickets">Tickets</a></li>
+            <li><a href="index.php?tab=settings">Settings</a></li>
+            <br>
+            <li><a href="index.php?tab=review">Logout</a></li>
+        </ul>
     </div>
     <div class="col-md-8">
         <div class="row">
