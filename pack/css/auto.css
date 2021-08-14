@@ -1,0 +1,151 @@
+@media (prefers-color-scheme: light) {
+    .light {
+        background: white;
+        color: black;
+    }
+
+    .light .dialog {
+        padding: 5%;
+        background: #f2f2f2;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 5px;
+    }
+
+    .light .link {
+        text-decoration: none;
+        color: blue;
+    }
+
+    .light .inp {
+        border: solid 1px gray;
+        background: #f6f6f6;
+        color: black;
+    }
+    .light .inp::placeholder {
+        color: #666;
+    }
+    .light .jbtn {
+        background: #ccc;
+        color: black;
+    }
+    .light .jbtn:hover {
+        color: white;
+    }
+
+    .light .jout {
+        border: solid 1px black;
+        color: black;
+    }
+    .light .jout:hover {
+        border: solid 1px black;
+        background: black;
+        color: white;
+    }
+
+    .light .mnu {
+        border-right: solid 1px black;
+    }
+
+    .light .mnu {
+        padding: 2%;
+    }
+    .light .mnu a {
+        color: black;
+        text-decoration: none;
+    }
+    .light .mnu a:hover {
+        color: black;
+        text-decoration: none;
+    }
+    .light .mnu li {
+        padding: 5%;
+    }
+    .light .mnu li:hover {
+        color: black;
+        background: #ddd;
+    }
+    .light .mnu .selected {
+        font-weight: bold;
+        background: #ccc;
+    }
+    .light .mnu ul {
+        display: block;
+        padding: 1%;
+        list-style: none;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .dark {
+        background: #222;
+        color: white;
+    }
+
+    .dark .dialog {
+        padding: 5%;
+        background: #313131;
+        border-radius: 5px;
+    }
+
+    .dark .link {
+        text-decoration: none;
+        color: blue;
+    }
+
+    .dark .inp {
+        border: solid 1px black;
+        background: #444;
+        color: white;
+    }
+    .dark .inp::placeholder {
+        color: #aaa;
+    }
+    .dark .jbtn {
+        background: #555;
+        color: white;
+    }
+    .dark .jbtn:hover {
+        color: white;
+    }
+
+    .dark .jout {
+        border: solid 1px white;
+        color: white;
+    }
+    .dark .jout:hover {
+        border: solid 1px black;
+        background: black;
+        color: white;
+    }
+
+    .daek .mnu {
+        padding: 2%;
+    }
+    .dark .mnu {
+        border-right: solid 1px white;
+    }
+
+    .dark .mnu a {
+        color: white;
+        text-decoration: none;
+    }
+    .dark .mnu a:hover {
+        color: black;
+        text-decoration: none;
+    }
+    .dark .mnu li {
+        padding: 5%;
+    }
+    .dark .mnu li:hover {
+        color: white;
+        background: #555;
+    }
+    .dark .mnu .selected {
+        font-weight: bold;
+        background: #333;
+    }
+    .dark .mnu ul {
+        display: block;
+        padding: 1%;
+        list-style: none;
+    }
+}
