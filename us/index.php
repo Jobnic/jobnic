@@ -129,22 +129,22 @@ if (isset($_POST["newmessage"])) {
                         We are <b>Job Nic</b> team, working under <b>Neotrinost Limited Liability Company</b> founded by <b>Amirhossein Mohammadi</b> and <b>Annahita Mirhosseini</b>.
                         <br>
                         <br>
-                        <b>Job Nic</b> Founded in 12 Jun 2021 by <b>Amirhossein Mohammadi</b> with all entire <b>PHP</b> but company is working on new version of <b>Job Nic</b> with <b>Laravel</b>.
+                        <b>Job Nic</b> Founded in 12 Jun 2021 by <b>Amirhossein Mohammadi</b>. Now <b>Jobnic</b> is running on our <b>Dedicated servers</b>.
                         <br>
                         <br>
                         Ok, <b>Job Nic</b> is a place for find small or big jobs. Here you have a special ID that means your CV. You can add your skills and other things.
-                        <br>
-                        <br>
+                    </p>
+                    <p>
                         You can find the right <b>Jobs</b> for your abilities by looking in the jobs section. Go for <b>Job</b> details and make contact with employer.
                         <br>
                         If you did the <b>Jobs</b> and the employer approved it, it will be added to your <b>Done Jobs</b> list.
-                        <br>
-                        <br>
+                    </p>
+                    <p>
                         Anyway, If it was something that you could not do, you could place an ad on the site so that people who can do it would accept it.
                         <br>
                         Whenever a person did your <b>Job</b>, close it and say who did. You also can give <b>Star</b> to person.
-                        <br>
-                        <br>
+                    </p>
+                    <p>
                         Join free and make money! <b>Our income is your trust in the company</b>.
                         <br>
                         We <b>do not</b> receive money from employees and employers.
@@ -163,14 +163,9 @@ if (isset($_POST["newmessage"])) {
                     <p class="text-dark">
                         <b>Job Nic</b> <b class="text-primary">Telegram</b> Channel is <a class="link text-primary" href="https://t.me/JobNic">@JobNic</a> that you can see new news or any fun festival.
                         <br>
-                        You can see <b>Job Nic</b> <b class="text-primary">LinkedIn</b> and see people working here.
-                        <br>
-                        <br>
-                        Until now there is no <b class="text-danger">Instagram</b> or <b class="text-info">Twitter</b> account.
-                        <br>
-                        But there will be!
-                        <br>
-                        <br>
+                        You can see <b>Job Nic</b> <b class="text-primary"><a class="link" href="https://linkedin.com/company/jobnic">LinkedIn</a></b> and see people working here.
+                    </p>
+                    <p>
                         If you wanna contact us, for asking or saying goodies you can easily send us via E-Mail. Or you can fill this form below.
                     </p>
                     <?php
