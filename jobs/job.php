@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include("../pack/config.php");
+include("../pack/config/config.php");
 
 $stat = $_SESSION['status'];
 
