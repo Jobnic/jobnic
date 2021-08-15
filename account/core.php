@@ -183,25 +183,6 @@ if (isset($_POST['create'])) {
             }
         }
     }
-
-    if ($password == $confirm) {
-        if (true) {
-            if (true) {
-                if (count($errors) == 0) {
-
-                }
-            }
-            else {
-                array_push($errors, "Phone exists. Try another phone.");
-            }
-        }
-        else {
-
-        }
-    } else {
-        array_push($errors, "Password don't match");
-    }
-
 }
 
 if (isset($_POST['forgot'])) {
