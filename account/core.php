@@ -11,6 +11,14 @@ require '../pack/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 
 include("../pack/config/config.php");
 
+$get_all_mails = "SELECT email FROM people";
+$get_mails_result = mysqli_query($connection, $get_all_mails);
+$emails = mysqli_fetch_assoc($get_mails_result);
+
+$get_all_phones = "SELECT phone FROM people";
+$get_phones_result = mysqli_query($connection, $get_all_phones);
+$phones = mysqli_fetch_assoc($get_phones_result);
+
 $errors = array();
 
 if (isset($_POST['login'])) {
@@ -106,8 +114,8 @@ if (isset($_POST['create'])) {
     }
 
     if ($password == $confirm) {
-        if () {
-            if () {
+        if (true) {
+            if (true) {
                 if (count($errors) == 0) {
                     $id = rand(111111, 999999);
                     $token = md5(uniqid(rand(111111111, 999999999), true));
