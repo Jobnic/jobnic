@@ -156,7 +156,7 @@ if (isset($_POST["newmessage"])) {
         </div>
         <br>
         <div class="row" id="contact">
-            <div class="col-md-12">
+            <div class="col-md-7">
                 <div class="card border border-dark">
                     <h3>Contact Us</h3>
                     <hr class="border border-dark">
@@ -204,6 +204,25 @@ if (isset($_POST["newmessage"])) {
                             <button type="submit" name="newmessage" class="btn btn-dark">Send Message</button>
                         </div>
                     </form>
+                </div>
+                <br>
+            </div>
+            <div class="col-md-5">
+                <div class="card border border-dark">
+                    <h3>Contact Directly</h3>
+                    <hr class="border border-dark">
+                    <p class="text-dark">
+                        You can send Email to us for ask your questions right is Telegram!
+                    </p>
+                    <p>
+                        But if you have a question, first check <a href="faq.php" class="link">FAQ</a> page.
+                    </p>
+                    <p>
+                        <i class="fa fa-telegram text-primary"></i> <a href="https://t.me/BlackIQ" class="link text-primary">Telegram</a>
+                    </p>
+                    <p class="text-success">
+                        <i class="fa fa-envelope text-success"></i> info@neotrinost.ir
+                    </p>
                 </div>
             </div>
         </div>
