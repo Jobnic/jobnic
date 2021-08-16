@@ -3,6 +3,7 @@
 session_start();
 
 $stat = $_SESSION['status'];
+
 if ($stat != true) {
     ?>
     <script>
@@ -25,6 +26,14 @@ $id = $_SESSION['id'];
 $select_user = "SELECT * FROM people WHERE id = '$id'";
 $result_user = mysqli_query($connection, $select_user);
 $row_user = mysqli_fetch_assoc($result_user);
+
+if ($row_user['active'] == true) {
+    ?>
+    <script>
+        window.location.replace("../user");
+    </script>
+    <?php
+}
 
 $name = $row_user['firstname'];
 $email = $row_user['email'];
