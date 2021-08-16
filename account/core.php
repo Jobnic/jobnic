@@ -161,9 +161,9 @@ if (isset($_POST['create'])) {
 
     if ($password == $confirm) {
         foreach ($emails as $mail) {
-            if ($mail == $email) {
+            if ($mail != $email) {
                 foreach ($phones as $phne) {
-                    if ($phne == $phone) {
+                    if ($phne != $phone) {
                         if (count($errors) == 0) {
                             $id = rand(111111, 999999);
                             $token = md5(uniqid(rand(111111111, 999999999), true));
