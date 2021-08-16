@@ -38,48 +38,94 @@ if (isset($_POST['login'])) {
 
         if (mysqli_num_rows($check_result) == 1) {
             $row = mysqli_fetch_assoc($check_result);
+            if ($row['2fa'] == 0) {
+                $login = new PHPMailer;
 
-            $login = new PHPMailer;
+                $login->IsSMTP();
+                $login->SMTPAuth = true;
+                $login->Host = "smtp.zoho.com";
+                $login->Port = 587;
+                $login->Username = $mailaddr;
+                $login->Password = $mailpass;
+                $login->SMTPSecure = 'tsl';
+                $login->Subject = 'A new account login was seen';
 
-            $login->IsSMTP();
-            $login->SMTPAuth = true;
-            $login->Host = "smtp.zoho.com";
-            $login->Port = 587;
-            $login->Username = $mailaddr;
-            $login->Password = $mailpass;
-            $login->SMTPSecure = 'tsl';
-            $login->Subject = 'A new account login was seen';
+                $login->setFrom($mailaddr, 'Jobnic');
+                $login->addAddress($mail);
+                $login->isHTML(true);
 
-            $login->setFrom($mailaddr, 'Jobnic');
-            $login->addAddress($mail);
-            $login->isHTML(true);
+                $name = $row['firstname'];
 
-            $name = $row['firstname'];
+                $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+                $bodyContent .= '<h3>We found a person who logged into your account.</h3>';
+                $bodyContent .= '<p>If you are not you, change your password now.</p>';
+                $bodyContent .= '<b></b>';
+                $bodyContent .= '<br>';
+                $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
 
-            $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
-            $bodyContent .= '<h3>We found a person who logged into your account.</h3>';
-            $bodyContent .= '<p>If you are not you, change your password now.</p>';
-            $bodyContent .= '<b></b>';
-            $bodyContent .= '<br>';
-            $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+                $login->Body = $bodyContent;
 
-            $login->Body = $bodyContent;
+                if (!$login->send()) {
+                    array_push($errors, 'Message could not be sent. Mailer Error: ' . $login->ErrorInfo);
+                } else {
+                    array_push($errors, "Password sent");
+                }
 
-            if (!$login->send()) {
-                array_push($errors, 'Message could not be sent. Mailer Error: ' . $login->ErrorInfo);
-            } else {
-                array_push($errors, "Password sent");
+                $_SESSION['status'] = true;
+                $_SESSION['id'] = $row['id'];
+
+                ?>
+                <script>
+                    window.alert("Welcome.");
+                    window.location.replace("../user");
+                </script>
+                <?php
             }
+            else {
+                $tfa = new PHPMailer;
 
-            $_SESSION['status'] = true;
-            $_SESSION['id'] = $row['id'];
+                $tfa->IsSMTP();
+                $tfa->SMTPAuth = true;
+                $tfa->Host = "smtp.zoho.com";
+                $tfa->Port = 587;
+                $tfa->Username = $mailaddr;
+                $tfa->Password = $mailpass;
+                $tfa->SMTPSecure = 'tsl';
+                $tfa->Subject = 'A new account login was seen';
 
-            ?>
-            <script>
-                window.alert("Welcome.");
-                window.location.replace("../user");
-            </script>
-            <?php
+                $tfa->setFrom($mailaddr, 'Jobnic');
+                $tfa->addAddress($mail);
+                $tfa->isHTML(true);
+
+                $name = $row['firstname'];
+                $user_id = $row["id"];
+
+                $tfacode = rand(10000, 99999);
+
+                $update_tfa = "UPDATE people SET 2facode = '$tfacode'";
+                mysqli_query($connection, $update_tfa);
+
+                $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+                $bodyContent .= '<h3>Your 2FA code is:</h3>';
+                $bodyContent .= '<p></p>';
+                $bodyContent .= '<b></b>';
+                $bodyContent .= '<br>';
+                $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+                $tfa->Body = $bodyContent;
+
+                $access_token = "abcdefgh123456789";
+
+                if (!$tfa->send()) {
+                    array_push($errors, 'Message could not be sent. Mailer Error: ' . $tfa->ErrorInfo);
+                } else {
+                    ?>
+                    <script>
+                        window.location.replace("auth.php");
+                    </script>
+                    <?php
+                }
+            }
         } else {
             array_push($errors, "Mail and password are not match");
         }
