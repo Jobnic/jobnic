@@ -90,7 +90,7 @@ if (isset($_POST['login'])) {
                 $tfa->Username = $mailaddr;
                 $tfa->Password = $mailpass;
                 $tfa->SMTPSecure = 'tsl';
-                $tfa->Subject = 'A new account login was seen';
+                $tfa->Subject = '2FA security code';
 
                 $tfa->setFrom($mailaddr, 'Jobnic');
                 $tfa->addAddress($mail);
@@ -101,7 +101,7 @@ if (isset($_POST['login'])) {
 
                 $tfacode = rand(10000, 99999);
 
-                $update_tfa = "UPDATE people SET 2facode = '$tfacode'";
+                $update_tfa = "UPDATE people SET 2facode = '$tfacode' WHERE id = '$user_id'";
                 mysqli_query($connection, $update_tfa);
 
                 $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
@@ -115,6 +115,7 @@ if (isset($_POST['login'])) {
 
                 $_SESSION['2fa_code'] = $tfacode;
                 $_SESSION['2fa_user'] = $mail;
+                $_SESSION['id'] = $user_id;
 
                 if (!$tfa->send()) {
                     array_push($errors, 'Message could not be sent. Mailer Error: ' . $tfa->ErrorInfo);
