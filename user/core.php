@@ -691,3 +691,27 @@ if (isset($_POST["changemode"])) {
         }
     }
 }
+
+if (isset($_POST["enable2fa"])) {
+    $mail2fa = mysqli_real_escape_string($connection, $_POST["email"]);
+
+    if (empty($mail2fa)) {
+        array_push($errors, "Enter a mail.");
+    }
+
+    if (count($errors) == 0) {
+        $update_2fa = "UPDATE people SET 2fa = '$mail2fa' WHERE id = '$id'";
+
+        if (mysqli_query($connection, $update_2fa)) {
+            ?>
+            <script>
+                window.alert("2FA Activated.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
+    }
+}
