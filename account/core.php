@@ -80,8 +80,7 @@ if (isset($_POST['login'])) {
                     window.location.replace("../user");
                 </script>
                 <?php
-            }
-            else {
+            } else {
                 $tfa = new PHPMailer;
 
                 $tfa->IsSMTP();
@@ -215,17 +214,14 @@ if (isset($_POST['create'])) {
                                 </script>
                                 <?php
                             }
-                        }
-                        else {
+                        } else {
                             array_push($errors, mysqli_error($connection));
                         }
-                    }
-                    else {
+                    } else {
                         array_push($errors, "Phone exists. Try another phone.");
                     }
                 }
-            }
-            else {
+            } else {
                 array_push($errors, "Email exists. Try another mail.");
             }
         }
@@ -351,5 +347,57 @@ if (isset($_POST['onetime'])) {
         } else {
             array_push($errors, "User didn't found or E-mail is wrong");
         }
+    }
+}
+
+if (isset($_POST['tfasubmit'])) {
+    $tfa_code = mysqli_real_escape_string($connection, $_POST['tfa']);
+
+    if (empty($tfa_code)) {
+        array_push($errors, "Code is required");
+    }
+
+    if (count($errors) == 0) {
+        $login = new PHPMailer;
+
+        $login->IsSMTP();
+        $login->SMTPAuth = true;
+        $login->Host = "smtp.zoho.com";
+        $login->Port = 587;
+        $login->Username = $mailaddr;
+        $login->Password = $mailpass;
+        $login->SMTPSecure = 'tsl';
+        $login->Subject = 'A new account login was seen';
+
+        $login->setFrom($mailaddr, 'Jobnic');
+        $login->addAddress($mail);
+        $login->isHTML(true);
+
+        $name = $row['firstname'];
+
+        $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+        $bodyContent .= '<h3>We found a person who logged into your account.</h3>';
+        $bodyContent .= '<p>If you are not you, change your password now.</p>';
+        $bodyContent .= '<b></b>';
+        $bodyContent .= '<br>';
+        $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+        $login->Body = $bodyContent;
+
+        if (!$login->send()) {
+            array_push($errors, 'Message could not be sent. Mailer Error: ' . $login->ErrorInfo);
+        } else {
+            array_push($errors, "Password sent");
+        }
+
+        $_SESSION['status'] = true;
+        $_SESSION['id'] = $row['id'];
+
+        ?>
+        <script>
+            window.alert("Welcome.");
+            window.location.replace("../user");
+        </script>
+        <?php
     }
 }
