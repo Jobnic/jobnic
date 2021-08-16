@@ -107,14 +107,15 @@ if (isset($_POST['login'])) {
 
                 $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
                 $bodyContent .= '<h3>Your 2FA code is:</h3>';
-                $bodyContent .= '<p></p>';
+                $bodyContent .= '<p>' . $tfacode . '</p>';
                 $bodyContent .= '<b></b>';
                 $bodyContent .= '<br>';
                 $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
 
                 $tfa->Body = $bodyContent;
 
-                $access_token = "abcdefgh123456789";
+                $_SESSION['2fa_code'] = $tfacode;
+                $_SESSION['2fa_user'] = $mail;
 
                 if (!$tfa->send()) {
                     array_push($errors, 'Message could not be sent. Mailer Error: ' . $tfa->ErrorInfo);
