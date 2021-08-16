@@ -359,6 +359,10 @@ if (isset($_POST['tfasubmit'])) {
     }
 
     if (count($errors) == 0) {
+        $get_person = "SELECT * FROM people WHERE 2facode = '$tfa_code'";
+        $result_person = mysqli_query($connection, $get_person);
+        $person = mysqli_fetch_assoc($result_person);
+
         $come = new PHPMailer;
 
         $come->IsSMTP();
@@ -371,7 +375,7 @@ if (isset($_POST['tfasubmit'])) {
         $come->Subject = 'A new account login was seen';
 
         $come->setFrom($mailaddr, 'Jobnic');
-        $come->addAddress($mail);
+        $come->addAddress($person['email']);
         $come->isHTML(true);
 
         $name = $row['firstname'];
@@ -389,7 +393,7 @@ if (isset($_POST['tfasubmit'])) {
             array_push($errors, 'Message could not be sent. Mailer Error: ' . $come->ErrorInfo);
         } else {
             $_SESSION['status'] = true;
-            $_SESSION['id'] = $row['id'];
+            $_SESSION['id'] = $person['id'];
 
             ?>
             <script>
@@ -398,5 +402,8 @@ if (isset($_POST['tfasubmit'])) {
             </script>
             <?php
         }
+    }
+    else {
+
     }
 }
