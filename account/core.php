@@ -359,20 +359,20 @@ if (isset($_POST['tfasubmit'])) {
     }
 
     if (count($errors) == 0) {
-        $login = new PHPMailer;
+        $come = new PHPMailer;
 
-        $login->IsSMTP();
-        $login->SMTPAuth = true;
-        $login->Host = "smtp.zoho.com";
-        $login->Port = 587;
-        $login->Username = $mailaddr;
-        $login->Password = $mailpass;
-        $login->SMTPSecure = 'tsl';
-        $login->Subject = 'A new account login was seen';
+        $come->IsSMTP();
+        $come->SMTPAuth = true;
+        $come->Host = "smtp.zoho.com";
+        $come->Port = 587;
+        $come->Username = $mailaddr;
+        $come->Password = $mailpass;
+        $come->SMTPSecure = 'tsl';
+        $come->Subject = 'A new account login was seen';
 
-        $login->setFrom($mailaddr, 'Jobnic');
-        $login->addAddress($mail);
-        $login->isHTML(true);
+        $come->setFrom($mailaddr, 'Jobnic');
+        $come->addAddress($mail);
+        $come->isHTML(true);
 
         $name = $row['firstname'];
 
@@ -383,22 +383,20 @@ if (isset($_POST['tfasubmit'])) {
         $bodyContent .= '<br>';
         $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
 
-        $login->Body = $bodyContent;
+        $come->Body = $bodyContent;
 
-        if (!$login->send()) {
-            array_push($errors, 'Message could not be sent. Mailer Error: ' . $login->ErrorInfo);
+        if (!$come->send()) {
+            array_push($errors, 'Message could not be sent. Mailer Error: ' . $come->ErrorInfo);
         } else {
-            array_push($errors, "Password sent");
+            $_SESSION['status'] = true;
+            $_SESSION['id'] = $row['id'];
+
+            ?>
+            <script>
+                window.alert("Welcome.");
+                window.location.replace("../user");
+            </script>
+            <?php
         }
-
-        $_SESSION['status'] = true;
-        $_SESSION['id'] = $row['id'];
-
-        ?>
-        <script>
-            window.alert("Welcome.");
-            window.location.replace("../user");
-        </script>
-        <?php
     }
 }
