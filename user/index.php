@@ -34,7 +34,7 @@ $theme = $row['theme'];
     }
     else {
         ?>
-        <link href="https://cdn.neotrinost.ir/jobnic/css/css/dark.css" type="text/css" rel="stylesheet">
+        <link href="https://cdn.neotrinost.ir/jobnic/css/dark.css" type="text/css" rel="stylesheet">
         <link href="https://cdn.neotrinost.ir/jobnic/css/light.css" type="text/css" rel="stylesheet">
         <?php
     }
