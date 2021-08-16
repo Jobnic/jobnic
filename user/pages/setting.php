@@ -22,7 +22,7 @@
     <div class="col-md-8">
         <div class="row">
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-12">
                     <div class="dialog">
                         <h3><i class="fa fa-cog"></i> Settings</h3>
                         <hr>
@@ -133,6 +133,26 @@
                     </div>
                     <br>
                 </div>
+            </div>
+            <div>
+                <div class="col-md-6">
+                    <div class="dialog">
+                        <h3><i class="fa fa-shield"></i> 2FA</h3>
+                        <hr>
+                        <form method="post" action="index.php" class="">
+                            <div class="form-group">
+                                <p><i class="fa fa-key"></i> Enter 2FA Email</p>
+                                <input name="email" type="text"
+                                       class="inp form-control-sm form-control"
+                                       placeholder="2FA Email">
+                                <br>
+                                <button class="btn btn-sm jbtn" name="enable2fa">Enable 2FA for my account</button>
+                            </div>
+                        </form>
+                    </div>
+                    <br>
+                </div>
+                <br>
             </div>
         </div>
     </div>
