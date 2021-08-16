@@ -75,6 +75,8 @@ CREATE TABLE `people`
     `active`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `token`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `theme`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `2fa`       text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `2facode`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`row`)
 );
 
