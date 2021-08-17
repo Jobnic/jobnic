@@ -21,7 +21,7 @@ include('core.php');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Job Nic - Login or Create account</title>
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
-    <link href="../pack/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.neotrinost.ir/jobnic/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
         body {
