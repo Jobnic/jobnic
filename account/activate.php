@@ -147,7 +147,7 @@ if (isset($_GET['send'])) {
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link href="../pack/css/main.css" type="text/css" rel="stylesheet">
+    <link href="https://cdn.neotrinost.ir/jobnic/css/main.css" type="text/css" rel="stylesheet">
     <style>
         .main {
             color: red;

@@ -21,7 +21,7 @@ include('core.php');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Job Nic - 2FA</title>
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
-    <link href="../pack/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.neotrinost.ir/jobnic/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
         body {
@@ -99,6 +99,6 @@ include('core.php');
         </div>
     </div>
 </div>
-<script src="../pack/js/bootstrap.min.js"></script>
+<script src="https://cdn.neotrinost.ir/jobnic/js/bootstrap.min.js"></script>
 </body>
 </html>
