@@ -54,6 +54,13 @@
                             <small>* Let <b>Price</b> null for Agreement Price</small>
                             <br>
                             <br>
+                            <div class="form-check">
+                                <input class="form-check-input inp" name="nes" type="checkbox" id="nes">
+                                <label class="form-check-label" for="nes">
+                                    This job need to be done soon
+                                </label>
+                            </div>
+                            <br>
                             <button name="addjob" class="btn jbtn btn-sm">Add project</button>
                         </div>
                     </form>
