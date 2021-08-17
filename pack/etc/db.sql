@@ -25,6 +25,7 @@ CREATE TABLE `jobs`
     `status`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `views`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `stars`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `nes`      text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`row`)
 );
 
