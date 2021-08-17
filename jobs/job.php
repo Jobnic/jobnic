@@ -31,6 +31,7 @@ if ($row['status'] == 'not') {
 
 $jobid = $_GET['jobid'];
 
+include('core.php');
 ?>
 
 <!doctype html>
@@ -83,7 +84,7 @@ $jobid = $_GET['jobid'];
                         <a class="nav-link active" aria-current="page" href="."><i class="fa fa-list"></i> Jobs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="us"><i class="fa fa-bank"></i> We</a>
+                        <a class="nav-link active" aria-current="page" href="../us"><i class="fa fa-bank"></i> We</a>
                     </li>
                 </ul>
                 <div class="navbar-nav">
@@ -121,7 +122,7 @@ $jobid = $_GET['jobid'];
                         <hr class="border border-success">
                         <p><b><?php echo $row_job['describe']; ?></b></p>
                         <p><?php echo $row_job['datetime']; ?></p>
-                        <small><?php echo $row_job['price']; ?></small>
+                        <small>Price <?php echo $row_job['price']; ?></small>
                         <br>
                         <br>
                         <?php
@@ -149,9 +150,7 @@ $jobid = $_GET['jobid'];
                         <h3 class="text-primary"><i class="fa fa-pencil text-primary"></i> Apply for job</h3>
                         <hr class="border border-primary">
                         <p class="text-primary">You can apply for this job with clicking on button below</p>
-                        <button class="btn btn-primary">Send my application</button>
-                        <hr class="border border-primary">
-                        <p><a href="../user/user.php?userid=<?php echo $row_user['id']; ?>" class="link text-primary">View user profile</a></p>
+                        <a href="job.php?send=true&job=<?php echo $jobid; ?>" class="btn btn-primary">Send my application</a>
                     </div>
                 </div>
                 <?php
