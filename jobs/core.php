@@ -67,7 +67,7 @@ if ($_GET['send']) {
 
             $name = $row_user['firstname'];
 
-            $link = "http://127.0.0.1/jobnic/jobs/job.php?jobid=$jobid";
+            $link = "http://jobnic.net/jobnic/jobs/job.php?jobid=$jobid";
 
             $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
             $bodyContent .= '<h3>Your apply sent successfully for <a href=' . $link . '>this job</a>.</h3>';
