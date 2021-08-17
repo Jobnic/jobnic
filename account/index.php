@@ -56,7 +56,7 @@ include('core.php');
                         <a class="nav-link active" aria-current="page" href="../jobs"><i class="fa fa-list"></i> Jobs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="us"><i class="fa fa-bank"></i> We</a>
+                        <a class="nav-link active" aria-current="page" href="../us"><i class="fa fa-bank"></i> We</a>
                     </li>
                 </ul>
             </div>
@@ -183,6 +183,6 @@ include('core.php');
         </div>
     </div>
 </div>
-<script src="../pack/js/bootstrap.min.js"></script>
+<script src="https://cdn.neotrinost.ir/jobnic/js/bootstrap.min.js"></script>
 </body>
 </html>
