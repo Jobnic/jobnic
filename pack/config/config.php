@@ -10,7 +10,7 @@ $db = "jobnic";
 $connection = mysqli_connect($server, $user, $passwd, $db);
 
 // Site
-$host = "https://beta.jobnic.net";
+$host = "https://jobnic.net";
 
 // Mail config
 $mailaddr = "no-replay@jobnic.net";
