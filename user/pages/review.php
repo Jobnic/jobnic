@@ -30,7 +30,7 @@
                         &nbsp;
                         <span>
                             <?php
-                            if ($row['verified'] != 'false') {
+                            if (isset($row['verified'])) {
                                 echo '<i class="fa fa-award text-info"></i>';
                             }
                             ?>
