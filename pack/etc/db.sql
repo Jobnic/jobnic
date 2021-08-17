@@ -113,3 +113,17 @@ CREATE TABLE `ticks`
     `status`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`row`)
 );
+
+--
+-- Table structure for table `applies`
+--
+
+DROP TABLE IF EXISTS `applies`;
+CREATE TABLE `applies`
+(
+    `row`      int(11) NOT NULL AUTO_INCREMENT,
+    `dt`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `job`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `userid` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    PRIMARY KEY (`row`)
+);
