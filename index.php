@@ -69,11 +69,11 @@
             </div>
             <div class="col-md-4">
                 <h3>Welcome to</h3>
-                <h1>Job Nic!</h1>
+                <h1>Job Nic <b>Beta</b>!</h1>
                 <hr>
-                <p>Join now if <b>You wanna make money</b> !</p>
-                <br>
-                <p>Create your account today !</p>
+                <p>Join now if <b>You wanna make money</b>!</p>
+                <p>Create your account today!</p>
+                <p><b>Jobnic, Beta version 0.5.11.</b></p>
                 <br>
             </div>
         </div>
