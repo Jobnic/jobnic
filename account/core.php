@@ -378,7 +378,7 @@ if (isset($_POST['tfasubmit'])) {
         $come->addAddress($person['email']);
         $come->isHTML(true);
 
-        $name = $row['firstname'];
+        $name = $person['firstname'];
 
         $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
         $bodyContent .= '<h3>We found a person who logged into your account.</h3>';
