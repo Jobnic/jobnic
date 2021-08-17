@@ -376,6 +376,7 @@ if (isset($_POST['addjob'])) {
     $skills = mysqli_real_escape_string($connection, $_POST['skills']);
     $type = mysqli_real_escape_string($connection, $_POST['type']);
     $price = mysqli_real_escape_string($connection, $_POST['price']);
+    $nes = mysqli_real_escape_string($connection, $_POST['nes']);
 
     if (empty($title)) {
         array_push($errors, "Job title is required");
@@ -403,7 +404,12 @@ if (isset($_POST['addjob'])) {
 
         $dt = date("M d, Y H:i:s");
 
-        $addjob = "INSERT INTO jobs(`jobid`, `type`, `user`, `title`, `describe`, `skills`, `datetime`, `price`,`status`) VALUES ('$jobid', '$type', '$id', '$title', '$describe', '$skills', '$dt', '$per', 'true')";
+        if (isset($nes)) {
+            $addjob = "INSERT INTO jobs(`jobid`, `type`, `user`, `title`, `describe`, `skills`, `datetime`, `price`,`status`, `nes`) VALUES ('$jobid', '$type', '$id', '$title', '$describe', '$skills', '$dt', '$per', 'true', 'true')";
+        }
+        else {
+            $addjob = "INSERT INTO jobs(`jobid`, `type`, `user`, `title`, `describe`, `skills`, `datetime`, `price`,`status`) VALUES ('$jobid', '$type', '$id', '$title', '$describe', '$skills', '$dt', '$per', 'true')";
+        }
 
         if (mysqli_query($connection, $addjob)) {
             $addjobmail = new PHPMailer;
