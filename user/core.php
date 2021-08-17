@@ -429,7 +429,7 @@ if (isset($_POST['addjob'])) {
 
             $name = $row_user['firstname'];
 
-            $link = "http://jobnic.net/jobnic/jobs/job.php?jobid=$jobid";
+            $link = "http://$host/jobnic/jobs/job.php?jobid=$jobid";
 
             $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
             $bodyContent .= '<h3>Your new job added successfully.</h3>';
