@@ -25,7 +25,16 @@
                 <div class="dialog">
                     <h3><i class="fa fa-id-card"></i> Profile Review</h3>
                     <hr class="">
-                    <p><b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b>
+                    <p>
+                        <b><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></b>
+                        &nbsp;
+                        <span>
+                            <?php
+                            if ($row['verified'] != 'false') {
+                                echo '<i class="fa fa-award text-info"></i>';
+                            }
+                            ?>
+                        </span>
                         &nbsp;
                         <span style="float: right;" class="btn btn-sm jout"><?php echo $row["id"]; ?></span>
                         &nbsp;
@@ -59,9 +68,9 @@
                                      aria-valuemax="100" style="width: <?php echo $each[1]; ?>%;">
                                 </div>
                             </div>
-                            <span class="text-success" style="font-size: 10px;"><?php echo $each[0] . " " . $each[1]; ?> %</span>
+                            <span class="" style="font-size: 10px;"><?php echo $each[0] . " " . $each[1]; ?> %</span>
                             <a href="index.php?delete=skill">
-                                <span style="float: right;" class="text-night"><i class="fa fa-trash-o"></i></span>
+                                <span style="float: right;" class="text-danger"><i class="fa fa-trash-o"></i></span>
                             </a>
                             <hr>
                             <?php
