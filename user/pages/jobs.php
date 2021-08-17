@@ -21,7 +21,7 @@
     </div>
     <div class="col-md-8">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="dialog">
                     <h3><i class="fa fa-plus"></i> Add new project</h3>
                     <hr>
@@ -107,9 +107,9 @@
                         else {
                             ?>
                             <div>
-                                <span style="float: right;" class="btn btn-outline-night btn-sm"><?php echo $job[0]['type']; ?></span>
+                                <span style="float: right;" class="btn jout btn-sm"><?php echo $job[0]['type']; ?></span>
                                 <span style="float: right;">&nbsp;</span>
-                                <span style="float: right" class="btn btn-sm btn-outline-night"><i
+                                <span style="float: right" class="btn btn-sm jout"><i
                                             class="fa fa-eye"></i> <?php echo $job[0]["views"]; ?></span>
                                 <p><b><?php echo $job[0]['title']; ?></b></p>
                                 <p><?php echo $job[0]['describe']; ?></p>
@@ -118,15 +118,15 @@
                                 $skills = explode(" ", $job[0]['skills']);
 
                                 foreach ($skills as $skill) {
-                                    echo "<p class='btn btn-outline-night btn-sm'>$skill</p>&nbsp;";
+                                    echo "<p class='btn jout btn-sm'>$skill</p>&nbsp;";
                                 }
                                 ?>
                                 <br>
                                 <hr class="border-night">
                                 <?php
                                 if ($job[0]['status'] == 'false') {
-                                    echo "<p class='text-night'><b>This job is closed.</b></p>";
-                                    echo "<p class='text-night'>" . $job[0]['closed'] . "</p>";
+                                    echo "<p class=''><b>This job is closed.</b></p>";
+                                    echo "<p class=''>" . $job[0]['closed'] . "</p>";
                                 }
                                 else {
                                     ?>
@@ -159,11 +159,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-night" name="closejob">Close job and give stars</button>
+                                        <button class="btn btn-sm jbtn" name="closejob">Close job and give stars</button>
                                     </form>
                                     <hr>
                                     <p>If nobody did via <b>Job Nic</b> close it manualy</p>
-                                    <a class="btn btn-night btn-sm" href="index.php?close=<?php echo $job['0']['jobid']; ?>">Close Job</a>
+                                    <a class="btn jbtn btn-sm" href="index.php?close=<?php echo $job['0']['jobid']; ?>">Close Job</a>
                                     <?php
                                 }
                                 ?>
