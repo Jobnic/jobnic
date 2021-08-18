@@ -154,7 +154,7 @@
                     if (mysqli_num_rows($job_result) > 0) {
                         ?>
                         <div class="table-responsive">
-                            <table class="table table-hover text-center table-striped table-bordered table-sm">
+                            <table class="table table-hover text-center table-bordered border-dark table-sm">
                                 <thead>
                                 <tr>
                                     <th scope="col">Title</th>
@@ -182,7 +182,7 @@
                         <?php
                     }
                     else {
-                        echo "<h4>Noting done yet</h4>";
+                        echo "<h4 class='text-dark'>Noting done yet</h4>";
                     }
                     ?>
                 </div>
