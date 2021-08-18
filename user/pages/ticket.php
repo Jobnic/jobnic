@@ -16,6 +16,19 @@
                 <br>
                 <a href="../../account/logout.php"><li>Logout</li></a>
             </ul>
+            <br>
+            <div class="tgrm" onclick="location.href='https://t.me/Job_Nic';">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h1><i class="fa fa-telegram"></i></h1>
+                    </div>
+                    <div class="col-md-9">
+                        <small>
+                            Join our Telegram channel to be informed of the latest news and updates.
+                        </small>
+                    </div>
+                </div>
+            </div>
         </div>
         <br>
     </div>
