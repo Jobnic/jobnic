@@ -69,9 +69,9 @@ include('core.php');
                 <div class="tips border border-warning">
                     <h3 class="text-warning">Why Use Job Nic?</h3>
                     <hr class="border border-warning">
-                    <p><b>First thing first</b> It is Free !</p>
-                    <p><b>First thing first</b> It is Free !</p>
-                    <p><b>First thing first</b> It is Free !</p>
+                    <p>Jobnic is <b>Free</b>.</p>
+                    <p>Jobnic has no <b>ads</b>.</p>
+                    <p>Jobnic is <b>International</b>.</p>
                 </div>
                 <br>
                 <?php
