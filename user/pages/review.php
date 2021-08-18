@@ -46,6 +46,9 @@
                             if (isset($row['verified'])) {
                                 echo '<i class="fa fa-award text-info"></i>';
                             }
+                            if (isset($row['awesome'])) {
+                                echo '<i class="fa fa-trophy text-warning"></i>';
+                            }
                             ?>
                         </span>
                         &nbsp;
