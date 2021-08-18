@@ -53,10 +53,10 @@ if (isset($_POST['answering'])) {
 if (isset($_GET['promote'])) {
     if (isset($_GET['user'])) {
         $promote = $_GET['promote'];
-        $user = $_GET['promote'];
+        $user = $_GET['user'];
 
         if ($promote == "verified") {
-            $update = "UPDATE people SET verified = 'true' WHERE id = '$user'";
+            $update = "UPDATE people SET verified = true WHERE id = '$user'";
             if (mysqli_query($connection, $update)) {
                 ?>
                 <script>
@@ -76,7 +76,7 @@ if (isset($_GET['promote'])) {
         }
 
         if ($promote == "awesome") {
-            $update = "UPDATE people SET awesome = 'true' WHERE id = '$user'";
+            $update = "UPDATE people SET awesome = true WHERE id = '$user'";
             if (mysqli_query($connection, $update)) {
                 ?>
                 <script>
