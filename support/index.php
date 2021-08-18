@@ -117,7 +117,7 @@ if (isset($_POST['answering'])) {
                                     <td><?php echo $rowreport['total']; ?></td>
                                     <td>
                                         <?php
-                                            if (isset($rowreport['verified'])) {
+                                            if (isset($row['verified'])) {
                                                 echo "<i class='fa fa-check'></i>";
                                             }
                                             else {
