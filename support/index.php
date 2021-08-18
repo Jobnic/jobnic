@@ -98,6 +98,7 @@ if (isset($_POST['answering'])) {
                                 <th scope="col">Mail</th>
                                 <th scope="col">Reports</th>
                                 <th scope="col">Verified</th>
+                                <th scope="col">Promote</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -124,6 +125,11 @@ if (isset($_POST['answering'])) {
                                                 echo "<i class='fa fa-times'></i>";
                                             }
                                         ?>
+                                    </td>
+                                    <td>
+                                        <a class="link text-primary" href="index.php?promote=verified&user=<?php echo $row['id']; ?>"><i class="fa fa-award"></i></a>
+                                        |
+                                        <a class="link text-warning" href="index.php?promote=awesome&user=<?php echo $row['id']; ?>"><i class="fa fa-trophy"></i></a>
                                     </td>
                                 </tr>
                                 <?php
