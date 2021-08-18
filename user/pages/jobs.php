@@ -142,7 +142,47 @@
                                 }
                                 ?>
                                 <br>
-                                <hr class="border-night">
+                                <hr>
+                                <p><b>People applied</b></p>
+                                <?php
+                                $jobid = $job[0]['jobid'];
+                                $get_applied = "SELECT * FROM applies WHERE job = '$jobid' ORDER BY row DESC";
+                                $res_applied = mysqli_query($connection, $get_applied);
+                                if (mysqli_num_rows($result_jobs) > 0) {
+                                    ?>
+                                    <table class="table table-striped table-responsive table-bordered border-dark">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">User</th>
+                                                <th scope="col">Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            while ($apply = mysqli_fetch_assoc($res_applied)) {
+                                                $user = $apply['userid'];
+                                                $get_user = "SELECT * FROM people WHERE id = '$user'";
+                                                $res_user = mysqli_query($connection, $get_user);
+                                                $row_user = mysqli_fetch_assoc($res_user);
+
+                                                $user_name = $row_user["firstname"] . " " . $row_user["firstname"];
+                                                ?>
+                                                <tr>
+                                                    <td><a class="link" href="user.php?userid=<?php echo $user; ?>"><?php echo $user_name; ?></a></td>
+                                                    <td><?php echo $apply["dt"]; ?></td>
+                                                </tr>
+                                                <?php
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                    <?php
+                                }
+                                else {
+                                    echo "<p>No one applied yet.</p>";
+                                }
+                                ?>
+                                <hr>
                                 <?php
                                 if ($job[0]['status'] == 'false') {
                                     echo "<p class=''><b>This job is closed.</b></p>";
