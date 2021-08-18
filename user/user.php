@@ -125,6 +125,9 @@ if (isset($reportid)) {
                             if (isset($row['verified'])) {
                                 echo '<i class="fa fa-award text-primary"></i>';
                             }
+                            if (isset($row['awesome'])) {
+                                echo '<i class="fa fa-trophy text-warning"></i>';
+                            }
                             ?>
                         </span>
                         &nbsp;
