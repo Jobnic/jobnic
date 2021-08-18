@@ -50,6 +50,53 @@ if (isset($_POST['answering'])) {
     }
 }
 
+if (isset($_GET['promote'])) {
+    if (isset($_GET['user'])) {
+        $promote = $_GET['promote'];
+        $user = $_GET['promote'];
+
+        if ($promote == "verified") {
+            $update = "UPDATE people SET verified = 'true' WHERE id = '$user'";
+            if (mysqli_query($connection, $update)) {
+                ?>
+                <script>
+                    window.alert("User verified.");
+                    window.location.replace(".");
+                </script>
+                <?php
+            }
+            else {
+                ?>
+                <script>
+                    window.alert("<?php echo mysqli_error($connection); ?>");
+                    window.location.replace(".");
+                </script>
+                <?php
+            }
+        }
+
+        if ($promote == "awesome") {
+            $update = "UPDATE people SET awesome = 'true' WHERE id = '$user'";
+            if (mysqli_query($connection, $update)) {
+                ?>
+                <script>
+                    window.alert("User is now awesome.");
+                    window.location.replace(".");
+                </script>
+                <?php
+            }
+            else {
+                ?>
+                <script>
+                    window.alert("<?php echo mysqli_error($connection); ?>");
+                    window.location.replace(".");
+                </script>
+                <?php
+            }
+        }
+    }
+}
+
 ?>
 
 <!doctype html>
