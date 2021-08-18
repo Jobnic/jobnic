@@ -238,5 +238,45 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="dialog">
+                    <h3><i class="fa fa-tasks"></i> Applied</h3>
+                    <hr>
+                    <?php
+                    $select_applies = "SELECT * FROM applies WHERE userid = $id ORDER BY row DESC";
+                    $result_applies = mysqli_query($connection, $select_applies);
+                    if (mysqli_num_rows($result_applies) > 0) {
+                        ?>
+                        <table class="table table-striped table-responsive table-bordered border-dark">
+                            <thead>
+                            <tr>
+                                <th scope="col">Job</th>
+                                <th scope="col">Date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            while ($apply = mysqli_fetch_assoc($result_applies)) {
+                                ?>
+                                <tr>
+                                    <td><a class="link" href="../jobs/job.php?jobid=<?php echo $apply['job']; ?>"><?php echo $apply['job']; ?></a></td>
+                                    <td><?php echo $apply["dt"]; ?></td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+                        <?php
+                    }
+                    else {
+                        echo "<p>No applies yet.</p>";
+                    }
+                    ?>
+                </div>
+                <br>
+            </div>
+        </div>
     </div>
 </div>
