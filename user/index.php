@@ -40,6 +40,15 @@ $theme = $row['theme'];
     }
     ?>
     <link href="https://cdn.neotrinost.ir/jobnic/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <style>
+		.tgrm {
+			cursor: pointer;
+			padding: 5%;
+			background: blue;
+			border-radius: 10px;
+			color: white;
+		}
+    </style>
 </head>
 <body class="<?php echo $theme; ?>" id="all">
 <div>
