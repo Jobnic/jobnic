@@ -44,10 +44,10 @@
                         <span>
                             <?php
                             if (isset($row['verified'])) {
-                                echo '<i class="fa fa-award text-info"></i>';
+                                echo '<i class="fa fa-award text-info"></i>&nbsp;';
                             }
                             if (isset($row['awesome'])) {
-                                echo '<i class="fa fa-trophy text-warning"></i>';
+                                echo '<i class="fa fa-trophy text-warning"></i>&nbsp;';
                             }
                             ?>
                         </span>
