@@ -97,6 +97,7 @@ if (isset($_POST['answering'])) {
                                 <th scope="col">Phone</th>
                                 <th scope="col">Mail</th>
                                 <th scope="col">Reports</th>
+                                <th scope="col">Verified</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -114,6 +115,16 @@ if (isset($_POST['answering'])) {
                                     <td><?php echo $row['phone']; ?></td>
                                     <td><?php echo $row['email']; ?></td>
                                     <td><?php echo $rowreport['total']; ?></td>
+                                    <td>
+                                        <?php
+                                            if (isset($rowreport['verified'])) {
+                                                echo "<i class='fa fa-check'></i>";
+                                            }
+                                            else {
+                                                echo "<i class='fa fa-times'></i>";
+                                            }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <?php
                             }
