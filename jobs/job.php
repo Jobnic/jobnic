@@ -146,11 +146,25 @@ include('core.php');
                         $select_user = "SELECT * FROM people WHERE id = '$user'";
                         $result_user = mysqli_query($connection, $select_user);
                         $row_user = mysqli_fetch_assoc($result_user);
+
+                        if (empty($row_job['closed'])) {
+                            ?>
+                                <h3 class="text-primary"><i class="fa fa-pencil text-primary"></i> Apply for job</h3>
+                                <hr class="border border-primary">
+                                <p class="text-primary">You can apply for this job with clicking on button below</p>
+                                <a href="job.php?send=true&job=<?php echo $jobid; ?>" class="btn btn-primary">Send my application</a>
+                            <?php
+                        }
+                        else {
+                            ?>
+                            <h3 class="text-danger"><i class="fa fa-pencil text-danger"></i> Apply for job</h3>
+                            <hr class="border border-danger">
+                            <div style="text-align: center;">
+                                <button class="btn btn-danger">Job is closed.</button>
+                            </div>
+                            <?php
+                        }
                         ?>
-                        <h3 class="text-primary"><i class="fa fa-pencil text-primary"></i> Apply for job</h3>
-                        <hr class="border border-primary">
-                        <p class="text-primary">You can apply for this job with clicking on button below</p>
-                        <a href="job.php?send=true&job=<?php echo $jobid; ?>" class="btn btn-primary">Send my application</a>
                     </div>
                 </div>
                 <?php
