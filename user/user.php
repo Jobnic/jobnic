@@ -141,7 +141,7 @@ if (isset($reportid)) {
                     <p><small>Joined <?php echo $row['join']; ?></small></p>
                     <hr class="border border-success">
                     <p>
-                        <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row['phone']; ?></p>
+                        <p><i class="icon fa fa-phone text-white bg-success"></i> You don't have this premition.</p>
                         <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row['email']; ?></p>
                     </p>
                     <br>
