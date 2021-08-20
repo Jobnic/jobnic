@@ -185,9 +185,24 @@
                         <?php
                     }
                     else {
-                        echo "<h4 class='text-dark'>Noting done yet</h4>";
+                        echo "<h4>Noting done yet</h4>";
                     }
                     ?>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="dialog">
+                    <h3><i class="fa fa-award"></i> Request for labels</h3>
+                    <hr>
+                    <p>
+                        <a class="link text-info" href="index.php?request=label&type=verified">Request for <b><i class="fa fa-award"></i> verified label</b></a>
+                    </p>
+                    <p>
+                        <a class="link text-info" href="index.php?request=label&type=trophy">Request for <b><i class="fa fa-trophy"></i> trophy label</b></a>
+                    </p>
                 </div>
             </div>
         </div>
