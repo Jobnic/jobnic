@@ -127,3 +127,16 @@ CREATE TABLE `applies`
     `userid` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`row`)
 );
+
+--
+-- Table structure for table `applies`
+--
+
+DROP TABLE IF EXISTS `requests`;
+CREATE TABLE `requests`
+(
+    `row`    int(11) NOT NULL AUTO_INCREMENT,
+    `type`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `userid`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    PRIMARY KEY (`row`)
+);
