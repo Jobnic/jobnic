@@ -298,6 +298,30 @@ if (isset($_POST['updatemail'])) {
     }
 }
 
+if (isset($_POST['updatefirstname'])) {
+    $fname = mysqli_real_escape_string($connection, $_POST['fname']);
+
+    if (empty($fname)) {
+        array_push($errors, "First name is required");
+    }
+
+    if (count($errors) == 0) {
+        $updatefname = "UPDATE people SET firstname = '$fname' WHERE id = '$id'";
+
+        if (mysqli_query($connection, $updatefname)) {
+            ?>
+            <script>
+                window.alert("First name updated");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
+    }
+}
+
 if (isset($_POST['updatepassword'])) {
     $currentpass = $row_user['password'];
 
