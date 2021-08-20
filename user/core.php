@@ -847,3 +847,22 @@ if (isset($_GET['act'])) {
         }
     }
 }
+
+if (isset($_GET['request'])) {
+    if ($_GET['request'] == 'label') {
+        $label = $_GET['type'];
+        $send_request = "INSERT INTO requests (type, userid) VALUES ('$label', '$id')";
+
+        if (mysqli_query($connection, $send_request)) {
+            ?>
+            <script>
+                window.alert("Request sent.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
+    }
+}
