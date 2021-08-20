@@ -797,3 +797,53 @@ if (isset($_POST["enable2fa"])) {
         }
     }
 }
+
+if (isset($_GET['act'])) {
+    $action = mysqli_real_escape_string($connection, $_GET['act']);
+    $user = mysqli_real_escape_string($connection, $_GET['user']);
+    $job = mysqli_real_escape_string($connection, $_GET['jobid']);
+
+    if ($action == "check") {
+        $select_applier = "SELECT * FROM people WHERE id = '$user'";
+        $result_applier = mysqli_query($connection, $select_applier);
+        $fetch_applier = mysqli_fetch_assoc($result_applier);
+
+        $send_accept = new PHPMailer;
+
+        $send_accept->IsSMTP();
+        $send_accept->SMTPAuth = true;
+        $send_accept->Host = "smtp.zoho.com";
+        $send_accept->Port = 587;
+        $send_accept->Username = $mailaddr;
+        $send_accept->Password = $mailpass;
+        $send_accept->SMTPSecure = 'tsl';
+        $send_accept->Subject = 'Apply accepted';
+
+        $send_accept->setFrom($mailaddr, 'Jobnic');
+        $send_accept->addAddress($fetch_applier['email']);
+        $send_accept->isHTML(true);
+
+        $name = $fetch_applier['firstname'];
+
+        $link = "$host/job/job.php?jobid=$job";
+
+        $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+        $bodyContent .= '<h3>Your apply for <a href=' . $link . '>this job</a>, accepted by employer.</h3>';
+        $bodyContent .= '<p>They will contact you as soon as possible.</p>';
+        $bodyContent .= '<br>';
+        $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+        $tfamail->Body = $bodyContent;
+
+        if (!$send_accept->send()) {
+            array_push($errors, 'Message could not be sent. Mailer Error: ' . $send_accept->ErrorInfo);
+        } else {
+            ?>
+            <script>
+                window.alert("Invite sent");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+    }
+}
