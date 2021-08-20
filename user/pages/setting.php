@@ -43,6 +43,30 @@
                             <!--                        <label for="formFileSm" class="form-label">Update profile picture</label>-->
                             <!--                        <input class="form-control form-control-sm" id="formFileSm" type="file">-->
                             <!--                        <hr>-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div>
+                                        <p><i class="fa fa-user"></i> Change First Name</p>
+                                        <input name="fname" type="text"
+                                               class="inp form-control-sm form-control"
+                                               placeholder="First Name">
+                                        <br>
+                                        <button class="btn btn-sm jbtn" name="updatefirstname">Change First Name</button>
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="col-md-6">
+                                    <div>
+                                        <p><i class="fa fa-user"></i> Change Last Name</p>
+                                        <input name="lname" type="text"
+                                               class="inp form-control-sm form-control"
+                                               placeholder="Last Name">
+                                        <br>
+                                        <button class="btn btn-sm jbtn" name="updatelastname">Change Last Name</button>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <p><i class="fa fa-phone"></i> Change Phone</p>
                                 <input name="phone" type="text"
