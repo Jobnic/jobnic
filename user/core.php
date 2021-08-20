@@ -757,12 +757,40 @@ if (isset($_POST["enable2fa"])) {
         $update_2fa = "UPDATE people SET 2fa = '$mail2fa' WHERE id = '$id'";
 
         if (mysqli_query($connection, $update_2fa)) {
-            ?>
-            <script>
-                window.alert("2FA Activated.");
-                window.location.replace(".");
-            </script>
-            <?php
+            $tfamail = new PHPMailer;
+
+            $tfamail->IsSMTP();
+            $tfamail->SMTPAuth = true;
+            $tfamail->Host = "smtp.zoho.com";
+            $tfamail->Port = 587;
+            $tfamail->Username = $mailaddr;
+            $tfamail->Password = $mailpass;
+            $tfamail->SMTPSecure = 'tsl';
+            $tfamail->Subject = 'Password changed';
+
+            $tfamail->setFrom($mailaddr, 'Jobnic');
+            $tfamail->addAddress($row_user['email']);
+            $tfamail->isHTML(true);
+
+            $name = $row_user['firstname'];
+
+            $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+            $bodyContent .= '<h3>Your 2FA enabled successfully.</h3>';
+            $bodyContent .= '<br>';
+            $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+            $tfamail->Body = $bodyContent;
+
+            if (!$tfamail->send()) {
+                array_push($errors, 'Message could not be sent. Mailer Error: ' . $tfamail->ErrorInfo);
+            } else {
+                ?>
+                <script>
+                    window.alert("2FA enabled");
+                    window.location.replace(".");
+                </script>
+                <?php
+            }
         }
         else {
             array_push($errors, mysqli_error($connection));
