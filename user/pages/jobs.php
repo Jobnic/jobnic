@@ -155,6 +155,7 @@
                                             <tr>
                                                 <th scope="col">User</th>
                                                 <th scope="col">Date</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -170,6 +171,15 @@
                                                 <tr>
                                                     <td><a class="link" href="user.php?userid=<?php echo $user; ?>"><?php echo $user_name; ?></a></td>
                                                     <td><?php echo $apply["dt"]; ?></td>
+                                                    <td>
+                                                        <a href="index.php?act=check&user=<?php echo $user; ?>&jobid=<?php echo $jobid; ?>" class="text-success link">
+                                                            <i class="fa fa-check"></i>
+                                                        </a>
+                                                        |
+                                                        <a href="index.php?act=times&user=<?php echo $user; ?>&jobid=<?php echo $jobid; ?>" class="text-danger link">
+                                                            <i class="fa fa-times"></i>
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                                 <?php
                                             }
