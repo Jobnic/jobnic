@@ -29,6 +29,8 @@ $stat = $_SESSION['status'];
     <meta property="og:image" content="pack/etc/lgo.jpg">
     <meta property="og:description" content="Jobnic is a place to find jobs!">
     <meta name="google-site-verification" content="L-KQ2EHn0z7-hAkPsqAyiyFLIxmA3cfyMbvYCCPQDPQ">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9342796678288422"
+            crossorigin="anonymous"></script>
 
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
