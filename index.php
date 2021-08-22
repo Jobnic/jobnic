@@ -1,22 +1,41 @@
 <?php
-    session_start();
+session_start();
 
-    $stat = $_SESSION['status'];
+$stat = $_SESSION['status'];
 ?>
 
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <title>Job Nic - Index</title>
+
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Job Nic - Index</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Jobnic. A place to find jobs!">
+    <meta name="author" content="Amirhossein Mohammadi">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="Jobnic | A place to find jobs!">
+    <meta name="keywords"
+          content="jobnic, job, github, neotrinost llc, blackiq, neotrinost, amirhossein mohammadi, annahita mirhosseini">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:site_name" content="">
+    <meta property="og:title" content="Jobnic | A place to find jobs!">
+    <meta property="og:type" content="programming, development">
+    <link rel="shortcut icon" type="image/jpg" href="pack/etc/logo.jpg"/>
+    <meta property="og:image" content="pack/etc/lgo.jpg">
+    <meta property="og:description" content="Jobnic is a place to find jobs!">
+    <meta name="google-site-verification" content="L-KQ2EHn0z7-hAkPsqAyiyFLIxmA3cfyMbvYCCPQDPQ">
+
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
         body {
             font-family: 'Roboto', sans-serif;
             padding: 8%;
@@ -44,16 +63,18 @@
                 </ul>
                 <div class="navbar-nav">
                     <?php
-                        if ($stat == true) {
-                            ?>
-                            <a class="nav-link active" href="user"><i class="fa fa-dashboard"></i> Go To Panel</a> <a class="nav-link active" href="account/logout.php"><i class="fa fa-sign-out"></i> Logout</a>
-                            <?php
-                        }
-                        else {
-                            ?>
-                            <a class="nav-link active" href="account/index.php"><i class="fa fa-plus"></i> Sign Up</a> <a class="nav-link active" href="account/index.php"><i class="fa fa-sign-in"></i> Sign In</a>
-                            <?php
-                        }
+                    if ($stat == true) {
+                        ?>
+                        <a class="nav-link active" href="user"><i class="fa fa-dashboard"></i> Go To Panel</a> <a
+                                class="nav-link active" href="account/logout.php"><i class="fa fa-sign-out"></i> Logout</a>
+                        <?php
+                    } else {
+                        ?>
+                        <a class="nav-link active" href="account/index.php"><i class="fa fa-plus"></i> Sign Up</a> <a
+                                class="nav-link active" href="account/index.php"><i class="fa fa-sign-in"></i> Sign
+                            In</a>
+                        <?php
+                    }
                     ?>
                 </div>
             </div>
