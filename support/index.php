@@ -242,7 +242,7 @@ if (isset($_GET['promote'])) {
                                                 ?>
                                                 <i class='fa fa-times'></i>
                                                 |
-                                                <a class="link" href="index.php?send=<?php echo $row['id']; ?>"><i class="fa fa-paper-plane"></i></a>
+                                                <a class="link" href="index.php?send=true&user=<?php echo $row['id']; ?>&mail=<?php echo $row['email']; ?>&name=<?php echo $row['firstname']; ?>&token=<?php echo $row['token']; ?>""><i class="fa fa-paper-plane"></i></a>
                                                 <?php
                                             }
                                         ?>
