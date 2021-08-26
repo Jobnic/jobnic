@@ -64,7 +64,7 @@
                                 <?php
                                 $tikid = $tik_row['tikid'];
                                 $tiktitle = $tik_row['title'];
-                                echo "<a class='link' href='index.php?tikid=$tikid'>$tiktitle</a>";
+                                echo "<a class='link' href='index.php?tab=tickets&tikid=$tikid'>$tiktitle</a>";
                                 if (isset($tik_row['status'])) {
                                     echo "<span style='float: right;' class='text-success'><i class='fa fa-check'></i></span>";
                                 } else {
