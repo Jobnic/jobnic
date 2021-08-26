@@ -65,12 +65,43 @@ if (isset($_GET['promote'])) {
         if ($promote == "verified") {
             $update = "UPDATE people SET verified = true WHERE id = '$user'";
             if (mysqli_query($connection, $update)) {
-                ?>
-                <script>
-                    window.alert("User verified.");
-                    window.location.replace(".");
-                </script>
-                <?php
+                $mail = $_GET['mail'];
+                $name = $_GET['name'];
+
+                $verified = new PHPMailer;
+
+                $verified->IsSMTP();
+                $verified->SMTPAuth = true;
+                $verified->Host = "smtp.zoho.com";
+                $verified->Port = 587;
+                $verified->Username = $mailaddr;
+                $verified->Password = $mailpass;
+                $verified->SMTPSecure = 'tsl';
+                $verified->Subject = 'A new account login was seen';
+
+                $verified->setFrom($mailaddr, 'Jobnic');
+                $verified->addAddress($mail);
+                $verified->isHTML(true);
+
+                $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+                $bodyContent .= '<h3>We promote your account up.</h3>';
+                $bodyContent .= '<p>Now you have <b>award</b> label in your profile.</p>';
+                $bodyContent .= '<b></b>';
+                $bodyContent .= '<br>';
+                $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+                $verified->Body = $bodyContent;
+
+                if (!$verified->send()) {
+                    array_push($errors, 'Message could not be sent. Mailer Error: ' . $verified->ErrorInfo);
+                } else {
+                    ?>
+                    <script>
+                        window.alert("User verified.");
+                        window.location.replace(".");
+                    </script>
+                    <?php
+                }
             }
             else {
                 ?>
@@ -196,9 +227,9 @@ if (isset($_GET['promote'])) {
                                         ?>
                                     </td>
                                     <td>
-                                        <a class="link text-primary" href="index.php?promote=verified&user=<?php echo $row['id']; ?>"><i class="fa fa-award"></i></a>
+                                        <a class="link text-primary" href="index.php?promote=verified&user=<?php echo $row['id']; ?>&mail=<?php echo $row['email']; ?>&name=<?php echo $row['firstname']; ?>"><i class="fa fa-award"></i></a>
                                         |
-                                        <a class="link text-warning" href="index.php?promote=awesome&user=<?php echo $row['id']; ?>"><i class="fa fa-trophy"></i></a>
+                                        <a class="link text-warning" href="index.php?promote=awesome&user=<?php echo $row['id']; ?>&mail=<?php echo $row['email']; ?>&name=<?php echo $row['firstname']; ?>"><i class="fa fa-trophy"></i></a>
                                     </td>
                                 </tr>
                                 <?php
