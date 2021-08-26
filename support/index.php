@@ -77,7 +77,7 @@ if (isset($_GET['promote'])) {
                 $verified->Username = $mailaddr;
                 $verified->Password = $mailpass;
                 $verified->SMTPSecure = 'tsl';
-                $verified->Subject = 'A new account login was seen';
+                $verified->Subject = 'Jobnic promotion';
 
                 $verified->setFrom($mailaddr, 'Jobnic');
                 $verified->addAddress($mail);
@@ -116,12 +116,43 @@ if (isset($_GET['promote'])) {
         if ($promote == "awesome") {
             $update = "UPDATE people SET awesome = true WHERE id = '$user'";
             if (mysqli_query($connection, $update)) {
-                ?>
-                <script>
-                    window.alert("User is now awesome.");
-                    window.location.replace(".");
-                </script>
-                <?php
+                $mail = $_GET['mail'];
+                $name = $_GET['name'];
+
+                $awesome = new PHPMailer;
+
+                $awesome->IsSMTP();
+                $awesome->SMTPAuth = true;
+                $awesome->Host = "smtp.zoho.com";
+                $awesome->Port = 587;
+                $awesome->Username = $mailaddr;
+                $awesome->Password = $mailpass;
+                $awesome->SMTPSecure = 'tsl';
+                $awesome->Subject = 'Jobnic promotion';
+
+                $awesome->setFrom($mailaddr, 'Jobnic');
+                $awesome->addAddress($mail);
+                $awesome->isHTML(true);
+
+                $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+                $bodyContent .= '<h3>We promote your account up.</h3>';
+                $bodyContent .= '<p>Now you have <b>trophy</b> label in your profile.</p>';
+                $bodyContent .= '<b></b>';
+                $bodyContent .= '<br>';
+                $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+                $awesome->Body = $bodyContent;
+
+                if (!$awesome->send()) {
+                    array_push($errors, 'Message could not be sent. Mailer Error: ' . $awesome->ErrorInfo);
+                } else {
+                    ?>
+                    <script>
+                        window.alert("User is now awesome.");
+                        window.location.replace(".");
+                    </script>
+                    <?php
+                }
             }
             else {
                 ?>
