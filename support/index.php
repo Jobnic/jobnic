@@ -145,6 +145,7 @@ if (isset($_GET['promote'])) {
                                 <th scope="col">Mail</th>
                                 <th scope="col">Reports</th>
                                 <th scope="col">Verified</th>
+                                <th scope="col">Labels</th>
                                 <th scope="col">Promote</th>
                             </tr>
                             </thead>
@@ -171,6 +172,16 @@ if (isset($_GET['promote'])) {
                                             else {
                                                 echo "<i class='fa fa-times'></i>";
                                             }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        if (isset($row['verified'])) {
+                                            echo "<i class='fa fa-award'></i>";
+                                        }
+                                        if (isset($row['awesome'])) {
+                                            echo "<i class='fa fa-trophy'></i>";
+                                        }
                                         ?>
                                     </td>
                                     <td>
