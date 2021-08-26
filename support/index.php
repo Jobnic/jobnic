@@ -166,6 +166,49 @@ if (isset($_GET['promote'])) {
     }
 }
 
+if (isset($_GET['promote'])) {
+    $mail = $_GET['mail'];
+    $name = $_GET['name'];
+    $token = $_GET['token'];
+
+    $send = new PHPMailer;
+
+    $send->IsSMTP();
+    $send->SMTPAuth = true;
+    $send->Host = "smtp.zoho.com";
+    $send->Port = 587;
+    $send->Username = $mailaddr;
+    $send->Password = $mailpass;
+    $send->SMTPSecure = 'tsl';
+    $send->Subject = "Active token";
+
+    $send->setFrom($mailaddr, 'Jobnic');
+    $send->addAddress($mail);
+    $send->isHTML(true);
+
+    $link = "$host/account/activate.php?token=$token";
+
+    $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+    $bodyContent .= '<h3>You requested for activation email.</h3>';
+    $bodyContent .= '<h5>You can click on the link below and activate your account soon.</h5>';
+    $bodyContent .= '<h5><a href=' . $link . '>Activate my account</a></h5>';
+    $bodyContent .= '<br>';
+    $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+    $send->Body = $bodyContent;
+
+    if (!$send->send()) {
+        array_push($errors, 'Message could not be sent. Mailer Error: ' . $send->ErrorInfo);
+    } else {
+        ?>
+        <script>
+            window.alert("Email sent.");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
+
 ?>
 
 <!doctype html>
