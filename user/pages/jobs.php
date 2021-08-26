@@ -96,7 +96,7 @@
                                 <?php
                                 $jobid = $job_row['jobid'];
                                 $jobtitle = $job_row['title'];
-                                echo "<a class='link' href='index.php?jobid=$jobid'>$jobtitle</a>";
+                                echo "<a class='link' href='index.php?tab=jobs&jobid=$jobid'>$jobtitle</a>";
                                 if ($job_row['status'] == 'true') {
                                     echo "<span style='float: right;' class='text-success'>Open</span>";
                                 } else {
@@ -150,7 +150,7 @@
                                 $res_applied = mysqli_query($connection, $get_applied);
                                 if (mysqli_num_rows($result_jobs) > 0) {
                                     ?>
-                                    <table class="table table-striped table-responsive table-bordered border-dark">
+                                    <table class="table table-striped table-responsive table-bordered border-dark tbl">
                                         <thead>
                                             <tr>
                                                 <th scope="col">User</th>
@@ -246,6 +246,7 @@
                     }
                     ?>
                 </div>
+                <br>
             </div>
         </div>
         <div class="row">
