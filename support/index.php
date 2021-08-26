@@ -170,17 +170,21 @@ if (isset($_GET['promote'])) {
                                                 echo "<i class='fa fa-check'></i>";
                                             }
                                             else {
-                                                echo "<i class='fa fa-times'></i>";
+                                                ?>
+                                                <i class='fa fa-times'></i>
+                                                |
+                                                <a class="link" href="index.php?send=<?php echo $row['id']; ?>"><i class="fa fa-paper-plane"></i></a>
+                                                <?php
                                             }
                                         ?>
                                     </td>
                                     <td>
                                         <?php
                                         if (isset($row['verified'])) {
-                                            echo "<i class='fa fa-award'></i>";
+                                            echo "<i class='fa fa-award'></i>&nbsp;";
                                         }
                                         if (isset($row['awesome'])) {
-                                            echo "<i class='fa fa-trophy'></i>";
+                                            echo "<i class='fa fa-trophy'></i>&nbsp;";
                                         }
                                         ?>
                                     </td>
