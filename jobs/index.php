@@ -5,6 +5,15 @@ include("../pack/config/config.php");
 
 $stat = $_SESSION['status'];
 
+if ($stat != true) {
+    ?>
+    <script>
+        window.alert("For review jobs you should login first");
+        window.location.replace("../");
+    </script>
+    <?php
+}
+
 if (isset($_GET['type'])) {
     $type = $_GET['type'];
     $get_jobs = "SELECT * FROM jobs WHERE status = 'true' AND type = '$type' ORDER BY row DESC";
