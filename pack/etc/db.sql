@@ -139,6 +139,7 @@ CREATE TABLE `requests`
     `type`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `userid` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `reqid`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `dt`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     `status` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`row`)
 );
