@@ -136,7 +136,9 @@ DROP TABLE IF EXISTS `requests`;
 CREATE TABLE `requests`
 (
     `row`    int(11) NOT NULL AUTO_INCREMENT,
-    `type`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `userid`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `type`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `userid` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `reqid`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `status` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`row`)
 );
