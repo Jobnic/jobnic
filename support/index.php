@@ -9,6 +9,13 @@ if ($_SESSION['support'] != true) {
     <?php
 }
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../pack/mailer/vendor/phpmailer/phpmailer/src/Exception.php';
+require '../pack/mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../pack/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+
 include("../pack/config/config.php");
 
 $errors = array();
