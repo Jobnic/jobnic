@@ -166,7 +166,7 @@ if (isset($_GET['promote'])) {
     }
 }
 
-if (isset($_GET['promote'])) {
+if (isset($_GET['send'])) {
     $mail = $_GET['mail'];
     $name = $_GET['name'];
     $token = $_GET['token'];
@@ -180,7 +180,7 @@ if (isset($_GET['promote'])) {
     $send->Username = $mailaddr;
     $send->Password = $mailpass;
     $send->SMTPSecure = 'tsl';
-    $send->Subject = "Active token";
+    $send->Subject = "Activate your account";
 
     $send->setFrom($mailaddr, 'Jobnic');
     $send->addAddress($mail);
