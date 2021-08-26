@@ -503,7 +503,7 @@ if (isset($_GET['send'])) {
         <div class="row">
             <div class="col-md-7">
                 <?php
-                $get = "SELECT * FROM requests ORDER BY row DESC";
+                $get = "SELECT * FROM requests WHERE status = 'up' ORDER BY row DESC";
                 $result = mysqli_query($connection, $get);
                 ?>
                 <div class="dialog border border-success">
@@ -515,6 +515,8 @@ if (isset($_GET['send'])) {
                             <tr>
                                 <th scope="col">User</th>
                                 <th scope="col">Request type</th>
+                                <th scope="col">Requested date</th>
+                                <th scope="col">Status</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -524,6 +526,8 @@ if (isset($_GET['send'])) {
                                 <tr>
                                     <th scope="row"><?php echo $row['userid']; ?></th>
                                     <td><?php echo $row['type']; ?></td>
+                                    <td><?php echo $row['dt']; ?></td>
+                                    <td><a href="remove=<?php echo $row['type']; ?>"><i class="fa fa-times"></i></a></td>
                                 </tr>
                                 <?php
                             }
