@@ -500,6 +500,41 @@ if (isset($_GET['send'])) {
                 <br>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-7">
+                <?php
+                $get = "SELECT * FROM requests ORDER BY row DESC";
+                $result = mysqli_query($connection, $get);
+                ?>
+                <div class="dialog border border-success">
+                    <p class="text-success"><b>Requests</b></p>
+                    <hr class="border border-success">
+                    <div class="table-responsive">
+                        <table class="table table-hover text-center table-bordered border-success table-sm">
+                            <thead>
+                            <tr>
+                                <th scope="col">User</th>
+                                <th scope="col">Request type</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                <tr>
+                                    <th scope="row"><?php echo $row['userid']; ?></th>
+                                    <td><?php echo $row['type']; ?></td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
