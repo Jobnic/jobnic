@@ -55,10 +55,12 @@ if (isset($_POST['login'])) {
                 $login->isHTML(true);
 
                 $name = $row['firstname'];
+                $ip = $_SERVER['SERVER_NAME'];
 
                 $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
                 $bodyContent .= '<h3>We found a person who logged into your account.</h3>';
                 $bodyContent .= '<p>If you are not you, change your password now.</p>';
+                $bodyContent .= '<p>IP : ' . $ip . '</p>';
                 $bodyContent .= '<b></b>';
                 $bodyContent .= '<br>';
                 $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
