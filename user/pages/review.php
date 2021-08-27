@@ -198,10 +198,24 @@
                     <h3><i class="fa fa-award"></i> Request for labels</h3>
                     <hr>
                     <p>
-                        <a class="link text-info" href="index.php?request=label&type=verified">Request for <b><i class="fa fa-award"></i> verified label</b></a>
+                        <?php
+                        if (is_null($row['verified'])) {
+                            echo '<a class="link text-info" href="index.php?request=label&type=verified">Request for <b><i class="fa fa-award"></i> verified label</b></a>';
+                        }
+                        else {
+                            echo "<p>You got verified label.</p>";
+                        }
+                        ?>
                     </p>
                     <p>
-                        <a class="link text-info" href="index.php?request=label&type=trophy">Request for <b><i class="fa fa-trophy"></i> trophy label</b></a>
+                        <?php
+                        if (is_null($row['awesome'])) {
+                            echo '<a class="link text-info" href="index.php?request=label&type=trophy">Request for <b><i class="fa fa-trophy"></i> trophy label</b></a>';
+                        }
+                        else {
+                            echo "<p>You got trophy label.</p>";
+                        }
+                        ?>
                     </p>
                 </div>
             </div>
