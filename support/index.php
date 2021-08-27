@@ -209,6 +209,27 @@ if (isset($_GET['send'])) {
     }
 }
 
+if (isset($_GET['remove'])) {
+    $reqid = $_GET['remove'];
+    $down_req = "UPDATE requests SET status = 'down'";
+    if (mysqli_query($connection, $down_req)) {
+        ?>
+        <script>
+            window.alert("Request removes.");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+    else {
+        ?>
+        <script>
+            window.alert("<?php echo mysqli_error($connection); ?>");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+}
+
 ?>
 
 <!doctype html>
@@ -532,7 +553,7 @@ if (isset($_GET['send'])) {
                                     <td><?php echo $row['type']; ?></td>
                                     <td><?php echo $row['dt']; ?></td>
                                     <td>
-                                        <a href="remove=<?php echo $row['reqid']; ?>"><i class="fa fa-times"></i></a>
+                                        <a href="index.php?remove=<?php echo $row['reqid']; ?>"><i class="fa fa-times"></i></a>
                                         |
                                         <?php
                                         if ($row['type'] == 'verified') {
