@@ -522,12 +522,31 @@ if (isset($_GET['send'])) {
                             <tbody>
                             <?php
                             while ($row = mysqli_fetch_assoc($result)) {
+                                $id = $row['userid'];
+                                $get = "SELECT * FROM people WHERE id = '$id'";
+                                $result = mysqli_query($connection, $get);
+                                $person = mysqli_fetch_assoc($result);
                                 ?>
                                 <tr>
                                     <th scope="row"><?php echo $row['userid']; ?></th>
                                     <td><?php echo $row['type']; ?></td>
                                     <td><?php echo $row['dt']; ?></td>
-                                    <td><a href="remove=<?php echo $row['type']; ?>"><i class="fa fa-times"></i></a></td>
+                                    <td>
+                                        <a href="remove=<?php echo $row['reqid']; ?>"><i class="fa fa-times"></i></a>
+                                        |
+                                        <?php
+                                        if ($row['type'] == 'verified') {
+                                            ?>
+                                            <a class="link text-primary" href="index.php?promote=verified&user=<?php echo $person['id']; ?>&mail=<?php echo $person['email']; ?>&name=<?php echo $person['firstname']; ?>"><i class="fa fa-check"></i></a>
+                                            <?php
+                                        }
+                                        if ($row['type'] == 'awesome') {
+                                            ?>
+                                            <a class="link text-primary" href="index.php?promote=awesome&user=<?php echo $person['id']; ?>&mail=<?php echo $person['email']; ?>&name=<?php echo $person['firstname']; ?>"><i class="fa fa-check"></i></a>
+                                            <?php
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <?php
                             }
