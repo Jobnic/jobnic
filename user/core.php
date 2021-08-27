@@ -851,7 +851,9 @@ if (isset($_GET['act'])) {
 if (isset($_GET['request'])) {
     if ($_GET['request'] == 'label') {
         $label = $_GET['type'];
-        $send_request = "INSERT INTO requests (type, userid) VALUES ('$label', '$id')";
+        $dt = date("M d, Y H:i:s");
+        $reqid = rand(11111, 99999);
+        $send_request = "INSERT INTO requests (type, userid, reqid, dt, status) VALUES ('$label', '$id', '$reqid', '$dt', 'up')";
 
         if (mysqli_query($connection, $send_request)) {
             ?>
