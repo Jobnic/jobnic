@@ -21,6 +21,7 @@ include('core.php');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Job Nic - 2FA</title>
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
+    <link href="../pack/cos/main.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.neotrinost.ir/jobnic/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
@@ -36,26 +37,7 @@ include('core.php');
 </head>
 <body>
 <div class="">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="../">Job Nic</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../jobs"><i class="fa fa-list"></i> Jobs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../us"><i class="fa fa-bank"></i> We</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php include("../pack/panels/header.php"); ?>
     <div class="container">
         <br>
         <div class="row">
@@ -79,15 +61,16 @@ include('core.php');
                 }
                 ?>
                 <br>
-                <div class="tips border border-dark">
-                    <h3 class="text-dark">Prove your self</h3>
-                    <hr class="border border-dark">
+                <div class="jnborder jntext tips">
+                    <h3>Prove your self</h3>
+                    <hr class="jnborder">
                     <div>
                         <form method="post" action="index.php">
                             <label for="tfa">Enter your 2FA code</label>
-                            <input name="tfa" id="tfa" class="form-control" placeholder="2FA code">
                             <br>
-                            <button class="btn btn-success" name="tfasubmit" type="submit">Verify</button>
+                            <input name="tfa" id="tfa" class="form-control jnborder" placeholder="2FA code">
+                            <br>
+                            <button class="btn jnbtn" name="tfasubmit" type="submit">Verify</button>
                         </form>
                     </div>
                 </div>
