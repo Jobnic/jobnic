@@ -3,9 +3,9 @@
 }
 
 .jnbtn {
-    background-color: #000080;
-    color: white;
-    border: solid 1px #000080;
+    background-color: #000080 !important;
+    color: white !important;
+    border: solid 1px #000080 !important;
 }
 .jnbtn:hover {
     opacity: 80%;
@@ -14,9 +14,9 @@
 }
 
 .jnout {
-    border: solid 1px #000080;
-    background-color: white;
-    color: #000080;
+    border: solid 1px #000080 !important;
+    background-color: white !important;
+    color: #000080 !important;
 }
 .jnout:hover {
     border: solid 1px #000080;
