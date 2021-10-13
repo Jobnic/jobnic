@@ -2,6 +2,9 @@
 session_start();
 
 $stat = $_SESSION['status'];
+
+include("pack/config/config.php");
+
 ?>
 
 <!doctype html>
