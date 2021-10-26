@@ -1,3 +1,17 @@
+@font-face {
+    font-family: "iransans";
+    src: url("../pack/iransans.ttf");
+}
+
+body {
+    text-align: right;
+    direction: rtl;
+}
+
+* {
+    font-family: iransans;
+}
+
 .jnborder {
     border: solid 1px #000080 !important;
 }
@@ -32,4 +46,48 @@
 }
 .jntext:hover {
     color: #000080;
+}
+
+.mainform {
+    padding: 5%;
+}
+
+.gradiant {
+    padding: 10%;
+    color: white;
+    background: linear-gradient(-45deg, #0600ff, navy);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.formslink {
+    color: navy;
+    text-decoration: navy;
+}
+.formslink:hover {
+    color: blue;
+}
+
+.errors {
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+    left: 0;
+}
+
+.hints {
+
 }
