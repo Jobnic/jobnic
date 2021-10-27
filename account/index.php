@@ -36,7 +36,7 @@ include('core.php');
     <div class="row">
         <div id="create" class="col-md-6 mainform">
             <h3 class="jntext">ساخت حساب کاربری</h3>
-            <hr class="jnborder">
+            <br>
             <form action="index.php" method="post">
                 <div class="row">
                     <div class="col">
@@ -79,14 +79,14 @@ include('core.php');
                 <br>
                 <button name="create" class="btn jnbtn" type="submit">ساخت</button>
             </form>
-            <br>
+            <hr class="jnborder">
             <p class="hints">
                 <a class="formslink" href="#" onclick="return show('login','create');">یه اکانت دارم. بریم لاگین کنیم.</a>
             </p>
         </div>
         <div id="login" class="col-md-6 mainform" style="display:none">
             <h3 class="jntext">ورود به حساب کاربری</h3>
-            <hr class="jnborder">
+            <br>
             <form action="index.php" method="post">
                 <div class="">
                     <input name="mail" type="email" class="form-control jnborder" placeholder="ایمیل">
@@ -100,7 +100,7 @@ include('core.php');
                 <button name="login" class="btn jnbtn" type="submit">ورود</button>
                 <button style="float: left;" class="btn jnout" type="submit" name="onetime">گرفتن رمز یکبار مصرف</button>
             </form>
-            <br>
+            <hr class="jnborder">
             <p class="hints">
                 <a class="formslink" href="#" onclick="return show('forgot','login');">رمزم یادم رفت! بریم ریکاوری کنیم.</a>
                 <br>
@@ -109,7 +109,7 @@ include('core.php');
         </div>
         <div id="forgot" class="col-md-6 mainform" style="display:none">
             <h3 class="jntext">فراموشی رمز</h3>
-            <hr class="jnborder">
+            <br>
             <form action="index.php" method="post">
                 <div>
                     <input name="mail" type="email" class="form-control jnborder" placeholder="ایمیل">
@@ -118,7 +118,7 @@ include('core.php');
                 <br>
                 <button name="forgot" class="btn jnbtn" type="submit">بازیابی رمز</button>
             </form>
-            <br>
+            <hr class="jnborder">
             <p class="hints">
                 <a class="formslink" href="#" onclick="return show('login','forgot');">رمز یادم اومد! بریم لاگین کنیم.</a>
                 <br>
