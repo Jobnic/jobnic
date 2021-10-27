@@ -124,7 +124,7 @@ if (isset($_POST['login'])) {
                 } else {
                     ?>
                     <script>
-                        window.location.replace("auth.php");
+                        show("auth", "login ");
                     </script>
                     <?php
                 }
