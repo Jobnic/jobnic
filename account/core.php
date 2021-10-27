@@ -132,8 +132,7 @@ if (isset($_POST['login'])) {
                 if (!$tfa->send()) {
                     array_push($errors, 'Message could not be sent. Mailer Error: ' . $tfa->ErrorInfo);
                 } else {
-                    $_SESSION['home'] = false;
-                    $_SESSION['authpage'] = true;
+                    $_SESSION['is_auth'] = true;
                 }
             }
         } else {

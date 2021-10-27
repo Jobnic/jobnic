@@ -9,19 +9,30 @@ if ($_SESSION['status'] == true) {
     <?php
 }
 
-if (isset($_SESSION['home'])) {
-    $_SESSION['home'] = true;
+include('core.php');
+
+if (isset($_SESSION['is_auth'])) {
+    if ($_SESSION['is_auth']) {
+        $_SESSION['authpage'] = true;
+        $_SESSION['home'] = false;
+    }
+    else {
+        $_SESSION['authpage'] = false;
+        $_SESSION['home'] = true;
+    }
 }
 else {
-    $_SESSION['home'] = false;
-    header("Refresh:0");
+    $_SESSION['is_auth'] = false;
+    $_SESSION['authpage'] = false;
+    $_SESSION['home'] = true;
+    // header("Refresh:0");
 }
 
-if ($_SESSION['home'] == false) {
-    $home = "none";
+if ($_SESSION['home']) {
+    $home = "block";
 }
 else {
-    $home = "block";
+    $home = "none";
 }
 
 if ($_SESSION['authpage']) {
@@ -30,8 +41,6 @@ if ($_SESSION['authpage']) {
 else {
     $authpage = 'none';
 }
-
-include('core.php');
 ?>
 
 <!doctype html>
