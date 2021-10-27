@@ -50,14 +50,15 @@ body {
 
 .mainform {
     padding: 5%;
+    height: 100vh;
 }
 
 .gradiant {
     padding: 10%;
     color: white;
-    background: linear-gradient(-45deg, #0600ff, navy);
+    background: linear-gradient(-45deg, purple, navy);
     background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+    animation: gradient 5s ease infinite;
     height: 100vh;
 }
 
