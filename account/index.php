@@ -34,7 +34,7 @@ include('core.php');
 <body>
 <div class="container-fluid">
     <div class="row">
-        <div id="create" class="col-md-6 mainform">
+        <div id="create" class="col-md-6 mainform overflow-auto">
             <h3 class="jntext">ساخت حساب کاربری</h3>
             <br>
             <form action="index.php" method="post">
@@ -84,7 +84,7 @@ include('core.php');
                 <a class="formslink" href="#" onclick="return show('login','create');">یه اکانت دارم. بریم لاگین کنیم.</a>
             </p>
         </div>
-        <div id="login" class="col-md-6 mainform" style="display:none">
+        <div id="login" class="col-md-6 mainform overflow-auto" style="display:none">
             <h3 class="jntext">ورود به حساب کاربری</h3>
             <br>
             <form action="index.php" method="post">
@@ -107,7 +107,7 @@ include('core.php');
                 <a class="formslink" href="#" onclick="return show('create','login');">بریم یه حساب جدید بسازیم.</a>
             </p>
         </div>
-        <div id="forgot" class="col-md-6 mainform" style="display:none">
+        <div id="forgot" class="col-md-6 mainform overflow-auto" style="display:none">
             <h3 class="jntext">فراموشی رمز</h3>
             <br>
             <form action="index.php" method="post">
@@ -125,8 +125,36 @@ include('core.php');
                 <a class="formslink" href="#" onclick="return show('create','forgot');">بریم یه حساب جدید بسازیم.</a>
             </p>
         </div>
-        <div class="col-md-6 gradiant">
+        <div id="auth" class="col-md-6 mainform overflow-auto" style="display:none">
+            <h3 class="jntext">تایید مالکیت حساب</h3>
+            <br>
+            <form action="index.php" method="post">
+                <div class="">
+                    <input name="tfa" type="text" class="form-control jnborder" placeholder="کد ارسال شده">
+                    <small class="jntext">کد ارسال شده را در این فیلد وارد کنید</small>
+                </div>
+                <br>
+                <button name="tfasubmit" class="btn jnbtn" type="submit">تایید</button>
+            </form>
+            <hr class="jnborder">
+            <p class="hints">
+                ارسال مجدد کد
+            </p>
+            <!-- <p class="hints">
+                <a class="formslink" href="#" onclick="return show('forgot','login');">رمزم یادم رفت! بریم ریکاوری کنیم.</a>
+                <br>
+                <a class="formslink" href="#" onclick="return show('create','login');">بریم یه حساب جدید بسازیم.</a>
+            </p> -->
+        </div>
+        <div class="col-md-6 gradiant overflow-auto">
             <h2>به جاب نیک خوش آمدید.</h2>
+            <br>
+            <p>
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+            </p>
+            <p>
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+            </p>
             <div class="errors">
                 <?php
                     if (count($errors) > 0) {
