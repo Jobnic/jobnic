@@ -9,6 +9,29 @@ if ($_SESSION['status'] == true) {
     <?php
 }
 
+// $_SESSION['home'] = false;
+// $_SESSION['authpage'] = true;
+
+if (isset($_SESSION['home'])) {
+    $_SESSION['home'] = true;
+}
+
+// $_SESSION['authpage'] = false;
+
+if ($_SESSION['home'] == false) {
+    $home = "none";
+}
+else {
+    $home = "block";
+}
+
+if ($_SESSION['authpage']) {
+    $authpage = 'block';
+}
+else {
+    $authpage = 'none';
+}
+
 include('core.php');
 ?>
 
@@ -34,10 +57,10 @@ include('core.php');
 <body>
 <div class="container-fluid">
     <div class="row">
-        <div id="create" class="col-md-6 mainform overflow-auto">
+        <div id="create" class="col-md-6 mainform overflow-auto" style="display:<?php echo $home; ?>;">
             <h3 class="jntext">ساخت حساب کاربری</h3>
             <br>
-            <form action="index.php" method="post">
+            <form action="index.php" method="post" autocomplete="off">
                 <div class="row">
                     <div class="col">
                         <div class="">
@@ -87,7 +110,7 @@ include('core.php');
         <div id="login" class="col-md-6 mainform overflow-auto" style="display:none">
             <h3 class="jntext">ورود به حساب کاربری</h3>
             <br>
-            <form action="index.php" method="post">
+            <form action="index.php" method="post" autocomplete="off">
                 <div class="">
                     <input name="mail" type="email" class="form-control jnborder" placeholder="ایمیل">
                     <small class="jntext">برای دریافت رمز یکبار مصرف، این فیلد را پر کنید.</small>
@@ -110,7 +133,7 @@ include('core.php');
         <div id="forgot" class="col-md-6 mainform overflow-auto" style="display:none">
             <h3 class="jntext">فراموشی رمز</h3>
             <br>
-            <form action="index.php" method="post">
+            <form action="index.php" method="post" autocomplete="off">
                 <div>
                     <input name="mail" type="email" class="form-control jnborder" placeholder="ایمیل">
                     <small class="jntext">برای دریافت رمز، ایمیل خود را وارد کنید.</small>
@@ -125,10 +148,10 @@ include('core.php');
                 <a class="formslink" href="#" onclick="return show('create','forgot');">بریم یه حساب جدید بسازیم.</a>
             </p>
         </div>
-        <div id="auth" class="col-md-6 mainform overflow-auto" style="display:none">
+        <div id="auth" class="col-md-6 mainform overflow-auto" style="display:<?php echo $authpage; ?>">
             <h3 class="jntext">تایید مالکیت حساب</h3>
             <br>
-            <form action="index.php" method="post">
+            <form action="index.php" method="post" autocomplete="off">
                 <div class="">
                     <input name="tfa" type="text" class="form-control jnborder" placeholder="کد ارسال شده">
                     <small class="jntext">کد ارسال شده را در این فیلد وارد کنید</small>
