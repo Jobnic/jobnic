@@ -9,14 +9,13 @@ if ($_SESSION['status'] == true) {
     <?php
 }
 
-// $_SESSION['home'] = false;
-// $_SESSION['authpage'] = true;
-
 if (isset($_SESSION['home'])) {
     $_SESSION['home'] = true;
 }
-
-// $_SESSION['authpage'] = false;
+else {
+    $_SESSION['home'] = false;
+    header("Refresh:0");
+}
 
 if ($_SESSION['home'] == false) {
     $home = "none";
