@@ -11,6 +11,16 @@ require '../pack/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 
 include("../pack/config/config.php");
 
+$get_table_status_query = "SELECT * FROM people";
+$get_table_status_result = mysqli_query($connection, $get_table_status_query);
+
+if (mysqli_num_rows($get_table_status_result) == 0) {
+    $table_status = true;
+}
+else {
+    $table_status = false;
+}
+
 $get_all_mails = "SELECT email FROM people";
 $get_mails_result = mysqli_query($connection, $get_all_mails);
 $emails = mysqli_fetch_assoc($get_mails_result);
