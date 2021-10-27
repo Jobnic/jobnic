@@ -5,6 +5,18 @@ session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+?>
+
+<script>
+    function show(shown, hidden) {
+        document.getElementById(shown).style.display = 'block';
+        document.getElementById(hidden).style.display = 'none';
+        return false;
+    }
+</script>
+
+<?php
+
 require '../pack/mailer/vendor/phpmailer/phpmailer/src/Exception.php';
 require '../pack/mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require '../pack/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
@@ -134,7 +146,7 @@ if (isset($_POST['login'])) {
                 } else {
                     ?>
                     <script>
-                        show("auth", "login ");
+                        return show('auth','login');
                     </script>
                     <?php
                 }
@@ -173,7 +185,7 @@ if (isset($_POST['create'])) {
     }
 
     if ($password == $confirm) {
-        if ($table_status) {
+        if (!$table_status) {
             foreach ($emails as $mail) {
                 if ($mail != $email) {
                     foreach ($phones as $phne) {
