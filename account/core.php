@@ -173,69 +173,126 @@ if (isset($_POST['create'])) {
     }
 
     if ($password == $confirm) {
-        foreach ($emails as $mail) {
-            if ($mail != $email) {
-                foreach ($phones as $phne) {
-                    if ($phne != $phone) {
-                        if (count($errors) == 0) {
-                            $id = rand(111111, 999999);
-                            $token = md5(uniqid(rand(111111111, 999999999), true));
-                            $join = date("M d, Y H:i:s");
-
-                            $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`, `join`, `status`, `token`, `theme`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password', '$join', 'payed', '$token', 'light')";
-                            if (mysqli_query($connection, $create)) {
-                                $created = new PHPMailer;
-
-                                $created->IsSMTP();
-                                $created->SMTPAuth = true;
-                                $created->Host = "smtp.zoho.com";
-                                $created->Port = 587;
-                                $created->Username = $mailaddr;
-                                $created->Password = $mailpass;
-                                $created->SMTPSecure = 'tsl';
-                                $created->Subject = "Welcome to Jobnic";
-
-                                $created->setFrom($mailaddr, 'Jobnic');
-                                $created->addAddress($email);
-                                $created->isHTML(true);
-
-                                $name = $fname;
-                                $link = "$host/account/activate.php?token=$token";
-
-                                $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
-                                $bodyContent .= '<h3>Welcome to Jobnic.</h3>';
-                                $bodyContent .= '<h5>You need to activate your account to have permeation for using Jobnic.</h5>';
-                                $bodyContent .= '<h5><a href=' . $link . '>Activate my account</a></h5>';
-                                $bodyContent .= '<br>';
-                                $bodyContent .= '<p>If you have any problems you can contact us via email or telegram.</p>';
-                                $bodyContent .= '<br>';
-                                $bodyContent .= '<p>Email : info@jobnic.net</p>';
-                                $bodyContent .= '<p>Telegram : https://t.me/neotrinost_support</p>';
-                                $bodyContent .= '<br>';
-                                $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
-
-                                $created->Body = $bodyContent;
-
-                                $created->send();
-
-                                $_SESSION['status'] = true;
-                                $_SESSION['id'] = $id;
-                                ?>
-                                <script>
-                                    window.alert("Created.\nActivate your account via link in your email.");
-                                    window.location.replace("../user");
-                                </script>
-                                <?php
+        if ($table_status) {
+            foreach ($emails as $mail) {
+                if ($mail != $email) {
+                    foreach ($phones as $phne) {
+                        if ($phne != $phone) {
+                            if (count($errors) == 0) {
+                                $id = rand(111111, 999999);
+                                $token = md5(uniqid(rand(111111111, 999999999), true));
+                                $join = date("M d, Y H:i:s");
+    
+                                $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`, `join`, `status`, `token`, `theme`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password', '$join', 'payed', '$token', 'light')";
+                                if (mysqli_query($connection, $create)) {
+                                    $created = new PHPMailer;
+    
+                                    $created->IsSMTP();
+                                    $created->SMTPAuth = true;
+                                    $created->Host = "smtp.zoho.com";
+                                    $created->Port = 587;
+                                    $created->Username = $mailaddr;
+                                    $created->Password = $mailpass;
+                                    $created->SMTPSecure = 'tsl';
+                                    $created->Subject = "Welcome to Jobnic";
+    
+                                    $created->setFrom($mailaddr, 'Jobnic');
+                                    $created->addAddress($email);
+                                    $created->isHTML(true);
+    
+                                    $name = $fname;
+                                    $link = "$host/account/activate.php?token=$token";
+    
+                                    $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+                                    $bodyContent .= '<h3>Welcome to Jobnic.</h3>';
+                                    $bodyContent .= '<h5>You need to activate your account to have permeation for using Jobnic.</h5>';
+                                    $bodyContent .= '<h5><a href=' . $link . '>Activate my account</a></h5>';
+                                    $bodyContent .= '<br>';
+                                    $bodyContent .= '<p>If you have any problems you can contact us via email or telegram.</p>';
+                                    $bodyContent .= '<br>';
+                                    $bodyContent .= '<p>Email : info@jobnic.net</p>';
+                                    $bodyContent .= '<p>Telegram : https://t.me/neotrinost_support</p>';
+                                    $bodyContent .= '<br>';
+                                    $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+    
+                                    $created->Body = $bodyContent;
+    
+                                    $created->send();
+    
+                                    $_SESSION['status'] = true;
+                                    $_SESSION['id'] = $id;
+                                    ?>
+                                    <script>
+                                        window.alert("Created.\nActivate your account via link in your email.");
+                                        window.location.replace("../user");
+                                    </script>
+                                    <?php
+                                }
+                            } else {
+                                array_push($errors, mysqli_error($connection));
                             }
                         } else {
-                            array_push($errors, mysqli_error($connection));
+                            array_push($errors, "Phone exists. Try another phone.");
                         }
-                    } else {
-                        array_push($errors, "Phone exists. Try another phone.");
                     }
+                } else {
+                    array_push($errors, "Email exists. Try another mail.");
+                }
+            }
+        }
+        else {
+            if (count($errors) == 0) {
+                $id = rand(111111, 999999);
+                $token = md5(uniqid(rand(111111111, 999999999), true));
+                $join = date("M d, Y H:i:s");
+
+                $create = "INSERT INTO people (`id`, `firstname`, `lastname`, `phone`, `email`, `password`, `join`, `status`, `token`, `theme`) VALUES ('$id', '$fname', '$lname', '$phone', '$email', '$password', '$join', 'payed', '$token', 'light')";
+                if (mysqli_query($connection, $create)) {
+                    $created = new PHPMailer;
+
+                    $created->IsSMTP();
+                    $created->SMTPAuth = true;
+                    $created->Host = "smtp.zoho.com";
+                    $created->Port = 587;
+                    $created->Username = $mailaddr;
+                    $created->Password = $mailpass;
+                    $created->SMTPSecure = 'tsl';
+                    $created->Subject = "Welcome to Jobnic";
+
+                    $created->setFrom($mailaddr, 'Jobnic');
+                    $created->addAddress($email);
+                    $created->isHTML(true);
+
+                    $name = $fname;
+                    $link = "$host/account/activate.php?token=$token";
+
+                    $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
+                    $bodyContent .= '<h3>Welcome to Jobnic.</h3>';
+                    $bodyContent .= '<h5>You need to activate your account to have permeation for using Jobnic.</h5>';
+                    $bodyContent .= '<h5><a href=' . $link . '>Activate my account</a></h5>';
+                    $bodyContent .= '<br>';
+                    $bodyContent .= '<p>If you have any problems you can contact us via email or telegram.</p>';
+                    $bodyContent .= '<br>';
+                    $bodyContent .= '<p>Email : info@jobnic.net</p>';
+                    $bodyContent .= '<p>Telegram : https://t.me/neotrinost_support</p>';
+                    $bodyContent .= '<br>';
+                    $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
+
+                    $created->Body = $bodyContent;
+
+                    $created->send();
+
+                    $_SESSION['status'] = true;
+                    $_SESSION['id'] = $id;
+                    ?>
+                    <script>
+                        window.alert("Created.\nActivate your account via link in your email.");
+                        window.location.replace("../user");
+                    </script>
+                    <?php
                 }
             } else {
-                array_push($errors, "Email exists. Try another mail.");
+                array_push($errors, mysqli_error($connection));
             }
         }
     }
