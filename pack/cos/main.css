@@ -10,6 +10,7 @@ body {
 
 * {
     font-family: iransans;
+    user-select: none;
 }
 
 .jnborder {
@@ -54,7 +55,7 @@ body {
 }
 
 .gradiant {
-    padding: 10%;
+    padding: 5%;
     color: white;
     background: linear-gradient(-45deg, purple, navy);
     background-size: 400% 400%;
