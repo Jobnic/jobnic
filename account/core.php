@@ -5,18 +5,6 @@ session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-?>
-
-<script>
-    function show(shown, hidden) {
-        document.getElementById(shown).style.display = 'block';
-        document.getElementById(hidden).style.display = 'none';
-        return false;
-    }
-</script>
-
-<?php
-
 require '../pack/mailer/vendor/phpmailer/phpmailer/src/Exception.php';
 require '../pack/mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require '../pack/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
@@ -48,10 +36,10 @@ if (isset($_POST['login'])) {
     $password = mysqli_real_escape_string($connection, $_POST['password']);
 
     if (empty($mail)) {
-        array_push($errors, "Mail is required");
+        array_push($errors, "ایمیل الزامیست.");
     }
     if (empty($password)) {
-        array_push($errors, "Password is required");
+        array_push($errors, "رمز الزامیست");
     }
 
     if (count($errors) == 0) {
@@ -144,11 +132,8 @@ if (isset($_POST['login'])) {
                 if (!$tfa->send()) {
                     array_push($errors, 'Message could not be sent. Mailer Error: ' . $tfa->ErrorInfo);
                 } else {
-                    ?>
-                    <script>
-                        return show('auth','login');
-                    </script>
-                    <?php
+                    $_SESSION['home'] = false;
+                    $_SESSION['authpage'] = true;
                 }
             }
         } else {
