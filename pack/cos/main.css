@@ -18,9 +18,12 @@ body {
 }
 
 .jnbtn {
-    background-color: #000080 !important;
+    background: linear-gradient(-45deg, purple, navy);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+    /*background-color: #000080 !important;*/
     color: white !important;
-    border: solid 1px #000080 !important;
+    /*border: solid 1px #000080 !important;*/
 }
 .jnbtn:hover {
     opacity: 80%;
@@ -52,6 +55,10 @@ body {
 .mainform {
     padding: 5%;
     height: 100vh;
+}
+
+.selectable {
+    cursor: pointer;
 }
 
 .gradiant {
@@ -92,4 +99,50 @@ body {
 
 .hints {
 
+}
+
+/* User dash */
+
+.dash {
+    padding: 5%;
+}
+
+.dash .dialog {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.dash .dialog .head {
+    border-top: solid 1px #ccc;
+    border-left: solid 1px #ccc;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #aaa;
+    padding: 3%;
+}
+
+/*.dash .dialog .head {*/
+/*    border: solid 1px #000080 !important;*/
+/*    padding: 3%;*/
+/*    color: white;*/
+/*    background: linear-gradient(-45deg, purple, navy);*/
+/*    background-size: 400% 400%;*/
+/*    animation: gradient 5s ease infinite;*/
+/*}*/
+
+.dash .dialog .body {
+    border-top: none;
+    border-left: solid 1px #ccc;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    padding: 5%;
+}
+
+/*.dash .dialog .body {*/
+/*    !* border: solid 1px #000080 !important; *!*/
+/*    padding: 2%;*/
+/*    color: navy;*/
+/*}*/
+
+.dash .dialog .body .icon {
+    padding: 5px;
+    border-radius: 2px;
 }
