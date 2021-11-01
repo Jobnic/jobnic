@@ -10,7 +10,7 @@ $db = "jobnic";
 $connection = mysqli_connect($server, $user, $passwd, $db);
 
 // Site
-$host = "https://127.0.0.1/jobnic";
+$host = "http://127.0.0.1/jobnic";
 
 // Server
 $path = "/jobnic";
