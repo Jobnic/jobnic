@@ -1,42 +1,41 @@
 <?php
 session_start();
 
-if ($_SESSION['status'] == true) {
-    ?>
-    <script>
-        window.location.replace("../user");
-    </script>
-    <?php
-}
-
 include('core.php');
 
-if (isset($_SESSION['is_auth'])) {
+if ($_SESSION['status'] == true) {
+    $id = $_SESSION['id'];
+
+    $select_user = "SELECT * FROM people WHERE id = '$id'";
+    $result_user = mysqli_query($connection, $select_user);
+    $row_user = mysqli_fetch_assoc($result_user);
+
+    if ($row_user['active'] == true) {
+        ?>
+        <script>
+            window.location.replace("../user");
+        </script>
+        <?php
+    }
+    else {
+        $_SESSION['activation_page'] = true;
+        $_SESSION['home'] = false;
+    }
+}
+else if (isset($_SESSION['is_auth'])) {
     if ($_SESSION['is_auth']) {
         $_SESSION['authpage'] = true;
         $_SESSION['home'] = false;
-        $_SESSION['activation_page'] = false;
     }
     else {
-        if (isset($_SESSION['activation_page'])) {
-            if ($_SESSION['activation_page']) {
-                $_SESSION['activation_page'] = true;
-                $_SESSION['authpage'] = false;
-                $_SESSION['home'] = false;
-            }
-            else {
-                $_SESSION['activation_page'] = false;
-                $_SESSION['authpage'] = false;
-                $_SESSION['home'] = true;
-            }
-        }
+        $_SESSION['authpage'] = false;
+        $_SESSION['home'] = true;
     }
 }
 else {
     $_SESSION['is_auth'] = false;
     $_SESSION['authpage'] = false;
     $_SESSION['home'] = true;
-    $_SESSION['activation_page'] = false;
     // header("Refresh:0");
 }
 
@@ -202,7 +201,7 @@ else {
             <br>
             <hr class="jnborder">
             <div>
-                <small>ایمیل فعال سازی به <?php echo $email; ?> ارسال شده است.</small>
+                <small>ایمیل فعال سازی به <span class="jntext"><?php echo $row_user['email']; ?></span> ارسال شده است.</small>
             </div>
             <p class="hints">
                 ارسال مجدد کد
