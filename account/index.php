@@ -15,16 +15,28 @@ if (isset($_SESSION['is_auth'])) {
     if ($_SESSION['is_auth']) {
         $_SESSION['authpage'] = true;
         $_SESSION['home'] = false;
+        $_SESSION['activation_page'] = false;
     }
     else {
-        $_SESSION['authpage'] = false;
-        $_SESSION['home'] = true;
+        if (isset($_SESSION['activation_page'])) {
+            if ($_SESSION['activation_page']) {
+                $_SESSION['activation_page'] = true;
+                $_SESSION['authpage'] = false;
+                $_SESSION['home'] = false;
+            }
+            else {
+                $_SESSION['activation_page'] = false;
+                $_SESSION['authpage'] = false;
+                $_SESSION['home'] = true;
+            }
+        }
     }
 }
 else {
     $_SESSION['is_auth'] = false;
     $_SESSION['authpage'] = false;
     $_SESSION['home'] = true;
+    $_SESSION['activation_page'] = false;
     // header("Refresh:0");
 }
 
@@ -41,6 +53,14 @@ if ($_SESSION['authpage']) {
 else {
     $authpage = 'none';
 }
+
+if ($_SESSION['activation_page']) {
+    $activation = 'block';
+}
+else {
+    $activation = 'none';
+}
+
 ?>
 
 <!doctype html>
@@ -168,6 +188,22 @@ else {
                 <button name="tfasubmit" class="btn jnbtn" type="submit">تایید</button>
             </form>
             <hr class="jnborder">
+            <p class="hints">
+                ارسال مجدد کد
+            </p>
+            <!-- <p class="hints">
+                <a class="formslink" href="#" onclick="return show('forgot','login');">رمزم یادم رفت! بریم ریکاوری کنیم.</a>
+                <br>
+                <a class="formslink" href="#" onclick="return show('create','login');">بریم یه حساب جدید بسازیم.</a>
+            </p> -->
+        </div>
+        <div id="auth" class="col-md-6 mainform overflow-auto" style="display:<?php echo $activation; ?>">
+            <h3 class="jntext">فعال سازی حساب</h3>
+            <br>
+            <hr class="jnborder">
+            <div>
+                <small>ایمیل فعال سازی به <?php echo $email; ?> ارسال شده است.</small>
+            </div>
             <p class="hints">
                 ارسال مجدد کد
             </p>

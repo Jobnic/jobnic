@@ -32,9 +32,10 @@ $user_email = $row_user['email'];
 $user_name = $row_user['name'];
 
 if ($row_user['active'] != true) {
+    $_SESSION['activation_page'] = true;
     ?>
     <script>
-        window.location.replace("../account/activate.php");
+        window.location.replace("../account");
     </script>
     <?php
 }
