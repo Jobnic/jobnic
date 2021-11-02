@@ -159,3 +159,18 @@ CREATE TABLE `skills`
     `skill_number`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`row`)
 );
+
+--
+-- Table structure for table `socialmedia`
+--
+
+DROP TABLE IF EXISTS `socialmedia`;
+CREATE TABLE `socialmedia`
+(
+    `row`    int(11) NOT NULL AUTO_INCREMENT,
+    `user`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `social_id` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `social_media`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `social_link`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    PRIMARY KEY (`row`)
+);
