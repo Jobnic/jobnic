@@ -144,3 +144,18 @@ CREATE TABLE `requests`
     `status` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     PRIMARY KEY (`row`)
 );
+
+--
+-- Table structure for table `skills`
+--
+
+DROP TABLE IF EXISTS `skills`;
+CREATE TABLE `skills`
+(
+    `row`    int(11) NOT NULL AUTO_INCREMENT,
+    `user`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `skill_id` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `skill_name`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `skill_number`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    PRIMARY KEY (`row`)
+);
