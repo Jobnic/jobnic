@@ -718,3 +718,32 @@ if (isset($_GET['request'])) {
         }
     }
 }
+
+if (isset($_POST['updatemedia'])) {
+    $media = mysqli_real_escape_string($connection, $_POST["social"]);
+    $username = mysqli_real_escape_string($connection, $_POST["username"]);
+
+    if (empty($media)) {
+        array_push($errors, "نام شبکه اجتماعی الزامیست");
+    }
+    if (empty($username)) {
+        array_push($errors, "یوزرنیم الزامیست");
+    }
+
+    if (count($errors) == 0) {
+        $social_id = rand(11111, 99999);
+        $add_media = "INSERT INTO socialmedia (`user`, `social_id`, `social_media`, `social_link`) VALUES ('$id', '$social_id', '$media', '$username')";
+
+        if (mysqli_query($connection, $add_media)) {
+            ?>
+            <script>
+                window.alert("شبکه اجتماعی اضافه شد.");
+                window.location.replace(".");
+            </script>
+            <?php
+        }
+        else {
+            array_push($errors, mysqli_error($connection));
+        }
+    }
+}
