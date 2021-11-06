@@ -51,27 +51,20 @@ if (isset($_POST["updateskill"])) {
     $skillper = mysqli_real_escape_string($connection, $_POST["skillper"]);
 
     if (empty($skillname)) {
-        array_push($errors, "Skill name is required");
+        array_push($errors, "نام توانایی الزامیست");
     }
     if (empty($skillper)) {
-        array_push($errors, "Skill percentage is required");
+        array_push($errors, "حد توانایی الزامیست");
     }
 
     if (count($errors) == 0) {
-        $skill = $skillname . "-" . $skillper;
-
-        if (isset($row_user['skills'])) {
-            $both = $row_user['skills'] . " " . $skill;
-            $update_skill = "UPDATE people SET skills = '$both' WHERE id = '$id'";
-        }
-        else {
-            $update_skill = "UPDATE people SET skills = '$skill' WHERE id = '$id'";
-        }
+        $skill_id = rand(11111, 99999);
+        $update_skill = "INSERT INTO skills (`user`, `skill_id`, `skill_name`, `skill_number`) VALUES ('$id', '$skill_id', '$skillname', '$skillper')";
 
         if (mysqli_query($connection, $update_skill)) {
             ?>
             <script>
-                window.alert("Skills updated");
+                window.alert("توانایی اضافه شد.");
                 window.location.replace(".");
             </script>
             <?php
