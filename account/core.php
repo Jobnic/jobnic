@@ -150,22 +150,22 @@ if (isset($_POST['create'])) {
     $confirm = mysqli_real_escape_string($connection, $_POST['confirm']);
 
     if (empty($fname)) {
-        array_push($errors, "First name is required");
+        array_push($errors, "نام الزامیست");
     }
     if (empty($lname)) {
-        array_push($errors, "Last name is required");
+        array_push($errors, "نام خانوادگی الزامیست");
     }
     if (empty($phone)) {
-        array_push($errors, "Phone is required");
+        array_push($errors, "تلفن الزامیست");
     }
     if (empty($email)) {
-        array_push($errors, "Email is required");
+        array_push($errors, "ایمیل الزامیست");
     }
     if (empty($password)) {
-        array_push($errors, "Password is required");
+        array_push($errors, "رمز الزامیست");
     }
     if (empty($confirm)) {
-        array_push($errors, "Confirm Password is required");
+        array_push($errors, "تایید رمز الزامیست");
     }
 
     if ($password == $confirm) {
@@ -197,7 +197,7 @@ if (isset($_POST['create'])) {
                                     $created->isHTML(true);
     
                                     $name = $fname;
-                                    $link = "$host/account/activate.php?token=$token";
+                                    $link = "$host/account/index.php?token=$token";
     
                                     $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
                                     $bodyContent .= '<h3>Welcome to Jobnic.</h3>';
@@ -219,7 +219,7 @@ if (isset($_POST['create'])) {
                                     $_SESSION['id'] = $id;
                                     ?>
                                     <script>
-                                        window.alert("Created.\nActivate your account via link in your email.");
+                                        window.alert("حساب شما ساخته شد.\nاز طریق ایمیل حساب خود را فعال نمایید.");
                                         window.location.replace("../user");
                                     </script>
                                     <?php
@@ -228,11 +228,11 @@ if (isset($_POST['create'])) {
                                 array_push($errors, mysqli_error($connection));
                             }
                         } else {
-                            array_push($errors, "Phone exists. Try another phone.");
+                            array_push($errors, "تلفن وجود دارد.");
                         }
                     }
                 } else {
-                    array_push($errors, "Email exists. Try another mail.");
+                    array_push($errors, "ایمیل وجود دارد.");
                 }
             }
         }
@@ -260,7 +260,7 @@ if (isset($_POST['create'])) {
                     $created->isHTML(true);
 
                     $name = $fname;
-                    $link = "$host/account/activate.php?token=$token";
+                    $link = "$host/account/index.php?token=$token";
 
                     $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
                     $bodyContent .= '<h3>Welcome to Jobnic.</h3>';
@@ -282,7 +282,7 @@ if (isset($_POST['create'])) {
                     $_SESSION['id'] = $id;
                     ?>
                     <script>
-                        window.alert("Created.\nActivate your account via link in your email.");
+                        window.alert("حساب شما ساخته شد.\nاز طریق ایمیل حساب خود را فعال نمایید.");
                         window.location.replace("../user");
                     </script>
                     <?php
@@ -343,14 +343,14 @@ if (isset($_POST['forgot'])) {
                 } else {
                     ?>
                     <script>
-                        window.alert("Password sent");
+                        window.alert("رمز شما ارسال شد.");
                         window.location.replace(".");
                     </script>
                     <?php
                 }
             }
         } else {
-            array_push($errors, "User didn't found or E-mail is wrong");
+            array_push($errors, "این کاربر یافت نشد. رمز و ایمیل را بررسی کنید");
         }
     }
 }
@@ -359,7 +359,7 @@ if (isset($_POST['onetime'])) {
     $mail = mysqli_real_escape_string($connection, $_POST['mail']);
 
     if (empty($mail)) {
-        array_push($errors, "Mail is required");
+        array_push($errors, "ایمیل را وارد کنید.");
     }
 
     if (count($errors) == 0) {
@@ -404,14 +404,14 @@ if (isset($_POST['onetime'])) {
                 } else {
                     ?>
                     <script>
-                        window.alert("Password sent");
+                        window.alert("رمز ارسال شد.");
                         window.location.replace(".");
                     </script>
                     <?php
                 }
             }
         } else {
-            array_push($errors, "User didn't found or E-mail is wrong");
+            array_push($errors, "این کاربر یافت نشد. رمز و ایمیل را بررسی کنید");
         }
     }
 }
@@ -420,7 +420,7 @@ if (isset($_POST['tfasubmit'])) {
     $tfa_code = mysqli_real_escape_string($connection, $_POST['tfa']);
 
     if (empty($tfa_code)) {
-        array_push($errors, "Code is required");
+        array_push($errors, "رمز الزامیست");
     }
 
     if (count($errors) == 0) {
@@ -462,7 +462,7 @@ if (isset($_POST['tfasubmit'])) {
 
             ?>
             <script>
-                window.alert("Welcome.");
+                window.alert("خوش آمدید.");
                 window.location.replace("../user");
             </script>
             <?php
@@ -511,7 +511,7 @@ if (isset($_GET['token'])) {
             } else {
                 ?>
                 <script>
-                    window.alert("Your account activated successfully.");
+                    window.alert("حساب شما فعال شد.");
                     window.location.replace("../user");
                 </script>
                 <?php
@@ -520,7 +520,7 @@ if (isset($_GET['token'])) {
         else {
             ?>
             <script>
-                window.alert("Something went wrong.");
+                window.alert("متاسفانه مشکلی پیش آمده است. بعدا تلاش کنید.");
                 window.location.replace(".");
             </script>
             <?php
@@ -556,7 +556,7 @@ if (isset($_GET['send'])) {
     $send->addAddress($email);
     $send->isHTML(true);
 
-    $link = "$host/account/activate.php?token=$token";
+    $link = "$host/account/index.php?token=$token";
 
     $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
     $bodyContent .= '<h3>You requested for activation email.</h3>';
@@ -572,7 +572,7 @@ if (isset($_GET['send'])) {
     } else {
         ?>
         <script>
-            window.alert("Email sent.");
+            window.alert("ایمیل ارسال شد.");
             window.location.replace(".");
         </script>
         <?php
