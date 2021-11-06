@@ -8,6 +8,10 @@ body {
     direction: rtl;
 }
 
+.index {
+    padding: 5%;
+}
+
 * {
     font-family: iransans;
     user-select: none;
