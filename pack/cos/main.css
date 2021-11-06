@@ -25,6 +25,14 @@ body {
     cursor: pointer;
 }
 
+.jnlink {
+    text-decoration: none;
+    color: navy;
+}
+.jnlink:hover {
+    color: purple;
+}
+
 .jnbg {
     background: linear-gradient(-45deg, purple, navy);
     background-size: 400% 400%;
