@@ -298,50 +298,51 @@ $theme = $row['theme'];
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div>
-                                            <p><i class="fa fa-user"></i> Change First Name</p>
+                                            <p><i class="fa fa-user"></i> تغییر نام</p>
                                             <input name="fname" type="text"
                                                 class="inp form-control-sm form-control"
-                                                placeholder="First Name">
+                                                placeholder="نام">
                                             <br>
-                                            <button class="btn btn-sm jbtn" name="updatefirstname">Change First Name</button>
+                                            <button class="btn btn-sm jnbtn" name="updatefirstname">تغییر نام</button>
                                         </div>
                                         <br>
                                     </div>
                                     <div class="col-md-6">
                                         <div>
-                                            <p><i class="fa fa-user"></i> Change Last Name</p>
+                                            <p><i class="fa fa-user"></i> تغییر نام خانوادگی</p>
                                             <input name="lname" type="text"
                                                 class="inp form-control-sm form-control"
-                                                placeholder="Last Name">
+                                                placeholder="نام خانوادگی">
                                             <br>
-                                            <button class="btn btn-sm jbtn" name="updatelastname">Change Last Name</button>
+                                            <button class="btn btn-sm jnbtn" name="updatelastname">تغییر نام خانوادگی</button>
                                         </div>
                                         <br>
                                     </div>
                                 </div>
+                                <hr>
                                 <div class="form-group">
-                                    <p><i class="fa fa-phone"></i> Change Phone</p>
+                                    <p><i class="fa fa-phone"></i> تغییر شماره همراه</p>
                                     <input name="phone" type="text"
                                         class="inp form-control-sm form-control"
-                                        placeholder="Phone">
+                                        placeholder="شماره همراه">
                                     <br>
-                                    <button class="btn btn-sm jbtn" name="updatephone">Change Phone</button>
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <p><i class="fa fa-envelope"></i> Change Email</p>
-                                    <input name="email" type="text"
-                                        class="inp form-control-sm form-control"
-                                        placeholder="Email">
-                                    <br>
-                                    <button class="btn btn-sm jbtn" name="updatemain">Change Email</button>
+                                    <button class="btn btn-sm jnbtn" name="updatephone">تغییر شماره همراه</button>
                                 </div>
                                 <hr>
                                 <div class="form-group">
-                                    <p><i class="fa fa-key"></i> Change Password</p>
+                                    <p><i class="fa fa-envelope"></i> تغییر ایمیل</p>
+                                    <input name="email" type="text"
+                                        class="inp form-control-sm form-control"
+                                        placeholder="ایمیل">
+                                    <br>
+                                    <button class="btn btn-sm jnbtn" name="updatemain">تغییر ایمیل</button>
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <p><i class="fa fa-key"></i> تغییر رمز</p>
                                     <input name="password" type="password"
                                         class="inp form-control-sm form-control"
-                                        placeholder="Current password">
+                                        placeholder="رمز فعلی">
                                 </div>
                                 <br>
                                 <div class="row">
@@ -349,7 +350,7 @@ $theme = $row['theme'];
                                         <div class="form-group">
                                             <input name="newpassword" type="password"
                                                 class="form-control inp form-control-sm"
-                                                placeholder="New Password">
+                                                placeholder="رمز جدید">
                                         </div>
                                         <br>
                                     </div>
@@ -357,12 +358,11 @@ $theme = $row['theme'];
                                         <div class="form-group">
                                             <input name="confirmpassword" type="password"
                                                 class="form-control inp form-control-sm"
-                                                placeholder="Confirm Password">
+                                                placeholder="تایید رمز جدید">
                                         </div>
                                     </div>
                                 </div>
-                                <br>
-                                <button name="updatepassword" type="submit" class="btn jbtn btn-sm">Change Password</button>
+                                <button name="updatepassword" type="submit" class="btn jnbtn btn-sm">تغییر رمز</button>
                             </form>
                         </div>
                     </div>
@@ -371,17 +371,17 @@ $theme = $row['theme'];
                 <div class="col-md-6">
                     <div class="dialog">
                         <div class="head">
-                            <h4><i class="fa fa-shield"></i> 2FA</h4>
+                            <h4><i class="fa fa-shield"></i> تایید دو مرحله ای</h4>
                         </div>
                         <div class="body">
                             <form method="post" action="index.php" class="">
                                 <div class="form-group">
-                                    <p><i class="fa fa-key"></i> Enter 2FA Email</p>
+                                    <p><i class="fa fa-key"></i> ایمیل خود را وارد کنید</p>
                                     <input name="email" type="text"
                                         class="inp form-control-sm form-control"
-                                        placeholder="2FA Email">
+                                        placeholder="ایمیل">
                                     <br>
-                                    <button class="btn btn-sm jbtn" name="enable2fa">Enable 2FA for my account</button>
+                                    <button class="btn btn-sm jnbtn" name="enable2fa">فعال سازی تایید دو مرحله ای</button>
                                 </div>
                             </form>
                         </div>
@@ -389,29 +389,29 @@ $theme = $row['theme'];
                     <br>
                     <div class="dialog">
                         <div class="head">
-                            <h4><i class="fa fa-moon-o"></i> Theme</h4>
+                            <h4><i class="fa fa-moon-o"></i> تم</h4>
                         </div>
                         <div class="body">
                             <form method="post" action="index.php" class="">
                                 <div class="form-group">
-                                    <p><i class="fa fa-sun"></i> Set your mode</p>
+                                    <p><i class="fa fa-sun"></i> تغییر تم</p>
                                     <div>
                                         <input type="radio" name="mode" value="dark" id="dark">
-                                        <label for="dark"><i class="fa fa-moon"></i> Dark Mode</label>
+                                        <label for="dark"><i class="fa fa-moon"></i> تم تاریک</label>
                                         &nbsp;
                                         <input type="radio" name="mode" value="light" id="light">
-                                        <label for="light"><i class="fa fa-sun"></i> Light Mode</label>
+                                        <label for="light"><i class="fa fa-sun"></i> تم روشن</label>
                                     </div>
                                     <br>
                                     <div>
                                         <input type="radio" name="mode" value="auto" id="auto">
-                                        <label for="auto"><i class="fa fa-sun"></i> Auto Mode</label>
+                                        <label for="auto"><i class="fa fa-sun"></i> تم اتوماتیک بنا بر سیستم</label>
                                     </div>
                                     <br>
-                                    <small>* Your current mode is <b><?php echo $row["theme"]; ?></b>.</small>
+                                    <small>* تم فعلی شما <b><?php echo $row["theme"]; ?></b> میباشد.</small>
                                     <br>
                                     <br>
-                                    <button class="btn btn-sm jbtn" name="changemode">Set mode</button>
+                                    <button class="btn btn-sm jnbtn" name="changemode">تغییر تم</button>
                                 </div>
                             </form>
                         </div>
