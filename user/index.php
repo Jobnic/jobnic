@@ -22,6 +22,20 @@ $theme = $row['theme'];
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Job Nic - User Panel</title>
+    <script>
+        function show(show) {
+            if (show == "profile") {
+                document.getElementById('profile').style.display = 'block';
+                document.getElementById('settings').style.display = 'none';
+            }
+            else if (show == "settings") {
+                document.getElementById('settings').style.display = 'block';
+                document.getElementById('profile').style.display = 'none';
+            }
+
+            return false;
+        }
+    </script>
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
 <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"-->
 <!--          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">-->
@@ -66,10 +80,10 @@ $theme = $row['theme'];
                 </li>
             </ul>
             <div class="navbar-nav" style="font-size: 12px;">
-                <a class="nav-link active jntext" onclick="show()"><i class="fa fa-user"></i> پروفایل</a>
-                <a class="nav-link active jntext" onclick="show()"><i class="fa fa-cogs"></i> تنظیمات</a>
-                <a class="nav-link active jntext" onclick="show()"><i class="fa fa-envelope"></i> تیکت ها</a>
-                <a class="nav-link active jntext" onclick="show()"><i class="fa fa-check"></i> آگهی های من</a>
+                <a class="nav-link active jntext jnpointer" onclick="return show('profile');"><i class="fa fa-user"></i> پروفایل</a>
+                <a class="nav-link active jntext jnpointer" onclick="return show('settings');"><i class="fa fa-cogs"></i> تنظیمات</a>
+                <a class="nav-link active jntext jnpointer" onclick="return show()"><i class="fa fa-envelope"></i> تیکت ها</a>
+                <a class="nav-link active jntext jnpointer" onclick="return show()"><i class="fa fa-check"></i> آگهی های من</a>
             </div>
         </div>
     </div>
@@ -92,7 +106,7 @@ $theme = $row['theme'];
     }
     ?>
     <div class="">
-        <div id="user" style="display: block;">
+        <div id="profile" style="display: block;">
             <div class="row">
                 <div class="col-md-4">
                     <div class="dialog">
@@ -192,6 +206,9 @@ $theme = $row['theme'];
                     <br>
                 </div>
             </div>
+        </div>
+        <div id="settings" style="display: none;">
+            Hi
         </div>
     </div>
 </div>
