@@ -187,9 +187,9 @@ else {
                 <button name="tfasubmit" class="btn jnbtn" type="submit">تایید</button>
             </form>
             <hr class="jnborder">
-            <p class="hints">
+            <!-- <p class="hints">
                 ارسال مجدد کد
-            </p>
+            </p> -->
             <!-- <p class="hints">
                 <a class="formslink" href="#" onclick="return show('forgot','login');">رمزم یادم رفت! بریم ریکاوری کنیم.</a>
                 <br>
@@ -199,12 +199,18 @@ else {
         <div id="auth" class="col-md-6 mainform overflow-auto" style="display:<?php echo $activation; ?>">
             <h3 class="jntext">فعال سازی حساب</h3>
             <br>
+            <p>
+                برای استفاده از سرویس های جاب نیک باید حساب خود را فعال نمایید.
+            </p>
             <hr class="jnborder">
             <div>
+                <b>نکته</b>
                 <small>ایمیل فعال سازی به <span class="jntext"><?php echo $row_user['email']; ?></span> ارسال شده است.</small>
             </div>
             <p class="hints">
-                ارسال مجدد کد
+                <small>
+                    <a href="index.php?send=true" class="formslink">ارسال مجدد ایمیل فعال سازی</a>
+                </small>
             </p>
             <!-- <p class="hints">
                 <a class="formslink" href="#" onclick="return show('forgot','login');">رمزم یادم رفت! بریم ریکاوری کنیم.</a>
