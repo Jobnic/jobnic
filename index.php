@@ -10,7 +10,7 @@ include("pack/config/config.php");
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Job Nic - Index</title>
+    <title>جاب نیک | صفحه اصلی</title>
 
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -44,17 +44,15 @@ include("pack/config/config.php");
 <div class="">
     <?php include("pack/panels/header.php"); ?>
     <br>
-    <div class="container">
-        <br>
-        <div class="row">
-            <div class="col-md-4 jntext">
-                <h3>Welcome to</h3>
-                <h1>Job Nic <b>Beta</b>!</h1>
-                <hr>
-                <p>Join now if <b>You wanna make money</b>!</p>
-                <p>Create your account today!</p>
-                <p><b>Jobnic, Beta version 0.5.11.</b></p>
-                <br>
+    <div class="container-fluid">
+        <div class="index">
+            <div class="row">
+                <div class="col-md-6 jntext">
+                    <h1>به جاب نیک خوش آمدید!</h1>
+                    <hr>
+                    <p>آگهی های خود را به صورت<b> رایگان </b>ثبت کنید.</p>
+                    <p>به صورت<b> رایگان </b>آگهی ببینید.</p>
+                </div>
             </div>
         </div>
     </div>
