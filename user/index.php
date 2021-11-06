@@ -70,12 +70,19 @@ $theme = $row['theme'];
                 <li class="nav-item">
                 </li>
             </ul>
-            <div class="navbar-nav" style="font-size: 12px;">
+            <div class="navbar-nav" style="font-size: 10px;">
                 <a class="nav-link active jntext jnpointer" onclick="return show('profile');"><i class="fa fa-user"></i> پروفایل</a>
                 <a class="nav-link active jntext jnpointer" onclick="return show('settings');"><i class="fa fa-cogs"></i> تنظیمات</a>
                 <a class="nav-link active jntext jnpointer" onclick="return show('tickets');"><i class="fa fa-envelope"></i> تیکت ها</a>
                 <a class="nav-link active jntext jnpointer" onclick="return show('jobs');"><i class="fa fa-check"></i> آگهی های من</a>
                 <a class="nav-link active jntext jnpointer" onclick="return show('applies');"><i class="fa fa-check"></i> درخواست های من</a>
+            </div>
+            <span class="jntext">
+            |
+            </span>
+            <div class="navbar-nav" style="font-size: 12px;">
+                <a class="nav-link active jntext jnlink" href="../jobs"><i class="fa fa-list"></i> اگهی ها</a>
+                <a class="nav-link active jntext jnlink" href="../account/logout.php"><i class="fa fa-sign-out"></i> خروج</a>
             </div>
         </div>
     </div>
