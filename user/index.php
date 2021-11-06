@@ -52,7 +52,45 @@ $theme = $row['theme'];
     <link href="../pack/cos/main.css" rel="stylesheet" type="text/css">
 </head>
 <body class="dash">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand jntext" href="<?php echo $path; ?>"><i class="fa fa-home"></i> صفحه اصلی</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                </li>
+            </ul>
+            <div class="navbar-nav" style="font-size: 12px;">
+                <a class="nav-link active jntext" onclick="show()"><i class="fa fa-user"></i> پروفایل</a>
+                <a class="nav-link active jntext" onclick="show()"><i class="fa fa-cogs"></i> تنظیمات</a>
+                <a class="nav-link active jntext" onclick="show()"><i class="fa fa-envelope"></i> تیکت ها</a>
+                <a class="nav-link active jntext" onclick="show()"><i class="fa fa-check"></i> آگهی های من</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<br>
 <div class="container-fluid">
+    <?php
+    if (count($errors) > 0) {
+        ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <p><strong>حواست کجاست,</strong></p>
+            <?php
+            foreach ($errors as $error) {
+                echo "<p>" . $error . "</p>";
+            }
+            ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php
+    }
+    ?>
     <div class="">
         <div id="user" style="display: block;">
             <div class="row">
@@ -70,7 +108,7 @@ $theme = $row['theme'];
                                         echo $row['bio'];
                                     }
                                     else {
-                                        echo "<i>بیو هنوز وارد نشده است.</i>";
+                                        echo "<i>بیوگرافی هنوز وارد نشده است.</i>";
                                     }
                                 ?>
                                 <br>
@@ -92,40 +130,27 @@ $theme = $row['theme'];
                         </div>
                         <div class="body">
                             <?php
-                            if (isset($row['skills'])) {
-                                ?>
-                                <p>
-                                <?php
-                                $colors = array("primary", 'danger', 'warning', 'info', 'success', 'dark', 'secondary');
-
-                                $dbskills = $row['skills'];
-                                $all = explode(" ", $dbskills);
-
-                                foreach ($all as $skill) {
-                                    $each = explode("-", $skill);
-
-                                    $color = rand(0, 6);
-
+                            $get_skills = "SELECT * FROM skills WHERE user = '$id'";
+                            $get_skills_result = mysqli_query($connection, $get_skills);
+                            if (mysqli_num_rows($get_skills_result) != 0) {
+                                while ($skill = mysqli_fetch_assoc($get_skills_result)) {
                                     ?>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-striped bg-success text-white progress-bar-animated"
-                                             role="progressbar" aria-valuenow="<?php echo $each[1]; ?>" aria-valuemin="0"
-                                             aria-valuemax="100" style="width: <?php echo $each[1]; ?>%;">
+                                        <div class="progress-bar jnbg"
+                                             role="progressbar" aria-valuenow="<?php echo $skill['skill_number']; ?>" aria-valuemin="0"
+                                             aria-valuemax="100" style="width: <?php echo $skill['skill_number']; ?>%;">
                                         </div>
                                     </div>
-                                    <span class="" style="font-size: 10px;"><?php echo $each[0] . " " . $each[1]; ?> %</span>
-                                    <a href="index.php?delete=skill">
+                                    <span class="" style="font-size: 10px;"><?php echo $skill['skill_name'] . " " . $skill['skill_number']; ?> %</span>
+                                    <a href="index.php?delskill=<?php echo $skill['skill_id']; ?>">
                                         <span style="float: left;" class="text-danger"><i class="fa fa-trash-o"></i></span>
                                     </a>
                                     <hr>
                                     <?php
                                 }
-                                ?>
-                                </p>
-                                <?php
                             }
                             else {
-                                echo "<p class='jntext'>توانایی اضافه نشده است</p>";
+                                echo "<p>توانایی ثبت نشده است.</p>";
                             }
                             ?>
                             <button data-toggle="modal" data-target="#addnewskill" class="btn btn-sm jnbtn">افزودن توانایی جدید</button>
@@ -207,6 +232,7 @@ $theme = $row['theme'];
         </div>
     </div>
 </div>
+<script src="https://cdn.neotrinost.ir/jobnic/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
