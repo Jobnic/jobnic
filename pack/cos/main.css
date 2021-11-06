@@ -180,3 +180,12 @@ body {
     padding: 5px;
     border-radius: 2px;
 }
+
+.delete {
+    color: red;
+    border: solid 1px red !important;
+}
+.jndelbtn {
+    background: red;
+    color: white;
+}
