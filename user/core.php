@@ -406,6 +406,23 @@ if (isset($_GET['delskill'])) {
     }
 }
 
+if (isset($_GET['delsocial'])) {
+    $media = $_GET['delsocial'];
+    $delete = "DELETE FROM socialmedia WHERE social_id = '$media'";
+
+    if (mysqli_query($connection, $delete)) {
+        ?>
+        <script>
+            window.alert("شبکه حذف شد");
+            window.location.replace(".");
+        </script>
+        <?php
+    }
+    else {
+        array_push($errors, mysqli_error($connection));
+    }
+}
+
 if (isset($_POST["closejob"])) {
     $userid = mysqli_real_escape_string($connection, $_POST["dider"]);
     $stars = mysqli_real_escape_string($connection, $_POST["star"]);
