@@ -21,6 +21,10 @@ body {
     border: solid 1px #000080 !important;
 }
 
+.jnpointer {
+    cursor: pointer;
+}
+
 .jnbg {
     background: linear-gradient(-45deg, purple, navy);
     background-size: 400% 400%;
