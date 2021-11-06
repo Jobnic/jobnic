@@ -189,3 +189,8 @@ body {
     background: red;
     color: white;
 }
+.jobdialog {
+    padding: 3%;
+    height: 100%;
+    border-radius: 5px;
+}
