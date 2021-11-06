@@ -291,22 +291,17 @@ $theme = $row['theme'];
                     <i data-dismiss="modal" aria-label="Close" class="selectable fa fa-times"></i>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <div class="">
-                                <select class="form-control">
-                                    <option data-content="<i class='fa fa-github'></i> aria-hidden='true'"></option>
-                                </select>
-                            </div>
-                            <br>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="">
-                                <input class="form-control">
-                            </div>
-                            <br>
-                        </div>
-                    </div>
+                    <select name="social" class="form-control">
+                        <option selected>شبکه اجتماعی را انتخاب کنید</option>
+                        <option value="github">گیتهاب</option>
+                        <option value="linkedin">لینکدین</option>
+                        <option value="twitter">توییتر</option>
+                        <option value="facebook">فیسبوک</option>
+                        <option value="quora">کوئورا</option>
+                        <option value="instagram">اینستاگرام</option>
+                    </select>
+                    <br>
+                    <input name="username" class="form-control" placeholder="نام کاربری خود را در این شبکه وارد کنید">
                 </div>
                 <div class="modal-footer">
                     <button type="submit" name="updatemedia" class="btn jnbtn">اضافه کردن</button>
