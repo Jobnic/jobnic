@@ -1,3 +1,3 @@
-<script>
-    window.location.replace("../");
-</script>
+<?php
+
+echo "واقعا دنبال جی هستی!؟";
