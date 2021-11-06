@@ -126,7 +126,7 @@ $theme = $row['theme'];
                 <div class="col-md-4">
                     <div class="dialog">
                         <div class="head">
-                            <h4><i class="fa fa-id-card"></i> توانایی های شما</h4>
+                            <h4><i class="fa fa-wrench"></i> توانایی های شما</h4>
                         </div>
                         <div class="body">
                             <?php
@@ -161,67 +161,30 @@ $theme = $row['theme'];
                 <div class="col-md-4">
                     <div class="dialog">
                         <div class="head">
-                            <h4><i class="fa fa-id-card"></i> شبکه های اجتماعی</h4>
+                            <h4><i class="fa fa-cloud"></i> شبکه های اجتماعی</h4>
                         </div>
                         <div class="body">
-                            <?php
-                            if (isset($row['linkedin'])) {
-                                ?>
-                                <p>
-                                    <a target="_blank" class="link" href="https://linkedin.com/in/<?php echo $row['linkedin']; ?>">
-                                        <i class="icon fa fa-linkedin text-white bg-primary"></i>&nbsp;لینکدین
-                                    </a>
-                                </p>
-                                <?php
+                        <?php
+                            $get_social = "SELECT * FROM socialmedia WHERE user = '$id'";
+                            $get_social_result = mysqli_query($connection, $get_social);
+                            if (mysqli_num_rows($get_social_result) != 0) {
+                                while ($media = mysqli_fetch_assoc($get_social_result)) {
+                                    ?>
+                                    <p>
+                                        <i class="fa fa-<?php echo $media['social_media']; ?>"></i>
+                                        |
+                                        <?php echo $media['social_link']; ?>
+                                        <a href="index.php?delsocial=<?php echo $media['social_id']; ?>">
+                                            <span style="float: left;" class="text-danger"><i class="fa fa-trash-o"></i></span>
+                                        </a>
+                                    </p>
+                                    <hr>
+                                    <?php
+                                }
                             }
-                            if (isset($row['github'])) {
-                                ?>
-                                <p>
-                                    <a target="_blank" class="link" href="https://github.com/<?php echo $row['github']; ?>">
-                                        <i class="icon fa fa-github text-white bg-dark"></i>&nbsp;گیتهاب
-                                    </a>
-                                </p>
-                                <?php
+                            else {
+                                echo "<p>شبکه ای ثبت نشده است.</p>";
                             }
-                            if (isset($row['telegram'])) {
-                                ?>
-                                <p>
-                                    <a target="_blank" class="link" href="https://t.me/<?php echo $row['telegram']; ?>">
-                                        <i class="icon fa fa-telegram text-white bg-primary"></i>&nbsp;تلگرام
-                                    </a>
-                                </p>
-                                <?php
-                            }
-                            if (isset($row['instagram'])) {
-                                ?>
-                                <p>
-                                    <a target="_blank" class="link" href="https://instagram.com/<?php echo $row['instagram']; ?>">
-                                        <i class="icon fa fa-instagram text-white bg-danger"></i>&nbsp;اینستاگرام
-                                    </a>
-                                </p>
-                                <?php
-                            }
-                            if (isset($row['twitter'])) {
-                                ?>
-                                <p>
-                                    <a target="_blank" class="link" href="https://twitter.com/<?php echo $row['twitter']; ?>">
-                                        <i class="icon fa fa-twitter text-white bg-info"></i>&nbsp;توئیتر
-                                    </a>
-                                </p>
-                                <?php
-                            }
-                            if (isset($row['facebook'])) {
-                                ?>
-                                <p>
-                                    <a target="_blank" class="link" href="https://facebook.com/<?php echo $row['facebook']; ?>">
-                                        <i class="icon fa fa-facebook text-white bg-primary"></i>&nbsp;فیسبوک
-                                    </a>
-                                </p>
-                                <?php
-                            }
-//                            else {
-//                                echo "<p class='jntext'>شبکه اجتماعی وارد نشده است.</p>";
-//                            }
                             ?>
                             <button data-toggle="modal" data-target="#addnewmedia" class="btn btn-sm jnbtn">افزودن شبکه اجتماعی</button>
                         </div>
