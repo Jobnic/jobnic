@@ -206,6 +206,85 @@ $theme = $row['theme'];
                     <br>
                 </div>
             </div>
+            <br>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="dialog">
+                        <div class="head">
+                            <h4><i class="fa fa-check"></i> کار های انجام شده</h4>
+                        </div>
+                        <div class="body">
+                            <?php
+                            $get_jobs = "SELECT * FROM jobs WHERE person = '$id'";
+                            $job_result = mysqli_query($connection, $get_jobs);
+                            if (mysqli_num_rows($job_result) > 0) {
+                                ?>
+                                <div class="table-responsive">
+                                    <table class="table table-hover text-center table-bordered border-dark table-sm">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">موضوع</th>
+                                            <th scope="col">نوع</th>
+                                            <th scope="col">زمان</th>
+                                            <th scope="col">ستاره</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                        while ($job_row = mysqli_fetch_assoc($job_result)) {
+                                            ?>
+                                            <tr>
+                                                <th scope="row"><?php echo $job_row['title']; ?></th>
+                                                <td><?php echo $job_row['type']; ?></td>
+                                                <td><?php echo $job_row['closed']; ?></td>
+                                                <td><?php echo $job_row['stars']; ?></td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <?php
+                            }
+                            else {
+                                echo "<p>تاکنون کاری انجام نداده اید.</p>";
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div class="col-md-4">
+                    <div class="dialog">
+                        <div class="head">
+                            <h4><i class="fa fa-award"></i> درخواست برای لیبل</h4>
+                        </div>
+                        <div class="body">
+                            <p>
+                                <?php
+                                if (is_null($row['verified'])) {
+                                    echo '<a class="jnlink" href="index.php?request=label&type=verified">درخواست برای <b><i class="fa fa-award"></i> لیبل تایید</b> را ثبت کنید.</a>';
+                                }
+                                else {
+                                    echo "<p>شما لیبل تاییده را دریافت کرده اید.</p>";
+                                }
+                                ?>
+                            </p>
+                            <p>
+                                <?php
+                                if (is_null($row['awesome'])) {
+                                    echo '<a class="jnlink" href="index.php?request=label&type=trophy">درخواست برای <b><i class="fa fa-trophy"></i> لیبل جام</b> را ثبت کنید.</a>';
+                                }
+                                else {
+                                    echo "<p>شما لیبل جام را دریافت کرده اید.</p>";
+                                }
+                                ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="settings" style="display: none;">
             Hi
