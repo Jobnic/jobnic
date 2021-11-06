@@ -442,7 +442,7 @@ $theme = $row['theme'];
         </div>
         <div id="jobs" style="display: none;">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-7">
                     <div class="dialog">
                         <div class="head">
                             <h4><i class="fa fa-plus"></i> اضافه کردن پروژه جدید</h4>
@@ -484,14 +484,14 @@ $theme = $row['theme'];
                                         </label>
                                     </div>
                                     <br>
-                                    <button name="addjob" class="btn jnbtn btn-sm">Add project</button>
+                                    <button name="addjob" class="btn jnbtn btn-sm">انتشار آگهی</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <br>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="dialog">
                         <div class="head">
                             <h4><i class="fa fa-list"></i> آگهی ها</h4>
@@ -526,149 +526,163 @@ $theme = $row['theme'];
                     </div>
                     <br>
                 </div>
-                <div class="col-md-4">
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
                     <div class="dialog">
                         <div class="head">
-                            <h4><i class="fa fa-eye"></i> پیش نمایش آگهی</h4>
+                            <h4><i class="fa fa-list"></i> پیش نمایش آگهی</h4>
                         </div>
                         <div class="body">
+                            <div class="row">
                             <?php
-
-                            if (count($job) > 0) {
-                                if ($job[0] == false) {
-                                    echo '<p>متاسفانه، آگهی شما پیدا نشد.</p>';
-                                }
-                                else {
-                                    ?>
-                                    <div>
-                                        <span style="float: left;" class="btn jnout btn-sm"><?php echo $job[0]['type']; ?></span>
-                                        <span style="float: left;">&nbsp;</span>
-                                        <span style="float: left" class="btn btn-sm jnout">
-                                            <i class="fa fa-eye"></i>
-                                            <?php
-                                            if (isset($job[0]['views'])) {
-                                                echo $job[0]["views"];
-                                            }
-                                            else {
-                                                echo "0";
-                                            }
-                                            ?>
-                                        </span>
-                                        <p><b><?php echo $job[0]['title']; ?></b></p>
-                                        <p><?php echo $job[0]['describe']; ?></p>
-                                        <p style="font-size: 14px;"><?php echo $job[0]['datetime']; ?></p>
-                                        <?php
-                                        $skills = explode(" ", $job[0]['skills']);
-
-                                        foreach ($skills as $skill) {
-                                            echo "<p class='btn jnout btn-sm'>$skill</p>&nbsp;";
-                                        }
+                                if (count($job) > 0) {
+                                    if ($job[0] == false) {
+                                        echo '<p>متاسفانه، آگهی شما پیدا نشد.</p>';
+                                    }
+                                    else {
                                         ?>
-                                        <br>
-                                        <hr>
-                                        <p><b>درخواست ها</b></p>
-                                        <?php
-                                        $jobid = $job[0]['jobid'];
-                                        $get_applied = "SELECT * FROM applies WHERE job = '$jobid' ORDER BY row DESC";
-                                        $res_applied = mysqli_query($connection, $get_applied);
-                                        if (mysqli_num_rows($result_jobs) != 0) {
-                                            ?>
-                                            <table class="table table-striped table-responsive table-bordered jnborder">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">کاربر</th>
-                                                        <th scope="col">تاریخ</th>
-                                                        <th scope="col">عملیات</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+                                        <div class="col-md-4">
+                                            <div>
+                                                <span style="float: left;" class="btn jnout btn-sm"><?php echo $job[0]['type']; ?></span>
+                                                <span style="float: left;">&nbsp;</span>
+                                                <span style="float: left" class="btn btn-sm jnout">
+                                                    <i class="fa fa-eye"></i>
                                                     <?php
-                                                    while ($apply = mysqli_fetch_assoc($res_applied)) {
-                                                        $user = $apply['userid'];
-                                                        $get_user = "SELECT * FROM people WHERE id = '$user'";
-                                                        $res_user = mysqli_query($connection, $get_user);
-                                                        $row_user = mysqli_fetch_assoc($res_user);
-
-                                                        $user_name = $row_user["firstname"] . " " . $row_user["firstname"];
-                                                        ?>
-                                                        <tr>
-                                                            <td><a class="link" href="user.php?userid=<?php echo $user; ?>"><?php echo $user_name; ?></a></td>
-                                                            <td><?php echo $apply["dt"]; ?></td>
-                                                            <td>
-                                                                <a href="index.php?act=check&user=<?php echo $user; ?>&jobid=<?php echo $jobid; ?>" class="text-success jnlink">
-                                                                    <i class="fa fa-check"></i>
-                                                                </a>
-                                                                |
-                                                                <a href="index.php?act=times&user=<?php echo $user; ?>&jobid=<?php echo $jobid; ?>" class="text-danger jnlink">
-                                                                    <i class="fa fa-times"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <?php
+                                                    if (isset($job[0]['views'])) {
+                                                        echo $job[0]["views"];
+                                                    }
+                                                    else {
+                                                        echo "0";
                                                     }
                                                     ?>
-                                                </tbody>
-                                            </table>
-                                            <?php
-                                        }
-                                        else {
-                                            echo "<p>هنوز درخواستی ثبت نشده است.</p>";
-                                        }
-                                        ?>
-                                        <hr>
+                                                </span>
+                                                <p><b><?php echo $job[0]['title']; ?></b></p>
+                                                <p><?php echo $job[0]['describe']; ?></p>
+                                                <p style="font-size: 14px;"><?php echo $job[0]['datetime']; ?></p>
+                                                <?php
+                                                $skills = explode(" ", $job[0]['skills']);
+
+                                                foreach ($skills as $skill) {
+                                                    echo "<p class='btn jnout btn-sm'>$skill</p>&nbsp;";
+                                                }
+                                                ?>
+                                            </div>
+                                            <br>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div>
+                                                <p><b>درخواست ها</b></p>
+                                                <?php
+                                                $jobid = $job[0]['jobid'];
+                                                $get_applied = "SELECT * FROM applies WHERE job = '$jobid' ORDER BY row DESC";
+                                                $res_applied = mysqli_query($connection, $get_applied);
+                                                if (mysqli_num_rows($result_jobs) != 0) {
+                                                    ?>
+                                                    <table class="table table-striped table-responsive table-bordered jnborder">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">کاربر</th>
+                                                                <th scope="col">تاریخ</th>
+                                                                <th scope="col">عملیات</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php
+                                                            while ($apply = mysqli_fetch_assoc($res_applied)) {
+                                                                $user = $apply['userid'];
+                                                                $get_user = "SELECT * FROM people WHERE id = '$user'";
+                                                                $res_user = mysqli_query($connection, $get_user);
+                                                                $row_user = mysqli_fetch_assoc($res_user);
+
+                                                                $user_name = $row_user["firstname"] . " " . $row_user["firstname"];
+                                                                ?>
+                                                                <tr>
+                                                                    <td><a class="link" href="user.php?userid=<?php echo $user; ?>"><?php echo $user_name; ?></a></td>
+                                                                    <td><?php echo $apply["dt"]; ?></td>
+                                                                    <td>
+                                                                        <a href="index.php?act=check&user=<?php echo $user; ?>&jobid=<?php echo $jobid; ?>" class="text-success jnlink">
+                                                                            <i class="fa fa-check"></i>
+                                                                        </a>
+                                                                        |
+                                                                        <a href="index.php?act=times&user=<?php echo $user; ?>&jobid=<?php echo $jobid; ?>" class="text-danger jnlink">
+                                                                            <i class="fa fa-times"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                        </tbody>
+                                                    </table>
+                                                    <?php
+                                                }
+                                                else {
+                                                    echo "<p>هنوز درخواستی ثبت نشده است.</p>";
+                                                }
+                                                ?>
+                                            </div>
+                                            <br>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div>
+                                                <?php
+                                                if ($job[0]['status'] == 'false') {
+                                                    echo "<p class=''><b>این آگهی بسته شده است</b></p>";
+                                                    echo "<p class=''>" . $job[0]['closed'] . "</p>";
+                                                }
+                                                else {
+                                                    ?>
+                                                    <p>اگر از کاربران جاب نیک این آگهی را انجام داده است، فرم زیر را پر نمایید.</p>
+                                                    <form action="index.php" method="post">
+                                                        <div class="row">
+                                                            <div class="form-group">
+                                                                <input name="jobid" type="number"
+                                                                    class="form-control-sm form-control"
+                                                                    placeholder="کد آگهی" value="<?php echo $job[0]['jobid']; ?>">
+                                                                <small class="jntext">کد آگهی</small>
+                                                                <br>
+                                                                <br>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <input name="dider" type="number"
+                                                                        class="form-control form-control-sm"
+                                                                        placeholder="کد کاربر">
+                                                                    <small class="jntext">کد کاربر را وارد کنید</small>
+                                                                </div>
+                                                                <br>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <input max="5" name="star" type="number"
+                                                                        class="form-control form-control-sm"
+                                                                        placeholder="تعداد ستاره ها">
+                                                                    <small class="jntext">از 1 تا پنج به کاربر ستاره دهید</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                        <button class="btn btn-sm jnbtn" name="closejob">بستن آگهی با و امتیاز دهی</button>
+                                                    </form>
+                                                    <hr>
+                                                    <p>اگر کسی از جاب نیک این کار را انجام نداده است، از این طریق آگهی را ببندید.</p>
+                                                    <a class="btn jnbtn btn-sm" href="index.php?close=<?php echo $job['0']['jobid']; ?>">بستن آگهی</a>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </div>
+                                            <br>
+                                        </div>
                                         <?php
-                                        if ($job[0]['status'] == 'false') {
-                                            echo "<p class=''><b>این آگهی بسته شده است</b></p>";
-                                            echo "<p class=''>" . $job[0]['closed'] . "</p>";
-                                        }
-                                        else {
-                                            ?>
-                                            <p>اگر از کاربران جاب نیک این آگهی را انجام داده است، فرم زیر را پر نمایید.</p>
-                                            <form action="index.php" method="post">
-                                                <div class="row">
-                                                    <div class="form-group">
-                                                        <input name="jobid" type="number"
-                                                            class="form-control-sm form-control"
-                                                            placeholder="کد آگهی" value="<?php echo $job[0]['jobid']; ?>">
-                                                        <small class="jntext">کد آگهی</small>
-                                                        <br>
-                                                        <br>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <input name="dider" type="number"
-                                                                class="form-control form-control-sm"
-                                                                placeholder="کد کاربر">
-                                                            <small class="jntext">کد کاربر را وارد کنید</small>
-                                                        </div>
-                                                        <br>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <input max="5" name="star" type="number"
-                                                                class="form-control form-control-sm"
-                                                                placeholder="تعداد ستاره ها">
-                                                            <small class="jntext">از 1 تا پنج به کاربر ستاره دهید</small>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <button class="btn btn-sm jnbtn" name="closejob">بستن آگهی با و امتیاز دهی</button>
-                                            </form>
-                                            <hr>
-                                            <p>اگر کسی از جاب نیک این کار را انجام نداده است، از این طریق آگهی را ببندید.</p>
-                                            <a class="btn jnbtn btn-sm" href="index.php?close=<?php echo $job['0']['jobid']; ?>">بستن آگهی</a>
-                                            <?php
-                                        }
-                                        ?>
-                                    </div>
-                                    <?php
+                                    }
                                 }
-                            }
-                            else {
-                                echo '<p>ابتدا آگهی را انتخاب کنید.</p>';
-                            }
-                            ?>
+                                else {
+                                    echo '<p>ابتدا آگهی را انتخاب کنید.</p>';
+                                }
+                                ?>
+                            </div>
                         </div>
                     </div>
                     <br>
