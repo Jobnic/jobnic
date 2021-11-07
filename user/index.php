@@ -562,7 +562,7 @@ $theme = $row['theme'];
                                     while ($apply = mysqli_fetch_assoc($result_applies)) {
                                         ?>
                                         <tr>
-                                            <td><a class="link" href="../jobs/job.php?jobid=<?php echo $apply['job']; ?>"><?php echo $apply['job']; ?></a></td>
+                                            <td><a class="jnlink" href="../jobs/job.php?jobid=<?php echo $apply['job']; ?>"><?php echo $apply['job']; ?></a></td>
                                             <td><?php echo $apply["dt"]; ?></td>
                                         </tr>
                                         <?php
