@@ -43,7 +43,7 @@ include('core.php');
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Job Nic - Job Review</title>
+    <title>جاب نیک - نمایش آگهی</title>
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
     <link href="../pack/cos/main.css" type="text/css" rel="stylesheet">
     <link href="../pack/css/bootstrap.min.css" type="text/css" rel="stylesheet">
@@ -122,7 +122,7 @@ include('core.php');
                                 <h3 class="text-primary"><i class="fa fa-pencil text-primary"></i> درخواست برای کار</h3>
                                 <hr class="border border-primary">
                                 <p class="text-primary">با کلیک کردن روی دکمه زیر، میتوانید یک درخواست برای این آگهی ثبت نمایید.</p>
-                                <a href="job.php?send=true&job=<?php echo $jobid; ?>" class="btn btn-primary">Send my application</a>
+                                <a href="job.php?send=true&job=<?php echo $jobid; ?>" class="btn btn-primary">ارسال درخواست من</a>
                             <?php
                         }
                         else {
