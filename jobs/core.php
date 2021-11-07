@@ -82,7 +82,7 @@ if ($_GET['send']) {
             } else {
                 ?>
                 <script>
-                    window.alert("Applied successfully");
+                    window.alert("درخواست با موفقیت ثبت شد");
                     window.location.replace(".");
                 </script>
                 <?php
