@@ -89,7 +89,7 @@ else {
 <div class="container-fluid">
     <div class="">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-7">
                 <div class="dialog">
                     <div class="head">
                         <h4><i class="fa fa-info"></i> اطلاعات آگهی</h4>
@@ -122,64 +122,7 @@ else {
                 </div>
                 <br>
             </div>
-            <div class="col-md-4">
-                <div class="dialog">
-                    <div class="head">
-                        <h4><i class="fa fa-pencil"></i> درخواست ها</h4>
-                    </div>
-                    <div class="body">
-                        <?php
-                        $get_applied = "SELECT * FROM applies WHERE job = '$jobid' ORDER BY `row` DESC";
-                        $res_applied = mysqli_query($connection, $get_applied);
-                        if (mysqli_num_rows($res_applied) != 0) {
-                            ?>
-                            <table class="table table-striped table-responsive table-bordered jnborder">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">کاربر</th>
-                                        <th scope="col">تاریخ</th>
-                                        <th scope="col">عملیات</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    while ($apply = mysqli_fetch_assoc($res_applied)) {
-                                        $user = $apply['userid'];
-                                        $get_user = "SELECT * FROM people WHERE id = '$user'";
-                                        $res_user = mysqli_query($connection, $get_user);
-                                        $row_user = mysqli_fetch_assoc($res_user);
-
-                                        $user_name = $row_user["firstname"] . " " . $row_user["firstname"];
-                                        ?>
-                                        <tr>
-                                            <td><a class="link" href="user.php?userid=<?php echo $user; ?>"><?php echo $user_name; ?></a></td>
-                                            <td><?php echo $apply["dt"]; ?></td>
-                                            <td>
-                                                <a href="index.php?act=check&user=<?php echo $user; ?>&jobid=<?php echo $jobid; ?>" class="text-success jnlink">
-                                                    <i class="fa fa-check"></i>
-                                                </a>
-                                                |
-                                                <a href="index.php?act=times&user=<?php echo $user; ?>&jobid=<?php echo $jobid; ?>" class="text-danger jnlink">
-                                                    <i class="fa fa-times"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
-                            <?php
-                        }
-                        else {
-                            echo "<p>هنوز درخواستی ثبت نشده است.</p>";
-                        }
-                        ?>
-                    </div>
-                </div>
-                <br>
-            </div>
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <div class="dialog">
                     <div class="head">
                         <h4><i class="fa fa-times"></i> بستن آگهی</h4>
@@ -234,6 +177,64 @@ else {
                 </div>
                 <br>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="dialog">
+                    <div class="head">
+                        <h4><i class="fa fa-pencil"></i> درخواست ها</h4>
+                    </div>
+                    <div class="body">
+                        <?php
+                        $get_applied = "SELECT * FROM applies WHERE job = '$jobid' ORDER BY `row` DESC";
+                        $res_applied = mysqli_query($connection, $get_applied);
+                        if (mysqli_num_rows($res_applied) != 0) {
+                            ?>
+                            <table class="table table-striped table-responsive table-bordered jnborder">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">کاربر</th>
+                                        <th scope="col">تاریخ</th>
+                                        <th scope="col">عملیات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    while ($apply = mysqli_fetch_assoc($res_applied)) {
+                                        $user = $apply['userid'];
+                                        $get_user = "SELECT * FROM people WHERE id = '$user'";
+                                        $res_user = mysqli_query($connection, $get_user);
+                                        $row_user = mysqli_fetch_assoc($res_user);
+
+                                        $user_name = $row_user["firstname"] . " " . $row_user["lastname"];
+                                        ?>
+                                        <tr>
+                                            <td><a class="link" href="user.php?userid=<?php echo $user; ?>"><?php echo $user_name; ?></a></td>
+                                            <td><?php echo $apply["dt"]; ?></td>
+                                            <td>
+                                                <a href="index.php?act=check&user=<?php echo $user; ?>&jobid=<?php echo $jobid; ?>" class="text-success jnlink">
+                                                    <i class="fa fa-check"></i>
+                                                </a>
+                                                |
+                                                <a href="index.php?act=times&user=<?php echo $user; ?>&jobid=<?php echo $jobid; ?>" class="text-danger jnlink">
+                                                    <i class="fa fa-times"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                            <?php
+                        }
+                        else {
+                            echo "<p>هنوز درخواستی ثبت نشده است.</p>";
+                        }
+                        ?>
+                    </div>
+                </div>
+                <br>
             </div>
         </div>
     </div>
