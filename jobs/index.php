@@ -16,7 +16,7 @@ $theme = $row['theme'];
 if ($stat != true) {
     ?>
     <script>
-        window.alert("For review jobs you should login first");
+        window.alert("برای نمایش آگهی ها ابتدا به حساب خود وارد شوید");
         window.location.replace("../");
     </script>
     <?php
@@ -42,7 +42,7 @@ $result_jobs = mysqli_query($connection, $get_jobs);
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Job Nic - Jobs</title>
+    <title>جاب نیک - آگهی ها</title>
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
     <!-- <link href="https://cdn.neotrinost.ir/jobnic/css/main.css" type="text/css" rel="stylesheet"> -->
     <link href="../pack/cos/main.css" type="text/css" rel="stylesheet">
