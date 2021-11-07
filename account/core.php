@@ -2,12 +2,12 @@
 
 session_start();
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
 require '../pack/mailer/vendor/phpmailer/phpmailer/src/Exception.php';
 require '../pack/mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require '../pack/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 include("../pack/config/config.php");
 
@@ -88,7 +88,7 @@ if (isset($_POST['login'])) {
 
                 ?>
                 <script>
-                    window.alert("Welcome.");
+                    window.alert("خوش آمدید");
                     window.location.replace("../user");
                 </script>
                 <?php
@@ -136,7 +136,7 @@ if (isset($_POST['login'])) {
                 }
             }
         } else {
-            array_push($errors, "Mail and password are not match");
+            array_push($errors, "ایمیل و رمز درست نمیباشد");
         }
     }
 }
