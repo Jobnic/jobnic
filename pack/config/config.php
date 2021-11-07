@@ -2,18 +2,18 @@
 
 // Database config
 $server = "localhost";
-$user = "amir";
-$passwd = "amir";
-$db = "jobnic";
+$user = "jobnicne";
+$passwd = ":v:510l6HxNQjA";
+$db = "jobnicne_jobnic";
 
 // Create connection
 $connection = mysqli_connect($server, $user, $passwd, $db);
 
 // Site
-$host = "http://127.0.0.1/jobnic";
+$host = "https://jobnic.net";
 
 // Server
-$path = "/jobnic";
+$path = "https://jobnic.net";
 
 // Mail config
 $mailaddr = "no-replay@jobnic.net";
