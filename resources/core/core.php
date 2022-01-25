@@ -16,6 +16,7 @@ $phones = mysqli_fetch_assoc(mysqli_query($connection, "SELECT phone FROM people
 
 $errors = array();
 
+// Login
 if (isset($_POST['login'])) {
     $mail = mysqli_real_escape_string($connection, $_POST['mail']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
@@ -39,6 +40,7 @@ if (isset($_POST['login'])) {
     }
 }
 
+// Register
 if (isset($_POST['create'])) {
     $fname = mysqli_real_escape_string($connection, $_POST['firstname']);
     $lname = mysqli_real_escape_string($connection, $_POST['lastname']);
@@ -108,4 +110,10 @@ if (isset($_POST['create'])) {
             }
         }
     }
+}
+
+// Logout
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header('location:' . $path);
 }
