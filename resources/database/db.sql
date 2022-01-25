@@ -1,169 +1,118 @@
--- MariaDB dump 10.19  Distrib 10.5.11-MariaDB, for Linux (x86_64)
---
--- Host: localhost    Database: jobnic
--- ------------------------------------------------------
--- Server version	10.5.11-MariaDB
-
---
--- Table structure for table `jobs`
---
-
-DROP TABLE IF EXISTS `jobs`;
-CREATE TABLE `jobs`
+CREATE TABLE IF NOT EXISTS `jobs`
 (
-    `row`      int(11) NOT NULL AUTO_INCREMENT,
-    `jobid`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `type`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `user`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `title`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `describe` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `skills`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `datetime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `closed`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `price`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `person`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `status`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `views`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `stars`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `nes`      text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `row`      INT(11) AUTO_INCREMENT,
+    `jobid`    TEXT,
+    `type`     TEXT,
+    `user`     TEXT,
+    `title`    TEXT,
+    `describe` TEXT,
+    `skills`   TEXT,
+    `datetime` TEXT,
+    `closed`   TEXT,
+    `price`    TEXT,
+    `person`   TEXT,
+    `status`   TEXT,
+    `views`    TEXT,
+    `stars`    TEXT,
+    `nes`      TEXT,
     PRIMARY KEY (`row`)
 );
 
---
--- Table structure for table `messages`
---
-
-DROP TABLE IF EXISTS `messages`;
-CREATE TABLE `messages`
+CREATE TABLE IF NOT EXISTS `messages`
 (
-    `row`      int(11) NOT NULL AUTO_INCREMENT,
-    `msgid`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `fullname` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `email`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `phone`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `message`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `datetime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `stat`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `row`      INT(11) AUTO_INCREMENT,
+    `msgid`    TEXT,
+    `fullname` TEXT,
+    `email`    TEXT,
+    `phone`    TEXT,
+    `message`  TEXT,
+    `datetime` TEXT,
+    `stat`     TEXT,
     PRIMARY KEY (`row`)
 );
 
---
--- Table structure for table `people`
---
-
-DROP TABLE IF EXISTS `people`;
-CREATE TABLE `people`
+CREATE TABLE IF NOT EXISTS `people`
 (
-    `row`       int(11) NOT NULL AUTO_INCREMENT,
-    `id`        text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `bio`       text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `firstname` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `lastname`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `phone`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `email`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `password`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `join`      text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `stars`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `status`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `views`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `active`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `token`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `theme`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `2fa`       text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `2facode`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `verified`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `awesome`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `row`       INT(11) AUTO_INCREMENT,
+    `id`        TEXT,
+    `bio`       TEXT,
+    `firstname` TEXT,
+    `lastname`  TEXT,
+    `phone`     TEXT,
+    `email`     TEXT,
+    `password`  TEXT,
+    `join`      TEXT,
+    `stars`     TEXT,
+    `status`    TEXT,
+    `views`     TEXT,
+    `active`    TEXT,
+    `token`     TEXT,
+    `theme`     TEXT,
+    `2fa`       TEXT,
+    `2facode`   TEXT,
+    `verified`  TEXT,
+    `awesome`   TEXT,
     PRIMARY KEY (`row`)
 );
 
---
--- Table structure for table `reports`
---
-
-DROP TABLE IF EXISTS `reports`;
-CREATE TABLE `reports`
+CREATE TABLE IF NOT EXISTS `reports`
 (
-    `row`      int(11) NOT NULL AUTO_INCREMENT,
-    `reportid` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `user`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `datetime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `row`      INT(11) AUTO_INCREMENT,
+    `reportid` TEXT,
+    `user`     TEXT,
+    `datetime` TEXT,
     PRIMARY KEY (`row`)
 );
 
---
--- Table structure for table `ticks`
---
-
-DROP TABLE IF EXISTS `ticks`;
-CREATE TABLE `ticks`
+CREATE TABLE IF NOT EXISTS `ticks`
 (
-    `row`      int(11) NOT NULL AUTO_INCREMENT,
-    `tikid`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `user`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `title`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `describe` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `datetime` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `answered` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `status`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `row`      INT(11) AUTO_INCREMENT,
+    `tikid`    TEXT,
+    `user`     TEXT,
+    `title`    TEXT,
+    `describe` TEXT,
+    `datetime` TEXT,
+    `answered` TEXT,
+    `status`   TEXT,
     PRIMARY KEY (`row`)
 );
 
---
--- Table structure for table `applies`
---
-
-DROP TABLE IF EXISTS `applies`;
-CREATE TABLE `applies`
+CREATE TABLE IF NOT EXISTS `applies`
 (
-    `row`    int(11) NOT NULL AUTO_INCREMENT,
-    `dt`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `job`    text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `userid` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `row`    INT(11) AUTO_INCREMENT,
+    `dt`     TEXT,
+    `job`    TEXT,
+    `userid` TEXT,
     PRIMARY KEY (`row`)
 );
 
---
--- Table structure for table `applies`
---
-
-DROP TABLE IF EXISTS `requests`;
-CREATE TABLE `requests`
+CREATE TABLE IF NOT EXISTS `requests`
 (
-    `row`    int(11) NOT NULL AUTO_INCREMENT,
-    `type`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `userid` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `reqid`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `dt`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `status` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `row`    INT(11) AUTO_INCREMENT,
+    `type`   TEXT,
+    `userid` TEXT,
+    `reqid`  TEXT,
+    `dt`     TEXT,
+    `status` TEXT,
     PRIMARY KEY (`row`)
 );
 
---
--- Table structure for table `skills`
---
-
-DROP TABLE IF EXISTS `skills`;
-CREATE TABLE `skills`
+CREATE TABLE IF NOT EXISTS `skills`
 (
-    `row`    int(11) NOT NULL AUTO_INCREMENT,
-    `user`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `skill_id` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `skill_name`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `skill_number`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `row`          INT(11) AUTO_INCREMENT,
+    `user`         TEXT,
+    `skill_id`     TEXT,
+    `skill_name`   TEXT,
+    `skill_number` TEXT,
     PRIMARY KEY (`row`)
 );
 
---
--- Table structure for table `socialmedia`
---
-
-DROP TABLE IF EXISTS `socialmedia`;
-CREATE TABLE `socialmedia`
+CREATE TABLE IF NOT EXISTS `socialmedia`
 (
-    `row`    int(11) NOT NULL AUTO_INCREMENT,
-    `user`   text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `social_id` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `social_media`  text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    `social_link`     text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `row`          INT(11) AUTO_INCREMENT,
+    `user`         TEXT,
+    `social_id`    TEXT,
+    `social_media` TEXT,
+    `social_link`  TEXT,
     PRIMARY KEY (`row`)
 );
