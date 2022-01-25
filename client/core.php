@@ -2,14 +2,14 @@
 
 session_start();
 
-require '../pack/mailer/vendor/phpmailer/phpmailer/src/Exception.php';
-require '../pack/mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require '../pack/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+require '../resources/mailer/vendor/phpmailer/phpmailer/src/Exception.php';
+require '../resources/mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../resources/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-include("../pack/config/config.php");
+include("../resources/config/config.php");
 
 $get_table_status_query = "SELECT * FROM people";
 $get_table_status_result = mysqli_query($connection, $get_table_status_query);
@@ -58,7 +58,7 @@ if (isset($_POST['login'])) {
                 $login->Username = $mailaddr;
                 $login->Password = $mailpass;
                 $login->SMTPSecure = 'tsl';
-                $login->Subject = 'A new account login was seen';
+                $login->Subject = 'A new client login was seen';
 
                 $login->setFrom($mailaddr, 'Jobnic');
                 $login->addAddress($mail);
@@ -68,7 +68,7 @@ if (isset($_POST['login'])) {
                 $ip = $_SERVER['SERVER_NAME'];
 
                 $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
-                $bodyContent .= '<h3>We found a person who logged into your account.</h3>';
+                $bodyContent .= '<h3>We found a person who logged into your client.</h3>';
                 $bodyContent .= '<p>If you are not you, change your password now.</p>';
                 $bodyContent .= '<p>IP : ' . $ip . '</p>';
                 $bodyContent .= '<b></b>';
@@ -197,12 +197,12 @@ if (isset($_POST['create'])) {
                                     $created->isHTML(true);
     
                                     $name = $fname;
-                                    $link = "$host/account/index.php?token=$token";
+                                    $link = "$host/client/index.php?token=$token";
     
                                     $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
                                     $bodyContent .= '<h3>Welcome to Jobnic.</h3>';
-                                    $bodyContent .= '<h5>You need to activate your account to have permeation for using Jobnic.</h5>';
-                                    $bodyContent .= '<h5><a href=' . $link . '>Activate my account</a></h5>';
+                                    $bodyContent .= '<h5>You need to activate your client to have permeation for using Jobnic.</h5>';
+                                    $bodyContent .= '<h5><a href=' . $link . '>Activate my client</a></h5>';
                                     $bodyContent .= '<br>';
                                     $bodyContent .= '<p>If you have any problems you can contact us via email or telegram.</p>';
                                     $bodyContent .= '<br>';
@@ -260,12 +260,12 @@ if (isset($_POST['create'])) {
                     $created->isHTML(true);
 
                     $name = $fname;
-                    $link = "$host/account/index.php?token=$token";
+                    $link = "$host/client/index.php?token=$token";
 
                     $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
                     $bodyContent .= '<h3>Welcome to Jobnic.</h3>';
-                    $bodyContent .= '<h5>You need to activate your account to have permeation for using Jobnic.</h5>';
-                    $bodyContent .= '<h5><a href=' . $link . '>Activate my account</a></h5>';
+                    $bodyContent .= '<h5>You need to activate your client to have permeation for using Jobnic.</h5>';
+                    $bodyContent .= '<h5><a href=' . $link . '>Activate my client</a></h5>';
                     $bodyContent .= '<br>';
                     $bodyContent .= '<p>If you have any problems you can contact us via email or telegram.</p>';
                     $bodyContent .= '<br>';
@@ -437,7 +437,7 @@ if (isset($_POST['tfasubmit'])) {
         $come->Username = $mailaddr;
         $come->Password = $mailpass;
         $come->SMTPSecure = 'tsl';
-        $come->Subject = 'A new account login was seen';
+        $come->Subject = 'A new client login was seen';
 
         $come->setFrom($mailaddr, 'Jobnic');
         $come->addAddress($person['email']);
@@ -446,7 +446,7 @@ if (isset($_POST['tfasubmit'])) {
         $name = $person['firstname'];
 
         $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
-        $bodyContent .= '<h3>We found a person who logged into your account.</h3>';
+        $bodyContent .= '<h3>We found a person who logged into your client.</h3>';
         $bodyContent .= '<p>If you are not you, change your password now.</p>';
         $bodyContent .= '<b></b>';
         $bodyContent .= '<br>';
@@ -498,7 +498,7 @@ if (isset($_GET['token'])) {
             $activation_mail->isHTML(true);
 
             $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
-            $bodyContent .= '<h3>Your account activated successfully.</h3>';
+            $bodyContent .= '<h3>Your client activated successfully.</h3>';
             $bodyContent .= '<br>';
             $bodyContent .= '<h5>Enjoy.</h5>';
             $bodyContent .= '<br>';
@@ -556,12 +556,12 @@ if (isset($_GET['send'])) {
     $send->addAddress($email);
     $send->isHTML(true);
 
-    $link = "$host/account/index.php?token=$token";
+    $link = "$host/client/index.php?token=$token";
 
     $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
     $bodyContent .= '<h3>You requested for activation email.</h3>';
-    $bodyContent .= '<h5>You can click on the link below and activate your account soon.</h5>';
-    $bodyContent .= '<h5><a href=' . $link . '>Activate my account</a></h5>';
+    $bodyContent .= '<h5>You can click on the link below and activate your client soon.</h5>';
+    $bodyContent .= '<h5><a href=' . $link . '>Activate my client</a></h5>';
     $bodyContent .= '<br>';
     $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
 

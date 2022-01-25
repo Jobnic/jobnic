@@ -66,7 +66,7 @@ else {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="image/jpg" href="<?php echo $path; ?>/pack/etc/logo.jpg"/>
+    <link rel="shortcut icon" type="image/jpg" href="<?php echo $path; ?>/resources/images/logo.jpg"/>
     <meta property="og:image" content="<?php echo $path; ?>/pack/etc/logo.jpg">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -74,7 +74,7 @@ else {
     <title>Job Nic - Login or Create account</title>
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
     <link href="https://cdn.neotrinost.ir/jobnic/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="../pack/cos/main.css" rel="stylesheet" type="text/css">
+    <link href="../resources/cos/main.css" rel="stylesheet" type="text/css">
     <script>
         function show(shown, hidden) {
             document.getElementById(shown).style.display = 'block';
