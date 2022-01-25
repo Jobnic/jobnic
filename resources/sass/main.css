@@ -1,0 +1,181 @@
+@font-face {
+  font-family: "iransans";
+  src: url("../fonts/iransans.ttf");
+}
+body {
+  text-align: right;
+  direction: rtl;
+}
+
+.index {
+  padding: 5%;
+}
+
+* {
+  font-family: "iransans", serif;
+  user-select: none;
+}
+
+.jnborder {
+  border: solid 1px #000080 !important;
+}
+
+.jnpointer {
+  cursor: pointer;
+}
+
+.jnlink {
+  text-decoration: none;
+  color: navy;
+}
+
+.jnlink:hover {
+  color: purple;
+}
+
+.jnbg {
+  background: linear-gradient(-45deg, purple, navy);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+.jnbtn {
+  background: linear-gradient(-45deg, purple, navy);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+  color: white !important;
+}
+
+.jnbtn:hover {
+  opacity: 80%;
+  color: white;
+  border: solid 1px #000080;
+}
+
+.jnout {
+  border: solid 1px #000080 !important;
+  background-color: white !important;
+  color: #000080 !important;
+}
+
+.jnout:hover {
+  border: solid 1px #000080;
+  background-color: #000080;
+  color: white;
+}
+
+.jntext {
+  color: #000080 !important;
+}
+
+.jntext:active {
+  color: #000080;
+}
+
+.jntext:hover {
+  color: #000080;
+}
+
+.mainform {
+  padding: 5%;
+  height: 100vh;
+}
+
+.selectable {
+  cursor: pointer;
+}
+
+.gradiant {
+  padding: 5%;
+  color: white;
+  background: linear-gradient(-45deg, purple, navy);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+.formslink {
+  color: navy;
+  text-decoration: navy;
+}
+
+.formslink:hover {
+  color: blue;
+}
+
+.errors {
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  left: 0;
+}
+
+/* User dash */
+.dash {
+  padding: 5%;
+}
+
+.dash .dialog {
+  box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.dash .dialog .head {
+  border-top: solid 1px #ccc;
+  border-left: solid 1px #ccc;
+  border-right: solid 1px #ccc;
+  border-bottom: solid 1px #aaa;
+  padding: 3%;
+}
+
+.dash .dialog .body {
+  border-top: none;
+  border-left: solid 1px #ccc;
+  border-right: solid 1px #ccc;
+  border-bottom: solid 1px #ccc;
+  padding: 5%;
+}
+
+.dash .dialog .body .icon {
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.delete {
+  color: red;
+  border: solid 1px red !important;
+}
+
+.jndelbtn {
+  background: red;
+  color: white;
+}
+
+.jobdialog {
+  padding: 3%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=main.css.map */
