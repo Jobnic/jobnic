@@ -3,7 +3,7 @@ session_start();
 
 $stat = $_SESSION['status'];
 
-include("pack/config/config.php");
+include("resources/config/config.php");
 
 ?>
 
@@ -28,7 +28,7 @@ include("pack/config/config.php");
     <meta property="og:site_name" content="">
     <meta property="og:title" content="Jobnic | A place to find jobs!">
     <meta property="og:type" content="programming, development">
-    <link rel="shortcut icon" type="image/jpg" href="<?php echo $path; ?>/pack/etc/logo.jpg"/>
+    <link rel="shortcut icon" type="image/jpg" href="<?php echo $path; ?>/resources/images/logo.jpg"/>
     <meta property="og:image" content="<?php echo $path; ?>/pack/etc/logo.jpg">
     <meta property="og:description" content="دیوار آگهی های فریلنسری!">
     <meta name="google-site-verification" content="L-KQ2EHn0z7-hAkPsqAyiyFLIxmA3cfyMbvYCCPQDPQ">
@@ -36,12 +36,12 @@ include("pack/config/config.php");
             crossorigin="anonymous"></script>
 
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
-    <link href="pack/cos/main.css" rel="stylesheet" type="text/css">
-    <link href="pack/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="resources/cos/main.css" rel="stylesheet" type="text/css">
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="">
-    <?php include("pack/panels/header.php"); ?>
+    <?php include("resources/widgets/header.php"); ?>
     <br>
     <div class="container-fluid">
         <div class="index">
