@@ -36,7 +36,7 @@ include("resources/config/config.php");
             crossorigin="anonymous"></script>
 
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
-    <link href="resources/cos/main.css" rel="stylesheet" type="text/css">
+    <link href="resources/sass/main.css" rel="stylesheet" type="text/css">
     <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
