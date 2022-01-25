@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-include('core.php');
+include('../resources/config/config.php');
+include('../resources/core/core.php');
 
 if ($_SESSION['status'] == true) {
     $id = $_SESSION['id'];
@@ -73,8 +74,8 @@ else {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Job Nic - Login or Create account</title>
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.neotrinost.ir/jobnic/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="../resources/cos/main.css" rel="stylesheet" type="text/css">
+    <link href="../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../resources/sass/main.css" rel="stylesheet" type="text/css">
     <script>
         function show(shown, hidden) {
             document.getElementById(shown).style.display = 'block';

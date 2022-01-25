@@ -2,13 +2,6 @@
 
 session_start();
 
-require '../resources/mailer/vendor/phpmailer/phpmailer/src/Exception.php';
-require '../resources/mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require '../resources/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
 include("../resources/config/config.php");
 
 $get_table_status_query = "SELECT * FROM people";
