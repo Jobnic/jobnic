@@ -20,11 +20,11 @@
                 if ($stat == true) {
                     ?>
                     <a class="nav-link active jntext" href="<?php echo $path; ?>/user"><i class="fa fa-dashboard"></i> ورود به پنل</a> <a
-                            class="nav-link active jntext" href="<?php echo $path; ?>/account/logout.php"><i class="fa fa-sign-out"></i> خروج از حساب کاربری</a>
+                            class="nav-link active jntext" href="<?php echo $path; ?>/client/logout.php"><i class="fa fa-sign-out"></i> خروج از حساب کاربری</a>
                     <?php
                 } else {
                     ?>
-                    <a class="nav-link active jntext" href="<?php echo $path; ?>/account/index.php"><i class="fa fa-sign-in"></i> ورود یا ثبت نام</a>
+                    <a class="nav-link active jntext" href="<?php echo $path; ?>/client/index.php"><i class="fa fa-sign-in"></i> ورود یا ثبت نام</a>
                     <?php
                 }
                 ?>
