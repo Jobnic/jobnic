@@ -4,4 +4,4 @@
 $connection = mysqli_connect("localhost", "amir", "amir", "jobnic");
 
 // Server
-$path = "http://" . $_SERVER['HTTP_HOST'];
+$path = "http://" . $_SERVER['HTTP_HOST'] . "/Jobnic";
