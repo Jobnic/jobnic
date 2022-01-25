@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include("../pack/config/config.php");
+include("../resources/config/config.php");
 
 $stat = $_SESSION['status'];
 
@@ -37,7 +37,7 @@ $result_jobs = mysqli_query($connection, $get_jobs);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="image/jpg" href="<?php echo $path; ?>/pack/etc/logo.jpg"/>
+    <link rel="shortcut icon" type="image/jpg" href="<?php echo $path; ?>/resources/images/logo.jpg"/>
     <meta property="og:image" content="<?php echo $path; ?>/pack/etc/logo.jpg">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -45,7 +45,7 @@ $result_jobs = mysqli_query($connection, $get_jobs);
     <title>جاب نیک - آگهی ها</title>
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
     <!-- <link href="https://cdn.neotrinost.ir/jobnic/css/main.css" type="text/css" rel="stylesheet"> -->
-    <link href="../pack/cos/main.css" type="text/css" rel="stylesheet">
+    <link href="../resources/cos/main.css" type="text/css" rel="stylesheet">
     <?php
     if ($theme == "auto") {
         ?>
@@ -60,7 +60,7 @@ $result_jobs = mysqli_query($connection, $get_jobs);
     }
     ?>
     <!-- <link href="https://cdn.neotrinost.ir/jobnic/css/bootstrap.min.css" type="text/css" rel="stylesheet"> -->
-    <link href="../pack/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="../resources/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <style>
         .see-all {
             border: solid 1px fuchsia;
@@ -113,7 +113,7 @@ $result_jobs = mysqli_query($connection, $get_jobs);
 </head>
 <body class="<?php echo $theme; ?>">
 <div class="">
-    <?php include("../pack/panels/header.php"); ?>
+    <?php include("../resources/widgets/header.php"); ?>
     <br>
     <div class="container-fluid index">
         <div class="row">

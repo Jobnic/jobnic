@@ -1,5 +1,5 @@
 <?php
-include("../pack/config/config.php");
+include("../resources/config/config.php");
 
 $userid = $_GET['userid'];
 

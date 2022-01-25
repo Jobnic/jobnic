@@ -12,11 +12,11 @@ if ($_SESSION['support'] != true) {
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../pack/mailer/vendor/phpmailer/phpmailer/src/Exception.php';
-require '../pack/mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require '../pack/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+require '../resources/mailer/vendor/phpmailer/phpmailer/src/Exception.php';
+require '../resources/mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../resources/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 
-include("../pack/config/config.php");
+include("../resources/config/config.php");
 
 $errors = array();
 
@@ -84,7 +84,7 @@ if (isset($_GET['promote'])) {
                 $verified->isHTML(true);
 
                 $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
-                $bodyContent .= '<h3>We promote your account up.</h3>';
+                $bodyContent .= '<h3>We promote your client up.</h3>';
                 $bodyContent .= '<p>Now you have <b>award</b> label in your profile.</p>';
                 $bodyContent .= '<b></b>';
                 $bodyContent .= '<br>';
@@ -135,7 +135,7 @@ if (isset($_GET['promote'])) {
                 $awesome->isHTML(true);
 
                 $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
-                $bodyContent .= '<h3>We promote your account up.</h3>';
+                $bodyContent .= '<h3>We promote your client up.</h3>';
                 $bodyContent .= '<p>Now you have <b>trophy</b> label in your profile.</p>';
                 $bodyContent .= '<b></b>';
                 $bodyContent .= '<br>';
@@ -180,18 +180,18 @@ if (isset($_GET['send'])) {
     $send->Username = $mailaddr;
     $send->Password = $mailpass;
     $send->SMTPSecure = 'tsl';
-    $send->Subject = "Activate your account";
+    $send->Subject = "Activate your client";
 
     $send->setFrom($mailaddr, 'Jobnic');
     $send->addAddress($mail);
     $send->isHTML(true);
 
-    $link = "$host/account/activate.php?token=$token";
+    $link = "$host/client/activate.php?token=$token";
 
     $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
     $bodyContent .= '<h3>You requested for activation email.</h3>';
-    $bodyContent .= '<h5>You can click on the link below and activate your account soon.</h5>';
-    $bodyContent .= '<h5><a href=' . $link . '>Activate my account</a></h5>';
+    $bodyContent .= '<h5>You can click on the link below and activate your client soon.</h5>';
+    $bodyContent .= '<h5><a href=' . $link . '>Activate my client</a></h5>';
     $bodyContent .= '<br>';
     $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
 

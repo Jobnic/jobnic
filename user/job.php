@@ -2,7 +2,7 @@
 session_start();
 
 include('core.php');
-include("../pack/config/config.php");
+include("../resources/config/config.php");
 
 $id = $_SESSION['id'];
 
@@ -45,19 +45,19 @@ else {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="image/jpg" href="<?php echo $path; ?>/pack/etc/logo.jpg"/>
+    <link rel="shortcut icon" type="image/jpg" href="<?php echo $path; ?>/resources/images/logo.jpg"/>
     <meta property="og:image" content="<?php echo $path; ?>/pack/etc/logo.jpg">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>جاب نیک - آگهی  شماره <?php echo $jobid; ?></title>
-    <script src="../pack/js/tabs.js"></script>
+    <script src="../resources/js/tabs.js"></script>
     <!-- <script src="../pack/js/fa.js"></script> -->
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
 <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"-->
 <!--          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">-->
     <!-- <link href="https://cdn.neotrinost.ir/jobnic/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
-    <link href="../pack/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <?php
     if ($theme == "auto") {
         ?>
@@ -81,10 +81,10 @@ else {
 			color: white;
 		}
     </style>
-    <link href="../pack/cos/main.css" rel="stylesheet" type="text/css">
+    <link href="../resources/cos/main.css" rel="stylesheet" type="text/css">
 </head>
 <body class="dash">
-    <?php include('../pack/panels/header.php'); ?>
+    <?php include('../resources/widgets/header.php'); ?>
 <br>
 <div class="container-fluid">
     <div class="">

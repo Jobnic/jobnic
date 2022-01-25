@@ -15,11 +15,11 @@ if ($stat != true) {
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../pack/mailer/vendor/phpmailer/phpmailer/src/Exception.php';
-require '../pack/mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require '../pack/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+require '../resources/mailer/vendor/phpmailer/phpmailer/src/Exception.php';
+require '../resources/mailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../resources/mailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 
-include("../pack/config/config.php");
+include("../resources/config/config.php");
 
 $id = $_SESSION['id'];
 
@@ -34,7 +34,7 @@ $user_name = $row_user['name'];
 if ($row_user['active'] != true) {
     ?>
     <script>
-        window.location.replace("../account");
+        window.location.replace("../client");
     </script>
     <?php
 }
@@ -556,7 +556,7 @@ if (isset($_POST["deleteaccount"])) {
             $deletemail->Username = $mailaddr;
             $deletemail->Password = $mailpass;
             $deletemail->SMTPSecure = 'tsl';
-            $deletemail->Subject = 'Deleted account';
+            $deletemail->Subject = 'Deleted client';
 
             $deletemail->setFrom($mailaddr, 'Jobnic');
             $deletemail->addAddress($user_email);
@@ -565,7 +565,7 @@ if (isset($_POST["deleteaccount"])) {
             $name = $row_user['firstname'];
 
             $bodyContent = '<h1>Hi dear ' . $name . ',</h1>';
-            $bodyContent .= '<h3>Your account deleted successfully.</h3>';
+            $bodyContent .= '<h3>Your client deleted successfully.</h3>';
             $bodyContent .= '<br>';
             $bodyContent .= '<small>Jobnic Team, working under Neotrinost LLC.</small>';
 
@@ -577,7 +577,7 @@ if (isset($_POST["deleteaccount"])) {
                 ?>
                 <script>
                     window.alert("Account deleted.");
-                    window.location.replace("../account/logout.php");
+                    window.location.replace("../client/logout.php");
                 </script>
                 <?php
             }
