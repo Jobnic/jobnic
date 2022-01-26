@@ -1,16 +1,13 @@
 <?php
 session_start();
 
-include('core.php');
 include("../resources/config/config.php");
+include("../resources/core/core.php");
 
-$id = $_SESSION['id'];
+$_USER = $_SESSION['user'];
+$id = $_USER['id'];
 
-$profile = "SELECT * FROM people WHERE id = '$id'";
-$result = mysqli_query($connection, $profile);
-$row = mysqli_fetch_assoc($result);
-
-$theme = $row['theme'];
+$theme = $_USER['theme'];
 
 ?>
 
@@ -19,42 +16,15 @@ $theme = $row['theme'];
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" type="image/jpg" href="<?php echo $path; ?>/resources/images/logo.jpg"/>
-    <meta property="og:image" content="<?php echo $path; ?>/pack/etc/logo.jpg">
+    <meta property="og:image" content="<?php echo $path; ?>/resources/images/logo.jpg">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>جاب نیک - پنل کاربر</title>
     <script src="../resources/js/tabs.js"></script>
-    <!-- <script src="../pack/js/fa.js"></script> -->
     <script src="https://kit.fontawesome.com/4a679d8ec0.js" crossorigin="anonymous"></script>
-<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"-->
-<!--          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">-->
-    <!-- <link href="https://cdn.neotrinost.ir/jobnic/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
     <link href="../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <?php
-    if ($theme == "auto") {
-        ?>
-        <!-- <link href="https://cdn.neotrinost.ir/jobnic/css/auto.css" type="text/css" rel="stylesheet"> -->
-        <?php
-    }
-    else {
-        ?>
-        <!-- <link href="https://cdn.neotrinost.ir/jobnic/css/dark.css" type="text/css" rel="stylesheet"> -->
-        <!-- <link href="https://cdn.neotrinost.ir/jobnic/css/light.css" type="text/css" rel="stylesheet"> -->
-        <?php
-    }
-    ?>
-    <!-- <link href="https://cdn.neotrinost.ir/jobnic/css/bootstrap.min.css" type="text/css" rel="stylesheet"> -->
-    <style>
-		.tgrm {
-			cursor: pointer;
-			padding: 5%;
-			background: blue;
-			border-radius: 10px;
-			color: white;
-		}
-    </style>
-    <link href="../resources/cos/main.css" rel="stylesheet" type="text/css">
+    <link href="../resources/sass/main.css" rel="stylesheet" type="text/css">
 </head>
 <body class="dash">
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -73,7 +43,6 @@ $theme = $row['theme'];
             <div class="navbar-nav" style="font-size: 10px;">
                 <a class="nav-link active jntext jnpointer" onclick="return show('profile');"><i class="fa fa-user"></i> پروفایل</a>
                 <a class="nav-link active jntext jnpointer" onclick="return show('settings');"><i class="fa fa-cogs"></i> تنظیمات</a>
-                <a class="nav-link active jntext jnpointer" onclick="return show('tickets');"><i class="fa fa-envelope"></i> تیکت ها</a>
                 <a class="nav-link active jntext jnpointer" onclick="return show('jobs');"><i class="fa fa-check"></i> آگهی های من</a>
                 <a class="nav-link active jntext jnpointer" onclick="return show('applies');"><i class="fa fa-check"></i> درخواست های من</a>
             </div>
@@ -82,7 +51,7 @@ $theme = $row['theme'];
             </span>
             <div class="navbar-nav" style="font-size: 12px;">
                 <a class="nav-link active jntext jnlink" href="../jobs"><i class="fa fa-list"></i> اگهی ها</a>
-                <a class="nav-link active jntext jnlink" href="../client/logout.php"><i class="fa fa-sign-out"></i> خروج</a>
+                <a class="nav-link active jntext jnlink" href="?logout=true"><i class="fa fa-sign-out"></i> خروج</a>
             </div>
         </div>
     </div>
@@ -113,12 +82,12 @@ $theme = $row['theme'];
                             <h4><i class="fa fa-id-card"></i> پروفایل شما</h4>
                         </div>
                         <div class="body">
-                            <h4><?php echo $row['firstname'] . '&nbsp;' . $row['lastname']; ?></h4>
+                            <h4><?php echo $_USER['firstname'] . '&nbsp;' . $_USER['lastname']; ?></h4>
                             <br>
                             <p>
                                 <?php
-                                    if (isset($row['bio'])) {
-                                        echo $row['bio'];
+                                    if (isset($_USER['bio'])) {
+                                        echo $_USER['bio'];
                                     }
                                     else {
                                         echo "<i>بیوگرافی هنوز وارد نشده است.</i>";
@@ -130,8 +99,8 @@ $theme = $row['theme'];
                                 </span>
                             </p>
                             <br>
-                            <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $row['phone']; ?></p>
-                            <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $row['email']; ?></p>
+                            <p><i class="icon fa fa-phone text-white bg-success"></i> <?php echo $_USER['phone']; ?></p>
+                            <p><i class="icon fa fa-envelope text-white bg-primary"></i> <?php echo $_USER['email']; ?></p>
                         </div>
                     </div>
                     <br>
@@ -262,7 +231,7 @@ $theme = $row['theme'];
                         <div class="body">
                             <p>
                                 <?php
-                                if (is_null($row['verified'])) {
+                                if (is_null($_USER['verified'])) {
                                     echo '<a class="jnlink" href="index.php?request=label&type=verified">درخواست برای <b><i class="fa fa-award"></i> لیبل تایید</b> را ثبت کنید.</a>';
                                 }
                                 else {
@@ -272,7 +241,7 @@ $theme = $row['theme'];
                             </p>
                             <p>
                                 <?php
-                                if (is_null($row['awesome'])) {
+                                if (is_null($_USER['awesome'])) {
                                     echo '<a class="jnlink" href="index.php?request=label&type=trophy">درخواست برای <b><i class="fa fa-trophy"></i> لیبل جام</b> را ثبت کنید.</a>';
                                 }
                                 else {
@@ -407,7 +376,7 @@ $theme = $row['theme'];
                                         <label for="auto"><i class="fa fa-sun"></i> تم اتوماتیک بنا بر سیستم</label>
                                     </div>
                                     <br>
-                                    <small>* تم فعلی شما <b><?php echo $row["theme"]; ?></b> میباشد.</small>
+                                    <small>* تم فعلی شما <b><?php echo $_USER["theme"]; ?></b> میباشد.</small>
                                     <br>
                                     <br>
                                     <button class="btn btn-sm jnbtn" name="changemode">تغییر تم</button>
@@ -577,102 +546,6 @@ $theme = $row['theme'];
                             }
                             ?>
                         </div>
-                    </div>
-                    <br>
-                </div>
-            </div>
-        </div>
-        <div id="tickets" style="display: none;">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="dialog">
-                        <h3><i class="fa fa-envelope"></i> Send Ticket</h3>
-                        <hr>
-                        <form method="post" action="index.php">
-                            <input name="tictitle" type="text" class="form-control form-control-sm inp"
-                                placeholder="Ticket Title">
-                            <br>
-                            <textarea name="ticdescribe" class="form-control form-control-sm inp"
-                                    rows="5" placeholder="Ticket Describtion"></textarea>
-                            <br>
-                            <button class="btn btn-sm jbtn" name="sendtik" type="submit">Send Ticket</button>
-                        </form>
-                    </div>
-                    <br>
-                </div>
-                <div class="col-md-5">
-                    <div class="dialog">
-                        <h3><i class="fa fa-paper-plane"></i> My Tickets</h3>
-                        <hr>
-                        <?php
-                        $select_tiks = "SELECT * FROM ticks WHERE user = $id ORDER BY row DESC";
-                        $result_tiks = mysqli_query($connection, $select_tiks);
-                        if (mysqli_num_rows($result_tiks) > 0) {
-                            while ($tik_row = mysqli_fetch_assoc($result_tiks)) {
-                                ?>
-                                <p>
-                                    <?php
-                                    $tikid = $tik_row['tikid'];
-                                    $tiktitle = $tik_row['title'];
-                                    echo "<a class='link' href='index.php?tab=tickets&tikid=$tikid'>$tiktitle</a>";
-                                    if (isset($tik_row['status'])) {
-                                        echo "<span style='float: right;' class='text-success'><i class='fa fa-check'></i></span>";
-                                    } else {
-                                        echo "<span style='float: right;' class='text-night'><i class='fa fa-times'></i></span>";
-                                    }
-                                    ?>
-                                </p>
-                                <hr>
-                                <?php
-                            }
-                        } else {
-                            echo "<p>No tickets yet</p>";
-                        }
-                        ?>
-                    </div>
-                    <br>
-                </div>
-                <div class="col-md-7">
-                    <div class="dialog">
-                        <h3><i class="fa fa-search"></i> Ticket Review</h3>
-                        <hr>
-                        <?php
-                        if (count($tik) > 0) {
-                            if ($tik[0] == false) {
-                                echo "<p><b>Ticket didnt found.</b></p>";
-                            }
-                            else {
-                                ?>
-                                <h3><?php echo $tik[0]['title']; ?></h3>
-                                <p><?php echo $tik[0]['describe']; ?></p>
-                                <br>
-                                <?php
-                                if (isset($tik[0]['status'])) {
-                                    if (isset($tik[0]['answered'])) {
-                                        ?>
-                                        <p><b><?php echo $tik[0]['answer']; ?></b></p>
-                                        <p><?php echo $tik[0]['answered']; ?></p>
-                                        <p><small>Answered in <?php echo $tik[0]['answered']; ?></small></p>
-                                        <?php
-                                    }
-                                    else {
-                                        echo "<p>Support saw ticket, wait for answer</p>";
-                                    }
-                                }
-                                else {
-                                    echo '<p><small>Until now support didnt saw ticket</small></p>';
-                                }
-                                ?>
-                                <br>
-                                <p>Sent in <b><?php echo $tik[0]['datetime']; ?></b></p>
-                                <p>Ticket ID : <b><?php echo $tik[0]['tikid']; ?></b></p>
-                                <?php
-                            }
-                        }
-                        else {
-                            echo '<p>Select ticket first.</p>';
-                        }
-                        ?>
                     </div>
                     <br>
                 </div>
